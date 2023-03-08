@@ -9,6 +9,7 @@
     "start": "vite",
     "build": "vite build",
     "ampt:build": "npm run build",
+    "ampt:watch": "vite build -w",
     "ampt:dev": "npm run start"
   },
   "devDependencies": {
