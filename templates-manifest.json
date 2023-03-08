@@ -18,17 +18,5 @@
     "name": "react-js",
     "title": "React",
     "description": "React starter app"
-  },
-  {
-    "name": "astro",
-    "title": "Astro",
-    "description": "Astro.build starter site",
-    "image": "https://s3.us-east-2.amazonaws.com/assets.public.serverless/cloud/astro.svg"
-  },
-  {
-    "name": "sveltekit-ts",
-    "title": "SvelteKit (TypeScript)",
-    "description": "Simple SvelteKit app using TS",
-    "image": "https://s3.us-east-2.amazonaws.com/assets.public.serverless/cloud/svelte-ts.svg"
   }
 ]
