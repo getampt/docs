@@ -1,0 +1,17 @@
+{
+  "name": "javascript-api",
+  "version": "1.0.0",
+  "description": "Ampt JavaScript API template",
+  "private": true,
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "ampt"
+  },
+  "dependencies": {
+    "@ampt/api": "latest"
+  },
+  "ampt": {
+    "app": "javascript-api"
+  }
+}

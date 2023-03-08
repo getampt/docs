@@ -1,6 +1,6 @@
-import { api } from "@ampt/api";
+import { v, api } from "@ampt/api";
 
-async function auth(event: any) {
+async function auth(event) {
   const { headers } = event.request;
 
   if (!headers.get("Authorization")) {

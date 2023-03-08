@@ -1,0 +1,38 @@
+name: Zip Templates
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [build]
+    paths-ignore:
+      - "build/**"
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: [ubuntu-20.04]
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v2
+      - name: Zip Templates
+        shell: bash
+        run: |
+          pwd
+          ls -la
+          rm -rf build
+          mkdir -p build
+          for d in ./templates/* ; do
+              pushd $d
+              out=$(basename $d)
+              zip -r "../../build/${out}.zip" .
+              popd
+          done
+      - name: "Commit updated Builds"
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: "./build/*.zip"
+          message: "Updated Template Builds"
+          push: true
