@@ -22,7 +22,7 @@ Logs the user out of the current session
 
 Installs the specified npm package into your application. If you did not provide a package name, it'll simply install all your app's dependencies listed in `package.json`.
 
-# **`ampt uninstall [PACKAGENAME]`
+## `ampt uninstall [PACKAGENAME]`
 
 Uninstalls the specified npm package from your application.
 
@@ -44,7 +44,7 @@ Exports data from your **developer sandbox** to a JSON file named `FILENAME`�
 
 Displays the running version of the CLI. `-v` flag is the short form for version.
 
-# `ampt url`
+## `ampt url`
 
 Displays the current URL of your **sandbox**.
 
