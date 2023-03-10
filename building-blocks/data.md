@@ -397,14 +397,3 @@ Handlers should only throw an exception for "retryable" errors such as downstrea
 
 It's possible to create an "event loop" where your event handler triggers itself and results in an infinite loop that exhausts resources. If you are calling `set()` or `remove()` within a handler, make sure it will not result in the same handler being invoked again with a new event.
 
-## **Timeouts**
-
-By default, data events will timeout after 20 seconds. To change the default, you can specify an object as your second parameter with a `timeout` key. Timeouts are specified in milliseconds and must be a positive integer. Data events support a maximum timeout of 60 seconds.
-
-```jsx
-
-data.on("created", { timeout: 1000 }, async (event) => {
-  // an item has been created
-  // timeout after 1 second
-});
-```
