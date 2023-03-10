@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "inlineSourceMap": false,
+    "isolatedModules": true,
+    "lib": ["esnext"],
+    "listFiles": false,
+    "module": "es2022",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "strictFunctionTypes": false,
+    "target": "es2022",
+    "types": ["node"],
+    "useUnknownInCatchVariables": true
+  },
+  "exclude": ["node_modules"]
+}

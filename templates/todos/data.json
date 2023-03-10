@@ -1,0 +1,30 @@
+[
+  {
+    "key": "todo:1",
+    "value": {
+      "id": "1",
+      "name": "Todo 1",
+      "status": "complete",
+      "completed": "2021-05-26T12:00:00.000Z"
+    },
+    "label1": "complete:2021-05-26T012:00:00.000Z"
+  },
+  {
+    "key": "todo:2",
+    "value": {
+      "id": "2",
+      "name": "Todo 2",
+      "status": "incomplete"
+    },
+    "label1": "incomplete:9999"
+  },
+  {
+    "key": "todo:3",
+    "value": {
+      "id": "3",
+      "name": "Todo 3",
+      "status": "incomplete"
+    },
+    "label1": "incomplete:9999"
+  }
+]

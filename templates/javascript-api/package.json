@@ -9,7 +9,8 @@
     "start": "ampt"
   },
   "dependencies": {
-    "@ampt/api": "latest"
+    "@ampt/sdk": "latest",
+    "express": "^4.18.2"
   },
   "ampt": {
     "app": "javascript-api"

@@ -1,44 +1,53 @@
-import { api } from "@ampt/api";
+import { http } from "@ampt/sdk";
+import express, { Router } from "express";
 
-async function auth(event: any) {
-  const { headers } = event.request;
+const app = express();
 
-  if (!headers.get("Authorization")) {
-    return event.status(401);
+const auth = (req, res, next) => {
+  const { headers } = req;
+
+  if (!headers["authorization"]) {
+    return res.status(401).send("Unauthorized");
   }
 
-  event.context.userId = "123";
-}
+  req.context = {
+    userId: "123",
+  };
 
-const privateApi = api("protected").router("/admin", undefined, auth);
-const publicApi = api("public").router("/api");
+  next();
+};
 
-privateApi.get("/hello", async (event) => {
-  return event.status(200).body({ message: "Hello from the private api!" });
+const privateApi = Router();
+privateApi.use(auth);
+
+const publicApi = Router();
+
+publicApi.get("/hello", (req, res) => {
+  return res.status(200).send({ message: "Hello from the public api!" });
 });
 
-publicApi.get("/hello", async (event) => {
-  return event.status(200).body({ message: "Hello from the public api!" });
+privateApi.get("/hello", (req, res) => {
+  return res.status(200).send({ message: "Hello from the private api!" });
 });
 
-publicApi.get("/greet", async (event) => {
-  const { query } = event.request;
-  const name = query.get("name");
+publicApi.get("/greet/:name", (req, res) => {
+  const { name } = req.params;
 
   if (!name) {
-    return event
-      .status(400)
-      .body({ message: "Missing query param for `name`!" });
+    return res.status(400).send({ message: "Missing route param for `name`!" });
   }
 
-  return event.status(200).body({ message: `Hello ${name}!` });
+  return res.status(200).send({ message: `Hello ${name}!` });
 });
 
-publicApi.post("/submit", async (event) => {
-  const body = await event.request.body();
-
-  return event.status(200).body({
-    body,
+publicApi.post("/submit", async (req, res) => {
+  return res.status(200).send({
+    body: req.body,
     message: "You just posted data",
   });
 });
+
+app.use("/api", publicApi);
+app.use("/admin", privateApi);
+
+http.useNodeHandler(app);

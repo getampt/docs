@@ -1,21 +1,26 @@
 [
   {
     "name": "javascript-api",
-    "title": "JavaScript api",
+    "title": "JavaScript api (Express)",
     "description": "Starter template using JavaScript"
   },
   {
     "name": "typescript-api",
-    "title": "TypeScript app",
+    "title": "TypeScript api (Express)",
     "description": "Starter template using TypeScript"
   },
   {
-    "name": "express-api",
-    "title": "Express app",
-    "description": "Starter template using Express.js"
+    "name": "ampt-api",
+    "title": "Ampt API (Experimental)",
+    "description": "Starter template using TypeScript"
   },
   {
-    "name": "react-js",
+    "name": "todos",
+    "title": "Todo List App",
+    "description": "Simple TODO List API utilizing Express, Ampt Data and Storage"
+  },
+  {
+    "name": "react",
     "title": "React",
     "description": "React starter app"
   }
