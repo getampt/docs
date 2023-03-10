@@ -8,7 +8,9 @@ has_toc: false
 ---
 # Astro
 
-Ampt allows developers to integrate with their existing Astro applications. Install `@ampt/astro` in your project:
+Ampt allows developers to integrate with their existing Astro applications. 
+
+- Install `@ampt/astro` in your project:
 
 ```bash
 npm install @ampt/astro
@@ -20,7 +22,7 @@ or run this when you’re in the interactive shell:
 install @ampt/astro
 ```
 
-You will need to add the dev and build scripts to configure how you start the development server inside interactive shell and how you package your application. You will need to update `package.json` file as follows:
+- You will need to add the dev and build scripts to configure how you start the development server inside interactive shell and how you package your application. You will need to update `package.json` file as follows:
 
 - add `ampt:dev` script for running the Astro dev server
 - add `ampt:build` script for running astro build
@@ -39,7 +41,7 @@ You will need to add the dev and build scripts to configure how you start the de
 }
 ```
 
-Add the ampt integration to your `astro.config.mjs` file:
+- Add the ampt integration to your `astro.config.mjs` file:
 
 ```jsx
 // astro.config.mjs
@@ -55,7 +57,7 @@ export default defineConfig({
 })
 ```
 
-Start the interactive shell and run `build`  to create your artifacts:
+- Start the interactive shell and run `build`  to create your artifacts:
 
 ```jsx
 % ampt 
@@ -63,7 +65,7 @@ Start the interactive shell and run `build`  to create your artifacts:
 > build
 ```
 
-Start the interactive shell and run `dev` to start your development server
+- Start the interactive shell and run `dev` to start your development server
 
 ```bash
 % ampt 
