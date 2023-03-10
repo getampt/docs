@@ -5,6 +5,12 @@ With Ampt, you _just write code_. Backed by a fully-featured Node.js runtime wit
 
 Ampt provides multiple standalone packages that integrate seamlessly with the runtime, and don't require you to ever think about infrastructure. You can use as little or as many as you like. The SDKs are designed to be simple and familiar, maximizing your productivity by eliminating the need to learn new, complicated APIs.
 
+{% note %}
+
+**Note:** Ampt is still in early private beta and not recommended for production usage. 
+
+{% endnote %}
+
 ## Getting Started 
 
 It's very straightforward to get started with Ampt and have a running app in a minute. Just make sure you are navigated into an empty folder in your Terminal and you have npm installed. All you need to do is to run the following command to start Ampt.
