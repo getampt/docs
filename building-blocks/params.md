@@ -11,7 +11,7 @@ has_toc: false
 Ampt’s built-in parameter store allows developers to store the parameters in a secure way, and to use them programmatically with `params` interface of Ampt SDK.  All the parameters are encrypted both at transit and at rest and only decrypted during runtime. 
 
 <aside>
-💡 **NOTE**: When you modify a parameter value in the Ampt Dashboard, the changes are instantly applied to all running environments that require the parameter. No restart or anything required to flush the parameters.
+💡 NOTE: When you modify a parameter value in the Ampt Dashboard, the changes are instantly applied to all running environments that require the parameter. No restart or anything required to flush the parameters.
 
 </aside>
 
@@ -49,13 +49,13 @@ import { api } from ("@ampt/api");
 api('my-api').router('/test-data')
   .get('/', async (event) => {
 	
-	// reading a custom parameter in an API handler
+  // reading a custom parameter in an API handler
   console.log(params("KEY"));
 
   // reading reserved parameters is same as reading the custom parameters
   console.log(params("AMPT_URL"));
 
-	// return all params
+  // return all params
   const parameterList = params().list()
 
   // exported params are available as environment variables
@@ -78,7 +78,7 @@ params().export(["AMPT_URL", "KEY"]) // export list of keys to process.env
 api('my-api').router('/test-data')
   .get('/', async (event) => {
 
-	// exported params are available as environment variables
+  // exported params are available as environment variables
   console.log(process.env.AMPT_URL)
 });
 
