@@ -31,22 +31,29 @@ import { data } from "@ampt/data";
 The core SDK (`@ampt/sdk`) includes some basic primitives to help you get started:
 
 - [HTTP](/building-blocks/http-request-handling.md) 
-- [Storage](/building-blocks/storage)
-- [Events](/building-blocks/events)
-- [Scheduled Tasks](/building-blocks/scheduled-tasks)
-- [Params](/building-blocks/params)
+- [Storage](/building-blocks/storage.md)
+- [Events](/building-blocks/events.md)
+- [Scheduled Tasks](/building-blocks/scheduled-tasks.md)
+- [Params](/building-blocks/params.md)
 
 For more advanced usage, you can install additional Ampt solutions that can all be used together:
 
-- [@ampt/api](/building-blocks/api)
-- [@ampt/data](/building-blocks/data)
+- [@ampt/api](/building-blocks/api.md)
+- [@ampt/data](/building-blocks/data.md)
 
 If you intend to use an existing web framework with Ampt, such as Express or Remix:
 
-- [Using Express](/building-blocks/http-request-handling#express.js)
-- [Using Connect](/building-blocks/http-request-handling#connect)
-- [Using Koa](/building-blocks/http-request-handling#koa)
-- [Using Restana](/building-blocks/http-request-handling#restana)
-- [Using Fastify](/building-blocks/http-request-handling#fastify)
+- [Using Express](/building-blocks/http-request-handling.md#express.js)
+- [Using Connect](/building-blocks/http-request-handling.md#connect)
+- [Using Koa](/building-blocks/http-request-handling.md#koa)
+- [Using Restana](/building-blocks/http-request-handling.md#restana)
+- [Using Fastify](/building-blocks/http-request-handling.md#fastify)
 - [Using Remix](/building-blocks/frameworks/remix)
 - [Using Astro](/building-blocks/frameworks/astro)
+
+## Ampt CLI 
+
+To manage Ampt applications from your terminal, you can use the Ampt CLI. 
+
+- [Ampt CLI Interactive Shell](/ampt-cli/interactive-shell.md)
+- [Ampt CLI Standard Mpde](/ampt-cli/standard-mode.md)
