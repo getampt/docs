@@ -164,13 +164,13 @@ const results = await data.get("*", true);
 
 Ampt either returns a single item or an array of multiple items. Any `get` request that specifies an exact key match will return a single item. Any request that could return more than one item will return an object with an `items` array that contains `key`s and `value`s:
 
-```json
+```jsx
 {
   items: [
     { key: "foo:bar", value: "item1" },
     { key: "foo:bat", value: { some: "value" } },
     { key: "foo:baz", value: 1234 },
-  ];
+  ];     
 }
 ```
 
