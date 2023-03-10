@@ -1,5 +1,4 @@
-// @ampt/api is still experimental and a work-in-progress.
-// We strongly recommend not using this for production use cases.
+// @ampt/api is experimental and subject to change. DO NOT use this for production apps.
 // Please report any bugs to Discord!
 
 import { api } from "@ampt/api";

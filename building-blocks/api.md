@@ -11,7 +11,7 @@ has_toc: false
 
 Ampt provides a modern web framework to group API handlers, define routers and endpoints for your application. `@ampt/api` is designed to simplify the process of building RESTful APIs and making requests to them.
 
-**NOTE:** `@ampt/api` is still experimental and prone to issues. We strongly recommend not using this for production use cases.
+**NOTE:** `@ampt/api` is experimental and subject to change. DO NOT use this for production apps.
 
 ## Defining an API
 
