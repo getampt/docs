@@ -30,23 +30,23 @@ import { data } from "@ampt/data";
 
 The core SDK (`@ampt/sdk`) includes some basic primitives to help you get started:
 
-- [HTTP](/docs/building-blocks/http-request-handling) 
-- [Storage](/docs/building-blocks/storage)
-- [Events](/docs/building-blocks/events)
-- [Scheduled Tasks](/docs/building-blocks/scheduled-tasks)
-- [Params](/docs/building-blocks/params)
+- [HTTP](/building-blocks/http-request-handling) 
+- [Storage](/building-blocks/storage)
+- [Events](/building-blocks/events)
+- [Scheduled Tasks](/building-blocks/scheduled-tasks)
+- [Params](/building-blocks/params)
 
 For more advanced usage, you can install additional Ampt solutions that can all be used together:
 
-- [@ampt/api](/docs/building-blocks/api)
-- [@ampt/data](/docs/building-blocks/data)
+- [@ampt/api](/building-blocks/api)
+- [@ampt/data](/building-blocks/data)
 
 If you intend to use an existing web framework with Ampt, such as Express or Remix:
 
-- [Using Express](/docs/building-blocks/http-request-handling#express.js)
-- [Using Connect](/docs/building-blocks/http-request-handling#connect)
-- [Using Koa](/docs/building-blocks/http-request-handling#koa)
-- [Using Restana](/docs/building-blocks/http-request-handling#restana)
-- [Using Fastify](/docs/building-blocks/http-request-handling#fastify)
-- [Using Remix](/docs/building-blocks/frameworks/remix)
-- [Using Astro](/docs/building-blocks/frameworks/astro)
+- [Using Express](/building-blocks/http-request-handling#express.js)
+- [Using Connect](/building-blocks/http-request-handling#connect)
+- [Using Koa](/building-blocks/http-request-handling#koa)
+- [Using Restana](/building-blocks/http-request-handling#restana)
+- [Using Fastify](/building-blocks/http-request-handling#fastify)
+- [Using Remix](/building-blocks/frameworks/remix)
+- [Using Astro](/building-blocks/frameworks/astro)
