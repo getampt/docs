@@ -1,25 +1,26 @@
 ---
 title: API
 menuText: API
-description: Ampt provides a built-in modern webframework to build APIs fast. 
+description: Ampt provides a built-in modern webframework to build APIs fast.
 menuOrder: 2
 has_children: false
 has_toc: false
 ---
+
 # API
 
 Ampt provides a modern web framework to group API handlers, define routers and endpoints for your application. `@ampt/api` is designed to simplify the process of building RESTful APIs and making requests to them.
 
-**NOTE:** `@ampt/api` is still experimental and prone to issues. We strongly recommend not using this for production use cases. 
+**NOTE:** `@ampt/api` is still experimental and prone to issues. We strongly recommend not using this for production use cases.
 
 ## Defining an API
 
-Ampt allows developers to define APIs that can be protected with basic validation and middleware support. 
+Ampt allows developers to define APIs that can be protected with basic validation and middleware support.
 
 The code below shows defining a public API:
 
 ```jsx
-import { api} from '@ampt/api';
+import { api } from "@ampt/api";
 
 // define a public api and create a new router
 const publicApi = api("public").router("/api");
@@ -29,7 +30,7 @@ publicApi.get("/hello", async (event) => {
 });
 ```
 
-Ampt API also allows developers to build protected API’s using middleware and provide a way to validate the query parameters. The code below shows a protected API: 
+Ampt API also allows developers to build protected API’s using middleware and provide a way to validate the query parameters. The code below shows a protected API:
 
 ```jsx
 import { api } from "@ampt/api";
@@ -51,22 +52,22 @@ privateApi.get("/hello", async (event) => {
 
 # **Supported methods**
 
-The following is a list of common API methods supported in Ampt. 
+The following is a list of common API methods supported in Ampt.
 
 Methods accept a `path` and `callback` parameter.
 
-| Method | Description |
-| --- | --- |
-| all() | This method is like the standard app.METHOD() methods, except it matches all HTTP verbs. |
-| delete() | Routes HTTP DELETE requests to the specified path with the specified callback functions. |
-| get() | Routes HTTP GET requests to the specified path with the specified callback functions. |
-| post() | Routes HTTP POST requests to the specified path with the specified callback functions. |
-| put() | Routes HTTP PUT requests to the specified path with the specified callback functions. |
-| use() | Mounts the specified middleware function or functions at the specified path: the middleware function is executed when the base of the requested path matches path. |
+| Method   | Description                                                                                                                                                        |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| all()    | This method is like the standard app.METHOD() methods, except it matches all HTTP verbs.                                                                           |
+| delete() | Routes HTTP DELETE requests to the specified path with the specified callback functions.                                                                           |
+| get()    | Routes HTTP GET requests to the specified path with the specified callback functions.                                                                              |
+| post()   | Routes HTTP POST requests to the specified path with the specified callback functions.                                                                             |
+| put()    | Routes HTTP PUT requests to the specified path with the specified callback functions.                                                                              |
+| use()    | Mounts the specified middleware function or functions at the specified path: the middleware function is executed when the base of the requested path matches path. |
 
 ```jsx
 // post method that takes the callback function as the second parameter
-// this function takes APIEvent Object as a parameter 
+// this function takes APIEvent Object as a parameter
 publicApi.post("/submit", async (event) => {
   const body = await event.request.body();
 
@@ -77,26 +78,26 @@ publicApi.post("/submit", async (event) => {
 });
 ```
 
-### `APIEvent` Object
+### `HttpEvent` Object
 
-An `APIEvent` object is passed to callback functions for HTTP methods and has the following attributes: 
+An `HttpEvent` object is passed to callback functions for HTTP methods and has the following attributes:
 
 - `request`: `ApiRequest` object. See a sample object for a GET request below:
 - `context`: Utility object that can be read and written to from middleware logic.
 - `params`: Object containing specified parameters matched in the URL
 - `response`: `ApiResponse` object that will be returned from the endpoint
 - The `HttpEvent` object has some helper functions to be used for returning response or chaining the calls
-    - `status(code, body)`: Sets the response status to the code. Body is optional, default text/plain message is sent if body is not provided.
-    - `redirect(location, code = 3xx)`: Sets the location header and status code for a redirect response.
-    - `body({JSONorStringorHTMLBody})`: Sets the event body to be returned by the API.
+  - `status(code, body)`: Sets the response status to the code. Body is optional, default text/plain message is sent if body is not provided.
+  - `redirect(location, code = 3xx)`: Sets the location header and status code for a redirect response.
+  - `body({JSONorStringorHTMLBody})`: Sets the event body to be returned by the API.
 
-### `APIRequest` Object
+### `ApiRequest` Object
 
-This object includes all the information about the request for RESTful API. Request body could be retrieved by awaiting the `body()` method of `event.request`. 
+This object includes all the information about the request for RESTful API. Request body could be retrieved by awaiting the `body()` method of `event.request`.
 
-### `APIResponse` Object
+### `ApiResponse` Object
 
-This object includes to response object to be returned by the RESTful API. See the sample JSON for a GET request. 
+This object includes to response object to be returned by the RESTful API. See the sample JSON for a GET request.
 
 ```jsx
 {
@@ -113,42 +114,47 @@ Paths are specified using simple string representations. Dynamic parameters can 
 Path parameters can be type checked at runtime using the syntax below:
 
 ```jsx
-import { v, api } from '@ampt/api'
+import { v, api } from "@ampt/api";
 
-const publicApi = api('public').router('/users', { id: v.string() })
-publicApi.patch('/:id', async (event) => {
-  const { id } = event.params
-	// application logic
-	return event.body({ item })
+const publicApi = api("public").router("/users", { id: v.string() });
+publicApi.patch("/:id", async (event) => {
+  const { id } = event.params;
+  // application logic
+  return event.body({ item });
 });
 ```
 
 If path parameters are not supplied in the `.router()` call, they can be optionally unwrapped in your handler:
 
 ```jsx
-import { api } from '@ampt/api'
+import { api } from "@ampt/api";
 
-const publicApi = api('public').router('/users')
-publicApi.patch('/:id', async (event) => {
-  const userId = event.params?.id
- 
-	if (userId) {
-		// application logic
-		return event.body({ item })
-	}
+const publicApi = api("public").router("/users");
+publicApi.patch("/:id", async (event) => {
+  const userId = event.params?.id;
 
-	return event.status(404)
+  if (userId) {
+    // application logic
+    return event.body({ item });
+  }
+
+  return event.status(404);
 });
 ```
 
 ## **Serving files through API**
 
-To send files stored at Ampt Storage, developers can use `getDownloadUrl` function. 
+To send files stored at Ampt Storage, developers can use `getDownloadUrl` function.
 
 ```jsx
-const files = api('files').router('/files', { path: v.string() }, auth)
+const files = api("files").router("/files", { path: v.string() }, auth);
 
-files.get('/:path*', async (event) => {
-  return event.redirect(await storage('uploads').getDownloadUrl(`${event.context.userId}/${event.params.path}`), 307)
-})
+files.get("/:path*", async (event) => {
+  return event.redirect(
+    await storage("uploads").getDownloadUrl(
+      `${event.context.userId}/${event.params.path}`
+    ),
+    307
+  );
+});
 ```
