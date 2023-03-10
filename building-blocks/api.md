@@ -75,9 +75,9 @@ publicApi.post("/submit", async (event) => {
 });
 ```
 
-### `HttpEvent` Object**
+### `APIEvent` Object
 
-An `HttpEvent` object is passed to callback functions for HTTP methods and has the following attributes: 
+An `APIEvent` object is passed to callback functions for HTTP methods and has the following attributes: 
 
 - `request`: `ApiRequest` object. See a sample object for a GET request below:
 - `context`: Utility object that can be read and written to from middleware logic.
@@ -88,11 +88,11 @@ An `HttpEvent` object is passed to callback functions for HTTP methods and has t
     - `redirect(location, code = 3xx)`: Sets the location header and status code for a redirect response.
     - `body({JSONorStringorHTMLBody})`: Sets the event body to be returned by the API.
 
-### `APIRequest` Object**
+### `APIRequest` Object
 
 This object includes all the information about the request for RESTful API. Request body could be retrieved by awaiting the `body()` method of `event.request`. 
 
-### `APIResponse` Object**
+### `APIResponse` Object
 
 This object includes to response object to be returned by the RESTful API. See the sample JSON for a GET request. 
 
