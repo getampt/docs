@@ -30,7 +30,7 @@ import { data } from "@ampt/data";
 
 The core SDK (`@ampt/sdk`) includes some basic primitives to help you get started:
 
-- [HTTP](/building-blocks/http-request-handling) 
+- [HTTP](/building-blocks/http-request-handling.md) 
 - [Storage](/building-blocks/storage)
 - [Events](/building-blocks/events)
 - [Scheduled Tasks](/building-blocks/scheduled-tasks)
