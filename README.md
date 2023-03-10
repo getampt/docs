@@ -1,6 +1,6 @@
 # Ampt - BETA
 
-With Ampt, you _just write code_. Backed by a fully-featured Node.js runtime with support for modern JavaScript and TypeScript right out of the box, you can build just about any application you can imagine. Import your favorite libraries, write your own custom APIs, connect to third-party APIs and services, and even use familiar backend frameworks like [Express.js and Koa](/building-blocks/http-request-handling#integrating-with-node-based-web-frameworks).
+With Ampt, you _just write code_. Backed by a fully-featured Node.js runtime with support for modern JavaScript and TypeScript right out of the box, you can build just about any application you can imagine. Import your favorite libraries, write your own custom APIs, connect to third-party APIs and services, and even use familiar backend frameworks like [Express.js and Koa](/building-blocks/http-request-handling).
 
 Ampt provides multiple standalone packages that integrate seamlessly with the runtime, and doesn't require you to ever think about infrastructure. You can use as little or as many as you like. The SDKs are designed to be simple and familiar, maximizing your productivity by eliminating the need to learn new, complicated APIs.
 
