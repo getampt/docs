@@ -12,7 +12,7 @@ Ampt provides easy to use file storage service that can be used to serve for any
 
 Interacting with the storage service is dead simple using the `storage` interface of `@ampt/sdk`. 
 
-# Defining Buckets
+## Defining Buckets
 
 Buckets are the separate folders to store the files belonging into same domain.  For example; you can have a bucket named `students` to store any files related with students under different folders and you can have another bucket named `books` for the “book” entity. 
 
@@ -27,7 +27,7 @@ const students = storage('students');
 const rootBucket = storage();
 ```
 
-# **Storing Files**
+## Storing Files
 
 Files can be stored just by passing the binary string to the `write` function. This could either be files uploaded via an HTTP request, or modifying any existing files and saving the changes. Note that if a file exists at the provided path, it will be replaced with the new file.
 
@@ -45,7 +45,7 @@ await students.write('/your/path/binaryData.ext', binaryData, { type: ‘applica
 await students.write('/', binaryData)
 ```
 
-# **Reading Files**
+## Reading Files
 
 Files can be read into memory as either a ReadableStream or a Buffer. If no options are passed, a ReadableStream is returned by default. Also included is `readBuffer` for ease of use, if you want to only use buffers without any extra arguments. To read the file, the absolute directory must be passed. If the file does not exist, `undefined` is returned.
 
@@ -57,7 +57,7 @@ const buffer = await students.read("binaryData.ext", { buffer: true });
 const buffer = await students.readBuffer("/your/path/binaryData.ext");
 ```
 
-# **Copying and Moving Files**
+## Copying and Moving Files
 
 Files can be moved or copied to any directory. If a destination directory does not exist, it will be created.
 
@@ -70,7 +70,7 @@ await students.copy("/bin/binaryData.ext", "bin-copy");
 // binaryData is now located at both bin/binaryData.ext and bin-copy/binaryData.ext
 ```
 
-# **Checking File Existence**
+## Checking File Existence
 
 To avoid a read operation, you may want to just check if a file exists before going forward.
 
@@ -82,7 +82,7 @@ const exists = await students.exists("/bin/binaryData.ext");
 const doesNotExist = await students.exists("/not-real/binaryData.ext");
 ```
 
-# **File Information and Metadata**
+## File Information and Metadata
 
 You can retrieve when a file was last modified, size, content type, and any saved metadata using `stat`.
 
@@ -93,7 +93,7 @@ const { lastModified, size, metadata, type } = await students.stat(
 );
 ```
 
-# **Listing Files**
+## Listing Files
 
 Files in a bucket can be listed either as a whole or per folder. To list all subfolders recursively, you can pass a `recursive` option to list everything in all subfolders under the initial path. 
 
@@ -118,7 +118,7 @@ for await (const page of pages) {
 // ['bin/binaryData.ext', 'bin-copy/binaryData.ext']
 ```
 
-# **Removing Files**
+## Removing Files
 
 Files can be removed using the `remove` function.
 
@@ -126,7 +126,7 @@ Files can be removed using the `remove` function.
 await storage('students').remove("/bin/binaryData.ext");
 ```
 
-# **Upload and Download URLs**
+## Upload and Download URLs
 
 URLs for both uploading and downloading files from a bucket can be generated using `getDownloadUrl` and `getUploadUrl`. A second parameter can be passed to set the expiration period for a URL, as a number in seconds. The default is 1 hour (3600s).
 
@@ -141,7 +141,7 @@ const longDownloadUrl = await storage('students').getDownloadUrl(
 const uploadUrl = await storage('students').getUploadUrl("bin-copy/doesNotExistYet.ext");
 ```
 
-# **Listeners**
+## Listeners
 
 You can listen for certain events with `storage.on`. As of now, you can fire dispatch only for `write` and `remove` events. The listener accepts any glob file patterns, and will react to all events with an asterisk `*`.
 
