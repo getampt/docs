@@ -8,7 +8,7 @@ has_toc: false
 ---
 # HTTP Request Handling
 
-Ampt provides a fetch based HTTP request handler as part of `@ampt/sdk`.`@ampt/http`  interface allows developers with various functions: 
+Ampt provides a fetch based HTTP request handler as part of `@ampt/sdk`.`http`  interface allows developers with various functions: 
 
 - Integrating with existing Node-based web frameworks such as express, connect and more.
 - Returning custom error pages for 4xx and 5xx responses.
