@@ -24,9 +24,9 @@ install @ampt/astro
 
 - You will need to add the dev and build scripts to configure how you start the development server inside interactive shell and how you package your application. You will need to update `package.json` file as follows:
 
-- add `ampt:dev` script for running the Astro dev server
-- add `ampt:build` script for running astro build
-- set `main` to `dist/entry` which is the entrypoint for the server
+  - add `ampt:dev` script for running the Astro dev server
+  - add `ampt:build` script for running astro build
+  - set `main` to `dist/entry` which is the entrypoint for the server
 
 ```jsx
 {
