@@ -43,7 +43,7 @@ For more advanced usage, you can install additional Ampt solutions that can all 
 
 If you intend to use an existing web framework with Ampt, such as Express or Remix:
 
-- [Using Express](/building-blocks/http-request-handling.md#express.js)
+- [Using Express](/building-blocks/http-request-handling.md#expressjs)
 - [Using Connect](/building-blocks/http-request-handling.md#connect)
 - [Using Koa](/building-blocks/http-request-handling.md#koa)
 - [Using Restana](/building-blocks/http-request-handling.md#restana)
@@ -56,4 +56,4 @@ If you intend to use an existing web framework with Ampt, such as Express or Rem
 To manage Ampt applications from your terminal, you can use the Ampt CLI. 
 
 - [Ampt CLI Interactive Shell](/ampt-cli/interactive-shell.md)
-- [Ampt CLI Standard Mpde](/ampt-cli/standard-mode.md)
+- [Ampt CLI Standard Mode](/ampt-cli/standard-mode.md)
