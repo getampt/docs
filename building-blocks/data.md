@@ -79,7 +79,7 @@ let results = await data.set(
 ```
 
 <aside>
-⚠️ **IMPORTANT NOTE:** At this time, batch set operations must have the `{ overwrite: true }` flag set. We are working to add support for batch updates in a future release.
+⚠️ IMPORTANT NOTE: At this time, batch set operations must have the `{ overwrite: true }` flag set. We are working to add support for batch updates in a future release.
 
 </aside>
 
@@ -121,7 +121,7 @@ let results = await data.set("myObject", {
 In the example above, `nestedCounter` will be atomically increased by `1` on every call and `anotherCounter` will be atomically increased by `5`. 
 
 <aside>
-⚠️ **NOTE**:  Regular values like `someOtherValue` above **will not** be updated atomically and the last write wins.
+⚠️ NOTE:  Regular values like `someOtherValue` above **will not** be updated atomically and the last write wins.
 
 </aside>
 
@@ -175,7 +175,7 @@ Ampt either returns a single item or an array of multiple items. Any `get` req
 ```
 
 <aside>
-💡 **NOTE**: Get queries can return a maximum of 1000 records or 1MB of data. We strongly advise to use pagination to retrieve the data in batches.
+💡 NOTE: Get queries can return a maximum of 1000 records or 1MB of data. We strongly advise to use pagination to retrieve the data in batches.
 
 </aside>
 
@@ -218,7 +218,7 @@ while (result) {
 You've already seen the `*` wildcard used to retrieve *all* items, but you can also use the wildcard to retrieve items with partially matching keys as well. 
 
 <aside>
-⚠️ **NOTE:** Wildcards are only supported at the end of a key expression.
+⚠️ NOTE: Wildcards are only supported at the end of a key expression.
 
 </aside>
 
@@ -283,7 +283,7 @@ let order = await data.getByLabel('label1','ORDER-9321');
 ```
 
 <aside>
-⚠️ **NOTE**: You can have maximum of 5 labels.
+⚠️ NOTE: You can have maximum of 5 labels.
 
 </aside>
 
