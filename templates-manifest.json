@@ -23,5 +23,10 @@
     "name": "react",
     "title": "React",
     "description": "React starter app"
+  },
+  {
+    "name": "astro",
+    "title": "Astro Web Store",
+    "description": "Simple web store built with Astro"
   }
 ]

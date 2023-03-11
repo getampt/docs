@@ -1,0 +1,27 @@
+{
+  "name": "astro-ssr-template",
+  "private": true,
+  "main": "dist/entry",
+  "type": "module",
+  "scripts": {
+    "ampt:dev": "astro dev --experimental-integrations --experimental-ssr",
+    "ampt:build": "astro build --experimental-integrations --experimental-ssr"
+  },
+  "devDependencies": {
+    "@ampt/astro": "latest",
+    "@astrojs/svelte": "^2.0.2",
+    "astro": "^2.0.13",
+    "lightcookie": "^1.0.25",
+    "svelte": "^3.55.1",
+    "unocss": "^0.50.4",
+    "vite-imagetools": "^4.0.3"
+  },
+  "dependencies": {
+    "@ampt/data": "latest",
+    "@ampt/sdk": "latest",
+    "path-browserify": "^1.0.1"
+  },
+  "ampt": {
+    "app": "astro-ssr"
+  }
+}
