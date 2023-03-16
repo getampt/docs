@@ -43,8 +43,8 @@ Ampt reserves some of the keys that are automatically populated by our runtime. 
 Developers can access the params injected to the runtime by using the `params` interface. 
 
 ```jsx
-import { params } from ("@ampt/sdk");
-import { api } from ("@ampt/api");
+import { params } from "@ampt/sdk";
+import { api } from "@ampt/api";
 
 api('my-api').router('/test-data')
   .get('/', async (event) => {
@@ -68,7 +68,7 @@ api('my-api').router('/test-data')
 Developers can export all the Ampt parameters to environment variable and use it in this way. 
 
 ```jsx
-import { params } from ("@ampt/sdk");
+import { params } from "@ampt/sdk";
 // exporting at init time
 
 params().export() // export all parameters as environment variables
