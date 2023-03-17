@@ -1,11 +1,11 @@
----
+<!--
 title: Astro
 menuText: Astro
 description: Ampt integrates with Astro to build full stack applications.
 menuOrder: 1
-has_children: false
-has_toc: false
----
+parent: Frameworks
+-->
+
 # Astro
 
 Ampt allows developers to integrate with their existing Astro applications. 
