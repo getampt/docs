@@ -1,12 +1,10 @@
 <!--
 title: Schedulers
 menuText: Schedulers 
-description: Ampt provides an easy-to-use scheduled tasks interface to handle recurring tasks.
+description: Interfaces for creating scheduled handlers to handle recurring tasks.
 menuOrder: 3
 parent: Building Blocks
 -->
-
-# Schedulers
 
 Ampt supports setting up scheduled tasks, which you can create using the `schedule` interface of `@ampt/sdk`. Schedulers are particularly useful for: 
 
@@ -15,9 +13,9 @@ Ampt supports setting up scheduled tasks, which you can create using the `sched
 
 You can either use the `.every()` method for having tasks repeat on a regular time interval or you can use the `.cron()` method to have more fine-grained control. You can name the schedulers to identify the resources. 
 
-**NOTE**: The name of the schedule can be 64 characters at most. 
+**NOTE**: The name of the schedule can be up to 64 characters. 
 
-# **Scheduling tasks with `.every()`**
+## Scheduling tasks with `.every()`
 
 If you know you need a task to repeat every hour, or every 5 days, you can use the `.every()` method. This method takes two arguments, a **rate expression** and the function you'd like to run.
 
@@ -34,7 +32,7 @@ schedule("hourly health check").every("1 hour", () => {
 
 A **rate expression** consists of a **numeric value** and a **unit**. Valid **units** are `minute`, `minutes`, `hour`, `hours`, `day` and `days`. Maximum frequency is 1 minute. 
 
-# **Scheduling tasks with `.cron()`**
+## Scheduling tasks with `.cron()`
 
 If you need more control over your scheduled tasks, you can use the `.cron()` method. This method also takes two arguments, a **cron expression** and the function you'd like to run.
 
@@ -60,7 +58,7 @@ schedule("Tuesday batch task").cron("0 0 ? * TUE *", () => {
 | Day-of-week | 1-7 or SUN-SAT | , - * ? L # |
 | Year | 1970-2199 | , - * / |
 
-**Wildcards**
+### Wildcards
 
 - The , (comma) wildcard includes additional values. In the Month field, JAN,FEB,MAR would include January, February, and March.
 - The - (dash) wildcard specifies ranges. In the Day field, 1-15 would include days 1 through 15 of the specified month.
@@ -71,7 +69,7 @@ schedule("Tuesday batch task").cron("0 0 ? * TUE *", () => {
 - The W wildcard in the Day-of-month field specifies a weekday. In the Day-of-month field, 3W specifies the weekday closest to the third day of the month.
 - The # wildcard in the Day-of-week field specifies a certain instance of the specified day of the week within a month. For example, 3#2 would be the second Tuesday of the month: the 3 refers to Tuesday because it is the third day of each week, and the 2 refers to the second day of that type within the month.
 
-# **Timeouts**
+## Timeouts
 
 By default, scheduled tasks will timeout after 60 seconds. To change the default, you can specify an object as your second parameter with a `timeout` key. Timeouts are specified in milliseconds and must be a positive integer. Scheduled tasks support a maximum timeout of 300 seconds (5 minutes).
 
