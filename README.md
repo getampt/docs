@@ -49,8 +49,8 @@ If you intend to use an existing framework with Ampt, such as Express or Remix, 
 - [Using Koa](/building-blocks/http-request-handling.md#koa)
 - [Using Restana](/building-blocks/http-request-handling.md#restana)
 - [Using Fastify](/building-blocks/http-request-handling.md#fastify)
-- [Using Remix](/building-blocks/http-request-handling.md/#remix)
-- [Using Astro](/building-blocks/http-request-handling.md/#astro)
+- [Using Remix](/building-blocks/frameworks/remix.md)
+- [Using Astro](/building-blocks/frameworks/astro.md)
 
 ## Ampt CLI
 
