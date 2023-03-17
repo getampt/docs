@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "lib": ["ES2021", "DOM"],
-    "module": "ES2022",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "types": ["astro/env"]
-  }
-}
