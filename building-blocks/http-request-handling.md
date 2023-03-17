@@ -18,6 +18,8 @@ Ampt provides a fetch based HTTP request handler as part of `@ampt/sdk`.`http`  
 
 If you want to build with your favorite API framework or migrate an existing API to Ampt, we are providing dead simple way to integrate with well-known frameworks. Below find the examples for the modern web frameworks. 
 
+**NOTE**: The default request timeout is 29 seconds for the web frameworks. 
+
 ### Express.js
 
 ```jsx
