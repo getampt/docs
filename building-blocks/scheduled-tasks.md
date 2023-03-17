@@ -1,11 +1,11 @@
----
+<!--
 title: Schedulers
 menuText: Schedulers 
 description: Ampt provides an easy-to-use scheduled tasks interface to handle recurring tasks.
 menuOrder: 3
-has_children: false
-has_toc: false
----
+parent: Building Blocks
+-->
+
 # Schedulers
 
 Ampt supports setting up scheduled tasks, which you can create using the `schedule` interface of `@ampt/sdk`. Schedulers are particularly useful for: 
