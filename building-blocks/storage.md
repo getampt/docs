@@ -1,11 +1,11 @@
----
+<!--
 title: Storage
 menuText: Storage 
 description: Ampt provides a built-in binary storage that allows dynamically reading and writing files programmatically. 
 menuOrder: 6
-has_children: false
-has_toc: false
----
+parent: Building Blocks
+-->
+
 # Storage
 
 Ampt provides easy to use file storage service that can be used to serve for any sort of binary type and can be read programmatically. When shared publicly over Ampt dashboard, files will be automatically served all around the world via our global CDN. 
