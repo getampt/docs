@@ -1,11 +1,11 @@
----
+<!--
 title: Params
 menuText: Params 
 description: Ampt provides a built-in paramater store that allows us to store the keys encrpyted and only available during runtime. 
 menuOrder: 7
-has_children: false
-has_toc: false
----
+parent: Building Blocks
+-->
+
 # Parameters
 
 Ampt’s built-in parameter store allows developers to store the parameters in a secure way, and to use them programmatically with `params` interface of Ampt SDK.  All the parameters are encrypted both at transit and at rest and only decrypted during runtime. 
