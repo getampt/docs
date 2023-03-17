@@ -1,11 +1,10 @@
----
+<!--
 title: Standard Mode
 menuText: Standard Mode
 description: Standard mode allows developers to run commands from your terminal without having to open an interactive session. 
 menuOrder: 1
-has_children: false
-has_toc: false
----
+parent: CLI Reference
+-->
 # Standard Mode
 
 Standard mode allows developers to run commands from your terminal without having to open an interactive session. Login is still required.
