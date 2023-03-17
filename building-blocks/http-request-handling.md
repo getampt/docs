@@ -1,11 +1,11 @@
----
+<!--
 title: HTTP Request Handling
 menuText: HTTP Request Handling
 description: Ampt provides an easy-to-use http interface to handle the requests coming without needing a web framework.
 menuOrder: 1
-has_children: false
-has_toc: false
----
+parent: Building Blocks
+-->
+
 # HTTP Request Handling
 
 Ampt provides a fetch based HTTP request handler as part of `@ampt/sdk`.`http`  interface allows developers with various functions: 
