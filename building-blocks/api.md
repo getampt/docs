@@ -44,7 +44,7 @@ privateApi.get("/hello", async (event) => {
 });
 ```
 
-# **Supported methods**
+# Supported methods
 
 The following is a list of common API methods supported in Ampt.
 
@@ -101,7 +101,7 @@ This object includes to response object to be returned by the RESTful API. See t
 }
 ```
 
-## **Specifying paths**
+## Specifying paths
 
 Paths are specified using simple string representations. Dynamic parameters can be set using the `:paramName` syntax. This value will be available in your callback function via the `event.params` object.
 
@@ -136,7 +136,7 @@ publicApi.patch("/:id", async (event) => {
 });
 ```
 
-## **Serving files through API**
+## Serving files through API
 
 To send files stored at Ampt Storage, developers can use `getDownloadUrl` function.
 
