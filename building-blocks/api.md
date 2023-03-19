@@ -1,12 +1,7 @@
-<!--
+---
 title: API
-menuText: API
 description: Ampt provides a built-in modern webframework to build APIs fast.
-menuOrder: 2
-parent: Building Blocks
--->
-
-# API
+---
 
 Ampt provides a modern web framework to group API handlers, define routers and endpoints for your application. `@ampt/api` is designed to simplify the process of building RESTful APIs and making requests to them.
 
