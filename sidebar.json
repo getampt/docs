@@ -4,8 +4,13 @@
   ],
   "Building Blocks": [
     { "title": "API", "href": "/docs/building-blocks/api" },
-    { "title": "Schedules", "href": "/docs/building-blocks/schedules" },
-    { "title": "Events", "href": "/docs/building-blocks/events" }
+    { "title": "Schedules", "href": "/docs/building-blocks/scheduled-tasks" },
+    { "title": "Events", "href": "/docs/building-blocks/events" },
+    { "title": "Parameters", "href": "/docs/building-blocks/params" },
+    { "title": "Storage", "href": "/docs/building-blocks/storage" },
+    { "title": "Data", "href": "/docs/building-blocks/data" },
+    { "title": "Static Assets", "href": "/docs/building-blocks/static-assets" },
+    { "title": "HTTP Request Handling", "href": "/docs/building-blocks/http-request-handling" }
   ],
   "Frameworks": [
     { "title": "Remix", "href": "/docs/frameworks/remix" },
