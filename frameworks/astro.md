@@ -1,10 +1,7 @@
-<!--
+---
 title: Astro
-menuText: Astro
 description: Ampt integrates with Astro to build full stack applications.
-menuOrder: 1
-section: Frameworks
--->
+---
 
 # Astro
 
