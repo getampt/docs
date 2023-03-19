@@ -13,6 +13,6 @@
   ],
   "CLI Reference": [
     { "title": "Standard Mode", "href": "/docs/cli/standard-mode" },
-    { "title": "Standard Mode", "href": "/docs/cli/interactive-shell" }
+    { "title": "Interactive Shell", "href": "/docs/cli/interactive-shell" }
   ]
 }
