@@ -17,7 +17,7 @@
     { "title": "Astro", "href": "/docs/frameworks/astro" }
   ],
   "CLI Reference": [
-    { "title": "Standard Mode", "href": "/docs/cli/standard-mode" },
-    { "title": "Interactive Shell", "href": "/docs/cli/interactive-shell" }
+    { "title": "Standard Mode", "href": "/docs/ampt-cli/standard-mode" },
+    { "title": "Interactive Shell", "href": "/docs/ampt-cli/interactive-shell" }
   ]
 }
