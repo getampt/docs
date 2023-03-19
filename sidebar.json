@@ -1,18 +1,18 @@
 {
   "Getting Started": [
-    { title: "Overview", "href": "/docs" }
+    { "title": "Overview", "href": "/docs" }
   ],
   "Building Blocks": [
-    { title: "API", "href": "/docs/building-blocks/api" },
-    { title: "Schedules", "href": "/docs/building-blocks/schedules" },
-    { title: "Events", "href": "/docs/building-blocks/events" }
+    { "title": "API", "href": "/docs/building-blocks/api" },
+    { "title": "Schedules", "href": "/docs/building-blocks/schedules" },
+    { "title": "Events", "href": "/docs/building-blocks/events" }
   ],
   "Frameworks": [
-    { title: "Remix", "href": "/docs/frameworks/remix" },
-    { title: "Astro", "href": "/docs/frameworks/astro" }
+    { "title": "Remix", "href": "/docs/frameworks/remix" },
+    { "title": "Astro", "href": "/docs/frameworks/astro" }
   ],
   "CLI Reference": [
-    { title: "Standard Mode", "href": "/docs/cli/standard-mode" },
-    { title: "Standard Mode", "href": "/docs/cli/interactive-shell" }
+    { "title": "Standard Mode", "href": "/docs/cli/standard-mode" },
+    { "title": "Standard Mode", "href": "/docs/cli/interactive-shell" }
   ]
 }
