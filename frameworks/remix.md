@@ -1,12 +1,7 @@
-<!--
+---
 title: Remix
-menuText: Remix
 description: Ampt integrates with Remix to build full stack applications.
-menuOrder: 2
-parent: Frameworks
--->
-
-# Remix
+---
 
 You can integrate your Remix application with Ampt and achieve a full stack development experience for your applications. Follow the below steps to integrate your Remix application with Ampt. 
 
