@@ -1,11 +1,7 @@
-<!--
+--
 title: Standard Mode
-menuText: Standard Mode
 description: Standard mode allows developers to run commands from your terminal without having to open an interactive session. 
-menuOrder: 1
-parent: CLI Reference
--->
-# Standard Mode
+---
 
 Standard mode allows developers to run commands from your terminal without having to open an interactive session. Login is still required.
 
@@ -17,7 +13,7 @@ Logs the user in via the browser. You will need to verify the code you see in th
 
 Logs the user out of the current session
 
-## `ampt install [PACKAGENAME]`**
+## `ampt install [PACKAGENAME]`
 
 Installs the specified npm package into your application. If you did not provide a package name, it'll simply install all your app's dependencies listed in `package.json`.
 
