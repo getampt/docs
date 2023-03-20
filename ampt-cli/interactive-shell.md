@@ -1,14 +1,7 @@
-<!--
+---
 title: Interactive Shell
-menuText: Interactive Shell 
 description: Ampt provides a shell to manage developer sandbox with useful commands. 
-menuOrder: 2
-has_children: false
-has_toc: false
-parent: CLI Reference
--->
-
-# Interactive Shell
+---
 
 The interactive shell allows developers to connect to their **sandbox** from their local IDE, auto sync code changes, stream logs, and manage the lifecycle of your application.
 
@@ -28,46 +21,46 @@ Additional flags can be passed to the `ampt` command to configure the behavior
 
 To exit the interactive shell, type `exit` or `quit`. The below commands are available in the interactive shell. 
 
-## **`dev`**
+## `dev`
 
 Starts the local development server in a child process, if a script named `ampt:dev` is defined in `package.json`.
 
-## **`import [FILENAME] [--overwrite]`**
+## `import [FILENAME] [--overwrite]`
 
 Seeds data from the `FILENAME` in your local directory to your **sandbox**. If no `FILENAME` is provided, it will default to `data.json`. By default, the data will be merged with existing data. If you specify the `-o` or `--overwrite` flag, all data will be cleared and reseeded.
 
-## **`export [FILENAME] [--overwrite]`**
+## `export [FILENAME] [--overwrite]`
 
 Exports data from your **sandbox** to a JSON file named `FILENAME` in your current working directory. If no `FILENAME` is provided, it will default to `data.json`. If the `FILENAME` already exists, you can specify the `-o` or `--overwrite` flag to overwrite the existing file.
 
-## **`install [PACKAGENAME]`**
+## `install [PACKAGENAME]`
 
 Installs the specified npm package into your application, and syncs your sandbox once it's done. If you did not provide a package name, it'll simply install all your app's dependencies listed in `package.json`.
 
-## **`uninstall [PACKAGENAME]`**
+## `uninstall [PACKAGENAME]`
 
 Uninstalls the specified npm package from your application, and syncs your sandbox once it's done.
 
-## **`version`**
+## `version`
 
 Displays the current running version of the CLI.
 
-## **`url`**
+## `url`
 
 Displays the current URL of your **sandbox**.
 
-## **`open`**
+## `open`
 
 Opens the dashboard to the current app in your default browser.
 
-## **`quit` / `exit` or *Ctrl/Cmd+C***
+## `quit` / `exit` or *Ctrl/Cmd+C*
 
 Terminates the interactive cloud shell and disconnects from your **sandbox**.
 
-## **`clear`**
+## `clear`
 
 Clears the terminal screen.
 
-## **`help`**
+## `help`
 
 Displays a simple help screen that shows all the available commands and their options.
