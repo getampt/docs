@@ -1,4 +1,4 @@
---
+---
 title: Standard Mode
 description: Standard mode allows developers to run commands from your terminal without having to open an interactive session. 
 ---
