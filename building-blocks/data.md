@@ -1,11 +1,7 @@
-<!--
+---
 title: Data
-menuText: Data 
 description: Ampt provides an extremely fast built-in K/V store to integrate with your application logic. 
-menuOrder: 5
-parent: Building Blocks
--->
-# Data
+---
 
 Ampt provides a super fast, automatically scalable K/V datastore that's built in to our runtime. Using  `@ampt/data` package, developers can manage massive collections of complex objects that can be queried on multiple dimensions, sorted, and paginated. With single-digit millisecond response times, it provides enough power to cover your most common needs and use cases.
 
