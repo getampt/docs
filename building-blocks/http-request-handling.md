@@ -1,10 +1,7 @@
-<!--
+---
 title: HTTP Request Handling
-menuText: HTTP Request Handling
 description: Easy-to-use interface to handle incoming http requests without needing a web framework.
-menuOrder: 8
-parent: Building Blocks
--->
+---
 
 Ampt provides a fetch based HTTP request handler as part of `@ampt/sdk`.`http`  interface allows developers with various functions: 
 
@@ -20,7 +17,7 @@ If you want to build with your favorite API framework or migrate an existing API
 
 ### Express.js
 
-```jsx
+```javascript
 import { http } from '@ampt/sdk';
 
 import express from 'express';
@@ -35,7 +32,7 @@ http.useNodeHandler(expressApp);
 
 ### Connect
 
-```jsx
+```javascript
 import { http } from '@ampt/sdk';
 import connect from 'connect';
 const connectApp = connect();
@@ -48,7 +45,7 @@ http.useNodeHandler(connectApp);
 
 ### Koa
 
-```jsx
+```javascript
 import { http } from '@ampt/sdk';
 import Koa from 'koa';
 import KoaRouter from '@koa/router';
@@ -66,7 +63,7 @@ http.useNodeHandler(connectApp);
 
 ### Restana
 
-```jsx
+```javascript
 import { http } from '@ampt/sdk';
 import restana from 'restana';
 const restanaApp = restana();
@@ -79,7 +76,7 @@ http.useNodeHandler(restanaApp);
 
 ### Fastify
 
-```jsx
+```javascript
 import { http } from '@ampt/sdk';
 import fastify from 'fastify';
 const fastifyApp = fastify();
@@ -94,7 +91,7 @@ http.useNodeHandler(fastifyApp);
 
 When a request is made for an HTTP path that is not handled, Ampt will return a default plain text 404 response. You can send a static HTML response using `http.on(404, <path>)`. For example, using a file named `404.html` in the root of your project:
 
-```jsx
+```javascript
 import { http } from "@ampt/sdk"
 
 http.on(404, '404.html')
@@ -102,7 +99,7 @@ http.on(404, '404.html')
 
 For a single-page application you would use  `static/index.html` so all paths will load your site’s index.html page.
 
-```jsx
+```javascript
 import { http } from "@ampt/sdk"
 
 http.on(404, 'static/index.html')
@@ -110,7 +107,7 @@ http.on(404, 'static/index.html')
 
 To return a dynamic response, your application needs to handle the requested path and return the desired response. The details of how to do this depend on the framework you are using. For example, using express you can add a default handler:
 
-```jsx
+```javascript
 import { http } from "@ampt/sdk"
 import express from "express"
 
@@ -131,7 +128,7 @@ When your application throws an exception, by default Ampt will return a JSON re
 
 To return a custom error response, your application must catch any errors and send the desired response. How you do that depends on the framework you are using. Using express you could use an error handler:
 
-```jsx
+```javascript
 app.use((err, req, res, next) => {
   console.error(err.stack)
   res.status(500).send('Something broke!')
