@@ -1,22 +1,17 @@
-<!--
+---
 title: Events
-menuText: Events 
 description: Ampt provides an easy way to build event-driven workflows and allows you to handle async tasks. 
-menuOrder: 4
-parent: Building Blocks
--->
-
-# Events
+---
 
 Ampt SDK(`@ampt/sdk`) supports publishing and handling events so you can easily build event-driven flows in your applications. Events let you do work "in the background" and allow you to decouple your application to make it more scalable and resilient to errors. Events can also be published "in the future" if you need to do the work at a later time asynchronously.
 
 For example, instead of sending a welcome email to a new user immediately in an API handler, you can send a `user.joined` event and send the email from the event handler 5 minutes later. This makes your API much more responsive and means your API will not fail if the email server is not available.
 
-# **Publishing events with `events.publish()`**
+## Publishing events with `events.publish()`
 
 To publish an event you use the `events.publish()` method, and provide a name and a "body" that contains application-specific data to send in the event.
 
-```jsx
+```javascript
 import { events } from "@ampt/sdk";
 import {api} from "@ampt/api"
 
@@ -31,7 +26,7 @@ api('my-api').router('/events')
 
 You can delay when an event is published using the "after" option. For example, this will send the `user.joined` event in one day:
 
-```jsx
+```javascript
 await events.publish("user.joined", { after: "1 day" }, {
   user_id: "2b6mgh78g334",
   email: "newuser@example.com"
@@ -48,13 +43,13 @@ await events.publish("user.joined", { after: "1 day" }, {
 
 The body you send in the event can be any data type that can be JSON stringified. The event, including its body and metadata must be less than 256KB.
 
-# **Handling events with `events.on()`**
+## Handling events with `events.on()`
 
 To handle an event you use the `events.on()` method, and provide the event name and a handler function.
 
 For example, this will call the handler when a "user.joined" event is received.
 
-```jsx
+```javascript
 events.on("user.joined", async ({ body }) => {
    // send a welcome email using body.email
 })
