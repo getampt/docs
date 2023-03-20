@@ -1,12 +1,7 @@
-<!--
+---
 title: Storage
-menuText: Storage 
 description: Ampt provides a built-in binary storage that allows dynamically reading and writing files programmatically. 
-menuOrder: 6
-parent: Building Blocks
--->
-
-# Storage
+---
 
 Ampt provides easy to use file storage service that can be used to serve for any sort of binary type and can be read programmatically. When shared publicly over Ampt dashboard, files will be automatically served all around the world via our global CDN. 
 
@@ -18,7 +13,7 @@ Buckets are the separate folders to store the files belonging into same domain. 
 
 Root bucket is reachable by calling `storage()` without any parameters. 
 
-```jsx
+```javascript
 import { storage } from "@ampt/sdk";
 
 // define a new bucket
@@ -35,7 +30,7 @@ You can optionally not pass a path for the file, which will save it at the "root
 
 Metadata and custom mimetypes can also be passed to be saved alongside your file.
 
-```jsx
+```javascript
 const students = storage('students');
 // write file to /students/your/path/binaryData.ext
 await students.write("/your/path/binaryData.ext", binaryData);
@@ -49,7 +44,7 @@ await students.write('/', binaryData)
 
 Files can be read into memory as either a ReadableStream or a Buffer. If no options are passed, a ReadableStream is returned by default. Also included is `readBuffer` for ease of use, if you want to only use buffers without any extra arguments. To read the file, the absolute directory must be passed. If the file does not exist, `undefined` is returned.
 
-```jsx
+```javascript
 const students = storage('students');
 const stream = await students.read("binaryData.ext");
 
@@ -61,7 +56,7 @@ const buffer = await students.readBuffer("/your/path/binaryData.ext");
 
 Files can be moved or copied to any directory. If a destination directory does not exist, it will be created.
 
-```jsx
+```javascript
 const students = storage('students');
 await students.move("binaryData.ext", "bin");
 // binaryData is now located at bin/binaryData.ext
@@ -74,7 +69,7 @@ await students.copy("/bin/binaryData.ext", "bin-copy");
 
 To avoid a read operation, you may want to just check if a file exists before going forward.
 
-```jsx
+```javascript
 const students = storage('students');
 
 const exists = await students.exists("/bin/binaryData.ext");
@@ -86,7 +81,7 @@ const doesNotExist = await students.exists("/not-real/binaryData.ext");
 
 You can retrieve when a file was last modified, size, content type, and any saved metadata using `stat`.
 
-```jsx
+```javascript
 const students = storage.bucket('students');
 const { lastModified, size, metadata, type } = await students.stat(
   "/your/path/binaryData.ext"
@@ -99,12 +94,11 @@ Files in a bucket can be listed either as a whole or per folder. To list all sub
 
 <aside>
 💡 To control page size, you can pass in a `pageSize` value to control how many files are returned per page, the default size is 100.
-
 </aside>
 
 `list` returns an async generator, allowing for controlled iteration through your files.
 
-```jsx
+```javascript
 const students = storage('students');
 const list = await students.list("bin", { pageSize: 1 });
 const page1 = await list.next();
@@ -122,7 +116,7 @@ for await (const page of pages) {
 
 Files can be removed using the `remove` function.
 
-```jsx
+```javascript
 await storage('students').remove("/bin/binaryData.ext");
 ```
 
@@ -130,7 +124,7 @@ await storage('students').remove("/bin/binaryData.ext");
 
 URLs for both uploading and downloading files from a bucket can be generated using `getDownloadUrl` and `getUploadUrl`. A second parameter can be passed to set the expiration period for a URL, as a number in seconds. The default is 1 hour (3600s).
 
-```jsx
+```javascript
 const downloadUrl = await storage('students').getDownloadUrl("bin-copy/binaryData.ext");
 
 const longDownloadUrl = await storage('students').getDownloadUrl(
@@ -147,7 +141,7 @@ You can listen for certain events with `storage.on`. As of now, you can fire di
 
 Storage events contain both the path of the file, and the event name (`write` or `remove`).
 
-```jsx
+```javascript
 storage().on("write:user-uploads/*", async (event) => {
   // event = { path: user-uploads/picture.jpeg, name: 'write' }
 });
