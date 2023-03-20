@@ -1,10 +1,7 @@
-<!--
+---
 title: Schedulers
-menuText: Schedulers 
 description: Interfaces for creating scheduled handlers to handle recurring tasks.
-menuOrder: 3
-parent: Building Blocks
--->
+---
 
 Ampt supports setting up scheduled tasks, which you can create using the `schedule` interface of `@ampt/sdk`. Schedulers are particularly useful for: 
 
@@ -21,7 +18,7 @@ If you know you need a task to repeat every hour, or every 5 days, you can use t
 
 For example, the following will log "I run every hour!" every hour:
 
-```jsx
+```javascript
 import { schedule } from '@ampt/sdk' ;
 
 schedule("hourly health check").every("1 hour", () => {
@@ -40,7 +37,7 @@ If you need more control over your scheduled tasks, you can use the `.cron()` 
 
 For example, the following will log "I run on Tuesdays!" every Tuesday at midnight UTC:
 
-```jsx
+```javascript
 schedule("Tuesday batch task").cron("0 0 ? * TUE *", () => {
   // This code block will run at midnight on Tuesdays!
   console.log("I run on Tuesdays!");
@@ -73,7 +70,7 @@ schedule("Tuesday batch task").cron("0 0 ? * TUE *", () => {
 
 By default, scheduled tasks will timeout after 60 seconds. To change the default, you can specify an object as your second parameter with a `timeout` key. Timeouts are specified in milliseconds and must be a positive integer. Scheduled tasks support a maximum timeout of 300 seconds (5 minutes).
 
-```jsx
+```javascript
 schedule("two times a day").every("12 hours", { timeout: 300000 }, () => {
   // This will run every 12 hours and timeout after 5 mins!
   console.log("I run every 12 hours!");
