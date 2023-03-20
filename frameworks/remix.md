@@ -19,7 +19,7 @@ install @ampt/remix
 
 - Configure remix to write assets to the `static` folder, and the server script to `build/index.js`
 
-```bash
+```javascript
 // remix.config.js
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
@@ -43,7 +43,7 @@ import '@ampt/remix'
     - add `ampt:build` script to run the build
     - add `ampt:dev` script to run the dev server
 
-```bash
+```json
 {
   "name": "my-remix-app",
   "main": "server.mjs",
