@@ -23,7 +23,7 @@ install @ampt/astro
   - add `ampt:build` script for running astro build
   - set `main` to `dist/entry` which is the entrypoint for the server
 
-```jsx
+```javascript
 {
   "name": "my-astro-app",
   "main": "dist/entry",
@@ -38,7 +38,7 @@ install @ampt/astro
 
 - Add the ampt integration to your `astro.config.mjs` file:
 
-```jsx
+```javascript
 // astro.config.mjs
 
 import { defineConfig } from 'astro/config'
@@ -54,7 +54,7 @@ export default defineConfig({
 
 - Start the interactive shell and run `build`  to create your artifacts:
 
-```jsx
+```bash
 % ampt 
 
 > build
