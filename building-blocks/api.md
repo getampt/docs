@@ -13,7 +13,7 @@ Ampt allows developers to define APIs that can be protected with basic validatio
 
 The code below shows defining a public API:
 
-```jsx
+```javascript
 import { api } from "@ampt/api";
 
 // define a public api and create a new router
@@ -26,7 +26,7 @@ publicApi.get("/hello", async (event) => {
 
 Ampt API also allows developers to build protected API’s using middleware and provide a way to validate the query parameters. The code below shows a protected API:
 
-```jsx
+```javascript
 import { api } from "@ampt/api";
 
 async function auth(event) {
@@ -59,7 +59,7 @@ Methods accept a `path` and `callback` parameter.
 | put()    | Routes HTTP PUT requests to the specified path with the specified callback functions.                                                                              |
 | use()    | Mounts the specified middleware function or functions at the specified path: the middleware function is executed when the base of the requested path matches path. |
 
-```jsx
+```javascript
 // post method that takes the callback function as the second parameter
 // this function takes APIEvent Object as a parameter
 publicApi.post("/submit", async (event) => {
@@ -107,7 +107,7 @@ Paths are specified using simple string representations. Dynamic parameters can 
 
 Path parameters can be type checked at runtime using the syntax below:
 
-```jsx
+```javascript
 import { v, api } from "@ampt/api";
 
 const publicApi = api("public").router("/users", { id: v.string() });
@@ -120,7 +120,7 @@ publicApi.patch("/:id", async (event) => {
 
 If path parameters are not supplied in the `.router()` call, they can be optionally unwrapped in your handler:
 
-```jsx
+```javascript
 import { api } from "@ampt/api";
 
 const publicApi = api("public").router("/users");
@@ -139,8 +139,7 @@ publicApi.patch("/:id", async (event) => {
 ## Serving files through API
 
 To send files stored at Ampt Storage, developers can use `getDownloadUrl` function.
-
-```jsx
+```javascript
 const files = api("files").router("/files", { path: v.string() }, auth);
 
 files.get("/:path*", async (event) => {
