@@ -301,7 +301,7 @@ let results = await data.remove(["key1", "someOtherKey", "namespacedKey:keyX"]);
 
 Ampt runtime emits an event every time a record is created, updated, or deleted, which you can react to by writing an event handler. This lets you decouple your application and process changes to your data asynchronously. For example, your API could set data and then immediately send a response, while your event handler can do some data aggregation or send a request to an outside app.
 
-## Defining event handlers
+### Defining event handlers
 
 You define an event handler using the `data.on()` method.
 
