@@ -27,7 +27,7 @@ schedule("hourly health check").every("1 hour", () => {
 });
 ```
 
-A **rate expression** consists of a **numeric value** and a **unit**. Valid **units** are `minute`, `minutes`, `hour`, `hours`, `day` and `days`. Maximum frequency is 1 minute. 
+A **rate expression** consists of a **numeric value** and a **unit**. Valid **units** are `minute`, `minutes`, `hour`, `hours`, `day` and `days`. Maximum frequency is 1 minute. 
 
 ## Scheduling tasks with `.cron()`
 
