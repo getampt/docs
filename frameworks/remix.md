@@ -43,7 +43,7 @@ import '@ampt/remix'
     - add `ampt:build` script to run the build
     - add `ampt:dev` script to run the dev server
 
-```json
+```javascript
 {
   "name": "my-remix-app",
   "main": "server.mjs",
