@@ -1,6 +1,6 @@
 ---
 title: Static Assets
-description: Ampt provides an integrated way of serving static files through a global CDN. 
+description: Integrated way of serving static files through a global CDN. 
 ---
 
 Ampt allows you to serve files from your application URL. This is useful for serving static assets such as images, CSS, and JavaScript, allowing you to host front-end apps and websites. By convention, static assets must be stored in the `static` directory at the root of your application.
