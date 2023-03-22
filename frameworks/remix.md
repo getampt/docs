@@ -33,7 +33,7 @@ module.exports = {
 
 - Create `server.mjs` that will be used as the new entry point for your application:
 
-```bash
+```javascript
 // server.mjs
 import '@ampt/remix'
 ```
