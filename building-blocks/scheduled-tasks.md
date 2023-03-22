@@ -1,6 +1,6 @@
 ---
 title: Schedulers
-description: Interfaces for creating scheduled handlers to handle recurring tasks.
+description: Built-in interface to create scheduled handlers to handle recurring or one-off tasks.
 ---
 
 Ampt supports setting up scheduled tasks, which you can create using the `schedule` interface of `@ampt/sdk`. Schedulers are particularly useful for: 
