@@ -1,6 +1,6 @@
 ---
 title: Standard Mode
-description: Standard mode allows developers to run commands from your terminal without having to open an interactive session. 
+description: Ampt CLI to run commands from your terminal to manage the lifecycle of your application. 
 ---
 
 Standard mode allows developers to run commands from your terminal without having to open an interactive session. Login is still required.
