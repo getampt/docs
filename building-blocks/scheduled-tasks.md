@@ -109,7 +109,7 @@ data.on("created:user:*", async ({ item }) => {
   name: string
   body: {
     source: 'schedule-task',
-    name: 'tasks',
+    name: string
     date: number
     payload: any
   },
