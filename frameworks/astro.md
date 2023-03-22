@@ -1,6 +1,6 @@
 ---
 title: Astro
-description: Ampt integrates with Astro to build full stack applications.
+description: Integrate with Astro to build full stack applications.
 ---
 
 Ampt allows developers to integrate with their existing Astro applications. 
