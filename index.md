@@ -3,7 +3,7 @@ title: Overview
 description: Ampt lets developers rapidly build native cloud apps without complicated configs or struggling with infrastructure.
 ---
 
-With Ampt, you _just write code_. Backed by a fully-featured Node.js runtime with support for modern JavaScript and TypeScript right out of the box, you can build just about any application you can imagine. Import your favorite libraries, write your own custom APIs, connect to third-party APIs and services, and even use familiar backend frameworks like [Express.js and Koa](/building-blocks/http-request-handling).
+With Ampt, you _just write code_. Backed by a fully-featured Node.js runtime with support for modern JavaScript and TypeScript right out of the box, you can build just about any application you can imagine. Import your favorite libraries, write your own custom APIs, connect to third-party APIs and services, and even use familiar backend frameworks like [Express.js and Koa](/docs/building-blocks/http-request-handling).
 
 Ampt provides multiple standalone packages that integrate seamlessly with the runtime, and doesn't require you to ever think about infrastructure. You can use as little or as many as you like. The SDKs are designed to be simple and familiar, maximizing your productivity by eliminating the need to learn new, complicated APIs.
 
@@ -34,30 +34,30 @@ import { data } from "@ampt/data";
 
 The core SDK (`@ampt/sdk`) includes some basic interfaces to help you get started:
 
-- [HTTP](/building-blocks/http-request-handling.md)
-- [Storage](/building-blocks/storage.md)
-- [Events](/building-blocks/events.md)
-- [Scheduled Tasks](/building-blocks/scheduled-tasks.md)
-- [Params](/building-blocks/params.md)
+- [HTTP](/docs/building-blocks/http-request-handling)
+- [Storage](/docs/building-blocks/storage)
+- [Events](/docs/building-blocks/events)
+- [Scheduled Tasks](/docs/building-blocks/scheduled-tasks)
+- [Params](/docs/building-blocks/params)
 
 For more specific use cases, you can install additional Ampt solutions:
 
-- [@ampt/api](/building-blocks/api.md)
-- [@ampt/data](/building-blocks/data.md)
+- [@ampt/api](/docs/building-blocks/api)
+- [@ampt/data](/docs/building-blocks/data)
 
 If you intend to use an existing framework with Ampt, such as Express or Remix, view the following guides below:
 
-- [Using Express](/building-blocks/http-request-handling.md#expressjs)
-- [Using Connect](/building-blocks/http-request-handling.md#connect)
-- [Using Koa](/building-blocks/http-request-handling.md#koa)
-- [Using Restana](/building-blocks/http-request-handling.md#restana)
-- [Using Fastify](/building-blocks/http-request-handling.md#fastify)
-- [Using Remix](/building-blocks/frameworks/remix.md)
-- [Using Astro](/building-blocks/frameworks/astro.md)
+- [Using Express](/docs//building-blocks/http-request-handling#expressjs)
+- [Using Connect](/docs//building-blocks/http-request-handling#connect)
+- [Using Koa](/docs/building-blocks/http-request-handling#koa)
+- [Using Restana](/docs/building-blocks/http-request-handling#restana)
+- [Using Fastify](/docs/building-blocks/http-request-handling#fastify)
+- [Using Remix](/docs/frameworks/remix.md)
+- [Using Astro](/docs/frameworks/astro.md)
 
 ## Ampt CLI
 
 To manage Ampt applications from your terminal, you can use the Ampt CLI.
 
-- [Ampt CLI Interactive Shell](/ampt-cli/interactive-shell.md)
-- [Ampt CLI Standard Mode](/ampt-cli/standard-mode.md)
+- [Ampt CLI Interactive Shell](/docs/ampt-cli/interactive-shell)
+- [Ampt CLI Standard Mode](/docs/ampt-cli/standard-mode)
