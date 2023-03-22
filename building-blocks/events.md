@@ -1,6 +1,6 @@
 ---
 title: Events
-description: Ampt provides an easy way to build event-driven workflows and allows you to handle async tasks. 
+description: Build event-driven workflows to handle async tasks just by writing code. 
 ---
 
 Ampt SDK(`@ampt/sdk`) supports publishing and handling events so you can easily build event-driven flows in your applications. Events let you do work "in the background" and allow you to decouple your application to make it more scalable and resilient to errors. Events can also be published "in the future" if you need to do the work at a later time asynchronously.
