@@ -89,7 +89,7 @@ welcomeSchedule.task((event) => {
   const {
     body: { payload },
   } = event;
-  // do something
+  // payload = { email: 'user-email' }
 });
 
 data.on("created:user:*", async ({ item }) => {
