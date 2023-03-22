@@ -1,6 +1,6 @@
 ---
 title: Interactive Shell
-description: Ampt provides a shell to manage developer sandbox with useful commands. 
+description: Interactive Shell to interact with developer sandbox and to manage the environments on Ampt. 
 ---
 
 The interactive shell allows developers to connect to their **sandbox** from their local IDE, auto sync code changes, stream logs, and manage the lifecycle of your application.
