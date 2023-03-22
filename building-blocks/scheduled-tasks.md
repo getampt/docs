@@ -66,6 +66,51 @@ schedule("Tuesday batch task").cron("0 0 ? * TUE *", () => {
 - The W wildcard in the Day-of-month field specifies a weekday. In the Day-of-month field, 3W specifies the weekday closest to the third day of the month.
 - The # wildcard in the Day-of-week field specifies a certain instance of the specified day of the week within a month. For example, 3#2 would be the second Tuesday of the month: the 3 refers to Tuesday because it is the third day of each week, and the 2 refers to the second day of that type within the month.
 
+## Scheduling tasks for an exact date with `.at()` and `.task()`
+
+Ampt Schedules also supports one-off delayed workloads that can run at specific times, up to one year in the future.
+
+To do this, declare a schedule group with a `.task()` listener. This handler will receive all delayed tasks queued with `.at()` within the schedule group.
+
+For example, queueing future work on a user sign-up:
+
+```javascript
+import { schedule } from "@ampt/sdk";
+import { data } from "@ampt/data";
+const welcomeSchedule = schedule("welcome");
+welcomeSchedule.task((event) => {
+  const {
+    body: { payload },
+  } = event;
+  // payload = { email: 'user-email' }
+});
+data.on("created:user:*", async ({ item }) => {
+  const inOneHour = new Date(Date.now() + 1000 * 60).toString();
+  await welcomeSchedule.at(inOneHour, { email: item.value.email });
+});
+```
+
+### Dates passed to `.at()` must be either UTC or ISO string.
+
+`.task()` handlers receive an event of this type:
+
+```
+{
+  target: string
+  id: string
+  name: string
+  body: {
+    source: 'schedule-task',
+    name: string
+    date: number
+    payload: any
+  },
+  time: number
+  delay: number
+}
+```
+
+
 ## Timeouts
 
 By default, scheduled tasks will timeout after 60 seconds. To change the default, you can specify an object as your second parameter with a `timeout` key. Timeouts are specified in milliseconds and must be a positive integer. Scheduled tasks support a maximum timeout of 300 seconds (5 minutes).
