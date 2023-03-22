@@ -1,0 +1,13 @@
+on:
+  repository_dispatch:
+    types:
+      - webhook
+
+jobs:
+  test_webhook:
+    #if: ${{ !github.event.client_payload.passed }}
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          MESSAGE: ${{ github.event.client_payload.message }}
+        run: echo $MESSAGE
