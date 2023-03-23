@@ -8,7 +8,7 @@ With Ampt, you _just write code_. Backed by a fully-featured Node.js runtime wit
 Ampt provides multiple standalone packages that integrate seamlessly with the runtime, and doesn't require you to ever think about infrastructure. You can use as little or as many as you like. The SDKs are designed to be simple and familiar, maximizing your productivity by eliminating the need to learn new, complicated APIs.
 
 !!! caution
-Ampt is still in early **PRIVATE BETA** and is **NOT RECOMMENDED** for production usage.
+Ampt is in early **PRIVATE BETA** and **NOT RECOMMENDED** for production use.
 !!!
 
 ## Getting Started
