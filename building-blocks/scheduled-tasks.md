@@ -3,14 +3,14 @@ title: Schedulers
 description: Built-in scheduled interface to handle recurring or one-off tasks.
 ---
 
-Ampt supports setting up scheduled tasks, which you can create using the `schedule` interface of `@ampt/sdk`. Schedulers are particularly useful for: 
+Ampt supports setting up scheduled tasks, which you can create using the `schedule` interface of `@ampt/sdk`. Schedulers are particularly useful for:
 
 - Periodic batch calculations
 - Periodic checks on the existence or correctness of database records or stored files
 
-You can either use the `.every()` method for having tasks repeat on a regular time interval or you can use the `.cron()` method to have more fine-grained control. You can name the schedulers to identify the resources. 
+You can either use the `.every()` method for having tasks repeat on a regular time interval or you can use the `.cron()` method to have more fine-grained control. You can name the schedulers to identify the resources.
 
-**NOTE**: The name of the schedule can be up to 64 characters. 
+**NOTE**: The name of the schedule can be up to 64 characters.
 
 ## Scheduling tasks with `.every()`
 
@@ -19,7 +19,7 @@ If you know you need a task to repeat every hour, or every 5 days, you can use t
 For example, the following will log "I run every hour!" every hour:
 
 ```javascript
-import { schedule } from '@ampt/sdk' ;
+import { schedule } from "@ampt/sdk";
 
 schedule("hourly health check").every("1 hour", () => {
   // This code block will run every hour!
@@ -27,13 +27,13 @@ schedule("hourly health check").every("1 hour", () => {
 });
 ```
 
-A **rate expression** consists of a **numeric value** and a **unit**. Valid **units** are `minute`, `minutes`, `hour`, `hours`, `day` and `days`. Maximum frequency is 1 minute. 
+A **rate expression** consists of a **numeric value** and a **unit**. Valid **units** are `minute`, `minutes`, `hour`, `hours`, `day` and `days`. Maximum frequency is 1 minute.
 
 ## Scheduling tasks with `.cron()`
 
 If you need more control over your scheduled tasks, you can use the `.cron()` method. This method also takes two arguments, a **cron expression** and the function you'd like to run.
 
-**NOTE**: Ampt uses an extended cron format as opposed to traditional UNIX format. 
+**NOTE**: Ampt uses an extended cron format as opposed to traditional UNIX format.
 
 For example, the following will log "I run on Tuesdays!" every Tuesday at midnight UTC:
 
@@ -44,22 +44,22 @@ schedule("Tuesday batch task").cron("0 0 ? * TUE *", () => {
 });
 ```
 
-**NOTE**: Ampt uses an extended cron format as opposed to traditional UNIX format.  **Cron expressions** consist of six required fields:
+**NOTE**: Ampt uses an extended cron format as opposed to traditional UNIX format. **Cron expressions** consist of six required fields:
 
-| Field | Values | Wildcards |
-| --- | --- | --- |
-| Minutes | 0-59 | , - * / |
-| Hours | 0-23 | , - * / |
-| Day-of-month | 1-31 | , - * ? / L W |
-| Month | 1-12 or JAN-DEC | , - * / |
-| Day-of-week | 1-7 or SUN-SAT | , - * ? L # |
-| Year | 1970-2199 | , - * / |
+| Field        | Values          | Wildcards      |
+| ------------ | --------------- | -------------- |
+| Minutes      | 0-59            | , - \* /       |
+| Hours        | 0-23            | , - \* /       |
+| Day-of-month | 1-31            | , - \* ? / L W |
+| Month        | 1-12 or JAN-DEC | , - \* /       |
+| Day-of-week  | 1-7 or SUN-SAT  | , - \* ? L #   |
+| Year         | 1970-2199       | , - \* /       |
 
 ### Wildcards
 
 - The , (comma) wildcard includes additional values. In the Month field, JAN,FEB,MAR would include January, February, and March.
 - The - (dash) wildcard specifies ranges. In the Day field, 1-15 would include days 1 through 15 of the specified month.
-- The * (asterisk) wildcard includes all values in the field. In the Hours field, * would include every hour. You cannot use * in both the Day-of-month and Day-of-week fields. If you use it in one, you must use ? in the other.
+- The _ (asterisk) wildcard includes all values in the field. In the Hours field, _ would include every hour. You cannot use \* in both the Day-of-month and Day-of-week fields. If you use it in one, you must use ? in the other.
 - The / (forward slash) wildcard specifies increments. In the Minutes field, you could enter 1/10 to specify every tenth minute, starting from the first minute of the hour (for example, the 11th, 21st, and 31st minute, and so on).
 - The ? (question mark) wildcard specifies one or another. In the Day-of-month field you could enter 7 and if you didn't care what day of the week the 7th was, you could enter ? in the Day-of-week field.
 - The L wildcard in the Day-of-month or Day-of-week fields specifies the last day of the month or week.
@@ -85,12 +85,12 @@ welcomeSchedule.task((event) => {
   // payload = { email: 'user-email' }
 });
 data.on("created:user:*", async ({ item }) => {
-  const inOneHour = new Date(Date.now() + 1000 * 60).toString();
+  const inOneHour = new Date(Date.now() + 1000 * 60 * 60).toString();
   await welcomeSchedule.at(inOneHour, { email: item.value.email });
 });
 ```
 
-### Dates passed to `.at()` must be either UTC or ISO string.
+**_Dates passed to `.at()` must be either a UTC or ISO string._**
 
 `.task()` handlers receive an event of this type:
 
@@ -109,7 +109,6 @@ data.on("created:user:*", async ({ item }) => {
   delay: number
 }
 ```
-
 
 ## Timeouts
 
