@@ -44,7 +44,7 @@ privateApi.get("/hello", async (event) => {
 });
 ```
 
-# Supported methods
+## Supported methods
 
 The following is a list of common API methods supported in Ampt.
 
