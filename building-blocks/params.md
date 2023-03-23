@@ -1,13 +1,13 @@
 ---
-title: Params
-description: Built-in paramater store to keep the keys encrpyted and make them available only during runtime. 
+title: Parameters
+description: Built-in parameter store to keep the keys encrpyted and make them available only during runtime. 
 ---
 
 Ampt's built-in parameter store allows developers to store the parameters in a secure way, and to use them programmatically with `params` interface of Ampt SDK.  All the parameters are encrypted both at transit and at rest and only decrypted during runtime. 
 
-<aside>
-💡 NOTE: When you modify a parameter value in the Ampt Dashboard, the changes are instantly applied to all running environments that require the parameter. No restart or anything required to flush the parameters.
-</aside>
+:::note
+When you modify a parameter value in the Ampt Dashboard, the changes are instantly applied to all running environments that require the parameter. No restart or anything required to flush the parameters.
+:::
 
 ## Parameter Scopes
 
