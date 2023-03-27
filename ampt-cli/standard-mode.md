@@ -13,6 +13,11 @@ Logs the user in via the browser. You will need to verify the code you see in th
 
 Logs the user out of the current session
 
+## `cloud share [NAME]`
+Deploys the code AND data from your sandbox to a preview stage named NAME. If no NAME is provided, a randomly generated name will be created for you.
+
+A preview environment is an ephermeral environment that you can use to easily share your work with others. Previews allow you to create a stable snapshots of your sandbox so that you can get feedback while continuing to make changes to your own version.
+
 ## `ampt install [PACKAGENAME]`
 
 Installs the specified npm package into your application. If you did not provide a package name, it'll simply install all your app's dependencies listed in `package.json`.
