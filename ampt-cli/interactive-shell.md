@@ -24,6 +24,14 @@ To exit the interactive shell, type `exit` or `quit`. The below commands are av
 
 Starts the local development server in a child process, if a script named `ampt:dev` is defined in `package.json`.
 
+## `share [NAME]`
+
+Deploys the code AND data from your sandbox to a preview environment named NAME. If no NAME is provided, a randomly generated name will be created for you.
+
+A preview environment is an ephermeral environment that you can use to easily share your work with others. Previews allow you to create a stable snapshots of your sandbox so that you can get feedback while continuing to make changes to your own version.
+
+If a script named cloud:build is defined in package.json, it will be run before deploying.
+
 ## `import [FILENAME] [--overwrite]`
 
 Seeds data from the `FILENAME` in your local directory to your **sandbox**. If no `FILENAME` is provided, it will default to `data.json`. By default, the data will be merged with existing data. If you specify the `-o` or `--overwrite` flag, all data will be cleared and reseeded.

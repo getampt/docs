@@ -1,6 +1,7 @@
 {
   "Getting Started": [
-    { "title": "Overview", "href": "/docs" }
+    { "title": "Overview", "href": "/docs" },
+    { "title": "Changelog", "href": "/docs/changelog" }
   ],
   "Building Blocks": [
     { "title": "API", "href": "/docs/building-blocks/api" },
