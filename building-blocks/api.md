@@ -5,8 +5,8 @@ description: Built-in modern fetch-based web framework to create APIs fast.
 
 Ampt provides a modern web framework to group API handlers and define routers and endpoints for your application. `@ampt/api` is designed to simplify the process of building RESTful APIs and making requests to them.
 
-!!! note
-`@ampt/api` is experimental and subject to change. DO NOT use this for production apps.
+!!! caution
+`@ampt/api` is experimental and subject to change. **DO NOT** use this for production apps.
 !!!
 
 ## Defining an API
