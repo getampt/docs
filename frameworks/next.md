@@ -5,6 +5,11 @@ description: Integrate with Next.js to build full stack applications.
 
 Ampt allows developers to integrate with their existing [Next.js](https://nextjs.org/) applications.
 
+!!! note
+Ampt currently supports Next.js 12.x. Support for Next.js 13 is coming soon.
+!!!
+
+
 Install `@ampt/nextjs` in your project:
 
 ```bash
