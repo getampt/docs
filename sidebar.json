@@ -14,6 +14,7 @@
     { "title": "HTTP Request Handling", "href": "/docs/building-blocks/http-request-handling" }
   ],
   "Frameworks": [
+    { "title": "Next.js", "href": "/docs/frameworks/next" },
     { "title": "Remix", "href": "/docs/frameworks/remix" },
     { "title": "Astro", "href": "/docs/frameworks/astro" }
   ],
