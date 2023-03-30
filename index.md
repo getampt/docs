@@ -3,7 +3,7 @@ title: Overview
 description: Ampt lets developers rapidly build native cloud apps without complicated configs or struggling with infrastructure.
 ---
 
-With Ampt, you _just write code_. Backed by a fully-featured Node.js runtime with support for modern JavaScript and TypeScript right out of the box, you can build just about any application you can imagine. Import your favorite libraries, write your own custom APIs, connect to third-party APIs and services, use familiar backend frameworks like [Express.js](/docs/building-blocks/http-request-handling#express.js) and [Koa](/docs/building-blocks/http-request-handling#koa), or even fullstack frameworks like [Astro](/docs/frameworks/astro) and [Remix](/docs/frameworks/remix).
+With Ampt, you _just write code_. Backed by a fully-featured Node.js runtime with support for modern JavaScript and TypeScript right out of the box, you can build just about any application you can imagine. Import your favorite libraries, write your own custom APIs, connect to third-party APIs and services, use familiar backend frameworks like [Express.js](/docs/building-blocks/http-request-handling#express.js) and [Koa](/docs/building-blocks/http-request-handling#koa), or even fullstack frameworks like [Astro](/docs/frameworks/astro), [Remix](/docs/frameworks/remix), and [Next.js](/docs/frameworks/next).
 
 Ampt provides multiple standalone packages that integrate seamlessly with the runtime, and doesn't require you to ever think about infrastructure. You can use as little or as many as you like. The SDKs are designed to be simple and familiar, maximizing your productivity by eliminating the need to learn new, complicated APIs.
 
