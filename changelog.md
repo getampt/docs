@@ -7,7 +7,7 @@ description: Changelog for the Ampt platform is updated on a weekly basis to inc
 
 **Improvements**:
 
-- Introducing NextJS support! Now you can build full-stack applications with NextJS 12 and Ampt together. See the docs here: https://www.getampt.com/docs/frameworks/next. We've added a sample app to the quickstart menu, and you can check out the source code for the same app at https://github.com/getampt/templates/tree/main/templates/nextjs.
+- Introducing Next.js support! Now you can build full-stack applications with Next.js 12 and Ampt together. See the docs here: https://www.getampt.com/docs/frameworks/next. We've added a sample app to the quickstart menu, and you can check out the source code for the same app at https://github.com/getampt/templates/tree/main/templates/nextjs.
 - We've added search capabilities to our documentation! Our documentation is an essential knowledge base for building native cloud applications, and now you can easily find content, titles, and code examples with our search feature.
 
 **Bug Fixes**:
