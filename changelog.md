@@ -3,6 +3,19 @@ title: Changelog
 description: Changelog for the Ampt platform is updated on a weekly basis to include the latest updates and improvements.
 ---
 
+## 2023-03-31
+
+**Improvements**:
+
+- Introducing NextJS support! Now you can build full-stack applications with NextJS 12 and Ampt together. See the docs here: https://www.getampt.com/docs/frameworks/next. We've added a sample app to the quickstart menu, and you can check out the source code for the same app at https://github.com/getampt/templates/tree/main/templates/nextjs.
+- We've added search capabilities to our documentation! Our documentation is an essential knowledge base for building native cloud applications, and now you can easily find content, titles, and code examples with our search feature.
+
+**Bug Fixes**:
+
+- During the Ampt Private beta, we had a limit of 10 environments per account, but the error message we threw when the limit was reached was not easily understandable for end-users. We've fixed this issue, ensuring that you can easily manage your environments on our platform. If you hit the environment limit, simply go back to the Ampt Dashboard and delete unnecessary apps.
+- We've resolved some conflicts between Next.js and our http interface that supports adding Node-based web frameworks such as Express and Koa. This means you can now use Next.js seamlessly with Ampt, giving you more flexibility when building your applications.
+
+
 ## 2023-03-24
 
 **Improvements**:
