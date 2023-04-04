@@ -7,14 +7,14 @@ Ampt allows developers to integrate with their existing Astro applications.
 
 Install `@ampt/astro` in your project:
 
-```bash
-npm install @ampt/astro
+```terminal title=Terminal
+> npm install @ampt/astro
 ```
 
 or run this when you’re in the interactive shell:
 
-```bash
-install @ampt/astro
+```terminal title=Terminal
+> install @ampt/astro
 ```
 
 You will need to add the dev and build scripts to configure how you start the development server inside interactive shell and how you package your application. You will need to update `package.json` file as follows:
@@ -54,16 +54,14 @@ export default defineConfig({
 
 Start the interactive shell and run `build` to create your artifacts:
 
-```bash
-% ampt
-
+```terminal title=Terminal
+> ampt
 > build
 ```
 
 Start the interactive shell and run `dev` to start your development server
 
-```bash
-% ampt
-
+```terminal title=Terminal
+> ampt
 > dev
 ```

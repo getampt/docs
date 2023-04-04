@@ -15,9 +15,9 @@ Ampt is in early **PRIVATE BETA** and **NOT RECOMMENDED** for production use.
 
 It's very straightforward to get started with Ampt and have an app up and running in less than a minute. Just make sure you navigate to an empty directory in your terminal and have npm installed. Then run the following command to install and start Ampt.
 
-```bash
-npm i -g @ampt/cli
-ampt
+```terminal title=Terminal
+> npm i -g @ampt/cli
+> ampt
 ```
 
 You'll be prompted to create a new app or work on an existing app. Creating an new app will provide you with a set of templates for some inspiration. After selecting your template, Ampt spins up your sandbox in just a few seconds. All your logs will be streamed directly into the interactive shell and your changes will be instantly synced and deployed to your developer sandbox. Happy coding!
