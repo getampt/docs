@@ -97,11 +97,11 @@ This object includes all the information about the request for RESTful API. Requ
 
 This object includes to response object to be returned by the RESTful API. See the sample JSON for a GET request.
 
-```javascript
+```json
 {
-	status: 200,
-	headers: { 'content-type': 'application/json' },
-	body: undefined
+  "status": 200,
+  "headers": { "content-type": "application/json" },
+  "body": undefined
 }
 ```
 
