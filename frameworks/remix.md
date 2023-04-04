@@ -7,14 +7,14 @@ You can integrate your Remix application with Ampt and achieve a full stack deve
 
 Install the `@ampt/remix` adapter:
 
-```bash
-npm install @ampt/remix
+```terminal title=Terminal
+> npm install @ampt/remix
 ```
 
 or run this when you’re in the interactive shell:
 
-```bash
-install @ampt/remix
+```terminal title=Terminal
+> install @ampt/remix
 ```
 
 Configure remix to write assets to the `static` folder, and the server script to `build/index.js`
