@@ -124,7 +124,7 @@ app.use((req, res) => {
 
 When your application throws an exception, by default Ampt will return a JSON response:
 
-```json
+```json header=false
 { "message": "Internal Server Error" }
 ```
 

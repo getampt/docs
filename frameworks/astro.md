@@ -23,7 +23,7 @@ You will need to add the dev and build scripts to configure how you start the de
 - add `ampt:build` script for running astro build
 - set `main` to `dist/entry` which is the entrypoint for the server
 
-```javascript
+```json title=package.json, copy=false
 {
   "name": "my-astro-app",
   "main": "dist/entry",
@@ -38,7 +38,7 @@ You will need to add the dev and build scripts to configure how you start the de
 
 Add the ampt integration to your `astro.config.mjs` file:
 
-```javascript
+```javascript header=false
 // astro.config.mjs
 
 import { defineConfig } from "astro/config";
@@ -54,14 +54,14 @@ export default defineConfig({
 
 Start the interactive shell and run `build` to create your artifacts:
 
-```terminal title=Terminal
+```terminal title=Terminal, copy=false
 > ampt
 > build
 ```
 
 Start the interactive shell and run `dev` to start your development server
 
-```terminal title=Terminal
+```terminal title=Terminal, copy=false
 > ampt
 > dev
 ```

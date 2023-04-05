@@ -9,17 +9,16 @@ Ampt allows developers to integrate with their existing [Next.js](https://nextjs
 Ampt currently supports Next.js 12.x. Support for Next.js 13 is coming soon.
 !!!
 
-
 Install `@ampt/nextjs` in your project:
 
-```bash
-npm install @ampt/nextjs
+```terminal title=Terminal
+> npm install @ampt/nextjs
 ```
 
 or run this when you’re in the interactive shell:
 
-```bash
-install @ampt/nextjs
+```terminal title=Terminal
+> install @ampt/nextjs
 ```
 
 Add the `ampt:dev` and `ampt:build` scripts to configure how you start the development server inside interactive shell and how you build your application. You will need to update `package.json` file as follows:
@@ -30,7 +29,7 @@ Add the `ampt:dev` and `ampt:build` scripts to configure how you start the devel
 
 This is an example of what your `package.json` should look like::
 
-```javascript
+```json title=package.json, copy=false
 {
   "name": "my-nextjs-app",
   "main": "index.js",
@@ -45,7 +44,7 @@ This is an example of what your `package.json` should look like::
 
 Add the ampt integration to your `next.config.js` file:
 
-```javascript
+```javascript header=false
 // next.config.js
 
 import withAmpt from "@ampt/nextjs";
@@ -60,7 +59,7 @@ export default config;
 
 Add the file `index.js` to the root of your project, and add the following code:
 
-```javascript
+```javascript header=false
 // index.js
 
 import "@ampt/nextjs/entrypoint";
@@ -70,9 +69,8 @@ This adds the Next.js server and image optimization to your application's entryp
 
 Start the interactive shell and run `dev` to start your development server
 
-```bash
-% ampt
-
+```terminal title=Terminal, copy=false
+> ampt
 > dev
 ```
 
@@ -80,7 +78,7 @@ This will output a localhost URL you can visit to see your application running.
 
 Run `build` in the interactive shell to create your build artifacts:
 
-```bash
+```terminal title=Terminal, copy=false
 > build
 ```
 

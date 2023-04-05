@@ -73,7 +73,6 @@ To avoid a read operation, you may want to just check if a file exists before go
 const students = storage("students");
 
 const exists = await students.exists("/bin/binaryData.ext");
-
 const doesNotExist = await students.exists("/not-real/binaryData.ext");
 ```
 

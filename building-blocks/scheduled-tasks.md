@@ -102,7 +102,7 @@ data.on("created:user:*", async ({ item }) => {
 
 `.task()` handlers receive an event of this type:
 
-```javascript
+```json header=false
 {
   target: string
   id: string

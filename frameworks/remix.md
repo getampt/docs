@@ -19,8 +19,9 @@ or run this when you’re in the interactive shell:
 
 Configure remix to write assets to the `static` folder, and the server script to `build/index.js`
 
-```javascript
+```javascript header=false
 // remix.config.js
+
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
   ignoredRouteFiles: ["**/.*"],
@@ -33,8 +34,9 @@ module.exports = {
 
 Create `server.mjs` that will be used as the new entry point for your application:
 
-```javascript
+```javascript header=false
 // server.mjs
+
 import "@ampt/remix";
 ```
 
@@ -44,7 +46,7 @@ You will need to add the dev and build scripts to configure how you start the de
 - add `ampt:build` script to run the build
 - add `ampt:dev` script to run the dev server
 
-```javascript
+```javascript title=package.json, copy=false
 {
   "name": "my-remix-app",
   "main": "server.mjs",

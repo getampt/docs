@@ -162,7 +162,7 @@ const results = await data.get("*", true);
 
 Ampt either returns a single item or an array of multiple items. Any `get` request that specifies an exact key match will return a single item. Any request that could return more than one item will return an object with an `items` array that contains `key`s and `value`s:
 
-```javascript
+```json header=false
 {
   items: [
     { key: "foo:bar", value: "item1" },
@@ -181,9 +181,10 @@ Get queries can return a maximum of 1000 records or 1MB of data. We strongly adv
 The total number of items returned by a single `get()` call is limited to the value specified by the `limit` parameter (default 100). If additional items are available, a `lastKey` will be returned. This value can be passed into a subsequent call to `get()` as the `start` parameter. A `.next()` convenience function will also be returned which can be called directly instead of constructing the additional call.
 
 ```javascript
-const result = await data.get('foo:*', { limit: 3 });
+const result = await data.get("foo:*", { limit: 3 });
+```
 
-// result:
+```json header=false
 {
 	items: [
 		{ key: "foobar", value: "item1" },
@@ -193,8 +194,10 @@ const result = await data.get('foo:*', { limit: 3 });
 	lastKey: "foobaz",
 	next: [Function: next]
 }
+```
 
-const nextResult = await data.get('foo:*', { limit: 3, start: "foobaz" });
+```javascript
+const nextResult = await data.get("foo:*", { limit: 3, start: "foobaz" });
 ```
 
 To paginate through all items using `next()`:
