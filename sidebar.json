@@ -1,29 +1,31 @@
 {
   "Getting Started": [
-    { "title": "Overview", "href": "/docs" },
-    { "title": "Changelog", "href": "/docs/changelog" }
+    { "title": "Overview", "href": "/docs/" },
+    { "title": "Changelog", "href": "/docs/changelog/" }
   ],
-  "Building Blocks": [
-    { "title": "API", "href": "/docs/building-blocks/api" },
-    { "title": "Schedules", "href": "/docs/building-blocks/scheduled-tasks" },
-    { "title": "Events", "href": "/docs/building-blocks/events" },
-    { "title": "Parameters", "href": "/docs/building-blocks/params" },
-    { "title": "Storage", "href": "/docs/building-blocks/storage" },
-    { "title": "Data", "href": "/docs/building-blocks/data" },
-    { "title": "Static Assets", "href": "/docs/building-blocks/static-assets" },
+  "Interfaces": [
+    { "title": "Schedule Tasks", "href": "/docs/scheduled-tasks/" },
+    { "title": "Events", "href": "/docs/events/" },
+    { "title": "Parameters", "href": "/docs/params/" },
+    { "title": "Storage", "href": "/docs/storage/" },
     {
-      "title": "HTTP Request Handling",
-      "href": "/docs/building-blocks/http-request-handling"
+      "title": "HTTP",
+      "href": "/docs/http/"
     },
-    { "title": "WebSockets", "href": "/docs/building-blocks/websockets" }
+    { "title": "WebSockets", "href": "/docs/websockets/" },
+    { "title": "Static Assets", "href": "/docs/static-assets/" }
+  ],
+  "Modules": [
+    { "title": "API", "href": "/docs/api/" },
+    { "title": "Data", "href": "/docs/data/" }
   ],
   "Frameworks": [
-    { "title": "Next.js", "href": "/docs/frameworks/next" },
-    { "title": "Remix", "href": "/docs/frameworks/remix" },
-    { "title": "Astro", "href": "/docs/frameworks/astro" }
+    { "title": "Next.js", "href": "/docs/frameworks/next/" },
+    { "title": "Remix", "href": "/docs/frameworks/remix/" },
+    { "title": "Astro", "href": "/docs/frameworks/astro/" }
   ],
   "CLI Reference": [
-    { "title": "Standard Mode", "href": "/docs/ampt-cli/standard-mode" },
-    { "title": "Interactive Shell", "href": "/docs/ampt-cli/interactive-shell" }
+    { "title": "Standard Mode", "href": "/docs/cli-standard-mode/" },
+    { "title": "Interactive Shell", "href": "/docs/cli-interactive-shell/" }
   ]
 }
