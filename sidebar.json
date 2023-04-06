@@ -13,7 +13,7 @@
       "href": "/docs/http/"
     },
     { "title": "WebSockets", "href": "/docs/websockets/" },
-    { "title": "Static Assets", "href": "/docs/static-assets/" }
+    { "title": "CDN", "href": "/docs/cdn/" }
   ],
   "Modules": [
     { "title": "API", "href": "/docs/api/" },
