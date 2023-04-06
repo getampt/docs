@@ -30,7 +30,15 @@ Deploys the code AND data from your sandbox to a preview environment named NAME.
 
 A preview environment is an ephermeral environment that you can use to easily share your work with others. Previews allow you to create a stable snapshots of your sandbox so that you can get feedback while continuing to make changes to your own version.
 
-If a script named cloud:build is defined in package.json, it will be run before deploying.
+If a script named `ampt:build` is defined in package.json, it will be run before deploying.
+
+## `deploy [NAME]`
+
+Deploys the code from your sandbox to a permanent environment named NAME. If no NAME is provided, Interactive Shell prompts you to enter a name. 
+
+A permanent environment is a long-lived environment to host your app. Common names for permanent environments are `prod`, `staging`, `qa`, and `dev`.
+
+If a script named `ampt:build` is defined in package.json, it will be run before deploying.
 
 ## `import [FILENAME] [--overwrite]`
 
