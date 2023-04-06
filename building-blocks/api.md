@@ -59,7 +59,7 @@ Methods accept a `path` and `callback` parameter.
 | get()    | Routes HTTP GET requests to the specified path with the specified callback functions.                                                                              |
 | post()   | Routes HTTP POST requests to the specified path with the specified callback functions.                                                                             |
 | put()    | Routes HTTP PUT requests to the specified path with the specified callback functions.                                                                              |
-| patch()    | Routes HTTP PATCH requests to the specified path with the specified callback functions.                                                                              |
+| patch()  | Routes HTTP PATCH requests to the specified path with the specified callback functions.                                                                            |
 | use()    | Mounts the specified middleware function or functions at the specified path: the middleware function is executed when the base of the requested path matches path. |
 
 ```javascript
