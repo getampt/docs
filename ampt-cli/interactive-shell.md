@@ -32,6 +32,14 @@ A preview environment is an ephermeral environment that you can use to easily sh
 
 If a script named cloud:build is defined in package.json, it will be run before deploying.
 
+## `deploy [NAME]`
+
+Deploys the code from your sandbox to a permanent environment named NAME. If no NAME is provided, Interactive Shell prompts you to enter a name. 
+
+A permanent environment is a long-lived environment to host your app. Common names for permanent environments are `prod`, `staging`, `qa`, and `dev`.
+
+If a script named `cloud:build` is defined in package.json, it will be run before deploying.
+
 ## `import [FILENAME] [--overwrite]`
 
 Seeds data from the `FILENAME` in your local directory to your **sandbox**. If no `FILENAME` is provided, it will default to `data.json`. By default, the data will be merged with existing data. If you specify the `-o` or `--overwrite` flag, all data will be cleared and reseeded.

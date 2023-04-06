@@ -13,10 +13,17 @@ Logs the user in via the browser. You will need to verify the code you see in th
 
 Logs the user out of the current session
 
-## `cloud share [NAME]`
+## `ampt share [NAME]`
+
 Deploys the code AND data from your sandbox to a preview stage named NAME. If no NAME is provided, a randomly generated name will be created for you.
 
 A preview environment is an ephermeral environment that you can use to easily share your work with others. Previews allow you to create a stable snapshots of your sandbox so that you can get feedback while continuing to make changes to your own version.
+
+## `ampt deploy [NAME]`
+
+Deploys the code from your local directory to the provided permanent environment. If no NAME is provided, it will prompt you for an environment name.
+
+A permanent environment is a long-lived stage/environment to host your app. Common names for permanent environments are `prod`, `staging`, qa, and dev.
 
 ## `ampt install [PACKAGENAME]`
 

@@ -3,6 +3,18 @@ title: Changelog
 description: Changelog for the Ampt platform is updated on a weekly basis to include the latest updates and improvements.
 ---
 
+## 2023-04-06
+
+**Improvements**:
+
+- Introducing WebSockets support! You can now build real-time communications app using Ampt. Check out our [documentation](https://www.getampt.com/docs/building-blocks/websockets) and [announcement blog](https://getampt.com/blog/introducing-websockets/) for more information. Try out our [sample app](https://github.com/getampt/templates/tree/main/templates/websockets) to see it in action.
+- We're excited to introduce the `deploy` command! With this, you can create a powerful and scalable permanent environments. Those environments are available 24/7 while sandboxes go offline when you're not using them.
+
+**Bug Fixes**:
+
+- We've fixed some broken links to the documentation on the Ampt Dashboard to make it easier for you to access the information you need.
+- We've made several improvements to the CLI experience to provide a smoother and more efficient experience for you.
+
 ## 2023-03-31
 
 **Improvements**:
