@@ -25,7 +25,7 @@ If a script named `ampt:build` is defined in package.json, it will be run before
 
 Deploys the code from your local directory to the provided permanent environment. If no NAME is provided, it will prompt you for an environment name.
 
-A permanent environment is a long-lived stage/environment to host your app. Common names for permanent environments are `prod`, `staging`, qa, and dev.
+A permanent environment is a long-lived stage/environment to host your app. Common names for permanent environments are `prod`, `staging`, `qa`, and `dev`.
 
 If a script named `ampt:build` is defined in package.json, it will be run before deploying.
 
