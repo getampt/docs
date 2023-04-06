@@ -3,7 +3,7 @@ title: Overview
 description: Ampt lets developers rapidly build native cloud apps without complicated configs or struggling with infrastructure.
 ---
 
-With Ampt, you _just write code_. Backed by a fully-featured Node.js runtime with support for modern JavaScript and TypeScript right out of the box, you can build just about any application you can imagine. Import your favorite libraries, write your own custom APIs, connect to third-party APIs and services, use familiar backend frameworks like [Express.js](/docs/building-blocks/http-request-handling#express.js) and [Koa](/docs/building-blocks/http-request-handling#koa), or even fullstack frameworks like [Astro](/docs/frameworks/astro), [Remix](/docs/frameworks/remix), and [Next.js](/docs/frameworks/next).
+With Ampt, you _just write code_. Backed by a fully-featured Node.js runtime with support for modern JavaScript and TypeScript right out of the box, you can build just about any application you can imagine. Import your favorite libraries, write your own custom APIs, connect to third-party APIs and services, use familiar backend frameworks like [Express.js](/docs/http/#express.js) and [Koa](/docs/http/#koa), or even fullstack frameworks like [Astro](/docs/frameworks/astro/), [Remix](/docs/frameworks/remix/), and [Next.js](/docs/frameworks/next/).
 
 Ampt provides multiple standalone packages that integrate seamlessly with the runtime, and doesn't require you to ever think about infrastructure. You can use as little or as many as you like. The SDKs are designed to be simple and familiar, maximizing your productivity by eliminating the need to learn new, complicated APIs.
 
@@ -24,43 +24,42 @@ You'll be prompted to create a new app or work on an existing app. Creating an n
 
 You can manage your application parameters, view metrics, browse and update data, access blob storage, and much more using the Ampt Dashboard. During private beta, access to the Ampt dashboard is limited to only beta users.
 
-## SDK and Built-in Solutions
+## Core Interfaces and Modules
 
-The SDK is automatically available to your application and the interfaces can be selectively imported into your scripts like this:
+The `@ampt/sdk` provides access to the core interfaces. These can be selectively imported into your scripts like this:
 
-```javascript
-import { storage, params, events, schedule, http, ws } from "@ampt/sdk";
-import { api } from "@ampt/api";
-import { data } from "@ampt/data";
+```javascript header=false
+import { storage, params, events, schedule } from "@ampt/sdk";
 ```
 
-The core SDK (`@ampt/sdk`) includes some basic interfaces to help you get started:
+The SDK (`@ampt/sdk`) includes:
 
-- [HTTP](/docs/building-blocks/http-request-handling)
-- [Storage](/docs/building-blocks/storage)
-- [Events](/docs/building-blocks/events)
-- [Scheduled Tasks](/docs/building-blocks/scheduled-tasks)
-- [Params](/docs/building-blocks/params)
-- [WebSockets](/docs/building-blocks/websockets)
+- [HTTP](/docs/http/)
+- [Storage](/docs/storage/)
+- [Events](/docs/events/)
+- [Scheduled Tasks](/docs/scheduled-tasks/)
+- [Parameters](/docs/parameters)
+- [WebSockets](/docs/websockets)
 
-For more specific use cases, you can install additional Ampt solutions:
+For more specific use cases, you can install additional modules:
 
-- [@ampt/api](/docs/building-blocks/api)
-- [@ampt/data](/docs/building-blocks/data)
+- [@ampt/api](/docs/api/)
+- [@ampt/data](/docs/data/)
 
 If you intend to use an existing framework with Ampt, such as Express or Remix, view the following guides below:
 
-- [Using Express](/docs//building-blocks/http-request-handling#expressjs)
-- [Using Connect](/docs//building-blocks/http-request-handling#connect)
-- [Using Koa](/docs/building-blocks/http-request-handling#koa)
-- [Using Restana](/docs/building-blocks/http-request-handling#restana)
-- [Using Fastify](/docs/building-blocks/http-request-handling#fastify)
-- [Using Remix](/docs/frameworks/remix)
-- [Using Astro](/docs/frameworks/astro)
+- [Using Express](/docs/http/#expressjs)
+- [Using Connect](/docs/http/#connect)
+- [Using Koa](/docs/http/#koa)
+- [Using Restana](/docs/http/#restana)
+- [Using Fastify](/docs/http/#fastify)
+- [Using Remix](/docs/frameworks/remix/)
+- [Using Astro](/docs/frameworks/astro/)
+- [Using Next.js](/docs/frameworks/next/)
 
 ## Ampt CLI
 
 To manage Ampt applications from your terminal, you can use the Ampt CLI.
 
-- [Ampt CLI Interactive Shell](/docs/ampt-cli/interactive-shell)
-- [Ampt CLI Standard Mode](/docs/ampt-cli/standard-mode)
+- [Ampt CLI Interactive Shell](/docs/cli-interactive-shell)
+- [Ampt CLI Standard Mode](/docs/cli-standard-mode)

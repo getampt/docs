@@ -1,11 +1,11 @@
 ---
-title: Static Assets
+title: Content Delivery Network (CDN)
 description: Easily serve static files through a global content delivery network (CDN).
 ---
 
 Ampt allows you to serve files from your application URL. This is useful for serving static assets such as images, CSS, and JavaScript, allowing you to host front-end apps and websites. By convention, static assets must be stored in the `static` directory at the root of your application.
 
-You can have sub-directories in the static directory, but `public` is reserved for public files created using the [`storage`](/docs/building-blocks/storage) interface, which are available from the `/public/*` path.
+You can have sub-directories in the static directory, but `public` is reserved for public files created using the [`storage`](/docs/storage/) interface, which are available from the `/public/*` path.
 
 ## Static HTML pages
 
