@@ -4,14 +4,11 @@
     { "title": "Changelog", "href": "/docs/changelog/" }
   ],
   "Interfaces": [
+    { "title": "HTTP", "href": "/docs/http/" },
     { "title": "Schedule Tasks", "href": "/docs/scheduled-tasks/" },
     { "title": "Events", "href": "/docs/events/" },
     { "title": "Parameters", "href": "/docs/params/" },
     { "title": "Storage", "href": "/docs/storage/" },
-    {
-      "title": "HTTP",
-      "href": "/docs/http/"
-    },
     { "title": "WebSockets", "href": "/docs/websockets/" },
     { "title": "CDN", "href": "/docs/cdn/" }
   ],

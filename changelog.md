@@ -7,7 +7,7 @@ description: Changelog for the Ampt platform is updated on a weekly basis to inc
 
 **Improvements**:
 
-- Introducing WebSockets support! You can now build real-time communication apps using Ampt. Check out our [documentation](/docs/building-blocks/websockets) and [announcement blog](/blog/introducing-websockets/) for more information. You can also try out our [sample app](https://github.com/getampt/templates/tree/main/templates/websockets) to see it in action.
+- Introducing WebSockets support! You can now build real-time communication apps using Ampt. Check out our [documentation](/docs/websockets/) and [announcement blog](/blog/introducing-websockets/) for more information. You can also try out our [sample app](https://github.com/getampt/templates/tree/main/templates/websockets) to see it in action.
 - We're excited to introduce the `deploy` command! With this, you can deploy your apps to permanent environments. These environments are available 24/7 to serve your production traffic.
 - We've added the capability to detect outdated versions of `@ampt` packages. The CLI will prompt you to update outdated dependencies before starting the sandbox environment.
 
@@ -27,7 +27,6 @@ description: Changelog for the Ampt platform is updated on a weekly basis to inc
 
 - During the Ampt Private beta, we had a limit of 10 environments per account, but the error message we threw when the limit was reached was not easily understandable for end-users. We've fixed this issue, ensuring that you can easily manage your environments on our platform. If you hit the environment limit, simply go back to the Ampt Dashboard and delete unnecessary apps.
 - We've resolved some conflicts between Next.js and our http interface that supports adding Node-based web frameworks such as Express and Koa. This means you can now use Next.js seamlessly with Ampt, giving you more flexibility when building your applications.
-
 
 ## 2023-03-24
 
