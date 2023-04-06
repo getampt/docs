@@ -9,6 +9,7 @@ description: Changelog for the Ampt platform is updated on a weekly basis to inc
 
 - Introducing WebSockets support! You can now build real-time communications app using Ampt. Check out our [documentation](https://www.getampt.com/docs/building-blocks/websockets) and [announcement blog](https://getampt.com/blog/introducing-websockets/) for more information. Try out our [sample app](https://github.com/getampt/templates/tree/main/templates/websockets) to see it in action.
 - We're excited to introduce the `deploy` command! With this, you can create a powerful and scalable permanent environments. Those environments are available 24/7 while sandboxes go offline when you're not using them.
+- We've added the capability to detect outdated versions of ampt packages. The CLI will prompt you to update outdated dependencies before starting the sandbox environment.
 
 **Bug Fixes**:
 
