@@ -29,7 +29,7 @@ You can manage your application parameters, view metrics, browse and update data
 The SDK is automatically available to your application and the interfaces can be selectively imported into your scripts like this:
 
 ```javascript
-import { storage, params, events, schedule, http } from "@ampt/sdk";
+import { storage, params, events, schedule, http, ws } from "@ampt/sdk";
 import { api } from "@ampt/api";
 import { data } from "@ampt/data";
 ```
@@ -41,6 +41,7 @@ The core SDK (`@ampt/sdk`) includes some basic interfaces to help you get starte
 - [Events](/docs/building-blocks/events)
 - [Scheduled Tasks](/docs/building-blocks/scheduled-tasks)
 - [Params](/docs/building-blocks/params)
+- [WebSockets](/docs/building-blocks/websockets)
 
 For more specific use cases, you can install additional Ampt solutions:
 
