@@ -11,7 +11,11 @@
     { "title": "Storage", "href": "/docs/building-blocks/storage" },
     { "title": "Data", "href": "/docs/building-blocks/data" },
     { "title": "Static Assets", "href": "/docs/building-blocks/static-assets" },
-    { "title": "HTTP Request Handling", "href": "/docs/building-blocks/http-request-handling" }
+    {
+      "title": "HTTP Request Handling",
+      "href": "/docs/building-blocks/http-request-handling"
+    },
+    { "title": "WebSockets", "href": "/docs/building-blocks/websockets" }
   ],
   "Frameworks": [
     { "title": "Next.js", "href": "/docs/frameworks/next" },
