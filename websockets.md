@@ -1,6 +1,6 @@
 ---
 title: WebSockets
-description: Handle WebSocket connections with a simple interface.
+description: Built-in WebSockets interface to manage real-time communications between your app and client browsers.
 ---
 
 Ampt provides a simple interface to interact with WebSocket connections to your app.
