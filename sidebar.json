@@ -7,7 +7,7 @@
     { "title": "HTTP", "href": "/docs/http/" },
     { "title": "Schedule Tasks", "href": "/docs/scheduled-tasks/" },
     { "title": "Events", "href": "/docs/events/" },
-    { "title": "Parameters", "href": "/docs/params/" },
+    { "title": "Parameters", "href": "/docs/parameters/" },
     { "title": "Storage", "href": "/docs/storage/" },
     { "title": "WebSockets", "href": "/docs/websockets/" },
     { "title": "CDN", "href": "/docs/cdn/" }
