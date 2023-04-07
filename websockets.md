@@ -147,6 +147,10 @@ ws.on("connected", async (connection) => {
 
 ## Limits
 
+!!! caution
+WebSocket connection attempts will be rejected with a status code of 403 if your Sandbox Environment is not currently active.
+!!!
+
 | Environment Type | Burst Limit (concurrent requests) | Rate Limit (messages per second) |
 | ---------------- | --------------------------------- | -------------------------------- |
 | **Sandbox**      | 10                                | 10                               |
