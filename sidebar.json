@@ -1,8 +1,8 @@
 {
   "Getting Started": [
     { "title": "Installation", "href": "/docs/" },
-    { "title": "How Ampt Works", "href": "/docs/overview" },
-    { "title": "Quick Start", "href": "/docs/quick-start" },
+    { "title": "How Ampt Works", "href": "/docs/overview/" },
+    { "title": "Quick Start", "href": "/docs/quick-start/" },
     { "title": "Changelog", "href": "/docs/changelog/" }
   ],
   "Core Concepts": [
@@ -43,8 +43,8 @@
     { "title": "React, Vue, and other SPAs", "href": "/docs/frameworks/spas/" }
   ],
   "Guides": [
-    { "title": "Serve Static Assets", "href": "/docs/static-assets" },
-    { "title": "Use Custom Domains", "href": "/docs/custom-domains" }
+    { "title": "Serve Static Assets", "href": "/docs/static-assets/" },
+    { "title": "Use Custom Domains", "href": "/docs/custom-domains/" }
   ],
   "CLI Reference": [
     { "title": "Standard Mode", "href": "/docs/cli-standard-mode/" },
