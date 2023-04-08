@@ -1,5 +1,5 @@
 ---
-title: Content Delivery Network (CDN)
+title: Serve Static Assets
 description: Easily serve static files through a global content delivery network (CDN).
 ---
 

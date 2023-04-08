@@ -9,7 +9,7 @@
     { "title": "Workflows", "href": "/docs/workflows/" },
     { "title": "Apps & Environments", "href": "/docs/environments/" },
     { "title": "State Management", "href": "/docs/state-management/" },
-    { "title": "CDN", "href": "/docs/cdn/" },
+    { "title": "CDN & Caching", "href": "/docs/cdn/" },
     { "title": "Ampt Runtime", "href": "/docs/runtime/" }
   ],
   "Interfaces": [
@@ -42,7 +42,7 @@
     },
     { "title": "React, Vue, and other SPAs", "href": "/docs/frameworks/spas/" }
   ],
-  "How To": [
+  "Guides": [
     { "title": "Serve Static Assets", "href": "/docs/static-assets" },
     { "title": "Use Custom Domains", "href": "/docs/custom-domains" }
   ],
