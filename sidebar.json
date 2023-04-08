@@ -37,8 +37,8 @@
     { "title": "Remix", "href": "/docs/frameworks/remix/" },
     { "title": "Astro", "href": "/docs/frameworks/astro/" },
     {
-      "title": "Node-based Web Frameworks",
-      "href": "/docs/frameworks/node-based-web/"
+      "title": "Node-based",
+      "href": "/docs/frameworks/node-based/"
     },
     { "title": "React, Vue, and other SPAs", "href": "/docs/frameworks/spas/" }
   ],

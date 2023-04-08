@@ -1,0 +1,6 @@
+---
+title: React, Vue, and other SPAs
+description: ...
+---
+
+...
