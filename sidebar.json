@@ -1,7 +1,16 @@
 {
   "Getting Started": [
-    { "title": "Overview", "href": "/docs/" },
+    { "title": "Installation", "href": "/docs/" },
+    { "title": "How Ampt Works", "href": "/docs/overview" },
+    { "title": "Quick Start", "href": "/docs/quick-start" },
     { "title": "Changelog", "href": "/docs/changelog/" }
+  ],
+  "Core Concepts": [
+    { "title": "Workflows", "href": "/docs/workflows/" },
+    { "title": "Apps & Environments", "href": "/docs/environments/" },
+    { "title": "State Management", "href": "/docs/state-management/" },
+    { "title": "CDN", "href": "/docs/cdn/" },
+    { "title": "Ampt Runtime", "href": "/docs/runtime/" }
   ],
   "Interfaces": [
     { "title": "HTTP", "href": "/docs/http/" },
@@ -9,17 +18,33 @@
     { "title": "Events", "href": "/docs/events/" },
     { "title": "Parameters", "href": "/docs/parameters/" },
     { "title": "Storage", "href": "/docs/storage/" },
-    { "title": "WebSockets", "href": "/docs/websockets/" },
-    { "title": "CDN", "href": "/docs/cdn/" }
+    { "title": "WebSockets", "href": "/docs/websockets/" }
   ],
   "Modules": [
     { "title": "API", "href": "/docs/api/" },
     { "title": "Data", "href": "/docs/data/" }
   ],
+  "Workflows": [
+    { "title": "Developer Sandboxes", "href": "/docs/sandboxes/" },
+    { "title": "Preview Environments", "href": "/docs/previews/" },
+    { "title": "Permanent Stages", "href": "/docs/stages/" },
+    { "title": "Running Scripts", "href": "/docs/scripts/" },
+    { "title": "CI/CD", "href": "/docs/cicd/" },
+    { "title": "Git-based Deployments", "href": "/docs/git/" }
+  ],
   "Frameworks": [
     { "title": "Next.js", "href": "/docs/frameworks/next/" },
     { "title": "Remix", "href": "/docs/frameworks/remix/" },
-    { "title": "Astro", "href": "/docs/frameworks/astro/" }
+    { "title": "Astro", "href": "/docs/frameworks/astro/" },
+    {
+      "title": "Node-based Web Frameworks",
+      "href": "/docs/frameworks/node-based-web/"
+    },
+    { "title": "React, Vue, and other SPAs", "href": "/docs/frameworks/spas/" }
+  ],
+  "How To": [
+    { "title": "Serve Static Assets", "href": "/docs/static-assets" },
+    { "title": "Use Custom Domains", "href": "/docs/custom-domains" }
   ],
   "CLI Reference": [
     { "title": "Standard Mode", "href": "/docs/cli-standard-mode/" },
