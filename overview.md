@@ -3,29 +3,15 @@ title: How Ampt Works
 description: Ampt lets developers rapidly build native cloud apps without complicated configs or struggling with infrastructure.
 ---
 
-Ampt is a developer toolkit, account orchestrator, deployment engine, and cloud management utility all rolled into one.
-
+Ampt is a developer tool, account orchestrator, deployment engine, and cloud management utility all rolled into one.
 
 With Ampt, you _just write code_. Backed by a fully-featured Node.js runtime with support for modern JavaScript and TypeScript right out of the box, you can build just about any application you can imagine. Import your favorite libraries, write your own custom APIs, connect to third-party APIs and services, use familiar backend frameworks like [Express.js](/docs/http/#express.js) and [Koa](/docs/http/#koa), or even fullstack frameworks like [Astro](/docs/frameworks/astro/), [Remix](/docs/frameworks/remix/), and [Next.js](/docs/frameworks/next/).
 
-Ampt provides multiple standalone packages that integrate seamlessly with the runtime, and doesn't require you to ever think about infrastructure. You can use as little or as many as you like. The SDKs are designed to be simple and familiar, maximizing your productivity by eliminating the need to learn new, complicated APIs.
+Ampt provides multiple standalone modules that integrate seamlessly with the runtime, and doesn't require you to ever think about infrastructure. You can use as little or as many as you like. The SDKs are designed to be simple and familiar, maximizing your productivity by eliminating the need to learn new, complicated APIs.
 
 !!! caution
 Ampt is in early **PRIVATE BETA** and **NOT RECOMMENDED** for production use.
 !!!
-
-## Getting Started
-
-It's very straightforward to get started with Ampt and have an app up and running in less than a minute. Just make sure you navigate to an empty directory in your terminal and have npm installed. Then run the following command to install and start Ampt.
-
-```terminal title=Terminal
-> npm i -g @ampt/cli
-> ampt
-```
-
-You'll be prompted to create a new app or work on an existing app. Creating an new app will provide you with a set of templates for some inspiration. After selecting your template, Ampt spins up your sandbox in just a few seconds. All your logs will be streamed directly into the interactive shell and your changes will be instantly synced and deployed to your developer sandbox. Happy coding!
-
-You can manage your application parameters, view metrics, browse and update data, access blob storage, and much more using the Ampt Dashboard. During private beta, access to the Ampt dashboard is limited to only beta users.
 
 ## Core Interfaces and Modules
 
