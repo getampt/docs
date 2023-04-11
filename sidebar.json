@@ -36,6 +36,7 @@
     { "title": "Next.js", "href": "/docs/frameworks/next/" },
     { "title": "Remix", "href": "/docs/frameworks/remix/" },
     { "title": "Astro", "href": "/docs/frameworks/astro/" },
+    { "title": "Eleventy", "href": "/docs/frameworks/eleventy/" },
     {
       "title": "Node-based",
       "href": "/docs/frameworks/node-based/"
