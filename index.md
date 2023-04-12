@@ -3,7 +3,11 @@ title: Get started with Ampt
 description: Ampt lets developers use their local IDE to write apps using their favorite JavaScript frameworks and packages, then automatically provisions, manages, and optimizes cloud infrastructure by inferring requirements from the code.
 ---
 
-<div class="font-bold text-xl">Installation</div>
+<div class="font-medium text-xl pb-6">Installation</div>
+
+!!! note
+Ampt is currently in private beta. If your account hasn't been granted access, then the steps below will not work for you. Please be sure to sign up for the [waitlist](https://ampt.dev).
+!!!
 
 <div>
 <!-- Step 1 -->
@@ -77,7 +81,7 @@ ampt ⚡ (beta)
 ```terminal title=Terminal, class="no-margin", copy=false
 ampt ⚡ (beta)
 
-````whitespace-normal pl-5 -indent-5 inline-block~~~~text-ampt-pink~?~~~ Do you want to create a new app or work on an existing one?~~~
+~~~whitespace-normal pl-5 -indent-5 inline-block~~~~text-ampt-pink~?~~~ Do you want to create a new app or work on an existing one?~~~
 
 › Create new app
   ~~~text-gray-500~Work on an existing app~~~
@@ -160,7 +164,6 @@ ampt ⚡ (beta)
 </div></div>
 </div>
 
-<div class="font-bold text-lg">And now your Ampt! 😉</div>
+<div class="font-medium text-xl">Congratulations, now your Ampt! 😉</div>
 
 Logs will be streamed directly into the interactive shell running in your terminal to give you immediate feedback. Plus, you can manage your parameters, view metrics, browse and update data, access blob storage, and much more using the [Ampt Dashboard](https://ampt.dev).
-````
