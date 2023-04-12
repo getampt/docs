@@ -1,6 +1,0 @@
----
-title: Permanent Stages
-description: ...
----
-
-...
