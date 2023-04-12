@@ -1,5 +1,5 @@
 ---
-title: Get started with Ampt
+title: Installation
 description: Ampt lets developers use their local IDE to write apps using their favorite JavaScript frameworks and packages, then automatically provisions, manages, and optimizes cloud infrastructure by inferring requirements from the code.
 ---
 
@@ -171,4 +171,4 @@ ampt ⚡ (beta)
 		<div class="text-lg pt-1 pb-2"><p>Logs will be streamed directly into the interactive shell running in your terminal to give you immediate feedback. Plus, you can manage your parameters, view metrics, browse and update data, access blob storage, and much more using the <a href="https://ampt.dev" target="_blank">Ampt Dashboard</a>.</p></div>
 	</div>
 	</div>
-</div></div>
+</div>
