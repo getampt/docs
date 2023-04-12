@@ -7,7 +7,7 @@ description: Ampt lets developers use their local IDE to write apps using their 
 Ampt is currently in **PRIVATE BETA**. If your account hasn't been granted access, then the steps below will not work for you. Please be sure to sign up for the [waitlist](https://ampt.dev).
 !!!
 
-<div class="font-medium text-xl pb-6">Installation</div>
+<div class="font-medium text-xl pb-6 pt-4">Installation</div>
 
 <div>
 <!-- Step 1 -->
