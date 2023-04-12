@@ -23,8 +23,7 @@
   ],
   "Workflows": [
     { "title": "Running Scripts", "href": "/docs/scripts/" },
-    { "title": "CI/CD", "href": "/docs/cicd/" },
-    { "title": "Git-based Deployments", "href": "/docs/git/" }
+    { "title": "CI/CD", "href": "/docs/cicd/" }
   ],
   "Frameworks": [
     { "title": "Next.js", "href": "/docs/frameworks/next/" },

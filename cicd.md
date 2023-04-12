@@ -9,7 +9,7 @@ First create an API key in the Ampt dashboard by visiting https://ampt.dev/orgs/
 
 You can then use the `ampt deploy` command to deploy to a stage such as `prod`.
 
-# GitHub Actions Example
+## GitHub Actions Example
 
 Below is a simple example of an automated deployment workflow using GitHub actions.
 
