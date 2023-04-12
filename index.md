@@ -1,6 +1,6 @@
 ---
 title: Installation
-description: Ampt lets developers use their local IDE to write apps using their favorite JavaScript frameworks and packages, then automatically provisions, manages, and optimizes cloud infrastructure by inferring requirements from the code.
+description: Ampt lets developers use their local IDE to write apps with their favorite JavaScript frameworks and packages, then automatically provisions, manages, and optimizes cloud infrastructure by inferring requirements from the code.
 ---
 
 !!! note Important Note
