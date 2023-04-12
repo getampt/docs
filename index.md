@@ -3,11 +3,11 @@ title: Get started with Ampt
 description: Ampt lets developers use their local IDE to write apps using their favorite JavaScript frameworks and packages, then automatically provisions, manages, and optimizes cloud infrastructure by inferring requirements from the code.
 ---
 
-<div class="font-medium text-xl pb-6">Installation</div>
-
-!!! note
-Ampt is currently in private beta. If your account hasn't been granted access, then the steps below will not work for you. Please be sure to sign up for the [waitlist](https://ampt.dev).
+!!! note Important Note
+Ampt is currently in **PRIVATE BETA**. If your account hasn't been granted access, then the steps below will not work for you. Please be sure to sign up for the [waitlist](https://ampt.dev).
 !!!
+
+<div class="font-medium text-xl pb-6">Installation</div>
 
 <div>
 <!-- Step 1 -->
