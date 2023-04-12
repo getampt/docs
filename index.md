@@ -164,6 +164,6 @@ ampt ⚡ (beta)
 </div></div>
 </div>
 
-<div class="font-medium text-xl">Congratulations, now your Ampt! 😉</div>
+<div class="font-medium text-xl">Congratulations, now you're Ampt! 😉</div>
 
 Logs will be streamed directly into the interactive shell running in your terminal to give you immediate feedback. Plus, you can manage your parameters, view metrics, browse and update data, access blob storage, and much more using the [Ampt Dashboard](https://ampt.dev).
