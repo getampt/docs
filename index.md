@@ -143,7 +143,7 @@ ampt ⚡ (beta)
 	<div class="pr-6 flex-1">
 		<div class="text-base font-medium">Start coding!</div>
 		<div class="text-base pt-1 pb- pb-6 xl:pb-16"><p>Ampt generates the template code in your local directory, then spins up and connects to your isolated <span class="font-medium text-ampt-purple">developer sandbox</span> in the cloud.</p>
-		<p>Open your project directory in your favorite IDE and just start coding! Every time you save your work, your changes will by synced and deployed to your developer sandbox in <span class="font-medium text-ampt-purple">less than a second</span>.</p>
+		<p>Open your project directory in your favorite IDE and just start coding! Every time you save your work, your changes will be synced and deployed to your developer sandbox in <span class="font-medium text-ampt-purple">less than a second</span>.</p>
 		<p>Checkout the <a href="/docs/cli-interactive-shell/">CLI documenation</a> for more cool things you can do from the terminal. 🚀</p></div>
 	</div>
 	<div class="w-full xl:w-[55%] pb-16">
