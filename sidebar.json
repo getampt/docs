@@ -7,6 +7,7 @@
   "Core Concepts": [
     { "title": "Apps & Environments", "href": "/docs/environments/" },
     { "title": "CDN & Caching", "href": "/docs/cdn/" },
+    { "title": "State Management", "href": "/docs/state-management/" },
     { "title": "Ampt Runtime", "href": "/docs/runtime/" }
   ],
   "Interfaces": [
