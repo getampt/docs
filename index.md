@@ -122,7 +122,7 @@ ampt ⚡ (beta)
 	<div class="flex-none"><span class="block bg-ampt-purple text-white text-sm rounded-full w-6 h-6 font-medium flex items-center justify-center">6</span></div>
 	<div class="pr-6 flex-1">
 		<div class="text-base font-medium">Name your app</div>
-		<div class="text-base pt-1 pb-6 xl:pb-16">The app name will default to your directory. You can rename it here.</div>
+		<div class="text-base pt-1 pb-6 xl:pb-16">The app name will default to your directory name. You can rename it here.</div>
 	</div>
 	<div class="w-full xl:w-[55%] pb-16">
 
