@@ -7,7 +7,7 @@ Ampt's isolation model lets developers rapidly iterate on applications without n
 
 ## Apps
 
-Ampt allows you to build **apps** within your **organization**. **Apps** are extremely flexibile. They can be entire full-stack applications, independent microservices, isolated backends, or a frontend website backed by a global CDN. You decide how to structure your project using as many apps as you want.
+Ampt allows you to build **apps** within your **organization**. **Apps** are extremely flexible. They can be entire full-stack applications, independent microservices, isolated backends, or a frontend website backed by a global CDN. You decide how to structure your project using as many apps as you want.
 
 ## Environments
 
