@@ -1,6 +1,6 @@
 ---
 title: State Management
-description: Connect to your favorite database providers to store data and manage application state.
+description: Connect Ampt to your favorite database providers to store data and manage application state.
 ---
 
 Ampt runs your application code using distributed serverless technologies such as AWS Lambda, AWS Fargate, and AWS App Runner. This allows your applications to be highly available and massively scalable, but they're also **stateless**. This means that they don't maintain any application state between requests. To manage state in your application, you must store it in an external service or database.
