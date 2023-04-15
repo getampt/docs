@@ -28,7 +28,7 @@ expressApp.use("/express", (req, res) => {
 http.useNodeHandler(expressApp);
 ```
 
-For examples of other popular web frameworks, please visit our [Node-based Web Frameworks](/docs/node-based) documentation.
+For examples of other popular web frameworks, please visit our [Node-based Web Frameworks](/docs/frameworks/node-based/) documentation.
 
 ## Custom Error Responses
 
