@@ -26,3 +26,30 @@ When you're ready to show your work to the world, you can **deploy** your code t
 ### Preview Environments
 
 If you want to get feedback on your application but aren't ready to publish it to one of the permanent stages above, you can created a **preview environment** instead. Type `share` into the Ampt CLI, and Ampt will create a **preview** that contains your **code AND data**. **Preview environments** are just like **stages**, except that previews will automatically expire when they are no longer being used.
+
+## Regions
+
+Ampt can create **environments** in any of the following AWS regions:
+
+- `us-east-1` (N. Virginia)
+- `us-west-2` (Oregon)
+- `eu-west-1` (Ireland)
+- `eu-west-2` (London)
+- `eu-central-1` (Frankfurt)
+- `ap-northeast-1` (Tokyo)
+
+!!! note
+Once an **environment** has been created its region cannot be changed. If you need to move an **environment** to a different region, you will need to create a new **environment** in the desired region and delete the old one.
+!!!
+
+The region for a new **environment** is determined by your **Organization** and **App** region settings, and can be specified directly using the `--region` flag when running the Ampt CLI.
+
+### Organization Region
+
+The **organization region** is the default region for all **apps** within your **organization**. You can change the **organization region** on the **Organization Settings** page of the dashboard.
+
+### App Region
+
+The **app region** is the default region for all **environments** within an **app**. You can change the **app region** on the **App Settings** page of the dashboard.
+
+By default, **apps** inherit the **organization region**. If you want to override this behavior, you can set the **app region** to a different region.
