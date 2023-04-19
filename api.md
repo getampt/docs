@@ -203,7 +203,7 @@ import { params } from "@ampt/sdk";
 function cors(event: any) {
   const { headers } = event.request;
 
-  if (params("INSTANCE_TYPE") === "personal") {
+  if (params("ENVIRONMENT_TYPE") === "personal") {
     event.response.headers.append(
       "Access-Control-Allow-Origin",
       "http://localhost:3000"
