@@ -186,8 +186,6 @@ function cors(event: any) {
       "Access-Control-Allow-Headers",
       headers.get("Access-Control-Request-Headers")
     );
-
-  return event;
 }
 
 const publicApi = api("public").router("/users", { id: v.string() }, cors);
@@ -220,7 +218,5 @@ function cors(event: any) {
         headers.get("Access-Control-Request-Headers")
       );
   }
-
-  return event;
 }
 ```
