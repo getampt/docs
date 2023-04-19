@@ -21,6 +21,8 @@ A preview environment is an ephermeral environment that you can use to easily sh
 
 If a script named `ampt:build` is defined in package.json, it will be run before deploying.
 
+Use `--region <code>` to specify the region where the preview environment will be created.
+
 ## `ampt deploy [NAME]`
 
 Deploys the code from your local directory to the provided permanent environment. If no NAME is provided, it will prompt you for an environment name.
@@ -28,6 +30,8 @@ Deploys the code from your local directory to the provided permanent environment
 A permanent environment is a long-lived stage/environment to host your app. Common names for permanent environments are `prod`, `staging`, `qa`, and `dev`.
 
 If a script named `ampt:build` is defined in package.json, it will be run before deploying.
+
+Use `--region <code>` to specify the region where the new environment will be created.
 
 ## `ampt install [PACKAGENAME]`
 

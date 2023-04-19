@@ -13,10 +13,11 @@ To enter the interactive shell, run the `ampt` command from your terminal. If 
 
 Additional flags can be passed to the `ampt` command to configure the behavior of the interactive shell.
 
-- `-seed`: Seed data from your `data.json` file on initialization.
-- `-reseed`: Enable automatic data reseeding when the `data.json` file is updated.
-- `-org`: Overwrites the organization of the project in your current directory.
-- `-app`: Overwrites the app of the project in your current directory.
+- `--seed`: Seed data from your `data.json` file on initialization.
+- `--reseed`: Enable automatic data reseeding when the `data.json` file is updated.
+- `--org`: Overwrites the organization of the project in your current directory.
+- `--app`: Overwrites the app of the project in your current directory.
+- `--region`: Use the specified region when creating a new environment. This applies to the `share` and `deploy` commands, and when creating a new sandbox environment.
 
 To exit the interactive shell, type `exit` or `quit`. The below commands are available in the interactive shell.
 
@@ -34,7 +35,7 @@ If a script named `ampt:build` is defined in package.json, it will be run before
 
 ## `deploy [NAME]`
 
-Deploys the code from your sandbox to a permanent environment named NAME. If no NAME is provided, Interactive Shell prompts you to enter a name. 
+Deploys the code from your sandbox to a permanent environment named NAME. If no NAME is provided, Interactive Shell prompts you to enter a name.
 
 A permanent environment is a long-lived environment to host your app. Common names for permanent environments are `prod`, `staging`, `qa`, and `dev`.
 
