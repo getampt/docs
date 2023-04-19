@@ -157,3 +157,70 @@ files.get("/:path*", async (event) => {
   );
 });
 ```
+
+## Handling CORS
+
+To allow CORS (Cross Origin Resource Sharing), you can use a middleware function.
+
+```javascript
+import { v, api } from "@ampt/api";
+
+function cors(event: any) {
+  const { headers } = event.request;
+
+  // To allow all Origins
+  event.response.headers.append("Access-Control-Allow-Origin", "*");
+  // For local dev (i.e. localhost)
+  event.response.headers.append(
+    "Access-Control-Allow-Origin",
+    "http://localhost:$PORT"
+  );
+
+  event.response.headers.append(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PATCH, DELETE, OPTIONS"
+  );
+
+  if (headers.get("Access-Control-Request-Headers"))
+    event.response.headers.append(
+      "Access-Control-Allow-Headers",
+      headers.get("Access-Control-Request-Headers")
+    );
+
+  return event;
+}
+
+const publicApi = api("public").router("/users", { id: v.string() }, cors);
+```
+
+If you want to only allow CORS in development (personal environments), you can use the INSTANCE_TYPE param to set it dynamically:
+This closes cross origin requests on stage environments, for better security.
+
+```javascript
+import { v, api } from "@ampt/api";
+import { params } from "@ampt/sdk";
+
+function cors(event: any) {
+  const { headers } = event.request;
+
+  if (params("ENVIRONMENT_TYPE") === "personal") {
+    event.response.headers.append(
+      "Access-Control-Allow-Origin",
+      "http://localhost:3000"
+    );
+
+    event.response.headers.append(
+      "Access-Control-Allow-Methods",
+      "GET, POST, PATCH, DELETE, OPTIONS"
+    );
+
+    if (headers.get("Access-Control-Request-Headers"))
+      event.response.headers.append(
+        "Access-Control-Allow-Headers",
+        headers.get("Access-Control-Request-Headers")
+      );
+  }
+
+  return event;
+}
+```
