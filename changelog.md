@@ -3,6 +3,22 @@ title: Changelog
 description: Changelog for the Ampt platform is updated on a weekly basis to include the latest updates and improvements.
 ---
 
+## 2023-04-24
+
+**Improvements**:
+
+- We've added Regions support for Ampt apps! Ampt now supports the following AWS regions: us-east-1 (N. Virginia), us-west-2 (Oregon), eu-west-1 (Ireland), eu-west-2 (London), eu-central-1 (Frankfurt), ap-northeast-1 (Tokyo). Check out [our announcement](https://getampt.com/blog/introducing-regions/) for more information.
+- During CLI startup, we now check the version of Node to ensure compatibility with Ampt. Note that Ampt requires Node 15+ to work correctly.
+- You can now delete environments from the dashboard, giving you more control over your resource management.
+
+**Bug Fixes**:
+
+- We added some checks on the dashboard to prevent the creation of malformed org names which made accounts unreachable from the Ampt dashboard.
+- We fixed broken links in the "empty app screen" to make it easier for you to navigate the Ampt dashboard.
+- `data.on` change handler was missing the previous state of the record. We have now resolved this issue.
+- We fixed an issue where querying items with a key on the dashboard wasn't working correctly.
+- `@ampt/api` routes were not showing correctly on the dashboard. This has been fixed.
+
 ## 2023-04-06
 
 **Improvements**:
