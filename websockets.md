@@ -3,13 +3,9 @@ title: WebSockets
 description: Built-in WebSockets interface to manage real-time communications between your app and client browsers.
 ---
 
-Ampt provides a simple interface to interact with WebSocket connections to your app.
+Ampt provides a simple interface to interact with WebSocket connections to your app. Your app's websocket is available at it's url, but using the `wss://` protocol instead of `https://`.
 
 Interact with WebSockets using the "ws" interface of the `@ampt/sdk`.
-
-!!! note
-As of now, websockets are only available via the `/_ws` route of your app's url. This is planned to be improved in the future to where the suffix will not be required.
-!!!
 
 ## Listening for Events
 
@@ -143,6 +139,25 @@ ws.on("connected", async (connection) => {
     console.log(`Connection ${connectionId} is not connected!`);
   }
 });
+```
+
+## Connection from a Client
+
+You can connect to your Ampt App's websocket with any websocket library/utility.
+
+Using `wscat`
+
+```bash
+wscat -c wss://your-app-url.ampt.app
+```
+
+Or in the browser:
+
+```javacript
+const websocket = new WebSocket('wss://your-app-url.ampt.app')
+websocket.on('open', () => {
+  console.log('Connected to Ampt WS')
+})
 ```
 
 ## Limits
