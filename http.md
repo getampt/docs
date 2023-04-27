@@ -98,17 +98,3 @@ const buffer = Buffer.concat(chunks);
 
 const image = await Jimp.read(buffer);
 ```
-
-## Prioritizing API routes over static assets
-
-Static assets normally take precedence over API routes that may overlap. For example, a request for the root path "/" will return your `static/index.html` file if it exists, even if you have an API handler for it.
-
-If your use case includes overlapping API routes and static assets, you can make your API take precedence using the `apiBeforeStatic` option in `http.config`:
-
-```javascript
-import { http } from "@ampt/sdk";
-
-http.config({
-  apiBeforeStatic: true,
-});
-```
