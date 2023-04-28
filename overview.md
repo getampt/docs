@@ -9,10 +9,6 @@ With Ampt, you _just write code_. Backed by a fully-featured Node.js runtime wit
 
 Ampt provides multiple standalone modules that integrate seamlessly with the runtime, and doesn't require you to ever think about infrastructure. You can use as little or as many as you like. The SDKs are designed to be simple and familiar, maximizing your productivity by eliminating the need to learn new, complicated APIs.
 
-!!! caution
-Ampt is in early **PRIVATE BETA** and **NOT RECOMMENDED** for production use.
-!!!
-
 ## Core Interfaces and Modules
 
 The `@ampt/sdk` provides access to the core interfaces. These can be selectively imported into your scripts like this:
