@@ -96,7 +96,7 @@ This object includes all the information about the request for RESTful API. Requ
 
 ### `ApiResponse` Object
 
-This object includes to response object to be returned by the RESTful API. See the sample JSON for a GET request.
+This object includes the response object to be returned by the RESTful API. See the sample JSON for a GET request.
 
 ```json
 {
@@ -143,7 +143,7 @@ publicApi.patch("/:id", async (event) => {
 
 ## Serving files through API
 
-To send files stored at Ampt Storage, developers can use `getDownloadUrl` function.
+To send files stored at Ampt Storage, developers can use the `getDownloadUrl` function.
 
 ```javascript
 const files = api("files").router("/files", { path: v.string() }, auth);
@@ -191,7 +191,7 @@ function cors(event: any) {
 const publicApi = api("public").router("/users", { id: v.string() }, cors);
 ```
 
-If you want to only allow CORS in development (personal environments), you can use the INSTANCE_TYPE param to set it dynamically:
+If you want to only allow CORS in development (personal environments), you can use the ENVIRONMENT_TYPE param to set it dynamically:
 This closes cross origin requests on stage environments, for better security.
 
 ```javascript

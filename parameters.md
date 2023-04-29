@@ -3,7 +3,7 @@ title: Parameters
 description: Built-in parameter store to keep secrets encrpyted and available only during runtime.
 ---
 
-Ampt's built-in parameter store allows developers to store the parameters in a secure way, and to use them programmatically with `params` interface of Ampt SDK. All the parameters are encrypted both at transit and at rest and only decrypted during runtime.
+Ampt's built-in parameter store allows developers to store the parameters in a secure way, and to use them programmatically with the `params` interface of Ampt SDK. All the parameters are encrypted both at transit and at rest and only decrypted during runtime.
 
 !!! note
 When you modify a parameter value in the Ampt Dashboard, the changes are instantly applied to all running environments that require the parameter. No restart or anything required to flush the parameters.
@@ -11,7 +11,7 @@ When you modify a parameter value in the Ampt Dashboard, the changes are instant
 
 ## Parameter Scopes
 
-Some parameters apply to all apps within an organization, while others might be specific to a particular project or application. Additionally, an application will almost probably use a different value of a parameter in the production and development.
+Some parameters apply to all apps within an organization, while others might be specific to a particular project or application. Additionally, an application will probably use a different value of a parameter in production and development.
 
 **Organization-level parameters** are defined under "Organization Settings" in the Ampt Dashboard. Every environment of every app will inherit those parameters automatically. Organization-level parameters can be overridden at the app and environment levels. For example, you can define an API key to be used for a third-party vendor as `THIRD_PARTY_API_KEY` and you can override this parameter for the production environment (permanent environments will be available soon).
 

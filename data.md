@@ -28,7 +28,7 @@ api("my-api")
 
 ## Setting Items
 
-Setting data can be accomplished using the `set` method. You provide a **key** as the first argument and a **value** (either a string, boolean, number, array, or object) as the second parameter. Keys are case sensitive and can be `string` up to 256 bytes each and can contain any valid utf8 character including spaces. By default, the `set` command will return the updated item.
+Setting data can be accomplished using the `set` method. You provide a **key** as the first argument and a **value** (either a string, boolean, number, array, or object) as the second parameter. Keys are case sensitive, can be a `string` of up to 256 bytes each, and can contain any valid utf8 character including spaces. By default, the `set` command will return the updated item.
 
 ```javascript
 await data.set("foo", "bar");
@@ -72,7 +72,7 @@ let results = await data.set(
 	[
 		{ key: "key1", value: "string value" },
 		{ key: "someOtherKey", value: 123, ttl: 1000 },
-		{ key: "namespacedKey:keyX", value: { foo: "bar" }, label1: "foo:baz }
+		{ key: "namespacedKey:keyX", value: { foo: "bar" }, label1: "foo:baz" }
 	],
 	{ overwrite: true }
 );
@@ -329,7 +329,7 @@ data.on("*", async (event) => {
 });
 ```
 
-It's possible for more than one handler to be called for a given change to a data item, in which case the handlers are called in the order they were defined. In the example above, the first handler will always be called the before the second handler when an item is created or updated, and only the second handler will be called when an item is deleted.
+It's possible for more than one handler to be called for a given change to a data item, in which case the handlers are called in the order they were defined. In the example above, the first handler will always be called before the second handler when an item is created or updated, and only the second handler will be called when an item is deleted.
 
 ### Event format
 
@@ -377,7 +377,7 @@ data.on("created:order_*:item_*", (event) => {
 
 ### Event ordering
 
-Data events are processed in the order that the changes were applied to your data items, within a item namespace. It's possible for multiple handlers to be invoked in parallel, but for different namespaces.
+Data events are processed in the order that the changes were applied to your data items, within an item namespace. It's possible for multiple handlers to be invoked in parallel, but for different namespaces.
 
 ### Handling errors
 
