@@ -11,4 +11,4 @@ We'll be providing more information about the Ampt Universal Runtime soon.
 - Automatically transpiles TypeScript with source maps and supports tsconfig paths
 - Reloads code in dev mode
 - WebAPI polyfilled
-- Adapts requests from various event sources in to consistent format (e.g. fetch)
+- Adapts requests from various event sources into a consistent format (e.g. fetch)

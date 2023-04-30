@@ -3,7 +3,7 @@ title: Apps & Environments
 description: Ampt allows you to organize workloads into apps with isolated environments.
 ---
 
-Ampt's isolation model lets developers rapidly iterate on applications without needing to share services or worry about resource contention. Whether your a solo developer or a team collaborating with colleagues, Ampt reduces the development feedback loop and accelerates the path to production without sacrificing standard CI/CD and testing processes.
+Ampt's isolation model lets developers rapidly iterate on applications without needing to share services or worry about resource contention. Whether you're a solo developer or a team collaborating with colleagues, Ampt reduces the development feedback loop and accelerates the path to production without sacrificing standard CI/CD and testing processes.
 
 ## Apps
 
@@ -11,7 +11,7 @@ Ampt allows you to build **apps** within your **organization**. **Apps** are ext
 
 ## Environments
 
-The actual code and resources for an **app** run in isolated **environmemts**. Each **environment** contains its own set of independent resources including separate copies of data and storage. The resources within each **environment** are identical, so you can ensure that your application will run the same way across all phases of development.
+The actual code and resources for an **app** run in isolated **environments**. Each **environment** contains its own set of independent resources including separate copies of data and storage. The resources within each **environment** are identical, so you can ensure that your application will run the same way across all phases of development.
 
 Ampt's isolation model and rapid provisioning technology uses **environment "types"** to enable incredibly powerful workflows.
 
