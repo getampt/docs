@@ -116,12 +116,7 @@ ampt ⚡ (beta)
                 <div class="text-base font-medium">Migrate production data, storage, and parameters</div>
                 <div class="text-base pt-1 pb-6 xl:pb-16">Once your app has deployed, go back to the Ampt Dashboard (type <code>open</code> in the Ampt CLI), navigate to the permanent instance you just created, and start a new migration.</div>
         </div>
-<div class="w-full xl:w-[55%] pb-16"><div class="w-full border border-gray-300 drop-shadow bg-black dark:bg-gray-800 dark:border-gray-500 rounded-md text-center py-12 px-10 text-black dark:text-gray-100"><div class="mx-auto 
-Processing _site/css/styles.css...
-Finished _site/css/styles.css in 363 ms
-
-Waiting for file changes...
-bg-ampt-purple px-2 py-2 text-base text-white rounded-md font-normal hover:bg-ampt-purple/80 cursor-default">Start a new migration</div></div></div></div>
+<div class="w-full xl:w-[55%] pb-16"><div class="w-full border border-gray-300 drop-shadow bg-black dark:bg-gray-800 dark:border-gray-500 rounded-md text-center py-12 px-10 text-black dark:text-gray-100"><div class="mx-auto bg-ampt-purple px-2 py-2 text-base text-white rounded-md font-normal hover:bg-ampt-purple/80 cursor-default">Start a new migration</div></div></div></div>
 
 <!-- Step 9-->
 <div class="flex flex-wrap xl:flex-nowrap items-start gap-x-3 mb-1 line-bg">
