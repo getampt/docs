@@ -82,12 +82,12 @@ app.use((err, req, res, next) => {
 
 Although static assets can be read from the file system in sandboxes, they are not stored in the file system when your application is deployed to a stage. We recommend that you _not_ read static assets from your application. Any files your application needs at runtime should be stored within your project outside the "static" folder. For example, you can create an "assets" folder to hold images or html files that your application can then read from the file system at runtime.
 
-If your application still needs to read static files, it is possible to do so using the `http.assets.readFile(path)` method. This will return a readable stream you can use to read the file. For example to read an image in your project that is in "static/images/image.jpeg" and process it using `jimp` you could use:
+If your application still needs to read static files, it is possible to do so using the `http.readStaticFile(relativePath)` method. This will return a readable stream you can use to read the file. For example to read an image in your project that is in "static/images/image.jpeg" and process it using `jimp` you could use:
 
 ```javascript
 import { http } from "@ampt/sdk";
 
-const stream = await http.assets.readFile("images/image.jpeg");
+const stream = await http.readStaticFile("images/image.jpeg");
 
 // convert to Buffer for Jimp
 const chunks = [];
