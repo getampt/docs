@@ -39,7 +39,11 @@
   ],
   "Guides": [
     { "title": "Serve Static Assets", "href": "/docs/static-assets/" },
-    { "title": "Use Custom Domains", "href": "/docs/custom-domains/" }
+    { "title": "Use Custom Domains", "href": "/docs/custom-domains/" },
+    {
+      "title": "Serverless Cloud Migration",
+      "href": "/docs/migrate-serverless-cloud/"
+    }
   ],
   "CLI Reference": [
     { "title": "Standard Mode", "href": "/docs/cli-standard-mode/" },
