@@ -1,6 +1,6 @@
 ---
-title: Migrate your Serverless Cloud apps
-description: Use this guide to easily migrate your Serverless Cloud apps along with their data, storage and parameters to the new Ampt platform.
+title: Migrate from Serverless Cloud
+description: Use this guide to easily migrate your Serverless Cloud apps along with their data, storage and parameters to the Ampt platform.
 full: true
 ---
 
