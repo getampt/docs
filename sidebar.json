@@ -40,6 +40,7 @@
   "Guides": [
     { "title": "Serve Static Assets", "href": "/docs/static-assets/" },
     { "title": "Use Custom Domains", "href": "/docs/custom-domains/" },
+    { "title": "Integrate with GitHub", "href": "/docs/github-integration/" },
     {
       "title": "Serverless Cloud Migration",
       "href": "/docs/migrate-serverless-cloud/"
