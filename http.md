@@ -28,6 +28,20 @@ expressApp.use("/express", (req, res) => {
 http.useNodeHandler(expressApp);
 ```
 
+You can control which routes get routed to your Node-based Framework by using a prefix. By default, _all_ routes will be sent to the framework's handler.
+
+!!! caution
+The prefix argument for `.useNodeHandler` is only available in `@ampt/sdk` version `0.0.1-beta.42` and above.
+!!!
+
+```javascript title=Express.js example, copy=false
+// all `/api` prefixed routes will be handled in Express, 404's included
+http.useNodeHandler("/api", expressApp);
+
+// Routes that do not start with `/api` and are not found will hit this
+http.on(404, "404.html");
+```
+
 For examples of other popular web frameworks, please visit our [Node-based Web Frameworks](/docs/frameworks/node-based/) documentation.
 
 ## Custom Error Responses
@@ -40,27 +54,16 @@ import { http } from "@ampt/sdk";
 http.on(404, "404.html");
 ```
 
+!!! caution
+If using a framework that ingests all routes, the _404 Response from the framework will be returned and not fall through to the http.on handler_.
+!!!
+
 For a single-page application you would use `static/index.html` so all paths will load your site's index.html page.
 
 ```javascript
 import { http } from "@ampt/sdk";
 
 http.on(404, "static/index.html");
-```
-
-To return a dynamic response, your application needs to handle the requested path and return the desired response. The details of how to do this depend on the framework you are using. For example, using Express you can add a default handler:
-
-```javascript
-import { http } from "@ampt/sdk"
-import express from "express"
-
-const app = express()
-
-app.use('/api', ...)
-
-app.use((req, res) => {
-  res.status(404).send('Sorry that page was not found')
-})
 ```
 
 When your application throws an exception, by default Ampt will return a JSON response:
@@ -97,4 +100,26 @@ for await (const chunk of stream) {
 const buffer = Buffer.concat(chunks);
 
 const image = await Jimp.read(buffer);
+```
+
+This can also be used to serve custom 404 HTML pages from within an HTTP framework, if desired.
+
+To return a dynamic response, your application needs to handle the requested path and return the desired response. The details of how to do this depend on the framework you are using. For example, using Express you can add a default handler:
+
+```javascript
+import { http } from "@ampt/sdk"
+import express from "express"
+
+const app = express()
+
+app.use('/api', ...)
+
+app.use((req, res) => {
+  // a basic 404 response
+  res.status(404).send('Sorry that page was not found')
+
+  // if you want to return your 404 page
+  const notFoundHtmlFile = await http.readStaticFile("404.html")
+  res.status(404).write(notFoundHtmlFile).end()
+})
 ```
