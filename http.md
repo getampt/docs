@@ -85,20 +85,13 @@ app.use((err, req, res, next) => {
 
 Although static assets can be read from the file system in sandboxes, they are not stored in the file system when your application is deployed to a stage. We recommend that you _not_ read static assets from your application. Any files your application needs at runtime should be stored within your project outside the "static" folder. For example, you can create an "assets" folder to hold images or html files that your application can then read from the file system at runtime.
 
-If your application still needs to read static files, it is possible to do so using the `http.readStaticFile(relativePath)` method. This will return a readable stream you can use to read the file. For example to read an image in your project that is in "static/images/image.jpeg" and process it using `jimp` you could use:
+If your application still needs to read static files, it is possible to do so using the `http.readStaticFileBuffer(relativePath)` method. This will return a buffer you can use to read the file. For example to read an image in your project that is in "static/images/image.jpeg" and process it using `jimp` you could use:
 
 ```javascript
 import { http } from "@ampt/sdk";
 
-const stream = await http.readStaticFile("images/image.jpeg");
-
-// convert to Buffer for Jimp
-const chunks = [];
-for await (const chunk of stream) {
-  chunks.push(chunk);
-}
-const buffer = Buffer.concat(chunks);
-
+// available in version 0.0.1-beta.43
+const buffer = await http.readStaticFileBuffer("images/image.jpeg");
 const image = await Jimp.read(buffer);
 ```
 
@@ -119,7 +112,7 @@ app.use((req, res) => {
   res.status(404).send('Sorry that page was not found')
 
   // if you want to return your 404 page
-  const notFoundHtmlFile = await http.readStaticFile("404.html")
-  res.status(404).write(notFoundHtmlFile).end()
+  const notFoundHtmlFile = await http.readStaticFileBuffer("404.html")
+  res.status(404).send(new TextDecoder().decode(notFoundHtmlFile, { stream: true }))
 })
 ```

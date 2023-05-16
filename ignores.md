@@ -1,5 +1,5 @@
 ---
-title: Ampt Ignores
+title: Ignoring Files and Directories
 description: Control what gets synced and deployed to Ampt environments
 ---
 
