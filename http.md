@@ -113,6 +113,7 @@ app.use((req, res) => {
 
   // if you want to return your 404 page
   const notFoundHtmlFile = await http.readStaticFileBuffer("404.html")
-  res.status(404).send(new TextDecoder().decode(notFoundHtmlFile, { stream: true }))
+  res.header('Content-Type', 'text/html')
+  res.status(404).send(content.toString())
 })
 ```
