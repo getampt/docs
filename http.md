@@ -26,6 +26,8 @@ expressApp.use("/express", (req, res) => {
 });
 
 http.useNodeHandler(expressApp);
+// in v0.0.1-beta.43
+http.node.use(expressApp);
 ```
 
 You can control which routes get routed to your Node-based Framework by using a prefix. By default, _all_ routes will be sent to the framework's handler.
@@ -37,6 +39,8 @@ The prefix argument for `.useNodeHandler` is only available in `@ampt/sdk` versi
 ```javascript title=Express.js example, copy=false
 // all `/api` prefixed routes will be handled in Express, 404's included
 http.useNodeHandler("/api", expressApp);
+// in v0.0.1-beta.43
+http.node.use("/api", expressApp);
 
 // Routes that do not start with `/api` and are not found will hit this
 http.on(404, "404.html");
@@ -90,8 +94,14 @@ If your application still needs to read static files, it is possible to do so us
 ```javascript
 import { http } from "@ampt/sdk";
 
-// available in version 0.0.1-beta.43
-const buffer = await http.readStaticFileBuffer("images/image.jpeg");
+const stream = await http.readStaticFile("images/image.jpeg");
+const chunks: Uint8Array[] = [];
+
+for await (const chunk of stream) {
+  chunks.push(chunk);
+}
+
+const buffer = Buffer.concat(chunks);
 const image = await Jimp.read(buffer);
 ```
 
@@ -112,8 +122,10 @@ app.use((req, res) => {
   res.status(404).send('Sorry that page was not found')
 
   // if you want to return your 404 page
-  const notFoundHtmlFile = await http.readStaticFileBuffer("404.html")
+  // node.readStaticFile (0.0.1-beta.43) returns a "Readable" instance
+  const notFoundHtmlFile = await http.node.readStaticFile("404.html")
   res.header('Content-Type', 'text/html')
-  res.status(404).send(content.toString())
+  res.status(404)
+  return notFoundHtmlFile.pipe(res)
 })
 ```
