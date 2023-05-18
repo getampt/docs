@@ -26,6 +26,24 @@ expressApp.use("/express", (req, res) => {
 });
 
 http.useNodeHandler(expressApp);
+// in v0.0.1-beta.43
+http.node.use(expressApp);
+```
+
+You can control which routes get routed to your Node-based Framework by using a prefix. By default, _all_ routes will be sent to the framework's handler.
+
+!!! caution
+The prefix argument for `.useNodeHandler` is only available in `@ampt/sdk` version `0.0.1-beta.42` and above.
+!!!
+
+```javascript title=Express.js example, copy=false
+// all `/api` prefixed routes will be handled in Express, 404's included
+http.useNodeHandler("/api", expressApp);
+// in v0.0.1-beta.43
+http.node.use("/api", expressApp);
+
+// Routes that do not start with `/api` and are not found will hit this
+http.on(404, "404.html");
 ```
 
 For examples of other popular web frameworks, please visit our [Node-based Web Frameworks](/docs/frameworks/node-based/) documentation.
@@ -40,27 +58,16 @@ import { http } from "@ampt/sdk";
 http.on(404, "404.html");
 ```
 
+!!! caution
+If using a framework that ingests all routes, the _404 Response from the framework will be returned and not fall through to the http.on handler_.
+!!!
+
 For a single-page application you would use `static/index.html` so all paths will load your site's index.html page.
 
 ```javascript
 import { http } from "@ampt/sdk";
 
 http.on(404, "static/index.html");
-```
-
-To return a dynamic response, your application needs to handle the requested path and return the desired response. The details of how to do this depend on the framework you are using. For example, using Express you can add a default handler:
-
-```javascript
-import { http } from "@ampt/sdk"
-import express from "express"
-
-const app = express()
-
-app.use('/api', ...)
-
-app.use((req, res) => {
-  res.status(404).send('Sorry that page was not found')
-})
 ```
 
 When your application throws an exception, by default Ampt will return a JSON response:
@@ -82,19 +89,48 @@ app.use((err, req, res, next) => {
 
 Although static assets can be read from the file system in sandboxes, they are not stored in the file system when your application is deployed to a stage. We recommend that you _not_ read static assets from your application. Any files your application needs at runtime should be stored within your project outside the "static" folder. For example, you can create an "assets" folder to hold images or html files that your application can then read from the file system at runtime.
 
-If your application still needs to read static files, it is possible to do so using the `http.readStaticFile(relativePath)` method. This will return a readable stream you can use to read the file. For example to read an image in your project that is in "static/images/image.jpeg" and process it using `jimp` you could use:
+If your application still needs to read static files, it is possible to do so using the `http.readStaticFile(relativePath)` method. This will return a `ReadableStream` instance that you can use to read the file. For example to read an image in your project that is in "static/images/image.jpeg" and process it using `jimp` you could use:
 
 ```javascript
 import { http } from "@ampt/sdk";
 
 const stream = await http.readStaticFile("images/image.jpeg");
+const chunks: Uint8Array[] = [];
 
-// convert to Buffer for Jimp
-const chunks = [];
+// convert ReadableStream to Buffer
 for await (const chunk of stream) {
   chunks.push(chunk);
 }
-const buffer = Buffer.concat(chunks);
 
+const buffer = Buffer.concat(chunks);
 const image = await Jimp.read(buffer);
+```
+
+!!! caution
+By default, `readStaticFile` returns a `ReadableStream` instance. If you need an instance of `Readable`, use `http.node.readStaticFile`.
+!!!
+
+This can also be used to serve custom 404 HTML pages from within an HTTP framework, if desired.
+
+To return a dynamic response, your application needs to handle the requested path and return the desired response. The details of how to do this depend on the framework you are using. For example, using Express you can add a default handler:
+
+```javascript
+import { http } from "@ampt/sdk"
+import express from "express"
+
+const app = express()
+
+app.use('/api', ...)
+
+app.use((req, res) => {
+  // a basic 404 response
+  res.status(404).send('Sorry that page was not found')
+
+  // if you want to return your 404 page
+  // node.readStaticFile (0.0.1-beta.43) returns a "Readable" instance
+  const notFoundHtmlFile = await http.node.readStaticFile("404.html")
+  res.header('Content-Type', 'text/html')
+  res.status(404)
+  return notFoundHtmlFile.pipe(res)
+})
 ```

@@ -3,7 +3,7 @@ title: Node-based Web Frameworks
 description: Build apps on Ampt using your favorite web frameworks with zero boilerplate.
 ---
 
-The [`http`](/docs/http) interface from the `@ampt/sdk` provides a `useNodeHandler` method that lets you integrate your favorite Node-based web frameworks into an Ampt app. The `http.useNodeHandler` method wraps the instance of your framework and exposes any defined routes on the root of your public `*.ampt.app` URL.
+The [`http`](/docs/http) interface from the `@ampt/sdk` provides a `node` interface (v0.0.1-beta.43>) method that lets you integrate your favorite Node-based web frameworks into an Ampt app. The `http.node.use` method wraps the instance of your framework and exposes any defined routes on the root of your public `*.ampt.app` URL.
 
 Ampt runs your web frameworks automatically, so you **DO NOT** need to use `.listen` or `.createServer`.
 
@@ -26,6 +26,8 @@ expressApp.use("/express", (req, res) => {
 });
 
 http.useNodeHandler(expressApp);
+// in v0.0.1-beta.43
+http.node.use("/api", expressApp);
 ```
 
 ## Connect
@@ -57,6 +59,8 @@ koaRouter.get("/koa", (ctx, _next) => {
 
 koaApp.use(koaRouter.routes()).use(koaRouter.allowedMethods());
 http.useNodeHandler(koaApp);
+// in v0.0.1-beta.43
+http.node.use("/api", expressApp);
 ```
 
 ## Restana
@@ -70,6 +74,8 @@ restanaApp.get("/restana", (req, res) => {
   res.send("hello restana");
 });
 http.useNodeHandler(restanaApp);
+// in v0.0.1-beta.43
+http.node.use("/api", expressApp);
 ```
 
 ## Fastify
@@ -83,4 +89,6 @@ fastifyApp.get("/fastify", (req, res) => {
   res.send("hello fastify");
 });
 http.useNodeHandler(fastifyApp);
+// in v0.0.1-beta.43
+http.node.use("/api", expressApp);
 ```
