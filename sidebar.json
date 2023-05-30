@@ -9,7 +9,7 @@
     { "title": "CDN & Caching", "href": "/docs/cdn/" },
     { "title": "State Management", "href": "/docs/state-management/" },
     { "title": "Ampt Runtime", "href": "/docs/runtime/" },
-    { "title": "Ignoring Files and Directories", "href": "/docs/ignores/" }
+    { "title": "Ignoring Files & Directories", "href": "/docs/ignores/" }
   ],
   "Interfaces": [
     { "title": "HTTP", "href": "/docs/http/" },
