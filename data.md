@@ -11,7 +11,7 @@ Plus, Ampt provides isolated databases to each **AMPT ENVIRONMENT**, enabling d
 
 ## Getting started
 
-To access data from your application, you must install the `@ampt/data` [npm package](https://www.npmjs.com/package/@ampt/data). You can install this using the npm command line:
+To access data from your application, you must install the `@ampt/data` [npm package](https://www.npmjs.com/package/@ampt/data). You can install this using the npm command line tool:
 
 ```terminal title=Terminal, class="no-margin"
 > npm install @ampt/data
@@ -25,7 +25,7 @@ ampt ⚡ (beta)
 ⚡ › install @ampt/data ▊
 ```
 
-The `data` interface makes API calls in order to interact with the underlying database, so any handlers or functions that uses `data` must use `async/await`.
+The `data` interface makes API calls in order to interact with the underlying database, so any handlers or functions that use `data` must use `async/await`.
 
 ```javascript
 import { data } from "@ampt/data";
@@ -46,7 +46,7 @@ The `data` interface provides a simple, but extremely powerful abstraction over 
 
 ### Storing single values
 
-For simple key-value use cases, items can be used to store a single attribute value:
+For simple key-value use cases, items can store a single attribute value:
 
 ```javascript
 await data.set("foo", "bar"); // string
@@ -59,7 +59,7 @@ When updating a single value, the entire "value" is overwritten.
 
 ### Storing objects
 
-For more complex data structures, items can be stored as a JavaScript object:
+For more complex data structures, items can store JavaScript objects:
 
 ```javascript
 await data.set("foo", {
@@ -103,7 +103,7 @@ User-defined meta data includes a `ttl` (see [Setting items](#setting-items)) an
 
 ### Collections
 
-Collections let you group items together and then retrieve them using more advanced query options. You can think of Collections like **folders in a file system** that keep items organized. Collections are defined by adding a "namespace" before the item's `key`. For example, if you wanted to save a user record for `jane@doe.com` in the "users" collection, you would set the `key` to `users:jane@doe.com` like this:
+Collections let you group items together and then retrieve them using more advanced query options. You can think of collections like **folders in a file system** that keep items organized. Collections are defined by adding a "namespace" and a colon (`:`) before the item's `key`. For example, if you wanted to save a user record for `jane@doe.com` in the "users" collection, you would set the `key` to `users:jane@doe.com` like this:
 
 ```javascript
 await data.set("users:jane@doe.com", {
@@ -119,17 +119,17 @@ To retrieve this single item, you would provide the entire `key` (including the 
 await data.get("users:jane@doe.com");
 ```
 
-Storing items in collections opens up a number of powerful use cases. You can [query with conditionals](#querying-with-conditionals), allowing you to retrieve select items from a collection, and you can sort on `keys` in lexicographical order, which is great for ordering by dates or [KSUIDs](https://www.npmjs.com/package/ksuid).
+Storing items in collections opens up a number of powerful use cases. You can [query with conditionals](#querying-with-conditionals), allowing you to retrieve select items from a collection, and you can sort on `keys` in lexicographical order, which is great for dates or [KSUIDs](https://www.npmjs.com/package/ksuid).
 
 !!! note
-There is no limit to the number of items that can be stored in a Collection. However, because items in a Collection are colocated in the same partition, we recommend avoiding large collections for frequently accessed items. For example, if you are storing a popular product's information, you may want to use a more distinct key (such as `productId-12345`) instead of storing the item in a `products` collection (e.g. `products:12345`). If you need to return a list of products, you could add a [label](#labels).
+There is no limit to the number of items that can be stored in a collection. However, because items in a collection are colocated in the same partition, we recommend avoiding large collections for frequently accessed items. For example, if you are storing a popular product's information, you may want to use a more distinct key (such as `productId-12345`) instead of storing the item in a `products` collection (e.g. `products:12345`). If you need to return a list of products, you could add a [label](#labels).
 !!!
 
 ### Labels
 
 Key-value stores typically work by using a single `key` to reference stored items. This is fine when you know the item's key (such as an email address or userId) and only need to access it using that value. However, our applications often need to use multiple access patterns in order to retrieve data. This is where **Labels** help you add additional context and retrieval capabilities.
 
-Labels use the same format as item `key`s and support Collections as well. For example, if we stored a product using a simple key like `productId-12345`, we could add a label like this:
+Labels use the same format as item `key`s and support collections as well. For example, if we stored a product using a simple key like `productId-12345`, we could add a label like this:
 
 ```javascript
 await data.set(
@@ -153,10 +153,10 @@ Or by its label:
 await data.getByLabel("label1", "product-released:2023-07-01");
 ```
 
-Unlike `keys`, Labels **DO NOT NEED TO BE UNIQUE**. This means that multiple items can share the same exact Label value, giving you the ability to return a group of items (as in the example above) that have the same "released" date. Like `keys`, Labels can be [queried with conditionals](#querying-with-conditionals) if using a Collection.
+Unlike `keys`, labels **DO NOT NEED TO BE UNIQUE**. This means that multiple items can share the same exact label value, giving you the ability to return a group of items (as in the example above) that have the same "released" date. Like `keys`, Labels can be [queried with conditionals](#querying-with-conditionals) if using a collection.
 
 !!! note
-You can have up to **five labels** on a single item.
+You can have up to **five labels** per item.
 !!!
 
 Labels also support **default** values. This allows you to only overwrite a label's value if it isn't already set on an item. To set a default value for a label, wrap the value in a single item array:
@@ -205,6 +205,8 @@ An options object can be passed as third argument. The following options are sup
 | created                                | integer                  | Integrity check that works in combination with `overwrite: true`. See [Created timestamp integrity check](#created-timestamp-integrity-check).                                                                                      |
 | removeNulls                            | boolean                  | Prevents null values from being stored in item attributes. Defaults to `true`. See [Storing `null` values](#storing-null-values).                                                                                                   |
 
+Setting data with an _options_ object:
+
 ```javascript
 await data.set("foo", "bar", {
   meta: true,
@@ -214,8 +216,6 @@ await data.set("foo", "bar", {
   label2: "baz:bat",
 });
 ```
-
-Above is an example of using options object while setting data.
 
 ### Setting multiple items
 
@@ -250,15 +250,15 @@ To update an item _ONLY_ if it **DOES EXIST**, set the `exists` flag to `true`. 
 
 ```javascript
 // This will fail if "myKey" already exists
-const results = await data.set("myKey", "someValue", { exists: false });
+await data.set("myKey", "someValue", { exists: false });
 
 // This will fail if "myKey" doesn't exists
-const results = await data.set("myKey", { foo: "bar" }, { exists: true });
+await data.set("myKey", { foo: "bar" }, { exists: true });
 ```
 
 ### Setting default values
 
-Defaults let you conditionally update an item's value if one doesn't already exist. You can provide a default for an item that stores a single value, but that are most useful when working with objects.
+Defaults let you conditionally update an item's value if one doesn't already exist. You can provide a default for an item that stores a single value, but they are most useful when working with objects.
 
 For example, the `set` operation below would overwrite `key1` with "myValue" whether it existed or not, but `key2` would only be written if the attribute didn't exist.
 
@@ -272,7 +272,7 @@ await data.set(
 );
 ```
 
-When using objects, defaults are merged (using a deep merge) with the provided value. This allows you to provide default values for fields without worrying about the data in the provided value. For example:
+When using objects, defaults are merged (using a deep merge) with the provided value. This allows you to provide default values for fields without worrying about the input data. For example:
 
 ```javascript
 const input = req.body;
@@ -294,7 +294,7 @@ A default value can be used with single value items by setting the value of the 
 await data.set("myKey", undefined, { default: "defaultValue" });
 ```
 
-This is useful if you only want to set a value if it doesn't already exist. If the value already exists, the operation will succeed and item's `modified` date will be updated. If you want to preven the item from being updated at all, you can also use [existence checks](#existence-checks).
+This is useful if you only want to set a value if it doesn't already exist. If the value already exists, the operation will succeed and the item's `modified` date will be updated. If you want to prevent the item from being updated at all, you can use [existence checks](#existence-checks).
 
 ## Using atomic counters
 
@@ -472,7 +472,7 @@ const results = await data.get("user123:2021-05-01|2021-05-31");
 
 ### Getting items by their labels
 
-You can get items by their labels using the `get` method and the `{ label: 'label*n*' }` option, or you can use the `getByLabel` convenience method. This method takes the label as the first parameter (e.g. `label3`), the `key` as the second parameter, and then an optional third parameter that accepts all the same options as the `get` method.
+You can get items by their labels using the `get` method and the `{ label: 'labeln' }` option, or you can use the `getByLabel` convenience method. This method takes the label as the first parameter (e.g. `label3`), the `key` as the second parameter, and then an optional third parameter that accepts all the same options as the `get` method.
 
 Labels support collections as well as simple keys. Since they behave the same way, you can also use collection querying methods like `*` and `>=` on labels as well.
 
@@ -494,7 +494,7 @@ const order = await data.getByLabel('label1','ORDER-9321');
 ```
 
 !!! note
-You can have maximum of 5 labels.
+You can have maximum of **5 labels**.
 !!!
 
 ### Getting multiple items by their key
