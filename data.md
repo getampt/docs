@@ -42,11 +42,11 @@ api("my-api")
 
 ## Understanding data structures
 
-The `data` interface provides a simple, but extrememly powerful abstraction over a NoSQL database that is automatically provisioned, configured, and managed for you. All you need to do is `set` and `get` data using a `key`. Items can be stored as a single value (`string`, `boolean`, `number`, `array`, etc.) or as a complex object with nested values.
+The `data` interface provides a simple, but extremely powerful abstraction over a NoSQL database that is automatically provisioned, configured, and managed for you. All you need to do is `set` and `get` data using a `key`. Items can be stored as a single value (`string`, `boolean`, `number`, `array`, etc.) or as a complex object with nested values.
 
 ### Storing single values
 
-For simple Key-Value use cases, items can be used to store a single attribute value:
+For simple key-value use cases, items can be used to store a single attribute value:
 
 ```javascript
 await data.set("foo", "bar"); // string
@@ -93,6 +93,14 @@ The operation above will update the item to this:
 }
 ```
 
+### Meta data
+
+In addition to the `key` and `value` attributes, _meta data_ is used to provide additional information about an item.
+
+Every item has a `created` and `modified` date (both returned as ISO 8601 format in UTC). When setting items, the `created` date will be added if the item doesn't exist. The `modified` date will be updated every time the item is set. If overwriting an item, you can maintain the `created` date using a [Created timestamp integrity check](#created-timestamp-integrity-check).
+
+User-defined meta data includes a `ttl` (see [Setting items](#setting-items)) and [Labels](#labels).
+
 ### Collections
 
 Collections let you group items together and then retrieve them using more advanced query options. You can think of Collections like **folders in a file system** that keep items organized. Collections are defined by adding a "namespace" before the item's `key`. For example, if you wanted to save a user record for `jane@doe.com` in the "users" collection, you would set the `key` to `users:jane@doe.com` like this:
@@ -119,7 +127,7 @@ There is no limit to the number of items that can be stored in a Collection. How
 
 ### Labels
 
-Key-Value stores typically work by using a single `key` to reference stored items. This is fine when you know the item's key (such as an email address or userId) and only need to access it using that value. However, our applications often need to use multiple access patterns in order to retrieve data. This is where **Labels** help you add additional context and retrieval capabilities.
+Key-value stores typically work by using a single `key` to reference stored items. This is fine when you know the item's key (such as an email address or userId) and only need to access it using that value. However, our applications often need to use multiple access patterns in order to retrieve data. This is where **Labels** help you add additional context and retrieval capabilities.
 
 Labels use the same format as item `key`s and support Collections as well. For example, if we stored a product using a simple key like `productId-12345`, we could add a label like this:
 
@@ -145,9 +153,28 @@ Or by its label:
 await data.getByLabel("label1", "product-released:2023-07-01");
 ```
 
-Unlike `keys`, Labes **DO NOT NEED TO BE UNIQUE**. This means that multiple items can share the same exact Label value, giving you the ability to return a group of items (as in the example above) that have the same "released" date. Like `keys`, Labels can be [queried with conditionals](#querying-with-conditionals) if using a Collection.
+Unlike `keys`, Labels **DO NOT NEED TO BE UNIQUE**. This means that multiple items can share the same exact Label value, giving you the ability to return a group of items (as in the example above) that have the same "released" date. Like `keys`, Labels can be [queried with conditionals](#querying-with-conditionals) if using a Collection.
 
+!!! note
 You can have up to **five labels** on a single item.
+!!!
+
+Labels also support **default** values. This allows you to only overwrite a label's value if it isn't already set on an item. To set a default value for a label, wrap the value in a single item array:
+
+```javascript
+await data.set("myKey", "myValue", {
+  label1: "someLabel", // overwrite label1
+  label2: ["defaultLabel"], // overwrite if label2 doesn't exist
+});
+```
+
+If you wish to remove a label, you can set its value to `null` or `undefined`:
+
+```javascript
+await data.set("myKey", "myValue", {
+  label1: undefined, // remove this label
+});
+```
 
 ## Setting items
 
@@ -318,7 +345,7 @@ Items can be retrieved using the `get` method. This method takes the **key**�
 const result = await data.get("foo");
 ```
 
-In addition to retrieving a single key, you can also retrieve items by providing the collection namespace name with a colon and a `*` as a wildcard.
+In addition to retrieving a single key, you can also retrieve items by providing the collection namespace followed by a colon and a `*` as a wildcard.
 
 ```javascript
 const result = await data.get("my-namespace:*");
@@ -445,7 +472,7 @@ const results = await data.get("user123:2021-05-01|2021-05-31");
 
 ### Getting items by their labels
 
-You can get items by their labels using the `get` method and the `{ label: 'labeln' }` option, or you can use the `getByLabel` convenience method. This method takes the label as the first parameter (e.g. `label3`), the `key` as the second parameter, and then an optional third parameter that accepts all the same options as the `get` method.
+You can get items by their labels using the `get` method and the `{ label: 'label*n*' }` option, or you can use the `getByLabel` convenience method. This method takes the label as the first parameter (e.g. `label3`), the `key` as the second parameter, and then an optional third parameter that accepts all the same options as the `get` method.
 
 Labels support collections as well as simple keys. Since they behave the same way, you can also use collection querying methods like `*` and `>=` on labels as well.
 
@@ -574,7 +601,9 @@ Data events are processed in the order that the changes were applied to your dat
 
 If a handler throws an error, it will be retried with exponential backoff for up to 24 hours until it succeeds. After 24 hours the event will be dropped.
 
+!!! caution
 It's important to handle errors in your handler, since a failing handler will prevent new events from being processed.
+!!!
 
 Handlers should only throw an exception for "retryable" errors such as downstream request failures. If the error is a permanent error, the handler should use a try-catch block to capture the error and let the handler succeed.
 
@@ -601,11 +630,15 @@ The `created` option's value must be set to the epoch time (in seconds) of the `
 }
 ```
 
-You would pass `{ overwrite: true, created: 1688097108 }` to the `set` method's options object. If the `created` timestamps **DO NOT MATCH**, then the `set` operation will fail.
+You would pass `{ overwrite: true, created: 1688097108 }` to the `set` method's options object.
+
+!!! note
+If the `created` timestamps **DO NOT MATCH**, then the `set` operation will fail.
+!!!
 
 ### Storing `null` values
 
-By default, the `data` interface removes all `null` attribute values from any object or single value being stored. This is considered a best practice since storing extraneous data in NoSQL can increases storage and data transfer costs as well as potentially add latency to index replication. However, if you'd like to store `null` values, you can override the default behavior by adding a `removeNulls:false` flag to the `set` operation's "options" object.
+By default, the `data` interface removes all `null` (and `undefined`) attribute values from any object or single value being stored. This is considered a best practice since storing extraneous data in NoSQL can increases storage and data transfer costs as well as potentially add latency to index replication. However, if you'd like to store `null` values, you can override the default behavior by adding a `removeNulls:false` flag to the `set` operation's "options" object.
 
 If you would like to set this as a global option, you can set `data.removeNulls = false` after your `@ampt/data` import statement.
 
