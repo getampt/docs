@@ -1,9 +1,9 @@
 ---
 title: Data
-description: Highly scalable NoSQL database with single-digit millisecond response times that's just there.
+description: Highly scalable NoSQL database interface with single-digit millisecond response times.
 ---
 
-Ampt provides a fast, flexible, and scalable NoSQL datastore that's integrated into every Ampt Environment. Backed by [Amazon DynamoDB](https://aws.amazon.com/dynamodb/), the `@ampt/data` package lets developers manage massive collections of complex objects that can be queried on multiple dimensions, sorted, and paginated. With single-digit millisecond response times, it provides enough power to cover your most common needs and use cases.
+Ampt provides a fast, flexible, and scalable NoSQL datastore that's integrated into every Ampt Environment. Backed by [Amazon DynamoDB](https://aws.amazon.com/dynamodb/), the `@ampt/data` interface lets developers manage massive collections of complex objects that can be queried on multiple dimensions, sorted, and paginated. With single-digit millisecond response times, it provides enough power to cover your most common needs and use cases.
 
 **Your data is just there** as part of your application's runtime. You don't need to think about connection strings, credentials, capacity planning, or database maintenance. You can `get`, `set`, and `remove` data whenever you need access to state.
 
@@ -153,7 +153,7 @@ Or by its label:
 await data.getByLabel("label1", "product-released:2023-07-01");
 ```
 
-Unlike `keys`, labels **DO NOT NEED TO BE UNIQUE**. This means that multiple items can share the same exact label value, giving you the ability to return a group of items (as in the example above) that have the same "released" date. Like `keys`, Labels can be [queried with conditionals](#querying-with-conditionals) if using a collection.
+Unlike `keys`, labels **DO NOT NEED TO BE UNIQUE**. This means that multiple items can share the same exact label value, giving you the ability to return a group of items (as in the example above) that have the same "released" date. Like `keys`, labels can be [queried with conditionals](#querying-with-conditionals) if using a collection.
 
 !!! note
 You can have up to **five labels** per item.
@@ -201,7 +201,7 @@ An options object can be passed as third argument. The following options are sup
 | ttl                                    | integer or ISO 8601 date | Sets a Time-to-Live on the item. If an integer is provided that is greater than the current epoch in seconds, that is used. Any other integer will be added to the current epoch. A full or partial ISO 8601 date can also be used. |
 | exists                                 | boolean                  | Forces an existence check when setting an item. See [Existence checks](#existence-checks).                                                                                                                                          |
 | default                                | _any_                    | Sets a default value for an item. See [Setting default values](#setting-default-values).                                                                                                                                            |
-| label1, label2, label3, label4, label5 | string                   | Additional keys that can be used to reference the item. Five labels are available and like item keys, can use collection namespaces.                                                                                                |
+| label1, label2, label3, label4, label5 | string                   | Additional keys that can be used to reference the item. Five labels are available and, like item keys, can use collection namespaces.                                                                                               |
 | created                                | integer                  | Integrity check that works in combination with `overwrite: true`. See [Created timestamp integrity check](#created-timestamp-integrity-check).                                                                                      |
 | removeNulls                            | boolean                  | Prevents null values from being stored in item attributes. Defaults to `true`. See [Storing `null` values](#storing-null-values).                                                                                                   |
 
@@ -302,7 +302,7 @@ Atomic counters allow numeric items or numeric item object values to be atomical
 
 ### Updating a single value atomically
 
-If you only need to update a single value, Ampt provides the `add` method to help you do that. If the item is a simple numeric value (e.g. `{ key: "myCounter", value: 10 }`, you provide the full key name (including collection namespace) as the first parameter and the numeric value you want to "add" to the existing value as the second parameter. Numbers can be positive or negative, and atomic counters support both integers and float values.
+If you only need to update a single value, Ampt provides the `add` method to help you do that. If the item is a simple numeric value (e.g. `{ key: "myCounter", value: 10 }`, you provide the full key name (including collection namespace) as the first parameter and the numeric value you want to "add" to the existing value as the second parameter. Numbers can be positive or negative and atomic counters support both integers and float values.
 
 ```javascript
 const results = await data.add("myCounter", 1);
@@ -507,7 +507,7 @@ const results = await data.get(["key1", "someOtherKey", "namespacedKey:keyX"]);
 
 ## Removing items
 
-You can remove items by providing and item's key or an `array` of keys to the `remove()` method. Keys must be the complete `key` as wildcards and other conditionals are not supported in the `remove` operation. You can specify up to 25 keys in each request.
+You can remove items by providing an item's key or an `array` of keys to the `remove()` method. Keys must be the complete `key` as wildcards and other conditionals are not supported in the `remove` operation. You can specify up to 25 keys in each request.
 
 ```javascript
 const results = await data.remove("foo");
@@ -553,7 +553,7 @@ It's possible for more than one handler to be called for a given change to a dat
 
 The event passed to your handler has the following properties:
 
-- `name`: the event name, which is one of `created`, `updated`, or `deleted`
+- `name`: the event name (either `created`, `updated`, or `deleted`)
 - `item`: the item, including metadata and the value of the item in the `value` property
 - `previous`: the previous state of the item when the event is `updated`
 
@@ -638,7 +638,7 @@ If the `created` timestamps **DO NOT MATCH**, then the `set` operation will fail
 
 ### Storing `null` values
 
-By default, the `data` interface removes all `null` (and `undefined`) attribute values from any object or single value being stored. This is considered a best practice since storing extraneous data in NoSQL can increases storage and data transfer costs as well as potentially add latency to index replication. However, if you'd like to store `null` values, you can override the default behavior by adding a `removeNulls:false` flag to the `set` operation's "options" object.
+By default, the `data` interface removes all `null` (and `undefined`) attribute values from any object or single value being stored. This is considered a best practice since storing extraneous data in NoSQL can increase storage and data transfer costs as well as potentially add latency to index replication. However, if you'd like to store `null` values, you can override the default behavior by adding a `removeNulls:false` flag to the `set` operation's "options" object.
 
 If you would like to set this as a global option, you can set `data.removeNulls = false` after your `@ampt/data` import statement.
 
