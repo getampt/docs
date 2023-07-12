@@ -13,7 +13,8 @@
   ],
   "Interfaces": [
     { "title": "HTTP", "href": "/docs/http/" },
-    { "title": "Schedule Tasks", "href": "/docs/scheduled-tasks/" },
+    { "title": "Schedules", "href": "/docs/scheduled-tasks/" },
+    { "title": "Tasks", "href": "/docs/tasks/" },
     { "title": "Events", "href": "/docs/events/" },
     { "title": "Parameters", "href": "/docs/parameters/" },
     { "title": "Storage", "href": "/docs/storage/" },
