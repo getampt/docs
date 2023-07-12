@@ -25,7 +25,7 @@ When you're ready to show your work to the world, you can **deploy** your code t
 
 ### Preview Environments
 
-If you want to get feedback on your application but aren't ready to publish it to one of the permanent stages above, you can created a **preview environment** instead. Type `share` into the Ampt CLI, and Ampt will create a **preview** that contains your **code AND data**. **Preview environments** are just like **stages**, except that previews will automatically expire when they are no longer being used.
+If you want to get feedback on your application but aren't ready to publish it to one of the permanent stages above, you can create a **preview environment** instead. Type `share` into the Ampt CLI, and Ampt will create a **preview** that contains your **code AND data**. **Preview environments** are just like **stages**, except that previews will automatically expire when they are no longer being used.
 
 ## Regions
 
