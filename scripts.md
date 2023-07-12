@@ -3,9 +3,9 @@ title: Running Scripts
 description: Learn how to run scripts that can access and manipulate your Ampt environments.
 ---
 
-You can run npm scripts with access to a environments's parameters, data and storage using the `ampt run [script]` command.
+You can run npm scripts with access to an environment's parameters, data and storage using the `ampt run [script]` command.
 
-This is useful for tasks like data migrations, or if you would like to run integration tests using a custom test runner.
+This is useful for tasks like data migrations or integration tests using a custom test runner.
 
 `ampt run [script]` will run `npm run ampt:[script]` in your local environment, with access to one of your environments. If you don't specify any options the script will access your developer sandbox by default.
 
