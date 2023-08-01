@@ -3,8 +3,8 @@ title: Schedules
 description: Built-in schedule interface to handle recurring or one-off tasks.
 ---
 
-!!! danger
-The `schedule` interface has been deprecated in favor of the `task` interface. Schedules will continue to work, but we suggest you migrate to the `task` interface as it allows for more flexibility, reusability, control, and execution time. Visit the [Tasks documentation](/docs/task) for more information.
+!!! caution Deprecation Warning
+The `schedule` interface has been deprecated in favor of the `task` interface. Schedules will continue to work, but we suggest you migrate to the `task` interface as it allows for more flexibility, reusability, control, and execution time. Visit the [Tasks documentation](/docs/tasks) for more information.
 !!!
 
 Ampt supports setting up schedules, which you can create using the `schedule` interface of the `@ampt/sdk`. Schedules are useful for:
