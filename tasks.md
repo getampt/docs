@@ -5,6 +5,7 @@ description: Built-in task interface to handle recurring and one-off tasks.
 
 Ampt supports long-running tasks using the `task` interface of the `@ampt/sdk`. Tasks are useful for long-running workloads that aren't suitable for event, data, and storage handlers such as:
 
+- ETL tasks
 - Periodic batch calculations
 - Periodic checks on the existence or correctness of database records or stored files
 
@@ -24,7 +25,7 @@ const myTask = task("my task", (event) => {
   console.log("Running my task");
 });
 
-// With configuration
+// Or with configuration
 const myTask2 = task("my task 2", { timeout: 30000 }, (event) => {
   console.log("Running my task");
 });
@@ -38,7 +39,7 @@ The **handler** is a function that takes two arguments, an **event** object an
 
 ```json header=false
 {
-  target: string      // internal identifier for the task, in the format `task:<name>`
+  target: string      // internal identifier, in the format `task:<name>`
   id: string          // identifier for the task execution
   executionId: string // identifier for the task execution
   name: string        // task name
@@ -161,17 +162,17 @@ The format of the first parameter is the same as the "after" parameter when publ
 - a unix epoch timestamp in milliseconds, such as the output from Date.getTime()
 - a string containing a date and time in UTC format, such as "2022-01-14T17:46:05.811Z"
 - a **[Javascript Date object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)** containing the date and time when the event should be sent. You can use **[dayjs](https://www.npmjs.com/package/dayjs)** for complex data calculations.
-- a string in the format "<number> <units>", such as "1 day". Units can be seconds, minutes, hours, days, weeks, months, or years, and can be either singular or plural, so "1 day" and "1 days" are equivalent. Calculations are done in UTC. If you need to take daylight savings into account, you'll need to calculate the date yourself and provide it as a string in UTC format.
+- a string in the format "&lt;number&gt; &lt;units&gt;", such as "1 day". Units can be seconds, minutes, hours, days, weeks, months, or years, and can be either singular or plural, so "1 day" and "1 days" are equivalent. Calculations are done in UTC. If you need to take daylight savings into account, you'll need to calculate the date yourself and provide it as a string in UTC format.
 
 The body you send to the task can be any data type that can be JSON stringified, and is published as an event that must be less than 256 KB including the body and metadata.
 
 ## Timeouts
 
-By default tasks will timeout after 30 seconds. To change the default, you can specify an object as your second parameter with the `timeout` option. Timeouts are specified in milliseconds and must be a positive integer. As of now, scheduled tasks support a maximum timeout of 15 minutes (900000ms).
+By default tasks will timeout after 30 seconds. To change the default, you can specify an object as your second parameter with the `timeout` option. Timeouts are specified in milliseconds and must be a positive integer. As of now (during private beta), scheduled tasks support a maximum timeout of 30 minutes (1800000ms).
 
 ```javascript
-task("long running task", { timeout: 300000 }, (event) => {
-  // This task can run up to 5 minutes
+task("long running task", { timeout: 1200000 }, (event) => {
+  // This task can run up to 20 minutes
   console.log("This will take a while...");
 });
 ```

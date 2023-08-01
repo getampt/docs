@@ -13,12 +13,12 @@
   ],
   "Interfaces": [
     { "title": "HTTP", "href": "/docs/http/" },
-    { "title": "Schedules", "href": "/docs/scheduled-tasks/" },
     { "title": "Tasks", "href": "/docs/tasks/" },
     { "title": "Events", "href": "/docs/events/" },
     { "title": "Parameters", "href": "/docs/parameters/" },
     { "title": "Storage", "href": "/docs/storage/" },
-    { "title": "WebSockets", "href": "/docs/websockets/" }
+    { "title": "WebSockets", "href": "/docs/websockets/" },
+    { "title": "Schedules (deprecated)", "href": "/docs/scheduled-tasks/" }
   ],
   "Modules": [
     { "title": "API", "href": "/docs/api/" },

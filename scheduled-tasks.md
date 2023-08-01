@@ -3,6 +3,10 @@ title: Schedules
 description: Built-in schedule interface to handle recurring or one-off tasks.
 ---
 
+!!! danger
+The `schedule` interface has been deprecated in favor of the `task` interface. Schedules will continue to work, but we suggest you migrate to the `task` interface as it allows for more flexibility, reusability, control, and execution time. Visit the [Tasks documentation](/docs/task) for more information.
+!!!
+
 Ampt supports setting up schedules, which you can create using the `schedule` interface of the `@ampt/sdk`. Schedules are useful for:
 
 - Periodic batch calculations
@@ -107,7 +111,7 @@ The format of the first argument of `.at()` is the same as the "after" parameter
 - a unix epoch timestamp in milliseconds, such as the output from Date.getTime()
 - a string containing a date and time in UTC format, such as "2022-01-14T17:46:05.811Z"
 - a **[Javascript Date object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)** containing the date and time when the event should be sent. You can use **[dayjs](https://www.npmjs.com/package/dayjs)** for complex data calculations.
-- a string in the format "<number> <units>", such as "1 day". Units can be seconds, minutes, hours, days, weeks, months, or years, and can be either singular or plural, so "1 day" and "1 days" are equivalent. Calculations are done in UTC. If you need to take daylight savings into account, you'll need to calculate the date yourself and provide it as a string in UTC format.
+- a string in the format "&lt;number&gt; &lt;units&gt;", such as "1 day". Units can be seconds, minutes, hours, days, weeks, months, or years, and can be either singular or plural, so "1 day" and "1 days" are equivalent. Calculations are done in UTC. If you need to take daylight savings into account, you'll need to calculate the date yourself and provide it as a string in UTC format.
 
 The body you send to the task can be any data type that can be JSON stringified, and is published as an event that must be less than 256 KB including the body and metadata.
 
