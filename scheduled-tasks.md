@@ -1,9 +1,13 @@
 ---
-title: Schedulers
-description: Built-in scheduler interface to handle recurring or one-off tasks.
+title: Schedules
+description: Built-in schedule interface to handle recurring or one-off tasks.
 ---
 
-Ampt supports setting up scheduled tasks, which you can create using the `schedule` interface of the `@ampt/sdk`. Schedulers are particularly useful for:
+!!! caution Deprecation Warning
+The `schedule` interface has been deprecated in favor of the `task` interface. Schedules will continue to work, but we suggest you migrate to the `task` interface as it allows for more flexibility, reusability, control, and execution time. Visit the [Tasks documentation](/docs/tasks) for more information.
+!!!
+
+Ampt supports setting up schedules, which you can create using the `schedule` interface of the `@ampt/sdk`. Schedules are useful for:
 
 - Periodic batch calculations
 - Periodic checks on the existence or correctness of database records or stored files
@@ -15,9 +19,9 @@ You can either use the `.every()` method for having tasks repeat on a regular 
 The name of the schedule can be up to 64 characters.
 !!!
 
-## Scheduling tasks with `.every()`
+## Scheduling with `.every()`
 
-If you know you need a task to repeat every hour, or every 5 days, you can use the `.every()` method. This method takes two arguments, a **rate expression** and the function you'd like to run.
+If you need a schedule to repeat every hour, or every 5 days, you can use the `.every()` method. This method takes two arguments, a **rate expression** and the function you'd like to run.
 
 For example, the following will log "I run every hour!" every hour:
 
@@ -32,7 +36,7 @@ schedule("hourly health check").every("1 hour", () => {
 
 A **rate expression** consists of a **numeric value** and a **unit**. Valid **units** are `minute`, `minutes`, `hour`, `hours`, `day` and `days`. Maximum frequency is 1 minute.
 
-## Scheduling tasks with `.cron()`
+## Scheduling with `.cron()`
 
 If you need more control over your scheduled tasks, you can use the `.cron()` method. This method also takes two arguments, a **cron expression** and the function you'd like to run.
 
@@ -74,9 +78,13 @@ Ampt uses an extended cron format as opposed to traditional UNIX format. **Cron 
 - The W wildcard in the Day-of-month field specifies a weekday. In the Day-of-month field, 3W specifies the weekday closest to the third day of the month.
 - The # wildcard in the Day-of-week field specifies a certain instance of the specified day of the week within a month. For example, 3#2 would be the second Tuesday of the month: the 3 refers to Tuesday because it is the third day of each week, and the 2 refers to the second day of that type within the month.
 
-## Scheduling tasks for an exact date with `.at()` and `.task()`
+## Scheduling one-off tasks with `.task()` and `.at()`
 
-Ampt Schedules also supports one-off delayed workloads that can run at specific times, up to one year in the future.
+!!! note
+The `.task()` and `.at()` methods are deprecated in favor of the new **[`task` interface](/tasks)**.
+!!!
+
+Ampt Schedules also support one-off delayed workloads that can run at a specific time, up to one year in the future.
 
 To do this, declare a schedule group with a `.task()` listener. This handler will receive all delayed tasks queued with `.at()` within the schedule group.
 
@@ -85,20 +93,27 @@ For example, queueing future work on a user sign-up:
 ```javascript
 import { schedule } from "@ampt/sdk";
 import { data } from "@ampt/data";
+
 const welcomeSchedule = schedule("welcome");
+
 welcomeSchedule.task((event) => {
-  const {
-    body: { payload },
-  } = event;
-  // payload = { email: 'user-email' }
+  console.log("Sending welcome email to", event.body.email);
 });
+
 data.on("created:user:*", async ({ item }) => {
-  const inOneHour = new Date(Date.now() + 1000 * 60 * 60).toString();
-  await welcomeSchedule.at(inOneHour, { email: item.value.email });
+  await welcomeSchedule.at("1 hour", { email: item.value.email });
 });
 ```
 
-**_Dates passed to `.at()` must be either a UTC or ISO string._**
+The format of the first argument of `.at()` is the same as the "after" parameter when publishing events. It can be expressed in any of these formats:
+
+- a number of milliseconds to wait before sending the event
+- a unix epoch timestamp in milliseconds, such as the output from Date.getTime()
+- a string containing a date and time in UTC format, such as "2022-01-14T17:46:05.811Z"
+- a **[Javascript Date object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)** containing the date and time when the event should be sent. You can use **[dayjs](https://www.npmjs.com/package/dayjs)** for complex data calculations.
+- a string in the format "&lt;number&gt; &lt;units&gt;", such as "1 day". Units can be seconds, minutes, hours, days, weeks, months, or years, and can be either singular or plural, so "1 day" and "1 days" are equivalent. Calculations are done in UTC. If you need to take daylight savings into account, you'll need to calculate the date yourself and provide it as a string in UTC format.
+
+The body you send to the task can be any data type that can be JSON stringified, and is published as an event that must be less than 256 KB including the body and metadata.
 
 `.task()` handlers receive an event of this type:
 
@@ -120,7 +135,7 @@ data.on("created:user:*", async ({ item }) => {
 
 ## Timeouts
 
-By default, scheduled tasks will timeout after 60 seconds. To change the default, you can specify an object as your second parameter with a `timeout` key. Timeouts are specified in milliseconds and must be a positive integer. As of now, scheduled tasks support a maximum timeout of 300 seconds (5 minutes).
+By default, scheduled tasks will timeout after 30 seconds. To change the default, you can specify an object as your second parameter with a `timeout` key. Timeouts are specified in milliseconds and must be a positive integer. As of now, scheduled tasks support a maximum timeout of 300 seconds (5 minutes).
 
 ```javascript
 schedule("two times a day").every("12 hours", { timeout: 300000 }, () => {
