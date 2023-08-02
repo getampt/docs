@@ -3,6 +3,59 @@ title: Changelog
 description: Changelog for the Ampt platform is updated on a weekly basis to include the latest updates and improvements.
 ---
 
+## 2023-08-01
+
+**Improvements**:
+
+- We introduced `task` interface that enables users to run one-off or recurring tasks that can take more than the previous limit of 5 minutes. With our new smart compute capability, we dynamically switch customer code between AWS Lambda, AWS Apprunner, and AWS Fargate. Check out the [announcement blog post]() for more information. 
+- We improved our logs page drastically for better filtering and navigation. You can now filter the logs according to log level and select logs in any time interval more flexibly. 
+- We improved the tips experience on CLI that could be annoying for power users. Note that you can always run `help` to see the available commands that you can use with Ampt CLI. 
+- We were allowing only one custom domain per stage and this was restricting some of our users. We bumped this limit to 2. Please don't hesitate to ping us if you need even more. 
+
+**Bug Fixes**:
+
+- `null` values were not shown in the Data Page for any stage. We fixed this issue. 
+- We fixed the issue when `deploy` command wasn't producing the deployment logs while the logs were available via Ampt Dashboard. 
+- We realized that code sync process seems to be succeeded although the files are not synced to storage of the sandbox environment. We have fixed this issue. 
+
+## 2023-07-11
+
+**Improvements**:
+
+- We introduced support for HTTP response streaming, enabling faster and more efficient responses. Check out the [announcement blog](https://getampt.com/blog/introducing-http-response-streaming/) for more information.
+- We have made several improvements to the `@ampt/data` package to enable existence checks, conditional labels, integrity checks with “created date”, and more. Check out the [full blog post](https://getampt.com/blog/introducing-data-defaults-and-existence-checks/) to learn more on these updates.
+- The default timeout for events is extended to 60 seconds, providing additional flexibility for handling complex processes.
+- We expanded the capability to invoke scheduled tasks from the dashboard to all stages, not just limited to developer sandboxes.
+
+**Bug Fixes**:
+
+- Branch names containing special charachters were causing errors when creating preview environments. This issue is now resolved. 
+- We fixed the color codes in the "Deployments" tab for stages, ensuring accurate visual representation.
+- We addressed pagination issues with the @ampt/data library's getByLabel method, allowing for correct retrieval of records.
+- We synchronized the time for deployment logs with user’s local time, aligning it with runtime logs for improved clarity.
+- We resolved the problem where invited users were added as members instead of admins, ensuring proper access privileges.
+- We fixed the redundant pagination problem on the Ampt Dashboard’s Data page when the records can fit on a single page.
+- We resolved the issue encountered when using the root path for APIs with the @ampt/api library. 
+- We fixed the limitation that prevented non-admin users from overriding params for sandboxes. This will grant developers the necessary flexibility they need while working in their sandbox.
+- We addressed the synchronization issue between code changes and the local dev server when using the ampt dev command in the CLI for full stack applications.
+- We updated the help command in the Ampt CLI, ensuring all commands are properly documented and accessible.
+
+## 2023-05-23
+
+**Improvements**:
+
+- We introduced the `@ampt/cloud` package and a comprehensive migration guide for seamlessly migrating Serverless Cloud apps to Ampt. Check out the [full blog post](https://getampt.com/blog/serverless-cloud-migration/) for detailed information.
+- We created the GitHub Integration, enabling smoother collaboration and streamlined workflows. Explore the [full blog post](https://getampt.com/blog/introducing-github-integration/) to learn more.
+- We enhanced the functionality of custom scripts in Ampt environments by adding the ability to include params. For more information, refer to the [documentation](https://getampt.com/docs/scripts/#additional-npm-and-script-arguments).
+- Custom domain experience is now improved by adding the ability to use wildcards (e.g., "*.example.com") when adding a custom domain.
+- We enabled the loading of other projects through symlinks, catering to customers' needs to link multiple projects together.
+- We have introduced compatibility with AWS AppRunner for infrastructure deployment. Although users may not notice a difference, this update provides enhanced portability between serverless functions and containers. Stay tuned as we continuously expand our container support with new services like AWS Fargate.
+
+**Bug Fixes**:
+
+- The issue related to cookie settings for Fastify and Express applications is resolved.
+- We addressed minor UI errors in the deployment logs page, ensuring a smoother user experience.
+
 ## 2023-04-24
 
 **Improvements**:
