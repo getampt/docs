@@ -1,8 +1,7 @@
 {
   "Getting Started": [
     { "title": "Installation", "href": "/docs/" },
-    { "title": "How Ampt Works", "href": "/docs/overview/" },
-    { "title": "Changelog", "href": "/docs/changelog/" }
+    { "title": "How Ampt Works", "href": "/docs/overview/" }
   ],
   "Core Concepts": [
     { "title": "Apps & Environments", "href": "/docs/environments/" },
