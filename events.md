@@ -55,18 +55,22 @@ To handle an event you use the `events.on()` method, and provide the event nam
 For example, this will call the handler when a "user.joined" event is received.
 
 ```javascript
-events.on("user.joined", async ({ body }) => {
-  // send a welcome email using body.email
+events.on("user.joined", async (event, context) => {
+  // send a welcome email using event.body.email
 });
 ```
 
-The handler receives an object with these properties:
+The handler receives an `event` object with these properties:
 
 - **id**: the event identifier string
 - **name**: the event name, such as "user.joined" in the example above
 - **body**: the body that was provided to `events.publish()`
 - **time**: the timestamp when `events.publish()` was called, as epoch time in milliseconds
 - **delay**: the amount of time the event was delayed, in milliseconds
+
+The `context` object has one method:
+
+- **setTimeout(milliseconds)**: set the timeout for the event handler, in milliseconds
 
 There can be more than one handler for a given event name. To add another handler just call `events.on()` again with the same event name. Your handlers will be called in the order they are defined in your code. It's also ok if there are no handlers for an event, the event will just be ignored.
 
@@ -75,3 +79,24 @@ Internally, events are placed in a queue and processed as fast as possible. The 
 There is no guarantee that events will be processed in order, and no guarantee that your handler will only get called once for each event, so your application needs to handle out-of-order events and duplicate events.
 
 If any of your handlers throw an error, processing is considered to have failed. Failed events are retried every six minutes, for up to 14 days, after which the event is dropped.
+
+### Timeouts
+
+By default handlers must finish within 5 seconds, otherwise the handler will fail and the event will be retried. You can increase the timeout by setting the `timeout` option when calling `events.on()`.
+
+```javascript
+events.on("user.joined", { timeout: 10000 }, async (event, context) => {
+  // send a welcome email using event.body.email
+});
+```
+
+You can also use the `context.setTimeout()` method to adjust the timeout at runtime.
+
+```javascript
+events.on("user.joined", async (event, context) => {
+  context.setTimeout(10000);
+  // send a welcome email using event.body.email
+});
+```
+
+The maximum timeout for an event handler is 60 seconds.
