@@ -60,7 +60,7 @@ koaRouter.get("/koa", (ctx, _next) => {
 koaApp.use(koaRouter.routes()).use(koaRouter.allowedMethods());
 http.useNodeHandler(koaApp);
 // in v0.0.1-beta.43
-http.node.use("/api", expressApp);
+http.node.use("/api", koaApp);
 ```
 
 ## Restana
@@ -75,7 +75,7 @@ restanaApp.get("/restana", (req, res) => {
 });
 http.useNodeHandler(restanaApp);
 // in v0.0.1-beta.43
-http.node.use("/api", expressApp);
+http.node.use("/api", restanaApp);
 ```
 
 ## Fastify
@@ -90,5 +90,5 @@ fastifyApp.get("/fastify", (req, res) => {
 });
 http.useNodeHandler(fastifyApp);
 // in v0.0.1-beta.43
-http.node.use("/api", expressApp);
+http.node.use("/api", fastifyApp);
 ```
