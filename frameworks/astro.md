@@ -8,7 +8,7 @@ Ampt allows developers to integrate with their existing Astro applications.
 Install `@ampt/astro` in your project:
 
 ```terminal title=Terminal
-> npm install @ampt/astro
+> npm install @ampt/astro --save
 ```
 
 or run this when you’re in the interactive shell:

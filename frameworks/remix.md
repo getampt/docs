@@ -8,7 +8,7 @@ You can integrate your Remix application with Ampt and achieve a full stack deve
 Install the `@ampt/remix` adapter:
 
 ```terminal title=Terminal
-> npm install @ampt/remix
+> npm install @ampt/remix --save
 ```
 
 or run this when you’re in the interactive shell:
