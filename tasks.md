@@ -166,6 +166,14 @@ The format of the first parameter is the same as the "after" parameter when publ
 
 The body you send to the task can be any data type that can be JSON stringified, and is published as an event that must be less than 256 KB including the body and metadata.
 
+The return value of the `.run()` method is a promise that resolves to the execution ID of the scheduled task, in the format `{ id: "<execution ID>" }`:
+
+```javascript
+const { id } = await welcomeTask.run("1 hour", { email: item.value.email });
+
+console.log("Task execution ID:", id);
+```
+
 ## Timeouts
 
 By default tasks will timeout after 30 seconds. To change the default, you can specify an object as your second parameter with the `timeout` option. Timeouts are specified in milliseconds and must be a positive integer. As of now (during private beta), scheduled tasks support a maximum timeout of 30 minutes (1800000ms).
@@ -199,7 +207,30 @@ task("long running task", (event, context) => {
 
 ## Task history
 
-A record of each task execution is stored in the task's history and retained for 14 days. In a future release the task history will be available through the Ampt dashboard.
+A record of each task execution is stored in the task's history and retained for 14 days. Task history is available in the Ampt dashboard, under the "Tasks" tab for your environment.
+
+The state of a task execution can be retrieved using the `task.state()` method:
+
+```javascript
+const state = await task.state(executionId);
+```
+
+The state object contains the following properties:
+
+- **id** - the execution ID of the task execution
+- **name** - the name of the task
+- **state** - the state of the execution: "created", "scheduled", "submitted", "completed", or "failed"
+- **body** - the JSON-stringified body that was specified when the task was run
+- **createdAt** - the date and time the task execution was created
+- **scheduledAt** - the date and time the task was scheduled
+- **submittedAt** - the date and time the task was submitted to a worker
+- **completedAt** - the date and time the task completed
+- **failedAt** - the date and time the task failed
+- **progressMessage** - the last progress message sent by the task
+- **progressPercent** - the last progress percent sent by the task
+- **errorMessage** - the error message if the task failed
+- **errorStack** - the error stack if the task failed
+- **result** - the JSON-stringified result of the task if it completed successfully
 
 ## Error handling
 
