@@ -45,7 +45,7 @@ Uninstalls the specified npm package from your application.
 
 Runs the npm script `ampt:<script>` locally on your sandbox. The script will have access to the selected stage's params, data, and storage.
 
-You may pass additional arguments to npm by adding a double dash followed by the arguments, and another double dash to pass arguments to the script. For example `cloud run migrate --if-present -- script-argument --script-option` will result in running `npm run cloud:migrate --if-present -- script-argument --script-option` using the sandbox environment.
+You may pass additional arguments to npm by adding a double dash followed by the arguments, and another double dash to pass arguments to the script. For example `ampt run migrate --if-present -- script-argument --script-option` will result in running `npm run ampt:migrate --if-present -- script-argument --script-option` using the sandbox environment.
 
 ## `ampt import [FILENAME] [--overwrite]`
 
