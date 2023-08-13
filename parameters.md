@@ -13,7 +13,7 @@ When you modify a parameter value in the Ampt Dashboard, the changes are instant
 
 Some parameters apply to all apps within an organization, while others might be specific to a particular project or application. Additionally, an application will probably use a different value of a parameter in production and development.
 
-**Organization-level parameters** are defined under "Organization Settings" in the Ampt Dashboard. Every environment of every app will inherit those parameters automatically. Organization-level parameters can be overridden at the app and environment levels. For example, you can define an API key to be used for a third-party vendor as `THIRD_PARTY_API_KEY` and you can override this parameter for the production environment (permanent environments will be available soon).
+**Organization-level parameters** are defined under "Organization Settings" in the Ampt Dashboard. Every environment of every app will inherit those parameters automatically. Organization-level parameters can be overridden at the app and environment levels. For example, you can define an API key to be used for a third-party vendor as `THIRD_PARTY_API_KEY` and you can override this parameter for the production environment.
 
 **App-level parameters** are defined for each application under App Settings. This is helpful when you need to declare a parameter that must be used by all environments of an application. For example, you can define the `STRIPE KEY` for the billing app, and it will be applied solely to this app's environments.
 
