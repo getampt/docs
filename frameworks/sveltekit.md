@@ -1,6 +1,6 @@
 ---
-title: Svelte Kit
-description: Integrate with Svelte Kit for a full-stack development experience.
+title: Kit
+description: Integrate with Kit for a full-stack development experience.
 ---
 
 You can integrate your Svelte application with Ampt and achieve a full stack development experience for your applications. Follow the below steps to integrate your Svelte application with Ampt.
@@ -30,10 +30,10 @@ For any static assets (such as images) you will need to add a folder to your pro
 !!!
 
 ```javascript header=false
-import { vitePreprocess } from "@sveltejs/kit/vite";
-import adapter from "@ampt/sveltekit";
+import { vitePreprocess } from "@js/kit/vite";
+import adapter from "@ampt/kit";
 
-/** @type {import('@sveltejs/kit').Config} */
+/** @type {import('@js/kit').Config} */
 const config = {
   preprocess: vitePreprocess(),
   kit: {
@@ -55,7 +55,7 @@ You will need to add the dev and build scripts to configure how you start the de
 
 ```javascript title=package.json, copy=false
 {
-	"name": "my-svelte-app",
+	"name": "my--app",
 	"main": "index.ts",
 	"scripts": {
 		"ampt:dev": "vite dev",
