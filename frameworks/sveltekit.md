@@ -1,6 +1,6 @@
 ---
-title: Svelte
-description: Integrate with Svelte for a full-stack development experience.
+title: Svelte Kit
+description: Integrate with Svelte Kit for a full-stack development experience.
 ---
 
 You can integrate your Svelte application with Ampt and achieve a full stack development experience for your applications. Follow the below steps to integrate your Svelte application with Ampt.
