@@ -12,7 +12,7 @@ Ampt currently supports Next.js 12.x. Support for Next.js 13 is coming soon.
 Install `@ampt/nextjs` in your project:
 
 ```terminal title=Terminal
-> npm install @ampt/nextjs
+> npm install @ampt/nextjs --save
 ```
 
 or run this when you’re in the interactive shell:
