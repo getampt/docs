@@ -47,8 +47,6 @@ const config = {
 export default config;
 ```
 
-````javascript header=false
-
 You will need to add the dev and build scripts to configure how you start the development server inside interactive shell and how you package your application. You will need to update `package.json`:
 
 - set `main` to `index.js` or `index.ts`
@@ -65,4 +63,4 @@ You will need to add the dev and build scripts to configure how you start the de
     },
     ...
 }
-````
+```
