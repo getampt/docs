@@ -36,7 +36,7 @@
     { "title": "Remix", "href": "/docs/frameworks/remix/" },
     { "title": "Astro", "href": "/docs/frameworks/astro/" },
     { "title": "Eleventy", "href": "/docs/frameworks/eleventy/" },
-    { "title": "Svelte Kit", "href": "/docs/frameworks/sveltekit/" },
+    { "title": "SvelteKit", "href": "/docs/frameworks/sveltekit/" },
     {
       "title": "Node-based",
       "href": "/docs/frameworks/node-based/"
