@@ -3,7 +3,7 @@ title: SvelteKit
 description: Integrate with SvelteKit for a full-stack development experience.
 ---
 
-You can integrate your Svelte application with Ampt and achieve a full stack development experience for your applications. Follow the below steps to integrate your Svelte application with Ampt.
+You can integrate your SvelteKit application with Ampt and achieve a full stack development experience for your applications. Follow the below steps to integrate your SvelteKit application with Ampt.
 
 Install the `@ampt/sveltekit` adapter:
 
@@ -17,7 +17,7 @@ or run this when you’re in the interactive shell:
 > install @ampt/sveltekit
 ```
 
-Create an `index.js` or `index.ts` file that imports the Ampt Svelte server wrapper:
+Create an `index.js` or `index.ts` file that imports the Ampt SvelteKit server wrapper:
 
 ```javascript header=false
 import "@ampt/sveltekit/server";
