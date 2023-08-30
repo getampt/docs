@@ -33,6 +33,7 @@
   ],
   "Frameworks": [
     { "title": "Next.js", "href": "/docs/frameworks/next/" },
+    { "title": "Nuxt", "href": "/docs/frameworks/nuxt/" },
     { "title": "Remix", "href": "/docs/frameworks/remix/" },
     { "title": "Astro", "href": "/docs/frameworks/astro/" },
     { "title": "Eleventy", "href": "/docs/frameworks/eleventy/" },
