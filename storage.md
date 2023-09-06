@@ -40,6 +40,10 @@ await students.write('/your/path/binaryData.ext', binaryData, { type: ‘applica
 await students.write('/', binaryData)
 ```
 
+!!! caution
+There's 6MB payload limit for API endpoints. If you want to store bigger files from a user input via an API endpoint, you need to create an upload URL and upload it directly with an HTTP put command. Check out the docs for it [here](https://www.getampt.com/docs/storage/#upload-and-download-urls).
+!!!
+
 ## Reading Files
 
 Files can be read into memory as either a `ReadableStream` or a `Buffer`. If no options are passed, a `ReadableStream` is returned by default. Also included is `readBuffer` for ease of use, if you want to only use buffers without any extra arguments. To read the file, the absolute directory must be passed. If the file does not exist, `undefined` is returned.
@@ -137,6 +141,8 @@ const uploadUrl = await storage("students").getUploadUrl(
   "bin-copy/doesNotExistYet.ext"
 );
 ```
+
+If the files you're going to upload is expected to be bigger than 6MB, you should default to retrieve the upload URL, and then use the `PUT` method to upload file directly to Ampt Storage in an asynchronous way. 
 
 ## Listeners
 
