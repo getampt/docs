@@ -16,12 +16,7 @@
     { "title": "Events", "href": "/docs/events/" },
     { "title": "Parameters", "href": "/docs/parameters/" },
     { "title": "Storage", "href": "/docs/storage/" },
-    { "title": "WebSockets", "href": "/docs/websockets/" },
-    {
-      "title": "Schedules",
-      "href": "/docs/scheduled-tasks/",
-      "deprecated": true
-    }
+    { "title": "WebSockets", "href": "/docs/websockets/" }
   ],
   "Modules": [
     { "title": "API", "href": "/docs/api/" },
@@ -47,11 +42,7 @@
   "Guides": [
     { "title": "Serve Static Assets", "href": "/docs/static-assets/" },
     { "title": "Use Custom Domains", "href": "/docs/custom-domains/" },
-    { "title": "Integrate with GitHub", "href": "/docs/github-integration/" },
-    {
-      "title": "Serverless Cloud Migration",
-      "href": "/docs/migrate-serverless-cloud/"
-    }
+    { "title": "Integrate with GitHub", "href": "/docs/github-integration/" }
   ],
   "CLI Reference": [
     { "title": "Standard Mode", "href": "/docs/cli-standard-mode/" },
