@@ -28,7 +28,7 @@ The SDK (`@ampt/sdk`) includes:
 
 For more specific use cases, you can install additional modules:
 
-- [@ampt/api](/docs/api/)(**BETA**)
+- [@ampt/api](/docs/api/) (**BETA**)
 - [@ampt/data](/docs/data/)
 
 If you intend to use an existing framework with Ampt, such as Express or Remix, view the following guides below:
