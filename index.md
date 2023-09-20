@@ -5,10 +5,6 @@ altTitle: Get started with Ampt!
 altDescription: Ampt lets developers write apps using their favorite tools, JavaScript frameworks, and npm packages, then automatically provisions, manages, and optimizes cloud resource by inferring requirements from the code.
 ---
 
-!!! note Important Note
-Ampt is currently in **PRIVATE BETA**. If your account hasn't been granted access, then the steps below will not work for you. Please be sure to sign up for the [waitlist](https://ampt.dev).
-!!!
-
 <div class="font-medium text-xl pb-6 pt-4">Installation</div>
 
 <div>
@@ -38,7 +34,7 @@ Ampt is currently in **PRIVATE BETA**. If your account hasn't been granted acces
 	<div class="w-full xl:w-[55%] pb-16">
 
 ```terminal title=Terminal, class="no-margin", copy=false
-ampt ⚡ (beta)
+ampt ⚡
 
 ℹ You must login to proceeed.
 ℹ Your browser should open automatically.
@@ -81,7 +77,7 @@ ampt ⚡ (beta)
 	<div class="w-full xl:w-[55%] pb-16">
 	
 ```terminal title=Terminal, class="no-margin", copy=false
-ampt ⚡ (beta)
+ampt ⚡
 
 ~~~whitespace-normal pl-5 -indent-5 inline-block~~~~text-ampt-pink~?~~~ Do you want to create a new app or work on an existing one?~~~
 
@@ -101,7 +97,7 @@ ampt ⚡ (beta)
 	<div class="w-full xl:w-[55%] pb-16">
 
 ```terminal title=Terminal, class="no-margin", copy=false
-ampt ⚡ (beta)
+ampt ⚡
 
 ℹ You've selected ~~~font-bold~Create new app~~~.
 ~~~whitespace-normal pl-5 -indent-5 inline-block~ℹ Please choose an app template to generate in this directory.~~~
@@ -127,7 +123,7 @@ ampt ⚡ (beta)
 	<div class="w-full xl:w-[55%] pb-16">
 
 ```terminal title=Terminal, class="no-margin", copy=false
-ampt ⚡ (beta)
+ampt ⚡
 
 ℹ You've selected ~~~font-bold~JavaScript API (Express)~~~.
 ℹ Please enter a name for your app.
@@ -149,7 +145,7 @@ ampt ⚡ (beta)
 	<div class="w-full xl:w-[55%] pb-16">
 
 ```terminal title=Terminal, class="no-margin", copy=false
-ampt ⚡ (beta)
+ampt ⚡
 
 ℹ You've entered ~~~font-bold~my-cool-api~~~.
 ~~~whitespace-normal pl-5 -indent-5 inline-block~✔ Successfully generated app ~~~font-bold~my-cool-api~~~ in this directory.~~~
