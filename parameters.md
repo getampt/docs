@@ -1,6 +1,6 @@
 ---
 title: Parameters
-description: Built-in parameter store to keep secrets encrpyted and available only during runtime.
+description: Built-in parameter store to keep secrets encrypted and available only during runtime.
 ---
 
 Ampt's built-in parameter store allows developers to store the parameters in a secure way, and to use them programmatically with the `params` interface of Ampt SDK. All the parameters are encrypted both at transit and at rest and only decrypted during runtime.
