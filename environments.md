@@ -37,12 +37,29 @@ Ampt can create **environments** in any of the following AWS regions:
 - `eu-west-2` (London)
 - `eu-central-1` (Frankfurt)
 - `ap-northeast-1` (Tokyo)
+- `sa-east-1` (São Paulo)
 
 !!! note
 Once an **environment** has been created its region cannot be changed. If you need to move an **environment** to a different region, you will need to create a new **environment** in the desired region and delete the old one.
 !!!
 
 The region for a new **environment** is determined by your **Organization** and **App** region settings, and can be specified directly using the `--region` flag when running the Ampt CLI.
+
+For example, to create sandbox in the `us-west-2` region, you can run the following command in your project directory:
+
+```terminal title=Terminal, class="no-margin"
+> ampt --region us-west-2
+```
+
+While running the Ampt CLI, you can also specify a region using the `--region` flag. For example, to deploy a stage in the `us-west-2` region, you can run the following command in your project directory:
+
+```terminal title=Terminal, class="no-margin"
+ampt ⚡
+
+> deploy my-stage-name --region us-west-2
+```
+
+Once an environment has been created, the region cannot be changed and the `--region` argument will be ignored.
 
 ### Organization Region
 
