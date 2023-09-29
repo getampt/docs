@@ -95,7 +95,7 @@ Or if you want to close all connections:
 ```javascript
 // .. in some handler
 const connections = await data.get("connection:*");
-await ws.close(connections.map((item) => item.value.connectionId));
+await ws.close(connections.items.map((item) => item.value.connectionId));
 ```
 
 ## Sending Messages
