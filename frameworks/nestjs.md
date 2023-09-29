@@ -1,6 +1,6 @@
 ---
 title: NestJS
-description: Integrate with NestJS to server-side applications on Ampt.
+description: Integrate with NestJS to build server-side applications on Ampt.
 ---
 
 Ampt allows developers to integrate with their existing [NestJS](https://docs.nestjs.com/) applications.
