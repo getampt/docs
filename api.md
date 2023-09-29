@@ -146,6 +146,8 @@ publicApi.patch("/:id", async (event) => {
 To send files stored at Ampt Storage, developers can use the `getDownloadUrl` function.
 
 ```javascript
+import { v, api } from "@ampt/api";
+
 const files = api("files").router("/files", { path: v.string() }, auth);
 
 files.get("/:path*", async (event) => {
