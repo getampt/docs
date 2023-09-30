@@ -17,7 +17,7 @@ or run this when you’re in the interactive shell:
 > install @ampt/nestjs
 ```
 
-Add the `ampt:dev` and `ampt:build` scripts to configure how you start the development server inside interactive shell and how you build your application. You will need to update `package.json` file as follows:
+Add the `ampt:dev` and `ampt:build` scripts to configure how you start the development server inside the interactive shell and how you build your application. You will need to update your `package.json` file as follows:
 
 - add `ampt:dev` script for running the NestJS dev server locally
 - add `ampt:build` script for running nest build
@@ -32,7 +32,7 @@ This is an example of what your `package.json` should look like:
   "type": "module",
   "scripts": {
     "ampt:build": "nest build",
-    "ampt:dev": "next dev",
+    "ampt:dev": "nest dev",
   },
   ...
 }
