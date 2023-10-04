@@ -25,8 +25,6 @@ expressApp.use("/express", (req, res) => {
   res.send("hello express");
 });
 
-http.useNodeHandler(expressApp);
-// in v0.0.1-beta.43
 http.node.use("/api", expressApp);
 ```
 
@@ -40,7 +38,8 @@ const connectApp = connect();
 connectApp.use("/connect", (req, res) => {
   res.end("hello connect");
 });
-http.useNodeHandler(connectApp);
+
+http.node.use(connectApp);
 ```
 
 ## Koa
@@ -58,8 +57,7 @@ koaRouter.get("/koa", (ctx, _next) => {
 });
 
 koaApp.use(koaRouter.routes()).use(koaRouter.allowedMethods());
-http.useNodeHandler(koaApp);
-// in v0.0.1-beta.43
+
 http.node.use("/api", koaApp);
 ```
 
@@ -73,8 +71,7 @@ const restanaApp = restana();
 restanaApp.get("/restana", (req, res) => {
   res.send("hello restana");
 });
-http.useNodeHandler(restanaApp);
-// in v0.0.1-beta.43
+
 http.node.use("/api", restanaApp);
 ```
 
@@ -88,7 +85,21 @@ const fastifyApp = fastify();
 fastifyApp.get("/fastify", (req, res) => {
   res.send("hello fastify");
 });
-http.useNodeHandler(fastifyApp);
-// in v0.0.1-beta.43
+
 http.node.use("/api", fastifyApp);
+```
+
+## Restify
+
+```javascript
+import { http } from "@ampt/sdk";
+import restify from "restify";
+const restifyApp = restify.createServer();
+
+restifyApp.get("/restify", (req, res, next) => {
+  res.send("hello restify");
+  next();
+});
+
+http.node.use("/api", restifyApp);
 ```
