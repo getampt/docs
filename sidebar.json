@@ -34,6 +34,7 @@
     { "title": "Astro", "href": "/docs/frameworks/astro/" },
     { "title": "Eleventy", "href": "/docs/frameworks/eleventy/" },
     { "title": "SvelteKit", "href": "/docs/frameworks/sveltekit/" },
+    { "title": "Angular", "href": "/docs/frameworks/angular/" },
     {
       "title": "Node-based",
       "href": "/docs/frameworks/node-based/"
