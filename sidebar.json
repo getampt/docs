@@ -30,10 +30,12 @@
   "Frameworks": [
     { "title": "Next.js", "href": "/docs/frameworks/next/" },
     { "title": "Nuxt", "href": "/docs/frameworks/nuxt/" },
+    { "title": "NestJS", "href": "/docs/frameworks/nestjs/" },
     { "title": "Remix", "href": "/docs/frameworks/remix/" },
     { "title": "Astro", "href": "/docs/frameworks/astro/" },
     { "title": "Eleventy", "href": "/docs/frameworks/eleventy/" },
     { "title": "SvelteKit", "href": "/docs/frameworks/sveltekit/" },
+    { "title": "Angular", "href": "/docs/frameworks/angular/" },
     {
       "title": "Node-based",
       "href": "/docs/frameworks/node-based/"

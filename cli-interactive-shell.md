@@ -29,7 +29,7 @@ Starts the local development server in a child process, if a script named `ampt
 
 Deploys the code AND data from your sandbox to a preview environment named NAME. If no NAME is provided, a randomly generated name will be created for you.
 
-A preview environment is an ephermeral environment that you can use to easily share your work with others. Previews allow you to create a stable snapshots of your sandbox so that you can get feedback while continuing to make changes to your own version.
+A preview environment is an ephemeral environment that you can use to easily share your work with others. Previews allow you to create a stable snapshots of your sandbox so that you can get feedback while continuing to make changes to your own version.
 
 If a script named `ampt:build` is defined in package.json, it will be run before deploying.
 

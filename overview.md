@@ -22,13 +22,13 @@ The SDK (`@ampt/sdk`) includes:
 - [HTTP](/docs/http/)
 - [Storage](/docs/storage/)
 - [Events](/docs/events/)
-- [Scheduled Tasks](/docs/scheduled-tasks/)
+- [Tasks](/docs/tasks/)
 - [Parameters](/docs/parameters)
 - [WebSockets](/docs/websockets)
 
 For more specific use cases, you can install additional modules:
 
-- [@ampt/api](/docs/api/)
+- [@ampt/api](/docs/api/) (BETA)
 - [@ampt/data](/docs/data/)
 
 If you intend to use an existing framework with Ampt, such as Express or Remix, view the following guides below:
@@ -41,6 +41,8 @@ If you intend to use an existing framework with Ampt, such as Express or Remix, 
 - [Using Remix](/docs/frameworks/remix/)
 - [Using Astro](/docs/frameworks/astro/)
 - [Using Next.js](/docs/frameworks/next/)
+- [Using Nuxt.js](/docs/frameworks/nuxt/)
+- [Using SvelteKit](/docs/frameworks/sveltekit/)
 
 ## Ampt CLI
 

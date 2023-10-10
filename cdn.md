@@ -24,12 +24,12 @@ Avoid having static pages that have corresponding API routes. For example, if yo
 
 Static assets are automatically cached in Ampt's Content Delivery Network (CDN) in edge locations around the world so download speeds will be very fast.
 
-Caching works differently in "stage" and "personal" instances.
+Caching works differently in permanent stages and developer sandboxes.
 
-In stage instances, static assets are cached in the CDN for up to 24 hours. Responses will include a `Cache-Control` header that tells the CDN to cache the asset for 24 hours, and tells the browser to cache the asset and "revalidate" it before using it. When you deploy a new version of your application, Ampt will automatically clear the CDN cache so your users will get the latest version when they refresh the browser.
+In permanent stages, static assets are cached in the CDN for up to 24 hours. Responses will include a `Cache-Control` header that tells the CDN to cache the asset for 24 hours, and tells the browser to cache the asset and "revalidate" it before using it. When you deploy a new version of your application, Ampt will automatically clear the CDN cache so your users will get the latest version when they refresh the browser.
 
 Caching is disabled in developer sandboxes so you can update your assets and immediately see the latest version when you reload your browser. Responses for static assets in your developer sandbox will include a `Cache-Control` header that disables caching in the CDN, and an additional `X-Cache-Control` header that shows you the value of the header that will be used in stage instances.
 
 !!! note
-You should always use a stage instance for your "production" instance, to take advantage of the CDN and ensure the best performance for your users.
+You should always use a permanent stage for your "production" to take advantage of the CDN and ensure the best performance for your users.
 !!!
