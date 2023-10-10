@@ -1,24 +1,18 @@
 ---
-title: Next.js
+title: Next.js legacy documentation
 description: Integrate with Next.js to build full stack applications.
 ---
 
 Ampt allows developers to build applications using the [Next.js](https://nextjs.org/) framework.
 
-We strive to support all the latest Next.js features, but if you find something missing, please [let us know](https://getampt.com/contact).
-
 !!! note
-This documentation applies to Next.js version 13.4.13 and up. For older versions, please see the [legacy documentation](/docs/frameworks/nextjs-legacy).
-
-Next.js requires the latest version of the Ampt runtime. To use Next.js, you will need to set `ampt.runtime` to `nodejs18` in your `package.json` file.
+This documentation applies to Next.js version 12.x to 13.4.12, which requires `@ampt/nextjs@v1`. To use a newer version of Next.js, please see the [latest documentation](/frameworks/nextjs).
 !!!
 
-If you don't already have a Next.js project, see the [Next.js docs](https://nextjs.org/docs) to get started.
-
-Once you have your project set up, install `@ampt/nextjs` in your project:
+Install `@ampt/nextjs@v1` in your project:
 
 ```terminal title=Terminal
-> npm install @ampt/nextjs --save
+> npm install @ampt/nextjs@v1 --save
 ```
 
 or run this when you’re in the interactive shell:
@@ -29,10 +23,9 @@ or run this when you’re in the interactive shell:
 
 Add the `ampt:dev` and `ampt:build` scripts to configure how you start the development server inside interactive shell and how you build your application. You will need to update `package.json` file as follows:
 
-- set `main` to `index.js` which will be the entrypoint for the server
 - add `ampt:dev` script for running the Next.js dev server
 - add `ampt:build` script for running next build and ampt-next-build
-- set `ampt.runtime` to `nodejs18` to use the latest Node.js runtime
+- set `main` to `index.js` which will be the entrypoint for the server
 
 This is an example of what your `package.json` should look like::
 
@@ -45,9 +38,6 @@ This is an example of what your `package.json` should look like::
     "ampt:build": "next build && ampt-next-build",
     "ampt:dev": "next dev",
   },
-  "ampt": {
-    "runtime": "nodejs18"
-  }
   ...
 }
 ```
@@ -60,7 +50,8 @@ Add the ampt integration to your `next.config.js` file:
 import withAmpt from "@ampt/nextjs";
 
 const config = withAmpt({
-  // add your next.js config here
+  reactStrictMode: true,
+  swcMinify: true,
 });
 
 export default config;
@@ -92,5 +83,3 @@ Run `build` in the interactive shell to create your build artifacts:
 ```
 
 This will run the `ampt:build` script so your application will be available from the sandbox URL.
-
-Use the `ampt deploy` command when you are ready to deploy a stage environment.
