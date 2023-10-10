@@ -47,6 +47,27 @@ import withAmpt from "@ampt/nestjs";
 withAmpt(AppModule);
 ```
 
+If your app needs any set up or side effects upon initialization, such as CORS, you can pass `NestApplicationOptions` to the `withAmpt` function, or use the provided setup function:
+
+```javascript header=false
+withAmpt(AppModule, { cors: true });
+// or
+withAmpt(AppModule, async (app) => {
+  app.enableCors({
+    allowedHeaders: "*",
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+    credentials: true,
+  });
+});
+// or
+withAmpt(AppModule, { cors: true }, async (app) => {
+  // any other setup can go here
+});
+```
+
+The provided set up function will recieve an instance of your NestJS application, after its creation with `NestFactory.create`. You do _not_ need to call `app.listen` or `app.init` yourself, the adapter will do this for you.
+
 Now, you are all set to run NestJS on Ampt!
 
 To work on your app locally, run the following command:
