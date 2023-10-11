@@ -8,7 +8,7 @@ Ampt allows developers to build applications using the [Next.js](https://nextjs.
 We strive to support all the latest Next.js features, but if you find something missing, please [let us know](https://getampt.com/contact).
 
 !!! note
-This documentation applies to Next.js version 13.4.13 and up. For older versions, please see the [legacy documentation](/docs/frameworks/nextjs-legacy).
+This documentation applies to Next.js version 13.4.13 and up. For older versions, please see the [legacy documentation](/docs/frameworks/next-legacy).
 
 Next.js requires the latest version of the Ampt runtime. To use Next.js, you will need to set `ampt.runtime` to `nodejs18` in your `package.json` file.
 !!!
@@ -31,7 +31,7 @@ Add the `ampt:dev` and `ampt:build` scripts to configure how you start the devel
 
 - set `main` to `index.js` which will be the entrypoint for the server
 - add `ampt:dev` script for running the Next.js dev server
-- add `ampt:build` script for running next build and ampt-next-build
+- add `ampt:build` script for running `ampt-next build`
 - set `ampt.runtime` to `nodejs18` to use the latest Node.js runtime
 
 This is an example of what your `package.json` should look like::
@@ -42,7 +42,8 @@ This is an example of what your `package.json` should look like::
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "ampt:build": "next build && ampt-next-build",
+    "build": "next build",
+    "ampt:build": "ampt-next build",
     "ampt:dev": "next dev",
   },
   "ampt": {
@@ -50,20 +51,6 @@ This is an example of what your `package.json` should look like::
   }
   ...
 }
-```
-
-Add the ampt integration to your `next.config.js` file:
-
-```javascript header=false
-// next.config.js
-
-import withAmpt from "@ampt/nextjs";
-
-const config = withAmpt({
-  // add your next.js config here
-});
-
-export default config;
 ```
 
 Add the file `index.js` to the root of your project, and add the following code:
