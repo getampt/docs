@@ -6,7 +6,7 @@ description: Integrate with Next.js to build full stack applications.
 Ampt allows developers to build applications using the [Next.js](https://nextjs.org/) framework.
 
 !!! note
-This documentation applies to Next.js version 12.x to 13.4.12, which requires `@ampt/nextjs@v1`. To use a newer version of Next.js, please see the [latest documentation](/frameworks/nextjs).
+This documentation applies to Next.js version 12.x to 13.4.12, which requires `@ampt/nextjs@v1`. To use a newer version of Next.js, please see the [latest documentation](/docs/frameworks/next).
 !!!
 
 Install `@ampt/nextjs@v1` in your project:
