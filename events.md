@@ -67,6 +67,7 @@ The handler receives an `event` object with these properties:
 - **body**: the body that was provided to `events.publish()`
 - **time**: the timestamp when `events.publish()` was called, as epoch time in milliseconds
 - **delay**: the amount of time the event was delayed, in milliseconds
+- **attempt**: the number times event handling has been attempted
 
 The `context` object has one method:
 
@@ -79,6 +80,84 @@ Internally, events are placed in a queue and processed as fast as possible. The 
 There is no guarantee that events will be processed in order, and no guarantee that your handler will only get called once for each event, so your application needs to handle out-of-order events and duplicate events.
 
 If any of your handlers throw an error, processing is considered to have failed. Failed events are retried every six minutes, for up to 14 days, after which the event is dropped.
+
+When multiple handlers are defined for the same event, the same `time`, `delay` and `attempt` properties are passed to all handlers even if only one of your handlers throws an error.
+
+### Discarding events
+
+Events can be discarded by successfully returning from the handler without doing any work. This could be done based on the event body, the number of attempts, or the age of the event. For example, if your event schema evolves over time, you may need to detect and discard old events:
+
+```javascript
+events.on("user.joined", { timeout: 10000 }, async (event, context) => {
+  if (!event.body.firstName) {
+    // discard the event if it doesn't have a firstName
+    return;
+  }
+
+  // send a welcome emaail
+});
+```
+
+You may use the `time` and `delay` properties to determine the age of an event, either including or excluding the `delay`. The age of an event excluding the delay can be calculated as `Date.now() - event.time - event.delay`, or `Date.now() - event.time` if you want to include the delay.
+
+For example, to discard events older than five hours:
+
+```javascript
+const ONE_HOUR_MS = 60 * 60 * 1000;
+
+events.on("user.joined", { timeout: 10000 }, async (event, context) => {
+  try {
+    // try to send a welcome email
+  } catch (err) {
+    if (Date.now() - event.time < 5 * ONE_HOUR_MS) {
+      // retry the event
+      throw err;
+    }
+    // discard the event if it's more than five hours old
+    console.error(
+      `Failed to send welcome email for: ${event.body.email}, error: ${err.message}`
+    );
+  }
+});
+```
+
+To discard an event after three attempts:
+
+```javascript
+const ONE_HOUR_MS = 60 * 60 * 1000;
+
+events.on("user.joined", { timeout: 10000 }, async (event, context) => {
+  try {
+    // try to send a welcome email
+  } catch (err) {
+    if (event.attempt < 3) {
+      // retry the event
+      throw err;
+    }
+    // give up after 3 attempts
+    console.error(
+      `Failed to send welcome email for: ${event.body.email}, error: ${err.message}`
+    );
+  }
+});
+```
+
+If you only need to attempt to handle an event once, you can simply catch all errors and successfully return:
+
+```javascript
+events.on("user.joined", { timeout: 10000 }, async (event, context) => {
+  try {
+    // try to send a welcome email
+  } catch (err) {
+    // give up after 1 attempt
+    console.error(
+      `Failed to send welcome email for: ${event.body.email}, error: ${err.message}`
+    );
+  }
+});
+```
+
+Note that event handlers are invoked **at least once** so it's possible the handler could be called multiple times in the case of an error in another handler.
 
 ### Timeouts
 
