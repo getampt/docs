@@ -40,7 +40,6 @@ This is an example of what your `package.json` should look like::
 {
   "name": "my-nextjs-app",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "build": "next build",
     "ampt:build": "ampt-next build",
@@ -58,7 +57,7 @@ Add the file `index.js` to the root of your project, and add the following code:
 ```javascript header=false
 // index.js
 
-import "@ampt/nextjs/entrypoint";
+require("@ampt/nextjs/entrypoint");
 ```
 
 This adds the Next.js server and image optimization to your application's entrypoint.
