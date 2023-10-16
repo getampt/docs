@@ -61,7 +61,7 @@ The changes are as follows:
 ```javascript header=false
 nitro: {
     preset: 'node',
-    serveStatice: false
+    serveStatic: false
 }
 ```
 
