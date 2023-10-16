@@ -28,13 +28,13 @@ For example `ampt run migrate --stage staging -- --if-present -- script-argument
 
 ## Example: running a migration script
 
-In your `package.json` define a script named "ampt:migrate" which runs "./scripts/migrate.js":
+In your `package.json` define a script named "ampt:migrate" which runs "node ./scripts/migrate.js":
 
 ```json title="package.json", copy=false
 {
   ...
   "scripts": {
-    "ampt:migrate": "./scripts/migrate.js"
+    "ampt:migrate": "node ./scripts/migrate.js"
   }
   ...
 }
