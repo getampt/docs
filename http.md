@@ -11,7 +11,7 @@ Ampt provides a fetch based HTTP request handler as part of the `@ampt/sdk`. The
 
 ## Integrating with Node-based Web Frameworks
 
-The [`http`](/docs/http) interface from the `@ampt/sdk` provides a `useNodeHandler` method that lets you integrate your favorite Node-based web frameworks into an Ampt app. The `http.useNodeHandler` method wraps the instance of your framework and exposes any defined routes on the root of your public `*.ampt.app` URL.
+The [`http`](/docs/http) interface from the `@ampt/sdk` provides a `node.use` method that lets you integrate your favorite Node-based web frameworks into an Ampt app. The `http.node.use` method wraps the instance of your framework and exposes any defined routes on the root of your public `*.ampt.app` URL.
 
 Ampt runs your web frameworks automatically, so you **DO NOT** need to use `.listen` or `.createServer`. Here is an example of an Express.js app:
 
@@ -25,8 +25,6 @@ expressApp.use("/express", (req, res) => {
   res.send("hello express");
 });
 
-http.useNodeHandler(expressApp);
-// in v0.0.1-beta.43
 http.node.use(expressApp);
 ```
 
@@ -38,8 +36,6 @@ The prefix argument for `.useNodeHandler` is only available in `@ampt/sdk` versi
 
 ```javascript title=Express.js example, copy=false
 // all `/api` prefixed routes will be handled in Express, 404's included
-http.useNodeHandler("/api", expressApp);
-// in v0.0.1-beta.43
 http.node.use("/api", expressApp);
 
 // Routes that do not start with `/api` and are not found will hit this
@@ -84,6 +80,21 @@ app.use((err, req, res, next) => {
   res.status(500).send("Something broke!");
 });
 ```
+
+## Setting Timeouts
+
+By default, all HTTP requests will timeout at 29 seconds. This can be raised or lowered using the `http.setTimeout` method. For example, to set the timeout to 10 seconds:
+
+```javascript
+http.setTimeout(10000); // 10 seconds
+http.node.use(expressApp);
+```
+
+This will set the timeout of all incoming http requests to 10 seconds.
+
+!!! note
+You must have Response Streaming enabled in your app's settings to raise the timeout above 29 seconds. This is enabled by default. You can check in your environment's Settings tab.
+!!!
 
 ## Reading static assets from application code
 
