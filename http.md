@@ -90,8 +90,10 @@ http.setTimeout(10000); // 10 seconds
 http.node.use(expressApp);
 ```
 
+This will set the timeout of all incoming http requests to 10 seconds.
+
 !!! note
-You must assure Response Streaming is enabled in your app's settings to raise the timeout above 29 seconds. This is enabled by default. You can check in your environment's Settings tab.
+You must have Response Streaming enabled in your app's settings to raise the timeout above 29 seconds. This is enabled by default. You can check in your environment's Settings tab.
 !!!
 
 ## Reading static assets from application code
