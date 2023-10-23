@@ -19,6 +19,7 @@
     { "title": "WebSockets", "href": "/docs/websockets/" }
   ],
   "Modules": [
+    { "title": "AI", "href": "/docs/ai/" },
     { "title": "API", "href": "/docs/api/" },
     { "title": "Data", "href": "/docs/data/" }
   ],
