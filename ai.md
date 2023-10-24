@@ -1,5 +1,5 @@
 ---
-title: AI
+title: AI (beta)
 description: Harness the power of AI in your applications.
 ---
 
@@ -7,6 +7,10 @@ Ampt makes it easy to incorporate AI into your applications. Using `@ampt/ai` yo
 
 !!! caution
 `@ampt/ai` is experimental and subject to change. **DO NOT** use this for production apps.
+!!!
+
+!!! note
+`@ampt/ai` is currently only available on Team plans. We will be extending this to additional account levels soon.
 !!!
 
 ## Chat
