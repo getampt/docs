@@ -34,7 +34,7 @@ api()
   });
 ```
 
-`chat(messages, options)` accepts the following options:
+`chat(messages, options)` accepts the following arguments:
 
 - `messages` is an array of objects with the following properties:
 
@@ -53,6 +53,42 @@ api()
 
 The result of the `chat` function is a `ReadableStream` with the plain text response from the model. You can read the stream and include it with the role of `assistant` in the next call to `chat` to continue the conversation.
 
+## Render
+
+The `render` interface is used to create an image from a text prompt.
+
+Here is an example of an API that uses the `render` interface to return an image generated from a text prompt in the query string:
+
+```javascript
+import { api } from "@ampt/api";
+import { render } from "@ampt/ai";
+
+api()
+  .router("/render")
+  .get("/image", async (event) => {
+    const prompt = event.request.query.get("prompt");
+    if (!prompt) {
+      return event.status(400).body("Missing prompt", "text/plain");
+    }
+
+    const image = await render(prompt);
+    return event.body(image, "image/png");
+  });
+```
+
+`render(prompt, options)` accepts the following arguments:
+
+- `prompt` is a string containing the text prompt to send to the model.
+
+- `options` is an optional object with the following properties:
+
+  - `width`: The width of the image in pixels. Defaults to `512`.
+  - `height`: The height of the image in pixels. Defaults to `512`.
+  - `modelId`: the string identifier of the model. Currently only the `stability.stable-diffusion-xl-v0` model is supported.
+  - `steps`: The number of steps to run the model. Defaults to `50`.
+  - `seed`: The seed to use for the model. Defaults to `20`.
+  - `scale`: The scale of the image. Defaults to `10`.
+
 ## Summarize (coming soon)
 
 The `summarize` interface is used to summarize text.
@@ -60,10 +96,6 @@ The `summarize` interface is used to summarize text.
 ## Translate (coming soon)
 
 The `translate` interface is used to translate text from one language to another.
-
-## Render (coming soon)
-
-The `render` interface is used to create images from text or image inputs.
 
 ## Embed (coming soon)
 
@@ -73,21 +105,15 @@ The `embed` method is used to create embeddings from text inputs.
 
 The `invoke` interface is used to send a raw prompt to an underlying AI model, and receive a response. You typically will not use this in your applications, and instead use one of the wrappers such as `chat`, `summarize`, or `translate`. However you may want to use it to create your own custom AI applications.
 
-`invoke(options)` accepts a single `options` object with the following properties:
+`invoke(params)` accepts a single object with the following properties:
 
-- `prompt`: The prompt to send to the model. The format of the prompt is model specific. See the [Anthropic Claude documentation](https://docs.anthropic.com/claude/reference/getting-started-with-the-api) for more details.
-- `maxTokens`: The maximum number of tokens to generate. The default is 50.
-- `modelId`: the string identifier of the model. The following models are currently supported:
+- `body`: The request body to send to the model. The format of the body is model specific.
+- `contentType`: The content type of the body. Defaults to `application/json`.
+- `accept`: The accepted content types for the response. Defaults to `application/json`.
+- `modelId`: the string identifier of the model.
+- `streaming`: If `true`, the response will be a `ReadableStream` of the model's response. If `false`, the response will be a string containing the model's response. Defaults to `true`. Not all models support streaming responses.
 
-  - anthropic.claude-instant-v1
-  - anthropic.claude-v1
-  - anthropic.claude-v2
-
-  If no `modelId` is specified, the default model `anthropic.claude-instant-v1` will be used.
-
-The format of the response is model specific:
-
-- `anthropic` models return a stream of JSON formatted objects containing "completion" and "stop_reason" properties. See the [Anthropic Claude documentation](https://docs.anthropic.com/claude/reference/getting-started-with-the-api) for more details.
+`invoke()` returns a promise that resolves to either a `ReadableStream` or a string, depending on whether streaming is enabled. The format of the response is model specific.
 
 ## Supported models
 
@@ -100,5 +126,16 @@ console.log(await models());
 ```
 
 !!! note
-The list of supported models is subject to change, and can vary by AWS region. You should not rely on the list of models returned by the `models()` function in your application.
+The list of supported models is subject to change, and can vary by AWS region. Make sure you test your application in the targeted region.
 !!!
+
+Ampt currently supports the following modelIds:
+
+- anthropic.claude-instant-v1
+- anthropic.claude-v1
+- anthropic.claude-v2
+- stability.stable-diffusion-xl-v0
+
+Anthropic Claude API documentation: https://docs.anthropic.com/claude/reference/getting-started-with-the-api
+
+Stability API documentation: https://platform.stability.ai/docs/api-reference#tag/v1generation/operation/textToImage
