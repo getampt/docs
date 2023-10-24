@@ -121,7 +121,9 @@ const image = await Jimp.read(buffer);
 By default, `readStaticFile` returns a `ReadableStream` instance. If you need an instance of `Readable`, use `http.node.readStaticFile`.
 !!!
 
-This can also be used to serve custom 404 HTML pages from within an HTTP framework, if desired.
+## Custom 404 pages
+
+`readStaticFile` can be used to serve custom 404 HTML pages from within an HTTP framework like Express.
 
 To return a dynamic response, your application needs to handle the requested path and return the desired response. The details of how to do this depend on the framework you are using. For example, using Express you can add a default handler:
 
@@ -134,14 +136,31 @@ const app = express()
 app.use('/api', ...)
 
 app.use((req, res) => {
-  // a basic 404 response
-  res.status(404).send('Sorry that page was not found')
+  // Return custom 404 page in "static/404.html"
+  res.status(404).set('Content-Type', 'text/html')
+  const stream = await http.node.readStaticFile("404.html")
+  return stream.pipe(res)
+})
+```
 
-  // if you want to return your 404 page
-  // node.readStaticFile (0.0.1-beta.43) returns a "Readable" instance
-  const notFoundHtmlFile = await http.node.readStaticFile("404.html")
-  res.header('Content-Type', 'text/html')
-  res.status(404)
-  return notFoundHtmlFile.pipe(res)
+## Single-Page Applications (SPAs)
+
+Single-Page Applications (SPAs) are applications that load a single HTML page and dynamically update that page as the user interacts with the application. SPAs are typically built using a JavaScript framework such as React, Vue, or Angular.
+
+You can use `http.readStaticFile` or `http.node.readStaticFile` to serve the `index.html` page for all paths. For example, using Express:
+
+```javascript
+import { http } from "@ampt/sdk"
+import express from "express"
+
+const app = express()
+
+app.use('/api', ...)
+
+app.use((req, res) => {
+  // Return "static/index.html"
+  res.status(200).set('Content-Type', 'text/html')
+  const stream = await http.node.readStaticFile("index.html")
+  return stream.pipe(res)
 })
 ```

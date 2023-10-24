@@ -3,7 +3,7 @@ title: React, Vue, and other SPAs
 description: Build and deploy single-page applications to Ampt.
 ---
 
-## Ignoring Buildtime Only Files
+## Ignoring Build-time Only Files
 
 If you are using a SPA framework or static site generator that requires a _build_ step, you can store your source files in your project directory and configure your output directory to be `/static`. To prevent Ampt from syncing source files to your developer sandbox, you can add an **`.amptignore`** file in the root of your project and add a list of directories and files you do not wish to sync.
 
@@ -34,4 +34,24 @@ For example, if a large React dependency like `@mui/material` is defined in `dep
     "@ampt/sdk": "^0.0.1-beta.41",
     "express": "^4.18.2"
   },
+```
+
+## Returning index.html for all paths
+
+SPAs typically serve a single `index.html` for all paths. See the [HTTP interface documentation](/docs/http/#single-page-applications-spas) for details on how to do this. Using express, you would do the following:
+
+```javascript
+import { http } from "@ampt/sdk"
+import express from "express"
+
+const app = express()
+
+app.use('/api', ...)
+
+app.use((req, res) => {
+  // Return "static/index.html"
+  res.status(200).set('Content-Type', 'text/html')
+  const stream = await http.node.readStaticFile("index.html")
+  return stream.pipe(res)
+})
 ```
