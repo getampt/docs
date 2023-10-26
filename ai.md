@@ -27,7 +27,7 @@ import { chat } from "@ampt/ai";
 
 api()
   .router("/chat")
-  .post("/:model/generate", async (event) => {
+  .post("/generate", async (event) => {
     const { messages } = await event.request.json();
     const result = await chat(messages);
     return event.body(result, "text/plain");
