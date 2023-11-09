@@ -147,15 +147,15 @@ You can connect to your Ampt App's websocket with any websocket library/utility.
 
 Using `wscat`
 
-```bash
-wscat -c wss://your-app-url.ampt.app
+```terminal title=Terminal
+> wscat -c wss://your-app-url.ampt.app
 ```
 
 Or in the browser:
 
-```javacript
+```javascript
 const websocket = new WebSocket('wss://your-app-url.ampt.app')
-websocket.on('open', () => {
+websocket.addEventListener('open', () => {
   console.log('Connected to Ampt WS')
 })
 ```
