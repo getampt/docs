@@ -30,10 +30,6 @@ http.node.use(expressApp);
 
 You can control which routes get routed to your Node-based Framework by using a prefix. By default, _all_ routes will be sent to the framework's handler.
 
-!!! caution
-The prefix argument for `.useNodeHandler` is only available in `@ampt/sdk` version `0.0.1-beta.42` and above.
-!!!
-
 ```javascript title=Express.js example, copy=false
 // all `/api` prefixed routes will be handled in Express, 404's included
 http.node.use("/api", expressApp);
