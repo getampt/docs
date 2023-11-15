@@ -120,9 +120,43 @@ The `summarize` interface is used to summarize text.
 
 The `translate` interface is used to translate text from one language to another.
 
-## Embed (coming soon)
+## Embed
 
 The `embed` method is used to create embeddings from text inputs.
+
+Here is an example of an API that uses the `embed` interface to create embeddings and stores them in `@ampt/data`:
+
+```javascript
+import { api } from "@ampt/api";
+import { embed } from "@ampt/ai";
+import { data } from "@ampt/data";
+
+api()
+  .router("/api")
+  .post("/embed", async (event) => {
+    const { id, input } = await event.request.json();
+    if (!input || !id) {
+      return event.status(400).body("input and id are required", "text/plain");
+    }
+
+    const { embedding } = await embed(input);
+
+    await data.set(`documents/${id}:embedding`, embedding);
+
+    return event.status(204);
+  });
+```
+
+`embed(input, options)` accepts the following arguments:
+
+- `input` is a string containing the input text to send to the model.
+- `options` is an optional object with the following properties:
+  - `modelId`: the string identifier of the model. Currently only the `amazon.titan-embed-text-v1` model is supported.
+
+The result of the `embed` function is an object with the following properties:
+
+- `embedding`: An array of numbers representing the embedding of the input text.
+- `inputTokenCount`: The number of tokens in the input text.
 
 ## Invoke
 
@@ -153,6 +187,7 @@ The list of supported models is subject to change, and can vary by AWS region. M
 
 Ampt currently supports the following modelIds:
 
+- amazon.titan-embed-text-v1
 - anthropic.claude-instant-v1
 - anthropic.claude-v1
 - anthropic.claude-v2
