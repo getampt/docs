@@ -94,7 +94,7 @@ events.on("user.joined", { timeout: 10000 }, async (event, context) => {
     return;
   }
 
-  // send a welcome emaail
+  // send a welcome email
 });
 ```
 
