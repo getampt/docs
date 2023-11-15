@@ -28,6 +28,8 @@ ws.on("message", (connection: SocketConnection, data: string | Object) => {
 });
 ```
 
+## Timeouts
+
 You can increase a handler's timeout via a config object:
 
 ```javascript
