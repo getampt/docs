@@ -28,6 +28,14 @@ ws.on("message", (connection: SocketConnection, data: string | Object) => {
 });
 ```
 
+You can increase a handler's timeout via a config object:
+
+```javascript
+ws.on("connected", { timeout: 30000 }, (connection: SocketConnection) => {});
+```
+
+The default timeout for WebSocket handlers is 5 seconds, and the maximum is 60 seconds.
+
 ## Managing Connections
 
 Ampt provides the websocket interface, but it is up to the developer to manage the incoming connections. This can be done with any persisted data interface, below is an example using `@ampt/data`:
