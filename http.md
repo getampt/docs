@@ -135,7 +135,7 @@ const app = express()
 
 app.use('/api', ...)
 
-app.use((req, res) => {
+app.use(async (req, res) => {
   // Return custom 404 page in "static/404.html"
   res.status(404).set('Content-Type', 'text/html')
   const stream = await http.node.readStaticFile("404.html")
@@ -157,7 +157,7 @@ const app = express()
 
 app.use('/api', ...)
 
-app.use((req, res) => {
+app.use(async (req, res) => {
   // Return "static/index.html"
   res.status(200).set('Content-Type', 'text/html')
   const stream = await http.node.readStaticFile("index.html")
