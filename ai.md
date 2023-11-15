@@ -10,7 +10,7 @@ Ampt makes it easy to incorporate AI into your applications. Using `@ampt/ai` yo
 !!!
 
 !!! note
-`@ampt/ai` is currently only available on Team plans. We will be extending this to additional account levels soon.
+`@ampt/ai` requires AI quota to use. You can purchase additional quota in the [Ampt Console](https://ampt.dev) in your Organization settings.
 !!!
 
 ## Chat
@@ -29,8 +29,8 @@ api()
   .router("/chat")
   .post("/generate", async (event) => {
     const { messages } = await event.request.json();
-    const result = await chat(messages);
-    return event.body(result, "text/plain");
+    const response = await chat(messages);
+    return event.respond(response);
   });
 ```
 
@@ -51,7 +51,15 @@ api()
 
     If no `modelId` is specified, the default model `anthropic.claude-instant-v1` will be used.
 
-The result of the `chat` function is a `ReadableStream` with the plain text response from the model. You can read the stream and include it with the role of `assistant` in the next call to `chat` to continue the conversation.
+The result of the `chat` function is a [`Response`][1] with a [`ReadableStream`][2] body with the plain text response from the model. You can read the stream and include it with the role of `assistant` in the next call to `chat` to continue the conversation.
+
+You can read the response body as a string using `.text()` if you want to store or manipulate the response:
+
+```javascript
+const messages = [{ role: "human", content: "Hello, how are you?" }];
+const response = await chat(messages);
+const text = await response.text();
+```
 
 ## Render
 
@@ -71,8 +79,8 @@ api()
       return event.status(400).body("Missing prompt", "text/plain");
     }
 
-    const image = await render(prompt);
-    return event.body(image, "image/png");
+    const response = await render(prompt);
+    return event.respond(response);
   });
 ```
 
@@ -89,6 +97,21 @@ api()
   - `seed`: The seed to use for the model. Defaults to `20`.
   - `scale`: The scale of the image. Defaults to `10`.
 
+The result of the `render` function is a [`Response`][1] with a [`ReadableStream`][2] body with the resulting image in PNG format.
+
+You can read the response as an [`ArrayBuffer`][3] if you want to store or manipulate the image:
+
+```javascript
+import { storage } from "@ampt/sdk";
+
+const images = storage("images");
+const response = await render(prompt);
+const buffer = await response.arrayBuffer();
+
+// Save in the images bucket
+await images.write("image.png", buffer);
+```
+
 ## Summarize (coming soon)
 
 The `summarize` interface is used to summarize text.
@@ -103,7 +126,7 @@ The `embed` method is used to create embeddings from text inputs.
 
 ## Invoke
 
-The `invoke` interface is used to send a raw prompt to an underlying AI model, and receive a response. You typically will not use this in your applications, and instead use one of the wrappers such as `chat`, `summarize`, or `translate`. However you may want to use it to create your own custom AI applications.
+The `invoke` interface is used to send a raw request to an underlying AI model, and receive a [`Response`][1]. You typically will not use this in your applications, and instead use one of the wrappers such as `chat`, `summarize`, or `translate`. However you may want to use it to create your own custom AI applications.
 
 `invoke(params)` accepts a single object with the following properties:
 
@@ -111,9 +134,8 @@ The `invoke` interface is used to send a raw prompt to an underlying AI model, a
 - `contentType`: The content type of the body. Defaults to `application/json`.
 - `accept`: The accepted content types for the response. Defaults to `application/json`.
 - `modelId`: the string identifier of the model.
-- `streaming`: If `true`, the response will be a `ReadableStream` of the model's response. If `false`, the response will be a string containing the model's response. Defaults to `true`. Not all models support streaming responses.
 
-`invoke()` returns a promise that resolves to either a `ReadableStream` or a string, depending on whether streaming is enabled. The format of the response is model specific.
+`invoke()` resolves to a [`Response`][1] object with a [`ReadableStream`][2] body containing the model response. The format of the response is model specific.
 
 ## Supported models
 
@@ -139,3 +161,7 @@ Ampt currently supports the following modelIds:
 Anthropic Claude API documentation: https://docs.anthropic.com/claude/reference/getting-started-with-the-api
 
 Stability API documentation: https://platform.stability.ai/docs/api-reference#tag/v1generation/operation/textToImage
+
+[1]: https://developer.mozilla.org/en-US/docs/Web/API/Response
+[2]: https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream
+[3]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer
