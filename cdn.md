@@ -26,7 +26,11 @@ Static assets are automatically cached in Ampt's Content Delivery Network (CDN) 
 
 Caching works differently in permanent stages and developer sandboxes.
 
+### Permanent stages
+
 In permanent stages, static assets are cached in the CDN for up to 24 hours. Responses will include a `Cache-Control` header that tells the CDN to cache the asset for 24 hours, and tells the browser to cache the asset and "revalidate" it before using it. When you deploy a new version of your application, Ampt will automatically clear the CDN cache so your users will get the latest version when they refresh the browser.
+
+### Development sandboxes
 
 Caching is disabled in developer sandboxes so you can update your assets and immediately see the latest version when you reload your browser. Responses for static assets in your developer sandbox will include a `Cache-Control` header that disables caching in the CDN, and an additional `X-Cache-Control` header that shows you the value of the header that will be used in stage instances.
 
