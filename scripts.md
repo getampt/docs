@@ -9,22 +9,28 @@ This is useful for tasks like data migrations or integration tests using a custo
 
 `ampt run [script]` will run `npm run ampt:[script]` in your local environment, with access to one of your environments. If you don't specify any options the script will access your developer sandbox by default.
 
+If you provide a path to a JS or TS file, Ampt will run it directly using Node.js within the same environment using Ampt's runtime loader. Things like `esbuild`, `ts-node`, and `tsx` are not necessary for handling TypeScript.
+
 > When the Ampt shell is running you can omit "ampt" from the `ampt run` command, and just use `run [script]`.
 
 ## Options
 
 The `ampt run [script]` command has the following options:
 
-- `--stage <name>`: run the script with access to a named stage
-- `--test-stage`: run the script with access to a temporary test stage that is automatically deleted after the script completes
+- `--env <name>`: run the script with access to a named environment
+- `--test-env`: run the script with access to a temporary test environemnt that is automatically deleted after the script completes
 
-> Note: if you specify `--test-stage`, the `--stage` option will be ignored if it is present.
+> Note: if you specify `--test-env`, the `--env` option will be ignored if it is present.
 
 ## Additional npm and script arguments
 
-You can pass additional arguments to npm by adding a double dash followed by the arguments. If you also need to pass additional arguments to the npm script, you can add another double dash followed by the script arguments.
+When running TS/JS files directly, you can pass additional arguments to the script as usual.
 
-For example `ampt run migrate --stage staging -- --if-present -- script-argument --script-option` will result in running the command `npm run ampt:migrate --if-present -- script-argument --script-option` using the environment from the `staging` stage.
+For example `ampt run ./scripts/migrate.js --foo bar` will pass `--foo bar` to the script directly.
+
+When running a `package.json` script, you can pass additional arguments by adding a double dash followed by the arguments. If you also need to pass additional arguments, you can add another double dash followed by the script arguments.
+
+For example `ampt run migrate --env staging -- --if-present -- script-argument --script-option` will result in running the command `npm run ampt:migrate --if-present -- script-argument --script-option` using the environment from the `staging` environment.
 
 ## Example: running a migration script
 
@@ -40,7 +46,11 @@ In your `package.json` define a script named "ampt:migrate" which runs "node ./s
 }
 ```
 
-The migration script can access the stage's parameters, data, and storage:
+Or, if you want to run it directly:
+
+`ampt run ./scripts/migrate.js`
+
+The migration script can access the environment's parameters, data, and storage:
 
 ```javascript title="migrate.js", copy=false
 import { params, storage } from "@ampt/sdk";
@@ -57,13 +67,13 @@ To run the script with access to your developer sandbox:
 
 `ampt run migrate`
 
-To run on a stage called "staging":
+To run on a environment called "staging":
 
-`ampt run migrate --stage staging`
+`ampt run migrate --env staging`
 
 Use a double dash to pass additional options to the script:
 
-`ampt run migrate --stage staging -- some-option`
+`ampt run migrate --env staging -- some-option`
 
 ## Example: custom test runner
 
@@ -95,14 +105,14 @@ Then to run your tests against your developer sandbox:
 
 `ampt run test`
 
-To run the tests against a "staging" stage:
+To run the tests against a "staging" environment:
 
-`ampt run test --stage staging`
+`ampt run test --env staging`
 
 To use a temporary test instance:
 
-`ampt run test --test-stage`
+`ampt run test --test-env`
 
 You can use a double dash to pass additional arguments to jest:
 
-`ampt run test --test-stage -- test-pattern`
+`ampt run test --test-env -- test-pattern`
