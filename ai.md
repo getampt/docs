@@ -131,13 +131,102 @@ const buffer = await response.arrayBuffer();
 await images.write("image.png", buffer);
 ```
 
-## Summarize (coming soon)
+## Summarize
 
 The `summarize` interface is used to summarize text.
 
-## Translate (coming soon)
+Here is an example of an API that uses the `summarize` interface to generate a response from a list of input messages:
 
-The `translate` interface is used to translate text from one language to another.
+```javascript
+import { api } from "@ampt/api";
+import { summarize } from "@ampt/ai";
+
+api()
+  .router("/summarize")
+  .post("/generate", async (event) => {
+    const { input } = await event.request.json();
+    const response = await summarize(input);
+    return event.respond(response);
+  });
+```
+
+`summarize(input, options)` accepts the following arguments:
+
+- `input`: text to summarize
+- `options` is an optional object with the following properties:
+
+  - `modelId`: the string identifier of the model. The following models are currently supported:
+
+    - anthropic.claude-instant-v1
+    - anthropic.claude-v1
+    - anthropic.claude-v2
+
+    If no `modelId` is specified, the default model `anthropic.claude-instant-v1` will be used.
+
+The result of the `summarize` function is a [`Response`][1] with a [`ReadableStream`][2] body with the plain text response from the model.
+
+You can read the response body as a string using `.text()` if you want to store or manipulate the response:
+
+```javascript
+const response = await summarize(input);
+const text = await response.text();
+```
+
+## Translate
+
+The `translate` interface is used to translate text from one language to another. This interface uses [Amazon Translate][11] under the hood. Translate will also use [Amazon Comprehend][12] to automatically detect the source language if `auto` is specified as the source language.
+
+Here is an example of an API that uses the `translate` interface to translate text:
+
+```javascript
+import { api } from "@ampt/api";
+import { translate } from "@ampt/ai";
+
+const helpText = `Example: curl -d 'The fastest way to get things done in the cloud' -H "Accept-Language: fr" -H "Content-Language: en" ${process.env.AMPT_URL}`;
+
+const router = api().router();
+
+router.get("/", async (event) => {
+  return event.body(helpText);
+});
+
+router.post("/", async (event) => {
+  const input = await event.request.text();
+
+  if (!input) {
+    return event.status(400).body("Missing input text", "text/plain");
+  }
+
+  const response = await translate(input, {
+    sourceLanguage: event.request.headers.get("Content-Language") ?? "auto",
+    targetLanguage: event.request.headers.get("Accept-Language") ?? "en",
+  });
+
+  return event.respond(response);
+});
+```
+
+`translate(input, options)` accepts the following arguments:
+
+- `input`: text to translate
+- `options` is a required object with the following properties:
+
+  - `sourceLanguage`: the language code of the input text, or `auto` to automatically detect the source language.
+  - `targetLanguage`: the language code of the output text.
+
+See [Amazon Translate documentation][9] for a list of supported languages.
+
+The result of the `translate` function is a [`Response`][1] with a [`ReadableStream`][2] body with the plain text translated input. The response will include the following headers:
+
+- `Content-Language`: the language code of the output text.
+- `Detected-Language`: the language code of the input text.
+
+You can read the response body as a string using `.text()` if you want to store or manipulate the response:
+
+```javascript
+const response = await translate(input, options);
+const text = await response.text();
+```
 
 ## Embed
 
@@ -206,17 +295,26 @@ The list of supported models is subject to change, and can vary by AWS region. M
 
 Ampt currently supports the following modelIds:
 
-- amazon.titan-embed-text-v1
+- ai21.j2-mid-v1
+- ai21.j2-ultra-v1
+- anthropic.claude-v2
 - anthropic.claude-instant-v1
 - anthropic.claude-v1
-- anthropic.claude-v2
+- cohere.command-text-v14
+- cohere.command-light-text-v14
+- cohere.embed-english-v3
+- cohere.embed-multilingual-v3
 - stability.stable-diffusion-xl-v0
+- amazon.titan-embed-text-v1
+- meta.llama2-13b-chat-v1
 
+[Amazon Bedrock documentation][10]
 [AI21 API documentation][6]
 [Anthropic Claude API documentation][4]
 [Cohere API documentation][7]
 [Meta Llama 2 documentation][8]
 [Stability API documentation][5]
+[Amazon Translate documentation][11]
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/API/Response
 [2]: https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream
@@ -226,3 +324,7 @@ Ampt currently supports the following modelIds:
 [6]: https://docs.ai21.com/reference/j2-complete-api-ref
 [7]: https://docs.cohere.com/reference/about
 [8]: https://ai.meta.com/llama/
+[9]: https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html
+[10]: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html
+[11]: https://docs.aws.amazon.com/translate/latest/dg/what-is.html
+[12]: https://docs.aws.amazon.com/comprehend/latest/dg/what-is.html
