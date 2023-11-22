@@ -13,6 +13,20 @@ Ampt makes it easy to incorporate AI into your applications. Using `@ampt/ai` yo
 `@ampt/ai` requires AI quota to use. You can purchase additional quota in the [Ampt Console](https://ampt.dev) in your Organization settings.
 !!!
 
+## Required runtime
+
+`@ampt/ai` requires the `nodejs18` Ampt runtime. You can set the runtime in your `package.json` file:
+
+```json
+{
+  "ampt": {
+    "app": "my-app",
+    "org": "my-org",
+    "runtime": "nodejs18"
+  }
+}
+```
+
 ## Chat
 
 The `chat` interface provides a uniform way to interact with chat models such as [Anthropic Claude](https://docs.anthropic.com/claude/docs).
@@ -48,6 +62,11 @@ api()
     - anthropic.claude-instant-v1
     - anthropic.claude-v1
     - anthropic.claude-v2
+    - ai21.j2-mid-v1
+    - ai21.j2-ultra-v1
+    - cohere.command-text-v14
+    - cohere.command-light-text-v14
+    - meta.llama2-13b-chat-v1
 
     If no `modelId` is specified, the default model `anthropic.claude-instant-v1` will be used.
 
@@ -151,12 +170,12 @@ api()
 
 - `input` is a string containing the input text to send to the model.
 - `options` is an optional object with the following properties:
-  - `modelId`: the string identifier of the model. Currently only the `amazon.titan-embed-text-v1` model is supported.
+  - `modelId`: the string identifier of the model. The following models are currently supported:
+    - amazon.titan-embed-text-v1
+    - cohere.embed-english-v3
+    - cohere.embed-multilingual-v3
 
-The result of the `embed` function is an object with the following properties:
-
-- `embedding`: An array of numbers representing the embedding of the input text.
-- `inputTokenCount`: The number of tokens in the input text.
+The result of the `embed` function is an array of numbers representing the embedding of the input text.
 
 ## Invoke
 
@@ -193,10 +212,17 @@ Ampt currently supports the following modelIds:
 - anthropic.claude-v2
 - stability.stable-diffusion-xl-v0
 
-Anthropic Claude API documentation: https://docs.anthropic.com/claude/reference/getting-started-with-the-api
-
-Stability API documentation: https://platform.stability.ai/docs/api-reference#tag/v1generation/operation/textToImage
+[AI21 API documentation][6]
+[Anthropic Claude API documentation][4]
+[Cohere API documentation][7]
+[Meta Llama 2 documentation][8]
+[Stability API documentation][5]
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/API/Response
 [2]: https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream
 [3]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer
+[4]: https://docs.anthropic.com/claude/reference/getting-started-with-the-api
+[5]: https://platform.stability.ai/docs/api-reference#tag/v1generation/operation/textToImage
+[6]: https://docs.ai21.com/reference/j2-complete-api-ref
+[7]: https://docs.cohere.com/reference/about
+[8]: https://ai.meta.com/llama/
