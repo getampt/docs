@@ -31,7 +31,7 @@ For any static assets (such as images) you will need to add a folder to your pro
 
 ```javascript header=false
 import { vitePreprocess } from "@js/kit/vite";
-import adapter from "@ampt/kit";
+import adapter from "@ampt/sveltekit";
 
 /** @type {import('@js/kit').Config} */
 const config = {
