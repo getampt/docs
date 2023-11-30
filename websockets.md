@@ -12,7 +12,7 @@ Interact with WebSockets using the "ws" interface of the `@ampt/sdk`.
 There are three main events you can define listeners for using the `ws` interface: 'connected', 'disconnected' and 'message'. Every handler is passed a `SocketConnection` instance that includes the connection ID and metadata for new connections.
 
 ```javascript
-import { ws } from "@ampt/sdk";
+import { ws, SocketConnection } from "@ampt/sdk";
 
 ws.on("connected", (connection: SocketConnection) => {
   // handle connection
@@ -47,7 +47,7 @@ Using `@ampt/data` to manage connections can lead to connection states being del
 !!!
 
 ```javascript
-import { ws } from "@ampt/sdk";
+import { ws, SocketConnection } from "@ampt/sdk";
 import { data } from "@ampt/data";
 
 type LatLong = {
@@ -72,10 +72,10 @@ ws.on('disconnected', async (connection: SocketConnection, reason?: string) => {
   await data.remove(`connection:${connection.connectionId}`);
 });
 
-ws.on<LatLong>('message', async (connection: SocketConnection, data: LatLong) => {
+ws.on<LatLong>('message', async (connection: SocketConnection, incomingMessage: LatLong) => {
   const { connectionId } = connection
   const existingConnection = await data.get(`connection:${connectionId}`);
-  const { lat, long } = data;
+  const { lat, long } = incomingMessage;
   if (existingConnection) {
     await data.set(`current_location:${existingConnection.username}`, {
       lat,
@@ -91,8 +91,8 @@ Closing connections just requires the connection ID.
 import { ws } from "@ampt/sdk";
 
 // ... other handlers
-ws.on("message", async (connection, data) => {
-  if (data?.disconnectMe) {
+ws.on("message", async (connection, msg) => {
+  if (msg?.disconnectMe) {
     await ws.close(connection.connectionId);
     // or
     await connection.close();
@@ -164,10 +164,10 @@ Using `wscat`
 Or in the browser:
 
 ```javascript
-const websocket = new WebSocket('wss://your-app-url.ampt.app')
-websocket.addEventListener('open', () => {
-  console.log('Connected to Ampt WS')
-})
+const websocket = new WebSocket("wss://your-app-url.ampt.app");
+websocket.addEventListener("open", () => {
+  console.log("Connected to Ampt WS");
+});
 ```
 
 ## Limits
