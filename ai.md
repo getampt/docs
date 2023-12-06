@@ -1,6 +1,7 @@
 ---
-title: AI (beta)
+title: AI
 description: Harness the power of AI in your applications.
+beta: true
 ---
 
 Ampt makes it easy to incorporate AI into your applications. Using `@ampt/ai` you can interact with powerful AI models provided by Amazon Bedrock with just a few lines of code.

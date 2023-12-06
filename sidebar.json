@@ -20,7 +20,7 @@
   ],
   "Modules": [
     { "title": "AI", "href": "/docs/ai/", "beta": true },
-    { "title": "API", "href": "/docs/api/" },
+    { "title": "API", "href": "/docs/api/", "beta": true },
     { "title": "Data", "href": "/docs/data/" }
   ],
   "Workflows": [
