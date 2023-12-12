@@ -10,7 +10,7 @@ Ampt has built-in support for [Postgres SQL][postgres-docs] that is powered by [
 `@ampt/sql` is currently in Beta. [Contact us][contact-us] if you would like to participate in the Beta program.
 !!!
 
-# Getting started
+## Getting started
 
 To get started with `@ampt/sql` you will need to install the package:
 
@@ -36,7 +36,7 @@ import { sql } from "@ampt/sql";
 Your SQL database is tied to your Ampt environment. If you delete the environment, the database is deleted and all data in it is lost. Backup and restore features are coming soon.
 !!!
 
-# Using the `sql` interface
+## Using the `sql` interface
 
 The `sql` interface provides a simple way to execute SQL commands against your database. You can use the `sql` interface to create tables, insert data, and query data.
 
@@ -55,7 +55,7 @@ const posts = await sql`SELECT * FROM posts`;
 
 To learn more about Postgres SQL commands, see the [Postgres documentation][postgres-docs].
 
-# Using the `Kysely` query builder
+## Using the `Kysely` query builder
 
 `@ampt/sql` also provides the [Kysely query builder][kysely-docs] to build SQL queries. Kysely is a lightweight query builder for JavaScript and TypeScript, which may be preferable to writing raw SQL queries.
 
@@ -101,7 +101,7 @@ const post = await db
 const posts = await db.selectFrom("posts").selectAll().execute();
 ```
 
-# Migrations
+## Migrations
 
 `@ampt/sql` includes a migration system that allows you to define migrations using [Kysely query builder][kysely-docs].
 
