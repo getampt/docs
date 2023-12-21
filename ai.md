@@ -309,13 +309,14 @@ Ampt currently supports the following modelIds:
 - amazon.titan-embed-text-v1
 - meta.llama2-13b-chat-v1
 
-[Amazon Bedrock documentation][10]
-[AI21 API documentation][6]
-[Anthropic Claude API documentation][4]
-[Cohere API documentation][7]
-[Meta Llama 2 documentation][8]
-[Stability API documentation][5]
-[Amazon Translate documentation][11]
+**Additional References:**
+- [Amazon Bedrock documentation][10]
+- [AI21 API documentation][6]
+- [Anthropic Claude API documentation][4]
+- [Cohere API documentation][7]
+- [Meta Llama 2 documentation][8]
+- [Stability API documentation][5]
+- [Amazon Translate documentation][11]
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/API/Response
 [2]: https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream

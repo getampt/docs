@@ -1,6 +1,6 @@
 ---
 title: API
-description: Built-in modern fetch-based web framework to create APIs fast.
+description: Built-in modern fetch-based web framework to easily create blazing fast APIs.
 beta: true
 ---
 
