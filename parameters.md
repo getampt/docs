@@ -80,3 +80,22 @@ api("my-api")
     console.log(process.env.AMPT_URL);
   });
 ```
+
+## Parameter Groups
+
+For better organization, you can group parameters under a common namespace. For example, you can group all the parameters related to a third-party vendor under a common namespace like `THIRD_PARTY`. This will help you to easily identify and manage the parameters.
+
+Parameter groups act the same as parameters - you can override specific parameters in a group at the app and environment levels. For example, you can override the `API_KEY` of the `THIRD_PARTY` group for the production environment, but all other parameters will be inherited from the organization or app level group.
+
+Unlike Parameters, however, you can't export parameter groups as environment variables programmatically. Instead, you can set an "Export As" key when creating or editing a parameter group. If set, this parameter will be exported to the environment with the given name when your app starts.
+
+To access a parameter group programmatically, you can use the `params().group()` interface.
+
+```javascript
+const thirdPartyCredentials = params().group("THIRD_PARTY");
+const thirdPartyApiKey = thirdPartyCredentials("API_KEY");
+// or
+const thirdPartyApiKey = thirdPartyCredentials[API_KEY];
+// or if exported as `THIRD_PARTY_API_KEY`
+const thirdPartyApiKey = process.env.THIRD_PARTY_API_KEY;
+```
