@@ -53,7 +53,7 @@ If you intend to use an existing framework with Ampt, such as Express or Remix, 
 
 ## Ampt CLI
 
-To manage Ampt applications from your terminal, you can use the Ampt CLI.
+Building applications with Ampt requires installing and using the Ampt CLI in your terminal.
 
 - [Ampt CLI Interactive Shell](/docs/cli-interactive-shell)
 - [Ampt CLI Standard Mode](/docs/cli-standard-mode)
