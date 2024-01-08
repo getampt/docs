@@ -5,13 +5,33 @@ description: CLI to run commands from your terminal to manage the lifecycle of y
 
 Standard mode allows developers to run commands from your terminal without having to open an interactive session. Login is still required.
 
+!!! note
+Standard Mode is for running one off commands including headless mode when using for [CI/CD](/docs/cicd/) or other automated commands. Developers should use the [Interactive Shell](/docs/cli-interactive-shell/) when iterating on code.
+!!!
+
+---
+
 ## `ampt login`
 
 Logs the user in via the browser. You will need to verify the code you see in the browser.
 
+```terminal title=Terminal, copy=false
+> ampt login
+
+ℹ︎ Your browser should open automatically.
+ℹ︎ If not, open the following login url:
+→︎ https://ampt.dev/activate?user_code=XXXX-XXXX
+ℹ︎ Your confirmation code is: XXXX-XXXX
+⚠︎ This code will expire in 15 minutes.
+```
+
 ## `ampt logout`
 
 Logs the user out of the current session
+
+```terminal title=Terminal, copy=false
+> ampt logout
+```
 
 ## `ampt share [NAME]`
 
@@ -23,6 +43,10 @@ If a script named `ampt:build` is defined in package.json, it will be run before
 
 Use `--region <code>` to specify the region where the preview environment will be created.
 
+```terminal title=Terminal, copy=false
+> ampt share my-preview-env
+```
+
 ## `ampt deploy [NAME]`
 
 Deploys the code from your local directory to the provided permanent environment. If no NAME is provided, it will prompt you for an environment name.
@@ -33,35 +57,110 @@ If a script named `ampt:build` is defined in package.json, it will be run before
 
 Use `--region <code>` to specify the region where the new environment will be created.
 
+```terminal title=Terminal, copy=false
+> ampt deploy prod
+```
+
 ## `ampt install [PACKAGENAME]`
 
 Installs the specified npm package into your application. If you did not provide a package name, it'll simply install all your app's dependencies listed in `package.json`.
+
+Install an npm dependency:
+
+```terminal title=Terminal, copy=false
+> ampt install @ampt/data
+```
+
+Install a dev dependency with `--save-dev` or `-D`:
+
+```terminal title=Terminal, copy=false
+> ampt install @11ty/eleventy -D
+```
 
 ## `ampt uninstall [PACKAGENAME]`
 
 Uninstalls the specified npm package from your application.
 
-## `ampt run [script][-- npm-arguments [-- script-arguments]]`
+```terminal title=Terminal, copy=false
+> ampt uninstall @11ty/eleventy
+```
 
-Runs the npm script `ampt:<script>` locally on your sandbox. The script will have access to the selected stage's params, data, and storage.
+## `ampt run [SCRIPTNAME | FILEPATH][-- npm-arguments [-- script-arguments]]`
 
-You may pass additional arguments to npm by adding a double dash followed by the arguments, and another double dash to pass arguments to the script. For example `ampt run migrate --if-present -- script-argument --script-option` will result in running `npm run ampt:migrate --if-present -- script-argument --script-option` using the sandbox environment.
+Runs the npm script `ampt:<SCRIPTNAME>` in your `package.json` or the `FILEPATH` of a JavaScript/TypeScript file locally on your sandbox. The script will have access to the selected stage's params, data, and storage.
+
+**See [Running Scripts](/docs/scripts/) for more detailed usage information!**
+
+```json title=package.json, copy=false
+{
+  "name": "my-ampt-app",
+  ...
+  "scripts": {
+    "start": "ampt",
+    "ampt:build": "eleventy" // Namespaced npm script
+    ...
+  },
+  ...
+}
+```
+
+Run `ampt:build` from your `package.json`:
+
+```terminal title=Terminal, copy=false
+> ampt run build
+```
+
+Run the local script `./scripts/migrate.js` directly:
+
+```terminal title=Terminal, copy=false
+> ampt run ./scripts/migrate.js
+```
 
 ## `ampt import [FILENAME] [--overwrite]`
 
-Seeds data from the `FILENAME` in your local directory to your **sandbox**. If no `FILENAME` is provided, it will default to `data.json`. By default, the data will be merged with existing data. If you specify the `--overwrite` flag, all data will be cleared and reseeded.
+Imports [data](/docs/data) from the `FILENAME` in your local directory to your **sandbox**. If no `FILENAME` is provided, it will default to `data.json`. By default, the data will be merged with existing data. If you specify the `-o` or `--overwrite` flag, all data will be cleared and reseeded.
+
+```terminal title=Terminal, copy=false
+> ampt import data.json --overwrite
+```
 
 ## `ampt export [FILENAME] [--overwrite]`
 
-Exports data from your **developer sandbox** to a JSON file named `FILENAME` in your current working directoy. If no `FILENAME` is provided, it will default to `data.json`. If the `FILENAME` already exists, you can specify the `--overwrite` flag to overwrite the existing file.
+Exports data from your **sandbox** to a JSON file named `FILENAME` in your current working directory. If no `FILENAME` is provided, it will default to `data.json`. If the `FILENAME` already exists, you can specify the `-o` or `--overwrite` flag to overwrite the existing file.
+
+```terminal title=Terminal, copy=false
+> ampt export my-exported-data.json
+```
 
 ## `ampt version`
 
 Displays the running version of the CLI. `-v` flag is the short form for version.
 
+```terminal title=Terminal, copy=false
+> ampt version
+v1.0.28
+```
+
 ## `ampt url`
 
 Displays the current URL of your **sandbox**.
+
+```terminal title=Terminal, copy=false
+> ampt url
+
+→ https://~~~italic text-gray-400~{your-sandbox-url}~~~.ampt.dev
+```
+
+## `ampt open`
+
+Opens the dashboard to the current app in your default browser.
+
+```terminal title=Terminal, copy=false
+> ampt open
+
+ℹ View your app in the dashboard
+→ https://ampt.dev/~~~italic text-gray-400~{your-dashboard-link}~~~
+```
 
 ## `ampt help`
 

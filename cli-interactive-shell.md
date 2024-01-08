@@ -55,37 +55,23 @@ ampt ⚡
 ⚡ › deploy prod
 ```
 
-## `import [FILENAME] [--overwrite]`
-
-Imports [data](/docs/data) from the `FILENAME` in your local directory to your **sandbox**. If no `FILENAME` is provided, it will default to `data.json`. By default, the data will be merged with existing data. If you specify the `-o` or `--overwrite` flag, all data will be cleared and reseeded.
-
-```terminal title=Terminal, copy=false
-ampt ⚡
-
-⚡ › import data.json --overwrite
-```
-
-## `export [FILENAME] [--overwrite]`
-
-Exports data from your **sandbox** to a JSON file named `FILENAME` in your current working directory. If no `FILENAME` is provided, it will default to `data.json`. If the `FILENAME` already exists, you can specify the `-o` or `--overwrite` flag to overwrite the existing file.
-
-```terminal title=Terminal, copy=false
-ampt ⚡
-
-⚡ › export my-exported-data.json
-```
-
 ## `install [PACKAGENAME]`
 
 Installs the specified npm package into your application, and syncs your sandbox once it's done. If you did not provide a package name, it'll simply install all your app's dependencies listed in `package.json`.
 
+Install an npm dependency:
+
 ```terminal title=Terminal, copy=false
 ampt ⚡
 
-# Install an npm dependency
 ⚡ › install @ampt/data
+```
 
-# Install a dev dependency with `--save-dev` or `-D`
+Install a dev dependency with `--save-dev` or `-D`:
+
+```terminal title=Terminal, copy=false
+ampt ⚡
+
 ⚡ › install @11ty/eleventy -D
 ```
 
@@ -132,6 +118,26 @@ Run the local script `./scripts/migrate.js` directly:
 ampt ⚡
 
 ⚡ › run ./scripts/migrate.js
+```
+
+## `import [FILENAME] [--overwrite]`
+
+Imports [data](/docs/data) from the `FILENAME` in your local directory to your **sandbox**. If no `FILENAME` is provided, it will default to `data.json`. By default, the data will be merged with existing data. If you specify the `-o` or `--overwrite` flag, all data will be cleared and reseeded.
+
+```terminal title=Terminal, copy=false
+ampt ⚡
+
+⚡ › import data.json --overwrite
+```
+
+## `export [FILENAME] [--overwrite]`
+
+Exports data from your **sandbox** to a JSON file named `FILENAME` in your current working directory. If no `FILENAME` is provided, it will default to `data.json`. If the `FILENAME` already exists, you can specify the `-o` or `--overwrite` flag to overwrite the existing file.
+
+```terminal title=Terminal, copy=false
+ampt ⚡
+
+⚡ › export my-exported-data.json
 ```
 
 ## `version`
