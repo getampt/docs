@@ -16,7 +16,7 @@ We'll be providing more information about the Ampt Universal Runtime soon.
 
 Depending on your project's needs, you can configure the runtime and build version using the settings below.
 
-### Runtime version
+## Runtime version
 
 The `runtime` setting controls the version of the Ampt runtime used to run your application code.
 
@@ -39,7 +39,7 @@ Support for `nodejs20` is coming soon.
 
 We recommend updating to the latest runtime version, and testing your application in a development environment before deploying to production.
 
-### Build version
+## Build version
 
 The `buildRuntime` setting controls the version of the Ampt runtime used to build your application.
 
