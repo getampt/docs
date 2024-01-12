@@ -75,7 +75,7 @@ Use a double dash to pass additional options to the script:
 
 `ampt run migrate --env staging -- some-option`
 
-## Example: custom test runner
+## Example: Custom test runner
 
 If you would like to run tests locally against a stage, and would prefer not to use Ampt's built-in test runner, you could define an "ampt:test" script. For example, to use jest:
 
@@ -92,14 +92,6 @@ If you would like to run tests locally against a stage, and would prefer not to 
 Install jest:
 
 `npm install --save-dev jest`
-
-Create a Jest configuration that auto-loads your app:
-
-```javascript title="jest.config.js", copy=false
-module.exports = {
-  setupFilesAfterEnv: ["<rootDir>/index.js"],
-};
-```
 
 Then to run your tests against your developer sandbox:
 
