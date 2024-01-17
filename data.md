@@ -122,7 +122,7 @@ await data.get("users:jane@doe.com");
 Storing items in collections opens up a number of powerful use cases. You can [query with conditionals](#querying-with-conditionals), allowing you to retrieve select items from a collection, and you can sort on `keys` in lexicographical order, which is great for dates or [KSUIDs](https://www.npmjs.com/package/ksuid).
 
 !!! note
-There is no limit to the number of items that can be stored in a collection. However, because items in a collection are colocated in the same partition, we recommend avoiding large collections for frequently accessed items. For example, if you are storing a popular product's information, you may want to use a more distinct key (such as `productId-12345`) instead of storing the item in a `products` collection (e.g. `products:12345`). If you need to return a list of products, you could add a [label](#labels).
+There is no limit to the number of items that can be stored in a collection. However, because items in a collection are colocated in the same partition, we recommend isolating frequently accessed items (i.e. several thousand reads per second). For example, if you are storing a popular product's information, you may want to use a more distinct key (such as `productId-12345`) instead of storing the item in a `products` collection (e.g. `products:12345`). If you need to return a list of products, you could add a [label](#labels). See [Understanding DynamoDB adaptive capacity](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-design.html#bp-partition-key-partitions-adaptive) for more information about "hot" partitions.
 !!!
 
 ### Labels
