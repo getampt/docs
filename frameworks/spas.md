@@ -31,7 +31,7 @@ For example, if a large React dependency like `@mui/material` is defined in `dep
     "vite": "^4.0.3"
   },
   "dependencies": {
-    "@ampt/sdk": "^0.0.1-beta.41",
+    "@ampt/sdk": "^1.0.0",
     "express": "^4.18.2"
   },
 ```

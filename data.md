@@ -20,7 +20,7 @@ To access data from your application, you must install the `@ampt/data` [npm pac
 Or via the Ampt shell:
 
 ```terminal title=Terminal, class="no-margin", copy=false
-ampt ⚡ (beta)
+ampt ⚡
 
 ⚡ › install @ampt/data ▊
 ```

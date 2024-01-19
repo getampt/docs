@@ -3,7 +3,7 @@ title: Node-based Web Frameworks
 description: Build apps on Ampt using your favorite web frameworks with zero boilerplate.
 ---
 
-The [`http`](/docs/http) interface from the `@ampt/sdk` provides a `node` interface (v0.0.1-beta.43>) method that lets you integrate your favorite Node-based web frameworks into an Ampt app. The `http.node.use` method wraps the instance of your framework and exposes any defined routes on the root of your public `*.ampt.app` URL.
+The [`http`](/docs/http) interface from the `@ampt/sdk` provides a `node` interface method that lets you integrate your favorite Node-based web frameworks into an Ampt app. The `http.node.use` method wraps the instance of your framework and exposes any defined routes on the root of your public `*.ampt.app` URL.
 
 Ampt runs your web frameworks automatically, so you **DO NOT** need to use `.listen` or `.createServer`.
 
