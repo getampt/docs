@@ -60,11 +60,11 @@ ws.on('connected', async (connection: SocketConnection) => {
     connectionId,
     meta
   } = connection;
-  const { connectedAt, queryStringParams } = meta;
+  const { connectedAt, queryStringParameters } = meta;
   await data.set(`connection:${connectionId}`, {
     connectionId,
     connectedAt,
-    username: queryStringParams?.name,
+    username: queryStringParameters?.name,
   });
 });
 
