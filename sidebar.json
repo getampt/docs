@@ -41,10 +41,13 @@
       "title": "Fetch-based frameworks",
       "href": "/docs/frameworks/fetch-based/"
     },
-    { "title": "- Hono", "href": "/docs/frameworks/fetch-based/#hono" },
-    { "title": "- ElysiaJS", "href": "/docs/frameworks/fetch-based/#elysiajs" },
+    { "title": " - Hono", "href": "/docs/frameworks/fetch-based/#hono" },
     {
-      "title": "- itty-router",
+      "title": " - ElysiaJS",
+      "href": "/docs/frameworks/fetch-based/#elysiajs"
+    },
+    {
+      "title": " - itty-router",
       "href": "/docs/frameworks/fetch-based/#itty-router"
     },
     {
@@ -52,15 +55,15 @@
       "href": "/docs/frameworks/node-based/"
     },
     {
-      "title": "- Express.js",
+      "title": " - Express.js",
       "href": "/docs/frameworks/node-based/#express.js"
     },
     {
-      "title": "- Fastify",
+      "title": " - Fastify",
       "href": "/docs/frameworks/node-based/#fastify"
     },
     {
-      "title": "- Restify",
+      "title": " - Restify",
       "href": "/docs/frameworks/node-based/#restify"
     },
     { "title": "React, Vue, and other SPAs", "href": "/docs/frameworks/spas/" }
