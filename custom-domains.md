@@ -6,11 +6,11 @@ description: Learn how you to assign custom domain names to your Ampt applicatio
 By default, all instances on Ampt have a URL that ends with `.ampt.app`. You may want to replace this domain with a domain that you already own.
 
 !!! note
-Custom domain names can only be assised to **permanent stages**. You cannot set a custom domain for **developer sandboxes** or **preview environments**.
+Custom domain names can only be assigned to **permanent stages**. You cannot set a custom domain for **developer sandboxes** or **preview environments**.
 !!!
 
 !!! note
-Custom domains are allowed only in the paid plans. 
+Custom domains are allowed only in the paid plans.
 !!!
 
 You’ll need to create a permanent stage by using the `ampt deploy` command from your terminal, running `deploy` from the Ampt interactive shell, or by creating a new stage in the dashboard.
@@ -28,13 +28,13 @@ To map a custom domain to your application, you must first prove ownership of th
 2. Click on "Add new domain" and enter the name of the domain name that you would like to assign in the dialog. Note that you can map subdomains following the steps here. See [our documentation](/docs/custom-domains#mapping-apex-domains) about apex domains.
 3. You’ll see the first CNAME Name/Value pair that you use to prove the ownership of the custom domain.
 4. Go into the DNS page of your domain registrar and add the CNAME there. Note that some registrars require you to provide the whole string for the Name, while others only need the hostname, `_4453ae612288a32ae779be80e251735c.www` in our example. GoDaddy, for example, warns you about this if you enter the whole string in the "Name" area. Google Domains also do not need the full domain, but they don't give a warning.
-5. It may take a few minutes for your changes to propogate. You can click the "Refresh" button on the Ampt Dashboard to track the progress. After a few minutes, you’ll see that your ownership of the custom domain has been verified. Now we can continue to map our domain to our stage.
+5. It may take a few minutes for your changes to propagate. You can click the "Refresh" button on the Ampt Dashboard to track the progress. After a few minutes, you’ll see that your ownership of the custom domain has been verified. Now we can continue to map our domain to our stage.
 
 ## Mapping a Custom Domain to an Ampt stage
 
 Continue from the previous step by adding another CNAME record to your domain registrar.
 
-This may take a few minutes for the DNS records to propogate and the mapping operation to finish. You can test the mapping by visiting the custom domain you selected. Please check your DNS records if the operation doesn't succeed or reach out to us for help.
+This may take a few minutes for the DNS records to propagate and the mapping operation to finish. You can test the mapping by visiting the custom domain you selected. Please check your DNS records if the operation doesn't succeed or reach out to us for help.
 
 ## Mapping Apex Domains
 

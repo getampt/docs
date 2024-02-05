@@ -1,13 +1,14 @@
 ---
 title: API
 description: Built-in modern fetch-based web framework to easily create blazing fast APIs.
-beta: true
 ---
 
 Ampt provides a modern web framework to group API handlers and define routers and endpoints for your application. `@ampt/api` is designed to simplify the process of building RESTful APIs and making requests to them.
 
-!!! caution
-`@ampt/api` is experimental and subject to change. **DO NOT** use this for production apps.
+!!! note
+`@ampt/api` is a lightweight router for serving `json` responses.
+
+If you need a more feature complete router, see Ampt's support for fetch-based routers ([Hono](/docs/frameworks/fetch-based#hono), [ElysiaJS](/docs/frameworks/fetch-based#elysiajs), or [itty-router](/docs/frameworks/fetch-based#itty-router)) or node-based ([Express](/docs/frameworks/node-based/#express.js), [Fastify](/docs/frameworks/node-based/#fastify), etc.)
 !!!
 
 ## Defining an API
