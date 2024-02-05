@@ -1,14 +1,9 @@
 ---
 title: AI
 description: Harness the power of AI in your applications.
-beta: true
 ---
 
 Ampt makes it easy to incorporate AI into your applications. Using `@ampt/ai` you can interact with powerful AI models provided by Amazon Bedrock with just a few lines of code.
-
-!!! caution
-`@ampt/ai` is experimental and subject to change. **DO NOT** use this for production apps.
-!!!
 
 !!! note
 `@ampt/ai` requires AI quota to use. You can purchase additional quota in the [Ampt Console](https://ampt.dev) in your Organization settings.
@@ -16,14 +11,14 @@ Ampt makes it easy to incorporate AI into your applications. Using `@ampt/ai` yo
 
 ## Required runtime
 
-`@ampt/ai` requires the `nodejs18` Ampt runtime. You can set the runtime in your `package.json` file:
+`@ampt/ai` requires the `nodejs18` or `nodejs20` Ampt runtime. You can set the runtime in your `package.json` file:
 
 ```json
 {
   "ampt": {
     "app": "my-app",
     "org": "my-org",
-    "runtime": "nodejs18"
+    "runtime": "nodejs20"
   }
 }
 ```
@@ -310,6 +305,7 @@ Ampt currently supports the following modelIds:
 - meta.llama2-13b-chat-v1
 
 **Additional References:**
+
 - [Amazon Bedrock documentation][10]
 - [AI21 API documentation][6]
 - [Anthropic Claude API documentation][4]

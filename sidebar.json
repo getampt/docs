@@ -19,9 +19,9 @@
     { "title": "WebSockets", "href": "/docs/websockets/" }
   ],
   "Modules": [
-    { "title": "AI", "href": "/docs/ai/", "beta": true },
-    { "title": "API", "href": "/docs/api/", "beta": true },
     { "title": "Data", "href": "/docs/data/" },
+    { "title": "AI", "href": "/docs/ai/" },
+    { "title": "API", "href": "/docs/api/" },
     { "title": "SQL", "href": "/docs/sql/", "beta": true }
   ],
   "Workflows": [
@@ -37,8 +37,22 @@
     { "title": "Eleventy", "href": "/docs/frameworks/eleventy/" },
     { "title": "SvelteKit", "href": "/docs/frameworks/sveltekit/" },
     { "title": "Angular", "href": "/docs/frameworks/angular/" },
+    { "title": "Hono", "href": "/docs/frameworks/fetch-based/#hono" },
+    { "title": "ElysiaJS", "href": "/docs/frameworks/fetch-based/#elysiajs" },
     {
-      "title": "Node-based",
+      "title": "itty-router",
+      "href": "/docs/frameworks/fetch-based/#itty-router"
+    },
+    {
+      "title": "Express.js",
+      "href": "/docs/frameworks/node-based/#express.js"
+    },
+    {
+      "title": "Fastify",
+      "href": "/docs/frameworks/node-based/#fastify"
+    },
+    {
+      "title": "Other node-based frameworks",
       "href": "/docs/frameworks/node-based/"
     },
     { "title": "React, Vue, and other SPAs", "href": "/docs/frameworks/spas/" }
