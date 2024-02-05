@@ -37,23 +37,31 @@
     { "title": "Eleventy", "href": "/docs/frameworks/eleventy/" },
     { "title": "SvelteKit", "href": "/docs/frameworks/sveltekit/" },
     { "title": "Angular", "href": "/docs/frameworks/angular/" },
-    { "title": "Hono", "href": "/docs/frameworks/fetch-based/#hono" },
-    { "title": "ElysiaJS", "href": "/docs/frameworks/fetch-based/#elysiajs" },
     {
-      "title": "itty-router",
+      "title": "Fetch-based frameworks",
+      "href": "/docs/frameworks/fetch-based/"
+    },
+    { "title": "- Hono", "href": "/docs/frameworks/fetch-based/#hono" },
+    { "title": "- ElysiaJS", "href": "/docs/frameworks/fetch-based/#elysiajs" },
+    {
+      "title": "- itty-router",
       "href": "/docs/frameworks/fetch-based/#itty-router"
     },
     {
-      "title": "Express.js",
+      "title": "Node-based frameworks",
+      "href": "/docs/frameworks/node-based/"
+    },
+    {
+      "title": "- Express.js",
       "href": "/docs/frameworks/node-based/#express.js"
     },
     {
-      "title": "Fastify",
+      "title": "- Fastify",
       "href": "/docs/frameworks/node-based/#fastify"
     },
     {
-      "title": "Other node-based frameworks",
-      "href": "/docs/frameworks/node-based/"
+      "title": "- Restify",
+      "href": "/docs/frameworks/node-based/#restify"
     },
     { "title": "React, Vue, and other SPAs", "href": "/docs/frameworks/spas/" }
   ],
