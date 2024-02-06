@@ -39,17 +39,21 @@ For more specific use cases, you can install additional modules:
 
 If you intend to use an existing framework with Ampt, such as Express or Remix, view the following guides below:
 
-- [Express](/docs/http/#expressjs)
-- [Connect](/docs/http/#connect)
-- [Koa](/docs/http/#koa)
-- [Restana](/docs/http/#restana)
-- [Fastify](/docs/http/#fastify)
+- [Express](/docs/frameworks/node-based/#express.js)
+- [Hono](/docs/frameworks/fetch-based/#hono)
+- [Connect](/docs/frameworks/node-based/#connect)
+- [Koa](/docs/frameworks/node-based/#koa)
+- [Restana](/docs/frameworks/node-based/#restana)
+- [Fastify](/docs/frameworks/node-based/#fastify)
 - [Remix](/docs/frameworks/remix/)
 - [Astro](/docs/frameworks/astro/)
 - [Next.js](/docs/frameworks/next/)
 - [Nuxt.js](/docs/frameworks/nuxt/)
 - [SvelteKit](/docs/frameworks/sveltekit/)
+- [SvelteKit](/docs/frameworks/eleventy/)
 - [Angular](/docs/frameworks/angular/)
+- [ElysiaJS](/docs/frameworks/fetch-based/#elysiajs)
+- [itty-router](/docs/frameworks/fetch-based/#itty-router)
 
 ## Ampt CLI
 
