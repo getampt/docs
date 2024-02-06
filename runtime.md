@@ -1,18 +1,18 @@
 ---
 title: Ampt Universal Runtime
-description: Node-based, WebAPI standardized runtime that provides a consistent execution environment across serverless, containers, and edge-based technologies.
+description: Node-backed, web standards runtime layer that provides a consistent execution environment across serverless, containers, and edge-based technologies.
 ---
 
-We'll be providing more information about the Ampt Universal Runtime soon.
+The Ampt Universal Runtime is a layer applied to Node.js that adds support for web standards (like the FetchAPI) and adapts requests for consistent handling across AWS compute technologies. This lightweight runtime layer allows workloads to run on serverless functions (Lambda), containers (Fargate), and edge-based technologies (Lambda@Edge) without any application code changes.
 
-**Current features include:**
+**Features include:**
 
-- Node.js v18.x and v20.x
-- Automatically transpiles TypeScript with source maps and supports tsconfig paths
-- Reloads code in dev mode
+- Support for Node.js v18.x and v20.x
+- Automatic TypeScript transpilation with source maps and tsconfig paths support
+- Hot-reloading of code in dev mode
 - WebAPI standardized fetch, streams, and webcrypto APIs
 - HTTP response streaming support
-- Adapts requests from various event sources into a consistent format (e.g. fetch)
+- Request adaption from various event sources into a consistent format (e.g. fetch)
 
 Depending on your project's needs, you can configure the runtime and build version using the settings below.
 
