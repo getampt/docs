@@ -9,9 +9,9 @@ Ampt is a developer tool, account orchestrator, deployment engine, and cloud man
   <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/OEgTGqZ1a70" title="Ampt: Revolutionize Your Cloud Development Workflows" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 
-With Ampt, you _just write code_. Backed by a fully-featured Node.js runtime with support for modern JavaScript and TypeScript right out of the box, you can build just about any application you can imagine. Import your favorite libraries, write your own custom APIs, connect to third-party APIs and services, use familiar backend frameworks like [Express.js](/docs/http/#express.js) and [Koa](/docs/http/#koa), or fullstack frameworks like [Astro](/docs/frameworks/astro/), [Remix](/docs/frameworks/remix/), and [Next.js](/docs/frameworks/next/).
+With Ampt, you _just write code_. Backed by a fully-featured Node.js runtime with support for modern JavaScript and TypeScript right out of the box, you can build just about any application you can imagine. Import your favorite libraries, write your own custom APIs, and connect to third-party APIs and services. You can also use familiar backend frameworks like [Express.js](/docs/frameworks/node-based/#express.js) and [Koa](/docs/frameworks/node-based#koa), fetch-based API frameworks like [Hono](/docs/frameworks/fetch-based/#hono) and [ElysiaJS](/docs/frameworks/fetch-based/#elysiajs), or fullstack frameworks like [Next.js](/docs/frameworks/next/), [Astro](/docs/frameworks/astro/), and [Remix](/docs/frameworks/remix/).
 
-Ampt provides multiple standalone modules that integrate seamlessly with the runtime, and doesn't require you to ever think about infrastructure. You can use as little or as many as you like. The SDKs are designed to be simple and familiar, maximizing your productivity by eliminating the need to learn new, complicated APIs.
+Ampt provides multiple standalone modules that integrate seamlessly with the runtime, without ever needing to think about infrastructure. You can use as little or as many as you like. The SDKs are designed to be simple and familiar, maximizing your productivity by eliminating the need to learn new, complicated APIs.
 
 ## Core Interfaces and Modules
 
