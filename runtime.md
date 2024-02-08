@@ -55,11 +55,8 @@ Any build scripts that generate server-side code must target your selected runti
 The available build runtime versions are:
 
 - `nodejs16` (default): Node.js v16.x
+- `nodejs18`: Node.js v18.x
 - `nodejs20`: (recommended) Node.js v20.x
-
-!!! note
-`nodejs18` build runtime is coming soon.
-!!!
 
 We recommend updating to the latest build runtime version. Always test your build scripts in a development environment before deploying to production.
 
