@@ -5,7 +5,7 @@ description: Build and deploy app bundles with Ampt.
 
 ## Building your app
 
-If you are using a SPA framework like React, Vue, or Svelte, you will need to build your app before deploying it to Ampt. You can use a build tool like Vite, Webpack, or Rollup to do this.
+If you are using a SPA framework like React, Vue, or Svelte, you will need to build your app before deploying it with Ampt. You can use a build tool like Vite, Webpack, or Rollup to do this.
 
 When deploying to a stage environment using the `deploy` command, or from a Git triggered deploy, Ampt's builder runs `install`, `rebuild`, and `ampt:build` (from your app's `package.json` scripts) to build your app. If you need to run additional build steps, you can add them to the `ampt:build` script in your `package.json` file.
 
