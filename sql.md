@@ -7,7 +7,7 @@ beta: true
 Ampt has built-in support for [Postgres SQL][postgres-docs] that is powered by [Neon Postgres][neon-website]. Using `@ampt/sql` you can store and query relational data using pure SQL commands or using the [Kysely query builder][kysely-docs].
 
 !!! note
-`@ampt/sql` is currently in Beta. [Contact us][contact-us] if you would like to participate in the Beta program.
+`@ampt/sql` is currently in Beta. Do NOT use it for the production use cases.
 !!!
 
 ## Getting started
