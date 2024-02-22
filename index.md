@@ -13,7 +13,7 @@ altDescription: Ampt lets developers write apps using their favorite tools, Java
 	<div class="flex-none"><span class="block bg-ampt-purple text-white text-sm rounded-full w-6 h-6 font-medium flex items-center justify-center">1</span></div>
 	<div class="pr-6 flex-1">
 		<div class="text-base font-medium">Install & start the Ampt CLI</div>
-		<div class="text-base pt-1 pb-6 xl:pb-16">Navigate to an empty directory in your terminal and make sure you have <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm" target="_blank">Node.js v16+ and npm installed</a>. Then run the following command to install and start Ampt.</div>
+		<div class="text-base pt-1 pb-6 xl:pb-16">Navigate to an empty directory in your terminal and make sure you have <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm" target="_blank">Node.js v18+ and npm installed</a>. Then run the following command to install and start Ampt.</div>
 	</div>
 	<div class="w-full xl:w-[55%] pb-16">
 
