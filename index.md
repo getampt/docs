@@ -72,7 +72,7 @@ ampt ⚡
 	<div class="flex-none"><span class="block bg-ampt-purple text-white text-sm rounded-full w-6 h-6 font-medium flex items-center justify-center">4</span></div>
 	<div class="pr-6 flex-1">
 		<div class="text-base font-medium">Go through the tutorial</div>
-		<div class="text-base pt-1 pb-2 xl:pb-16">Ampt provides an out-of-the-box interactive tutorial to help new users get accustomed to Ampt workflows. This is optional, but highly recommended.</div>
+		<div class="text-base pt-1 pb-2 xl:pb-16">Ampt provides an out-of-the-box interactive tutorial to help new users get accustomed to Ampt workflows. <strong>This is optional, but highly recommended.</strong></div>
 		<div class="text-base pt-1 xl:pb-16">If you started Ampt in an empty directory, you'll have a chance to use our preconfigured tutorial template. If you started Ampt in an existing project directory, or want to use a template, you can still access the tutorial from the CLI using the "tutorial" command.</div>
 	</div>
 	<div class="w-full xl:w-[55%] pb-16">
