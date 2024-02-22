@@ -170,7 +170,7 @@ ampt ⚡
 ℹ You've entered ~~~font-bold~my-cool-api~~~.
 ~~~whitespace-normal pl-5 -indent-5 inline-block~✔ Successfully generated app ~~~font-bold~my-cool-api~~~ in this directory.~~~
 
-~~~whitespace-normal pl-5 -indent-5 inline-block~✔ Connected to ~~~text-ampt-pink~@org/text-ampt-purple~app/text-ampt-blue~username~~~~~~~
+~~~whitespace-normal pl-5 -indent-5 inline-block~✔ Connected to ~~~text-ampt-pink~@org\/\text-ampt-purple~app\/\text-ampt-blue~username~~~~~~~
 → https://~~~italic text-gray-500~{your-unique-url}~~~.ampt.app
 ⚡ › ▊
 ```
