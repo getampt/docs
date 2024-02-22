@@ -71,6 +71,26 @@ ampt ⚡
 <div class="flex flex-wrap xl:flex-nowrap items-start gap-x-3 mb-1 line-bg">
 	<div class="flex-none"><span class="block bg-ampt-purple text-white text-sm rounded-full w-6 h-6 font-medium flex items-center justify-center">4</span></div>
 	<div class="pr-6 flex-1">
+		<div class="text-base font-medium">Go through the tutorial</div>
+		<div class="text-base pt-1 pb-6 xl:pb-16">Ampt provides an out-of-the-box interactive tutorial to help new users get accustomed to Ampt workflows. This is optional, but highly recommended.</div>
+		<div class="text-base pt-1 pb-6 xl:pb-16">If you started Ampt in an empty directory, you'll have a chance to use our preconfigured tutorial template. If you started Ampt in an existing project directory, or want to use a template, you can still access the tutorial from the CLI using the "tutorial" command.</div>
+	</div>
+	<div class="w-full xl:w-[55%] pb-16">
+
+```terminal title=Terminal, class="no-margin", copy=false
+ampt ⚡
+? Would you like to start the tutorial?
+ℹ You've selected ~~~font-bold~yes~~~.
+ℹ Enter a name for your app
+⚡ › my-ampt-tutorial▊
+```
+
+</div></div>
+
+<!-- Step 5 -->
+<div class="flex flex-wrap xl:flex-nowrap items-start gap-x-3 mb-1 line-bg">
+	<div class="flex-none"><span class="block bg-ampt-purple text-white text-sm rounded-full w-6 h-6 font-medium flex items-center justify-center">5</span></div>
+	<div class="pr-6 flex-1">
 		<div class="text-base font-medium">Create a new app</div>
 		<div class="text-base pt-1 pb-6 xl:pb-16">When started in an empty directory, Ampt will ask if you want to create a new app. Select "Yes" from the menu.</div>
 		<div class="text-base pt-1 pb-6 xl:pb-16">If you want to migrate an existing project to Ampt, just start the CLI in the project's directory.</div>
@@ -87,24 +107,6 @@ ampt ⚡
 ```
 
 </div></div>
-
-<!-- Step 5 -->
-<div class="flex flex-wrap xl:flex-nowrap items-start gap-x-3 mb-1 line-bg">
-	<div class="flex-none"><span class="block bg-ampt-purple text-white text-sm rounded-full w-6 h-6 font-medium flex items-center justify-center">5</span></div>
-	<div class="pr-6 flex-1">
-		<div class="text-base font-medium">Go through the tutorial</div>
-		<div class="text-base pt-1 pb-6 xl:pb-16">Ampt provides an out-of-the-box interactive tutorial to help new users get accustomed to Ampt workflows. This is optional, but highly recommended.</div>
-		<div class="text-base pt-1 pb-6 xl:pb-16">If you started Ampt in an empty directory, you'll have a chance to use our preconfigured tutorial template. If you started Ampt in an existing project directory, or want to use a template, you can still access the tutorial from the CLI using the "tutorial" command.</div>
-	</div>
-	<div class="w-full xl:w-[55%] pb-16">
-
-```terminal title=Terminal, class="no-margin", copy=false
-ampt ⚡
-? Would you like to start the tutorial?
-ℹ You've selected ~~~font-bold~yes~~~.
-ℹ Enter a name for your app
-⚡ › my-ampt-tutorial▊
-```
 
 <!-- Step 6 -->
 <div class="flex flex-wrap xl:flex-nowrap items-start gap-x-3 mb-1 line-bg">
