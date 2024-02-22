@@ -73,7 +73,7 @@ ampt ⚡
 	<div class="pr-6 flex-1">
 		<div class="text-base font-medium">Go through the tutorial</div>
 		<div class="text-base pt-1 pb-2 xl:pb-16">Ampt provides an out-of-the-box interactive tutorial to help new users get accustomed to Ampt workflows. <strong>This is optional, but highly recommended.</strong></div>
-		<div class="text-base pt-1 xl:pb-16">If you started Ampt in an empty directory, you'll have a chance to use our preconfigured tutorial template. If you started Ampt in an existing project directory, or want to use a template, you can still access the tutorial from the CLI using the "tutorial" command.</div>
+		<div class="text-base pt-1 xl:pb-16">If you started Ampt in an empty directory, you'll have a chance to use our preconfigured <a href="https://github.com/ampt-templates/tutorial" target="_blank">tutorial template</a>. If you started Ampt in an existing project directory, or want to use a template, you can still access the tutorial from the CLI using the "tutorial" command.</div>
 	</div>
 	<div class="w-full xl:w-[55%] pb-16">
 
@@ -93,7 +93,7 @@ ampt ⚡
 	<div class="pr-6 flex-1">
 		<div class="text-base font-medium">Create a new app</div>
 		<div class="text-base pt-1 pb-2 xl:pb-16">When started in an empty directory, Ampt will ask if you want to create a new app. Select "Yes" from the menu.</div>
-		<div class="text-base pt-1 xl:pb-16">If you want to migrate an existing project to Ampt, just start the CLI in the project's directory.</div>
+		<div class="text-base pt-1 xl:pb-16">If you want to migrate an existing <strong>NodeJS</strong> project to Ampt, just start the CLI in the project's directory.</div>
 	</div>
 	<div class="w-full xl:w-[55%] pb-16">
 	
