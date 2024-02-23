@@ -13,7 +13,7 @@ altDescription: Ampt lets developers write apps using their favorite tools, Java
 	<div class="flex-none"><span class="block bg-ampt-purple text-white text-sm rounded-full w-6 h-6 font-medium flex items-center justify-center">1</span></div>
 	<div class="pr-6 flex-1">
 		<div class="text-base font-medium">Install & start the Ampt CLI</div>
-		<div class="text-base pt-1 pb-6 xl:pb-16">Navigate to an empty directory in your terminal and make sure you have <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm" target="_blank">Node.js v16+ and npm installed</a>. Then run the following command to install and start Ampt.</div>
+		<div class="text-base pt-1 pb-6 xl:pb-16">Navigate to an empty directory in your terminal and make sure you have <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm" target="_blank">Node.js v18+ and npm installed</a>. Then run the following command to install and start Ampt.</div>
 	</div>
 	<div class="w-full xl:w-[55%] pb-16">
 
@@ -71,18 +71,18 @@ ampt ⚡
 <div class="flex flex-wrap xl:flex-nowrap items-start gap-x-3 mb-1 line-bg">
 	<div class="flex-none"><span class="block bg-ampt-purple text-white text-sm rounded-full w-6 h-6 font-medium flex items-center justify-center">4</span></div>
 	<div class="pr-6 flex-1">
-		<div class="text-base font-medium">Create a new app</div>
-		<div class="text-base pt-1 pb-6 xl:pb-16">Ampt lets you connect to existing apps or create new ones. Select "Create new app" from the menu.</div>
+		<div class="text-base font-medium">Go through the tutorial</div>
+		<div class="text-base pt-1 pb-2 xl:pb-16">Ampt provides an out-of-the-box interactive tutorial to help new users get accustomed to Ampt workflows. <strong>This is optional, but highly recommended.</strong></div>
+		<div class="text-base pt-1 xl:pb-16">If you started Ampt in an empty directory, you'll have a chance to use our preconfigured <a href="https://github.com/ampt-templates/tutorial" target="_blank">tutorial template</a>. If you started Ampt in an existing project directory, or want to use a template, you can still access the tutorial from the CLI using the <strong><em>tutorial</em></strong> command.</div>
 	</div>
 	<div class="w-full xl:w-[55%] pb-16">
-	
+
 ```terminal title=Terminal, class="no-margin", copy=false
 ampt ⚡
-
-~~~whitespace-normal pl-5 -indent-5 inline-block~~~~text-ampt-pink~?~~~ Do you want to create a new app or work on an existing one?~~~
-
-› Create new app
-  ~~~text-gray-500~Work on an existing app~~~
+? Would you like to start the tutorial?
+ℹ You've selected ~~~font-bold~yes~~~.
+ℹ Enter a name for your app
+⚡ › my-ampt-tutorial▊
 ```
 
 </div></div>
@@ -91,6 +91,27 @@ ampt ⚡
 <div class="flex flex-wrap xl:flex-nowrap items-start gap-x-3 mb-1 line-bg">
 	<div class="flex-none"><span class="block bg-ampt-purple text-white text-sm rounded-full w-6 h-6 font-medium flex items-center justify-center">5</span></div>
 	<div class="pr-6 flex-1">
+		<div class="text-base font-medium">Create a new app</div>
+		<div class="text-base pt-1 pb-2 xl:pb-16">When started in an empty directory, Ampt will ask if you want to create a new app. Select "Yes" from the menu.</div>
+		<div class="text-base pt-1 xl:pb-16">If you want to migrate an existing <strong>Node.js</strong> project to Ampt, just start the CLI in the project's directory.</div>
+	</div>
+	<div class="w-full xl:w-[55%] pb-16">
+	
+```terminal title=Terminal, class="no-margin", copy=false
+ampt ⚡
+
+~~~whitespace-normal pl-5 -indent-5 inline-block~~~~text-ampt-pink~?~~~ Would you like to create a new app?~~~
+
+› Yes
+  ~~~text-gray-500~No~~~
+```
+
+</div></div>
+
+<!-- Step 6 -->
+<div class="flex flex-wrap xl:flex-nowrap items-start gap-x-3 mb-1 line-bg">
+	<div class="flex-none"><span class="block bg-ampt-purple text-white text-sm rounded-full w-6 h-6 font-medium flex items-center justify-center">6</span></div>
+	<div class="pr-6 flex-1">
 		<div class="text-base font-medium">Select a starter template</div>
 		<div class="text-base pt-1 pb-6 xl:pb-16">Ampt provides a set of preconfigured templates to quickly bootstrap your project.</div>
 	</div>
@@ -98,9 +119,9 @@ ampt ⚡
 
 ```terminal title=Terminal, class="no-margin", copy=false
 ampt ⚡
-
-ℹ You've selected ~~~font-bold~Create new app~~~.
-~~~whitespace-normal pl-5 -indent-5 inline-block~ℹ Please choose an app template to generate in this directory.~~~
+? Would you like to create a new app?
+ℹ You've selected ~~~font-bold~yes~~~.
+~~~whitespace-normal pl-5 -indent-5 inline-block~ℹ Choose a template to generate.~~~
 
 › JavaScript API (Express)
   ~~~text-gray-500~TypeScript API (Express)~~~
@@ -113,9 +134,9 @@ ampt ⚡
 
 </div></div>
 
-<!-- Step 6 -->
+<!-- Step 7 -->
 <div class="flex flex-wrap xl:flex-nowrap items-start gap-x-3 mb-1 line-bg">
-	<div class="flex-none"><span class="block bg-ampt-purple text-white text-sm rounded-full w-6 h-6 font-medium flex items-center justify-center">6</span></div>
+	<div class="flex-none"><span class="block bg-ampt-purple text-white text-sm rounded-full w-6 h-6 font-medium flex items-center justify-center">7</span></div>
 	<div class="pr-6 flex-1">
 		<div class="text-base font-medium">Name your app</div>
 		<div class="text-base pt-1 pb-6 xl:pb-16">The app name will default to your directory name. You can rename it here.</div>
@@ -126,16 +147,15 @@ ampt ⚡
 ampt ⚡
 
 ℹ You've selected ~~~font-bold~JavaScript API (Express)~~~.
-ℹ Please enter a name for your app.
-
+ℹ Enter a name for your app
 ⚡ › my-cool-api ▊
 ```
 
 </div></div>
 
-<!-- Step 7 -->
+<!-- Step 8  -->
 <div class="flex flex-wrap xl:flex-nowrap items-start gap-x-3 mb-1 line-bg">
-	<div class="flex-none"><span class="block bg-ampt-purple text-white text-sm rounded-full w-6 h-6 font-medium flex items-center justify-center">7</span></div>
+	<div class="flex-none"><span class="block bg-ampt-purple text-white text-sm rounded-full w-6 h-6 font-medium flex items-center justify-center">8</span></div>
 	<div class="pr-6 flex-1">
 		<div class="text-base font-medium">Start coding!</div>
 		<div class="text-base pt-1 pb- pb-6 xl:pb-16"><p>Ampt generates the template code in your local directory, then spins up and connects to your isolated <span class="font-medium text-ampt-purple">developer sandbox</span> in the cloud.</p>
@@ -150,12 +170,8 @@ ampt ⚡
 ℹ You've entered ~~~font-bold~my-cool-api~~~.
 ~~~whitespace-normal pl-5 -indent-5 inline-block~✔ Successfully generated app ~~~font-bold~my-cool-api~~~ in this directory.~~~
 
-~~~whitespace-normal pl-5 -indent-5 inline-block~✔ Connected to your developer sandbox of ~~~text-ampt-blue~my-cool-api~~~ app~~~
+~~~whitespace-normal pl-5 -indent-5 inline-block~✔ Connected to ~~~text-ampt-purple~@org/app/username~~~ ~~~
 → https://~~~italic text-gray-500~{your-unique-url}~~~.ampt.app
-
-ℹ View your app in the dashboard
-→ https://ampt.dev/~~~italic text-gray-500~{your-dashboard-link}~~~
-
 ⚡ › ▊
 ```
 
