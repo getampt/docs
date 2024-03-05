@@ -51,67 +51,27 @@ If you need any examples, all of Ampt's [starter templates](https://github.com/a
 
 You can also use GitHub Codespaces to develop and deploy Ampt applications. Codespaces is a web-based development environment that allows you to run code in a containerized environment in your browser. If you have a GitHub account, you have access to Codespaces for any public or private repository.
 
-Similarly to GitPod, Ampt works by simply installing the CLI in the Codespaces environment. However, you can also create a `.devcontainer/devcontainer.json` file in your repository to automatically configure the environment when the Codespace is created, useful if using Codespaces to work on an Ampt project with a team.
+Similarly to GitPod, Ampt works by simply installing the CLI in the Codespaces environment. However, you can also create a `.devcontainer.json` file in your repository to automatically configure the environment when the Codespace is created, useful if using Codespaces to work on an Ampt project with a team.
 
-Make a directory named `.devcontainer` in the root of your repository, and then make a new file named `devcontainer.json` with the following content:
+Make a file named `.devcontainer.json` in the root of your repository with the following content:
 
 ```json
 {
-  "name": "Ampt + Node.js",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
-  "features": {
-    "ghcr.io/devcontainers/features/common-utils:2": {
-      "installZsh": "true",
-      "username": "node",
-      "upgradePackages": "true"
-    },
-    "ghcr.io/devcontainers/features/git:1": {
-      "version": "latest",
-      "ppa": "false"
-    }
-  },
+  "name": "Ampt",
   "customizations": {
     "vscode": {
-      "extensions": ["dbaeumer.vscode-eslint"]
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "rvest.vs-code-prettier-eslint"
+      ]
     }
   },
-  "remoteUser": "node"
+  "postCreateCommand": "npm i @ampt/cli@latest --global"
 }
 ```
 
-While `zsh` and `vscode-eslint` are optional, they are recommended, as a new GitHub workspace contains a fresh environment.
-
-Next, create a `Dockerfile` within the same `.devcontainer` directory with the following content:
-
-```Dockerfile
-FROM node:20
-
-ARG USERNAME=node
-ARG NPM_GLOBAL=/usr/local/share/npm-global
-
-ENV PATH=${NPM_GLOBAL}/bin:${PATH}
-
-RUN \
-    if ! cat /etc/group | grep -e "^npm:" > /dev/null 2>&1; then groupadd -r npm; fi \
-    && usermod -a -G npm ${USERNAME} \
-    && umask 0002 \
-    && mkdir -p ${NPM_GLOBAL} \
-    && touch /usr/local/etc/npmrc \
-    && chown ${USERNAME}:npm ${NPM_GLOBAL} /usr/local/etc/npmrc \
-    && chmod g+s ${NPM_GLOBAL} \
-    && npm config -g set prefix ${NPM_GLOBAL} \
-    && su ${USERNAME} -c "npm config -g set prefix ${NPM_GLOBAL}" \
-    && su ${USERNAME} -c "umask 0002 && npm install -g eslint" \
-    && npm cache clean --force > /dev/null 2>&1
-
-RUN apt update && apt install -y xdg-utils
-
-RUN su node -c "npm install -g @ampt/cli"
-```
-
-This configures Node and NPM for your workspace's container, and installs both `xdg-utils` and `eslint` globally. It also installs the Ampt CLI globally, which is automatically ignored by Ampt's builder and sync processes.
+This installs the Ampt CLI globally once the Codespace is created, and adds some recommended extensions for working with JavaScript. These are optional.
 
 Finally, if you don't have one already, make an `.amptignore` file in the root of your project. This file contains a list of files and directories that Ampt's sync process always ignores.
 
@@ -119,6 +79,8 @@ Finally, if you don't have one already, make an `.amptignore` file in the root o
 .devcontainer/
 ```
 
-Once committed to your repository, you can start a new Codespace by clicking the "Code" button, and then clicking the "Codespaces" tab. There, hit "Create codespace on $branch". Once it has completed setup, simply run `ampt` as normal to start the Ampt CLI.
+Once committed to your repository, you can start a new Codespace in the menu below, viewing any branch in your repository:
+
+![Start Codespace](/images/start-new-gh-codespace.png)
 
 And lastly, you can always reference Ampt's [starter templates](https://github.com/ampt-templates) for examples of how to configure Codespaces.
