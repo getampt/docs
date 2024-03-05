@@ -1,5 +1,5 @@
 ---
-title: Using Web-based IDEs
+title: Using Web-Based IDEs
 description: Use Ampt with web-based IDEs like GitPod & GitHub Codespaces
 ---
 
