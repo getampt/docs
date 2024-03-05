@@ -72,7 +72,8 @@
     { "title": "Serve Static Assets", "href": "/docs/static-assets/" },
     { "title": "Use Custom Domains", "href": "/docs/custom-domains/" },
     { "title": "Building your app", "href": "/docs/builds/" },
-    { "title": "Integrate with GitHub", "href": "/docs/github-integration/" }
+    { "title": "Integrate with GitHub", "href": "/docs/github-integration/" },
+    { "title": "Using Web Based IDEs", "href": "/docs/web-based-ides/" }
   ],
   "CLI Reference": [
     { "title": "Standard Mode", "href": "/docs/cli-standard-mode/" },
