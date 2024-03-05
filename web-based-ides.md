@@ -1,6 +1,6 @@
 ---
-title: Using Web Based IDEs
-description: Use Ampt in web-based IDEs like GitPod & GitHub Codespaces
+title: Using Web-based IDEs
+description: Use Ampt with web-based IDEs like GitPod & GitHub Codespaces
 ---
 
 You can develop and deploy Ampt applications using web-based IDEs like GitPod and GitHub Codespaces. These platforms provide a fully integrated development environment in your web browser, allowing you to code, build, and deploy your applications without installing any software on your local machine.
@@ -9,7 +9,7 @@ You can develop and deploy Ampt applications using web-based IDEs like GitPod an
 
 You'll first need to [sign up for GitPod](https://gitpod.io). From there, you can start a workspace from any public GitHub repository. If you authorized via GitHub, you can also use any private repositories you have access to.
 
-While GitPod should works fine with Ampt by just installing the CLI, if you plan to regularly use GitPod, you should set a `.gitpod.yml` file in your repository to automatically install the Ampt CLI and start the CLI whenever the workspace is opened.
+While GitPod should works fine with Ampt by installing the CLI, if you plan to regularly use GitPod, you should set a `.gitpod.yml` file in your repository to automatically install the Ampt CLI and start the CLI whenever the workspace is opened.
 
 Make a new `.gitpod.yml` file in the root of your repository with the following content:
 
@@ -22,7 +22,7 @@ tasks:
     command: npm run gitpod:ampt
 ```
 
-Since GitPod purges anything globally installed when the workspace is restarted, this installs the Ampt CLI to your devDependencies. This is automatically ignored by Ampt's builder and sync processes.
+Since GitPod purges anything globally installed when the workspace is restarted, this installs the Ampt CLI to your `devDependencies`. This is automatically ignored by Ampt's builder and sync processes.
 
 In your `package.json`, add a new script to start the Ampt CLI:
 
@@ -51,9 +51,9 @@ If you need any examples, all of Ampt's [starter templates](https://github.com/a
 
 You can also use GitHub Codespaces to develop and deploy Ampt applications. Codespaces is a web-based development environment that allows you to run code in a containerized environment in your browser. If you have a GitHub account, you have access to Codespaces for any public or private repository.
 
-Similarly to GitPod, Ampt works by simply installing the CLI in the Codespaces environment. However, you can also create a `.devcontainer/devcontainer.json` file in your repository to automatically configure the environment when the Codespace is created, useful if using Codespaces to work on an Ampt project with a team.
+Similarly to GitPod, Ampt works by simply installing the CLI in the Codespaces environment. However, you can also create a `.devcontainer/devcontainer.json` file in your repository to automatically configure the environment when the Codespace is created. This is useful if using Codespaces to work on an Ampt project with a team.
 
-Make a directory named `.devcontainer` in the root of your repository, and then make a new file named `devcontainer.json` with the following content:
+Create a directory named `.devcontainer` in the root of your repository, and then create a new file named `devcontainer.json` with the following content:
 
 ```json
 {
@@ -119,6 +119,6 @@ Finally, if you don't have one already, make an `.amptignore` file in the root o
 .devcontainer/
 ```
 
-Once committed to your repository, you can start a new Codespace by clicking the "Code" button, and then clicking the "Codespaces" tab. There, hit "Create codespace on $branch". Once it has completed setup, simply run `ampt` as normal to start the Ampt CLI.
+Once committed to your repository, you can start a new Codespace by clicking the "Code" button, and then clicking the "Codespaces" tab. Then click "Create codespace on $branch". Once it has completed setup, simply run `ampt` as normal to start the Ampt CLI.
 
 And lastly, you can always reference Ampt's [starter templates](https://github.com/ampt-templates) for examples of how to configure Codespaces.
