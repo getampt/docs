@@ -58,11 +58,14 @@ api()
     - anthropic.claude-instant-v1
     - anthropic.claude-v1
     - anthropic.claude-v2
+    - anthropic.claude-3-sonnet-20240229-v1:0
     - ai21.j2-mid-v1
     - ai21.j2-ultra-v1
     - cohere.command-text-v14
     - cohere.command-light-text-v14
     - meta.llama2-13b-chat-v1
+    - mistral.mistral-7b-instruct-v0:2
+    - mistral.mixtral-8x7b-instruct-v0:1
 
     If no `modelId` is specified, the default model `anthropic.claude-instant-v1` will be used.
 
@@ -156,6 +159,9 @@ api()
     - anthropic.claude-instant-v1
     - anthropic.claude-v1
     - anthropic.claude-v2
+    - anthropic.claude-3-sonnet-20240229-v1:0
+    - mistral.mistral-7b-instruct-v0:2
+    - mistral.mixtral-8x7b-instruct-v0:1
 
     If no `modelId` is specified, the default model `anthropic.claude-instant-v1` will be used.
 
@@ -296,6 +302,7 @@ Ampt currently supports the following modelIds:
 - anthropic.claude-v2
 - anthropic.claude-instant-v1
 - anthropic.claude-v1
+- anthropic.claude-3-sonnet-20240229-v1:0
 - cohere.command-text-v14
 - cohere.command-light-text-v14
 - cohere.embed-english-v3
@@ -303,6 +310,8 @@ Ampt currently supports the following modelIds:
 - stability.stable-diffusion-xl-v0
 - amazon.titan-embed-text-v1
 - meta.llama2-13b-chat-v1
+- mistral.mistral-7b-instruct-v0:2
+- mistral.mixtral-8x7b-instruct-v0:1
 
 **Additional References:**
 
@@ -310,6 +319,7 @@ Ampt currently supports the following modelIds:
 - [AI21 API documentation][6]
 - [Anthropic Claude API documentation][4]
 - [Cohere API documentation][7]
+- [Mixtral API documentation][13]
 - [Meta Llama 2 documentation][8]
 - [Stability API documentation][5]
 - [Amazon Translate documentation][11]
@@ -326,3 +336,4 @@ Ampt currently supports the following modelIds:
 [10]: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html
 [11]: https://docs.aws.amazon.com/translate/latest/dg/what-is.html
 [12]: https://docs.aws.amazon.com/comprehend/latest/dg/what-is.html
+[13]: https://docs.mistral.ai/
