@@ -81,6 +81,6 @@ Finally, if you don't have one already, make an `.amptignore` file in the root o
 
 Once committed to your repository, you can start a new Codespace in the menu below, viewing any branch in your repository:
 
-![Start Codespace](/images/start-new-gh-codespace.png)
+![Start Codespace](/public/images/docs/start-new-gh-codespace.png)
 
 And lastly, you can always reference Ampt's [starter templates](https://github.com/ampt-templates) for examples of how to configure Codespaces.
