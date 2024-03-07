@@ -1,6 +1,6 @@
 ---
 title: Using Web Based IDEs
-description: Use Ampt in web-based IDEs like GitPod & GitHub Codespaces
+description: Use Ampt in web-based IDEs like GitPod and GitHub Codespaces
 ---
 
 You can develop and deploy Ampt applications using web-based IDEs like GitPod and GitHub Codespaces. These platforms provide a fully integrated development environment in your web browser, allowing you to code, build, and deploy your applications without installing any software on your local machine.
