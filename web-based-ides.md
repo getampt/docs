@@ -1,17 +1,17 @@
 ---
 title: Using Web Based IDEs
-description: Use Ampt in web-based IDEs like GitPod and GitHub Codespaces
+description: Use Ampt in web-based IDEs like Gitpod and GitHub Codespaces
 ---
 
-You can develop and deploy Ampt applications using web-based IDEs like GitPod and GitHub Codespaces. These platforms provide a fully integrated development environment in your web browser, allowing you to code, build, and deploy your applications without installing any software on your local machine.
+You can develop and deploy Ampt applications using web-based IDEs like Gitpod and GitHub Codespaces. These platforms provide a fully integrated development environment in your web browser, allowing you to code, build, and deploy your applications without installing any software on your local machine.
 
-## Using GitPod (Recommended)
+## Using Gitpod (Recommended)
 
-You'll first need to [sign up for GitPod](https://gitpod.io). From there, you can start a workspace from any public GitHub repository. If you authorized via GitHub, you can also use any private repositories you have access to.
+You'll first need to [sign up for Gitpod](https://www.gitpod.io). From there, you can start a workspace from any public GitHub repository. If you authorized via GitHub, you can also use any private repositories you have access to.
 
-While GitPod works with Ampt by just installing the CLI, if you plan to regularly use GitPod, you should set a `.gitpod.yml` file in your repository to automatically install the Ampt CLI and start the CLI whenever the workspace is opened.
+While Gitpod works with Ampt by just installing the CLI, if you plan to regularly use Gitpod, you should set a `.gitpod.yml` file in your repository to automatically install the Ampt CLI and start the CLI whenever the workspace is opened.
 
-Make a new `.gitpod.yml` file in the root of your repository with the following content:
+Make a new `.gitpod.yml` file ([learn more](https://www.gitpod.io/docs/introduction/getting-started#step-3-gitpodify-a-project)) in the root of your repository with the following content:
 
 ```yml
 tasks:
@@ -22,7 +22,7 @@ tasks:
     command: npm run gitpod:ampt
 ```
 
-Since GitPod purges anything globally installed when the workspace is restarted, this installs the Ampt CLI to your devDependencies. This is automatically ignored by Ampt's builder and sync processes.
+Since Gitpod purges anything globally installed when the workspace is restarted, this installs the Ampt CLI to your devDependencies. This is automatically ignored by Ampt's builder and sync processes.
 
 In your `package.json`, add a new script to start the Ampt CLI:
 
@@ -43,15 +43,15 @@ Now, if you don't have one already, make an `.amptignore` file in the root of yo
 .amptrc
 ```
 
-This will ensure that the `.gitpod.yml` file and the `.amptrc` file are not synced to your Ampt app. When using GitPod, Ampt caches session information in your project directory, instead of the home directory. This will avoid needing to login to Ampt every time the workspace is restarted.
+This will ensure that the `.gitpod.yml` file and the `.amptrc` file are not synced to your Ampt app. When using Gitpod, Ampt caches session information in your project directory, instead of the home directory. This will avoid needing to login to Ampt every time the workspace is restarted.
 
-If you need any examples, all of Ampt's [starter templates](https://github.com/ampt-templates) come pre-configured for GitPod.
+If you need any examples, all of Ampt's [starter templates](https://github.com/ampt-templates) come pre-configured for Gitpod.
 
 ## Using GitHub Codespaces
 
 You can also use GitHub Codespaces to develop and deploy Ampt applications. Codespaces is a web-based development environment that allows you to run code in a containerized environment in your browser. If you have a GitHub account, you have access to Codespaces for any public or private repository.
 
-Similarly to GitPod, Ampt works by simply installing the CLI in the Codespaces environment. However, you can also create a `.devcontainer.json` file in your repository to automatically configure the environment when the Codespace is created, useful if using Codespaces to work on an Ampt project with a team.
+Similarly to Gitpod, Ampt works by simply installing the CLI in the Codespaces environment. However, you can also create a `.devcontainer.json` file in your repository to automatically configure the environment when the Codespace is created, useful if using Codespaces to work on an Ampt project with a team.
 
 Make a file named `.devcontainer.json` in the root of your repository with the following content:
 
