@@ -32,7 +32,7 @@ Add the `ampt:dev` and `ampt:build` scripts to configure how you start the devel
 - set `main` to `index.js` which will be the entrypoint for the server
 - add `ampt:dev` script for running the Next.js dev server
 - add `ampt:build` script for running `ampt-next build`
-- set `ampt.runtime` to `nodejs18` to use the latest Node.js runtime
+- set `ampt.runtime` to `nodejs20` to use the latest Node.js runtime
 
 This is an example of what your `package.json` should look like::
 
@@ -46,7 +46,7 @@ This is an example of what your `package.json` should look like::
     "ampt:dev": "next dev",
   },
   "ampt": {
-    "runtime": "nodejs18"
+    "runtime": "nodejs20"
   }
   ...
 }
