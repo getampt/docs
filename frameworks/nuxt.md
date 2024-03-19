@@ -36,7 +36,7 @@ This is an example of what your `package.json` should look like::
   "type": "module",
   "scripts": {
     "ampt:build": "nuxt build && ampt-nuxt-build",
-    "ampt:dev": "next dev",
+    "ampt:dev": "nuxt dev",
   },
   ...
 }
