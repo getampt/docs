@@ -52,6 +52,21 @@ This is an example of what your `package.json` should look like::
 }
 ```
 
+Add the ampt integration to your `next.config.js` file:
+
+```javascript header=false
+// next.config.js
+
+import withAmpt from "@ampt/nextjs";
+
+const config = withAmpt({
+  reactStrictMode: true,
+  swcMinify: true,
+});
+
+export default config;
+```
+
 Add the file `index.js` to the root of your project, and add the following code:
 
 ```javascript header=false
