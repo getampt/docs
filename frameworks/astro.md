@@ -23,15 +23,25 @@ You will need to add the dev and build scripts to configure how you start the de
 - add `ampt:build` script for running astro build
 - set `main` to `dist/entry` which is the entrypoint for the server
 
+!!! note
+As of Astro version 4.0, you need to specify your runtime and build runtime as "nodejs20" in your package.json.
+!!!
+
 ```json title=package.json, copy=false
 {
   "name": "my-astro-app",
   "main": "dist/entry",
   "type": "module",
   "scripts": {
-    "ampt:dev": "astro dev --experimental-integrations --experimental-ssr",
-    "ampt:build": "astro build --experimental-integrations --experimental-ssr"
+    "ampt:dev": "astro dev",
+    "ampt:build": "astro check && astro build",
   },
+  "ampt": {
+    "org": "your-org",
+    "app": "your-app",
+    "runtime": "nodejs20",
+    "buildRuntime": "nodejs20",
+  }
   ...
 }
 ```
@@ -47,7 +57,7 @@ import ampt from "@ampt/astro";
 // https://astro.build/config
 export default defineConfig({
   output: "server",
-  integrations: [ampt(), /* other integrations */],
+  integrations: [ampt() /* other integrations */],
 });
 ```
 
