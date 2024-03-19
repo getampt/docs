@@ -24,7 +24,7 @@ You will need to add the dev and build scripts to configure how you start the de
 - set `main` to `dist/entry` which is the entrypoint for the server
 
 !!! note
-As of Astro version 4.0, you need to specify your runtime and build runtime as "nodejs20" in your package.json.
+Astro version 4.0 requires the Node.js 20 runtime and builder. New apps default to Node.js 20, but if you're upgrading an existing app, you'll need to specify "nodejs20" as the `runtime` and `buildRuntime` in your package.json.
 !!!
 
 ```json title=package.json, copy=false
