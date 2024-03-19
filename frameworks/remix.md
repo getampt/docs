@@ -17,7 +17,7 @@ or run this when you’re in the interactive shell:
 > install @ampt/remix
 ```
 
-Configure remix to write assets to the `static` folder, and the server script to `build/index.js`
+Configure Remix to write assets to the `static` folder, and the server script to `build/index.js`
 
 ```javascript header=false
 // remix.config.js
