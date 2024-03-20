@@ -93,7 +93,7 @@ Start the interactive shell and run `build` to create your artifacts:
 ```terminal title=Terminal, copy=false
 > ampt
 > build
-````
+```
 
 Start the interactive shell and run `dev` to start your development server
 
