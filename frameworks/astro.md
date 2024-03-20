@@ -21,7 +21,6 @@ You will need to add the dev and build scripts to configure how you start the de
 
 - add `ampt:dev` script for running the Astro dev server
 - add `ampt:build` script for running astro build
-- set `main` to `dist/entry` which is the entrypoint for the server
 
 !!! note
 Astro version 4.0 requires the Node.js 20 runtime and builder. New apps default to Node.js 20, but if you're upgrading an existing app, you'll need to specify "nodejs20" as the `runtime` and `buildRuntime` in your package.json.
@@ -30,7 +29,6 @@ Astro version 4.0 requires the Node.js 20 runtime and builder. New apps default 
 ```json title=package.json, copy=false
 {
   "name": "my-astro-app",
-  "main": "dist/entry",
   "type": "module",
   "scripts": {
     "ampt:dev": "astro dev",
@@ -61,12 +59,41 @@ export default defineConfig({
 });
 ```
 
+!!! caution
+When using Astro's "server" output mode, `@ampt/astro` will _automatically_ set the "main" field of your "package.json" to `dist/entry.js`. This is required for Ampt to run your Astro application in SSR mode.
+!!!
+
+If you want to use Astro's "static" or "hybrid" modes, you can use the following configuration:
+
+````javascript header=false
+// astro.config.mjs
+
+import { defineConfig } from "astro/config";
+import { params } from '@ampt/sdk'
+import ampt from "@ampt/astro";
+
+// If you are using a custom domain, you can override the site parameter based on the Ampt environment's name
+const url = params('ENV_NAME') === 'prod' ? 'https://your-custom-domain.com' : params('AMPT_URL')
+
+// https://astro.build/config
+export default defineConfig({
+  output: "static", // or "hybrid"
+  site: url,
+  integrations: [ampt() /* other integrations */],
+});
+
+!!! caution
+Astro requires a `site` parameter to be set in the `astro.config.mjs` file when using "static" or "hybrid" output modes. You can use the `params` library from the `@ampt/sdk` to get the `AMPT_URL` parameter from the environment, which will always be set by Ampt. However, if you are using a custom domain, be sure to override this value with it in the relevent environments.
+!!!
+
+If using "static" or "hybrid" output modes, be sure to remove any entrypoints you may have defined in "package.json" for the "main" field. This is not required for these output modes, as the `index.html` file will be the entrypoint for your application.
+
 Start the interactive shell and run `build` to create your artifacts:
 
 ```terminal title=Terminal, copy=false
 > ampt
 > build
-```
+````
 
 Start the interactive shell and run `dev` to start your development server
 
