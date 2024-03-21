@@ -60,7 +60,7 @@ export default defineConfig({
 ```
 
 !!! caution
-When using Astro's "server" output mode, `@ampt/astro` will _automatically_ set the "main" field of your "package.json" to `dist/entry.js`. This is required for Ampt to run your Astro application in SSR mode.
+When using Astro's "server" or "hybrid" output modes, `@ampt/astro` will _automatically_ set the "main" field of your "package.json" to `dist/entry.js` if it is not yet defined. This is required for Ampt to run your Astro application in SSR mode.
 !!!
 
 If you want to use Astro's "static" or "hybrid" modes, you can use the following configuration:
@@ -86,7 +86,7 @@ export default defineConfig({
 Astro requires a `site` parameter to be set in the `astro.config.mjs` file when using "static" or "hybrid" output modes. You can use the `params` library from the `@ampt/sdk` to get the `AMPT_URL` parameter from the environment, which will always be set by Ampt. However, if you are using a custom domain, be sure to override this value with it in the relevent environments.
 !!!
 
-If using "static" or "hybrid" output modes, be sure to remove any entrypoints you may have defined in "package.json" for the "main" field. This is not required for these output modes, as the `index.html` file will be the entrypoint for your application.
+If using the "static" output mode, be sure to remove any entrypoints you may have defined in "package.json" for the "main" field. This is not required, as the `index.html` file will be the entrypoint for your application.
 
 Start the interactive shell and run `build` to create your artifacts:
 
@@ -101,3 +101,4 @@ Start the interactive shell and run `dev` to start your development server
 > ampt
 > dev
 ```
+````
