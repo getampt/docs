@@ -65,7 +65,7 @@ When using Astro's "server" or "hybrid" output modes, `@ampt/astro` will _automa
 
 If you want to use Astro's "static" or "hybrid" modes, you can use the following configuration:
 
-````javascript header=false
+```javascript header=false
 // astro.config.mjs
 
 import { defineConfig } from "astro/config";
@@ -81,6 +81,7 @@ export default defineConfig({
   site: url,
   integrations: [ampt() /* other integrations */],
 });
+```
 
 !!! caution
 Astro requires a `site` parameter to be set in the `astro.config.mjs` file when using "static" or "hybrid" output modes. You can use the `params` library from the `@ampt/sdk` to get the `AMPT_URL` parameter from the environment, which will always be set by Ampt. However, if you are using a custom domain, be sure to override this value with it in the relevent environments.
@@ -101,4 +102,3 @@ Start the interactive shell and run `dev` to start your development server
 > ampt
 > dev
 ```
-````
