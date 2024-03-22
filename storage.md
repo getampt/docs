@@ -28,7 +28,7 @@ Files can be stored by passing the binary string to the `write` function. This
 
 You can optionally omit a path for the file, which will save it at the "root" directory.
 
-Metadata and custom mimetypes can also be passed to the file.
+Metadata, custom mimetypes (`type`), and cache control (for [serving public objects](#serving-public-objects)) can also be passed as options to the file.
 
 ```javascript
 const students = storage('students');
@@ -143,6 +143,26 @@ const uploadUrl = await storage("students").getUploadUrl(
 ```
 
 If the file you're uploading is expected to be larger than 6MB, you should create an upload URL and use the PUT method to upload the file directly to Ampt Storage.
+
+## Serving Public Objects
+
+By default, all objects in your storage buckets are **PRIVATE** and only available programmatically through the `storage` interface or via generated [Upload and Download URLS](#upload-and-download-urls). Every environment contains a special `public` storage bucket that serves objects via your app's URL on the `/public` route.
+
+```javascript
+const myPublicBucket = storage("public");
+await myPublicBucket.write("/my-logo.svg", ...binaryData...);
+// Publically available at https://[my-ampt-url].ampt.app/public/my-logo.svg
+```
+
+!!! note
+Public objects are served via CloudFront and **DO NOT** automatically contain a `Cache-Control` header. By default, objects will be fetched from the origin on every request.
+
+To cache objects in the CDN, you must set the `maxAge` option (in seconds) when writing files:
+
+```javascript
+await myPublicBucket.write('/my-logo.svg', ...binaryData..., { maxAge: 3600 })
+```
+!!!
 
 ## Listeners
 
