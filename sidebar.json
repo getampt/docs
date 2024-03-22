@@ -74,7 +74,8 @@
     { "title": "Building your app", "href": "/docs/builds/" },
     { "title": "Integrate with GitHub", "href": "/docs/github-integration/" },
     { "title": "Using Web-Based IDEs", "href": "/docs/web-based-ides/" },
-    { "title": "Migrate Astro App", "href": "/docs/guides/migrate-astro/" }
+    { "title": "Migrate an Astro App", "href": "/docs/guides/migrate-astro/" },
+    { "title": "Migrate a Remix App", "href": "/docs/guides/migrate-remix/" }
   ],
   "CLI Reference": [
     { "title": "Standard Mode", "href": "/docs/cli-standard-mode/" },
