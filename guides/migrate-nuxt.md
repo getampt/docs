@@ -3,7 +3,7 @@ title: Migrating Nuxt Applications to Ampt
 description: Use Ampt's powerful development workflows to deploy and manage your Nuxt applications on AWS.
 ---
 
-Nuxt is an open source, full stack framework that allows you to build applications with file-based routing and server-side rendering. It's based on Vue.js and is highly extensible with its 200+ modules. This guide will walk you through migrating an existing Nuxt application using the Ampt adapter.
+[Nuxt](https://nuxt.com/) is an open source, full stack framework that allows you to build applications with file-based routing and server-side rendering. It's based on Vue.js and is highly extensible with its 200+ modules. This guide will walk you through migrating an existing Nuxt application using the Ampt adapter.
 
 **Prerequisites**
 

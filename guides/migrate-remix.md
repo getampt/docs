@@ -3,7 +3,7 @@ title: Migrating Remix Applications to Ampt
 description: Use Ampt's powerful development workflows to deploy and manage your Remix applications on AWS.
 ---
 
-Remix, defined by the maintainers as a "centerstack", is a React framework that combines a Vite compiler with server-side-rendering capabilities. It's mainly used as an alternative to Next.js for building full stack web applications based on React. This guide will walk you through migrating an existing Remix application using the Ampt integration.
+[Remix](https://remix.run/), defined by the maintainers as a "centerstack", is a React framework that combines a Vite compiler with server-side-rendering capabilities. It's mainly used as an alternative to Next.js for building full stack web applications based on React. This guide will walk you through migrating an existing Remix application using the Ampt integration.
 
 **Prerequisites**
 

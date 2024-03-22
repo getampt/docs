@@ -3,7 +3,7 @@ title: Migrating Astro Applications to Ampt
 description: Use Ampt's powerful development workflows to deploy and manage your Astro apps on AWS.
 ---
 
-Astro is a web framework designed for content-driven websites that enables Server-Side Rendering (SSR) capabilities for serving dynamic HTML and types of content. It is UI library agnostic (works with React, Vue, SvelteKit, and more) and is highly extensible with a rich integration ecosystem featuring MDX, Tailwind, and of course, Ampt. This guide will walk you through migrating an existing Astro application using the Ampt integration.
+[Astro](https://astro.build/) is a web framework designed for content-driven websites that enables Server-Side Rendering (SSR) capabilities for serving dynamic HTML and types of content. It is UI library agnostic (works with React, Vue, SvelteKit, and more) and is highly extensible with a rich integration ecosystem featuring MDX, Tailwind, and of course, Ampt. This guide will walk you through migrating an existing Astro application using the Ampt integration.
 
 **Prerequisites**
 
