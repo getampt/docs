@@ -44,7 +44,7 @@ Add/update the following line in your package.json:
 
 ## Update the Vite configuration
 
-Add the following settings your `vite.config.ts` file to ensure Ampt compatibility:
+Add the following settings to your `vite.config.ts` file to ensure Ampt compatibility:
 
 ```javascript title=vite.config.ts
 module.exports = {
