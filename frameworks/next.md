@@ -9,8 +9,6 @@ We strive to support all the latest Next.js features, but if you find something 
 
 !!! note
 This documentation applies to Next.js version 13.4.13 and up. For older versions, please see the [legacy documentation](/docs/frameworks/next-legacy).
-
-Next.js requires the latest version of the Ampt runtime. To use Next.js, you will need to set `ampt.runtime` to `nodejs18` in your `package.json` file.
 !!!
 
 If you don't already have a Next.js project, see the [Next.js docs](https://nextjs.org/docs) to get started.
