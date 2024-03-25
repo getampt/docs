@@ -32,7 +32,6 @@ Add the `ampt:dev` and `ampt:build` scripts to configure how you start the devel
 - set `main` to `index.js` which will be the entrypoint for the server
 - add `ampt:dev` script for running the Next.js dev server
 - add `ampt:build` script for running `ampt-next build`
-- set `ampt.runtime` to `nodejs20` to use the latest Node.js runtime
 
 This is an example of what your `package.json` should look like::
 
@@ -45,9 +44,6 @@ This is an example of what your `package.json` should look like::
     "ampt:build": "ampt-next build",
     "ampt:dev": "next dev",
   },
-  "ampt": {
-    "runtime": "nodejs20"
-  }
   ...
 }
 ```
@@ -56,15 +52,10 @@ Add the ampt integration to your `next.config.js` file:
 
 ```javascript header=false
 // next.config.js
+/** @type {import('next').NextConfig} */
+const nextConfig = {};
 
-import withAmpt from "@ampt/nextjs";
-
-const config = withAmpt({
-  reactStrictMode: true,
-  swcMinify: true,
-});
-
-export default config;
+module.exports = nextConfig;
 ```
 
 Add the file `index.js` to the root of your project, and add the following code:
@@ -72,7 +63,7 @@ Add the file `index.js` to the root of your project, and add the following code:
 ```javascript header=false
 // index.js
 
-require("@ampt/nextjs/entrypoint");
+import "@ampt/nextjs/entrypoint";
 ```
 
 This adds the Next.js server and image optimization to your application's entrypoint.
