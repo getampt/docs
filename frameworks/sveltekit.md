@@ -8,7 +8,7 @@ You can integrate your SvelteKit application with Ampt and achieve a full stack 
 Install the `@ampt/sveltekit` adapter:
 
 ```terminal title=Terminal
-npm install @ampt/sveltekit --save
+npm install @ampt/sveltekit
 ```
 
 or run this when you’re in the interactive shell:
@@ -25,23 +25,17 @@ import "@ampt/sveltekit/server";
 
 Modify your `svelte.config.js` to use the Ampt adapter:
 
-!!! note
-For any static assets (such as images) you will need to add a folder to your project that is _not_ the `static` folder, as it gets overwritten with your app content on build. You can specify this folder in your Svelte config, as shown below. The default folder is `assets`. The contents of this folder will get copied to `static/` on build.
-!!!
-
 ```javascript header=false
-import { vitePreprocess } from "@sveltejs/kit/vite";
-import adapter from "@ampt/sveltekit";
+import adapter from "@ampt/sveltekit"
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  preprocess: vitePreprocess(),
-  kit: {
-    files: {
-      assets: "images",
-    },
-    adapter: adapter(),
-  },
+	preprocess: vitePreprocess(),
+
+	kit: {
+		adapter: adapter()
+	}
 };
 
 export default config;
