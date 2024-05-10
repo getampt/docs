@@ -55,17 +55,22 @@ api()
 
   - `modelId`: the string identifier of the model. The following models are currently supported:
 
-    - anthropic.claude-instant-v1
-    - anthropic.claude-v1
-    - anthropic.claude-v2
-    - anthropic.claude-3-sonnet-20240229-v1:0
-    - ai21.j2-mid-v1
-    - ai21.j2-ultra-v1
-    - cohere.command-text-v14
-    - cohere.command-light-text-v14
-    - meta.llama2-13b-chat-v1
-    - mistral.mistral-7b-instruct-v0:2
-    - mistral.mixtral-8x7b-instruct-v0:1
+    - anthropic.claude-instant-v1'
+    - anthropic.claude-v2'
+    - anthropic.claude-3-sonnet-20240229-v1:0'
+    - anthropic.claude-3-haiku-20240307-v1:0'
+    - anthropic.claude-3-opus-20240229-v1:0'
+    - ai21.j2-mid-v1'
+    - ai21.j2-ultra-v1'
+    - cohere.command-text-v14'
+    - cohere.command-light-text-v14'
+    - meta.llama2-13b-chat-v1'
+    - meta.llama2-70b-chat-v1'
+    - meta.llama3-8b-instruct-v1:0'
+    - meta.llama3-70b-instruct-v1:0'
+    - mistral.mistral-7b-instruct-v0:2'
+    - mistral.mixtral-8x7b-instruct-v0:1'
+    - mistral.mistral-large-2402-v1:0'
 
     If no `modelId` is specified, the default model `anthropic.claude-instant-v1` will be used.
 
@@ -110,7 +115,7 @@ api()
 
   - `width`: The width of the image in pixels. Defaults to `512`.
   - `height`: The height of the image in pixels. Defaults to `512`.
-  - `modelId`: the string identifier of the model. Currently only the `stability.stable-diffusion-xl-v0` model is supported.
+  - `modelId`: the string identifier of the model. Currently only the `stability.stable-diffusion-xl-v1` model is supported.
   - `steps`: The number of steps to run the model. Defaults to `50`.
   - `seed`: The seed to use for the model. Defaults to `20`.
   - `scale`: The scale of the image. Defaults to `10`.
@@ -263,6 +268,7 @@ api()
 - `options` is an optional object with the following properties:
   - `modelId`: the string identifier of the model. The following models are currently supported:
     - amazon.titan-embed-text-v1
+    - amazon.titan-embed-text-v2:0
     - cohere.embed-english-v3
     - cohere.embed-multilingual-v3
 
@@ -297,21 +303,31 @@ The list of supported models is subject to change, and can vary by AWS region. M
 
 Ampt currently supports the following modelIds:
 
+- amazon.titan-text-express-v1
+- amazon.titan-text-lite-v1
+- amazon.titan-text-premier-v1:0
+- amazon.titan-embed-text-v1
+- amazon.titan-embed-text-v2:0
+- anthropic.claude-v2
+- anthropic.claude-v2:1
+- anthropic.claude-3-sonnet-20240229-v1:0
+- anthropic.claude-3-haiku-20240307-v1:0
+- anthropic.claude-3-opus-20240229-v1:0
+- anthropic.claude-instant-v1
 - ai21.j2-mid-v1
 - ai21.j2-ultra-v1
-- anthropic.claude-v2
-- anthropic.claude-instant-v1
-- anthropic.claude-v1
-- anthropic.claude-3-sonnet-20240229-v1:0
 - cohere.command-text-v14
 - cohere.command-light-text-v14
 - cohere.embed-english-v3
 - cohere.embed-multilingual-v3
-- stability.stable-diffusion-xl-v0
-- amazon.titan-embed-text-v1
 - meta.llama2-13b-chat-v1
+- meta.llama2-70b-chat-v1
+- meta.llama3-8b-instruct-v1:0
+- meta.llama3-70b-instruct-v1:0
 - mistral.mistral-7b-instruct-v0:2
 - mistral.mixtral-8x7b-instruct-v0:1
+- mistral.mistral-large-2402-v1:0
+- stability.stable-diffusion-xl-v1
 
 **Additional References:**
 
