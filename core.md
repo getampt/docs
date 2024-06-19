@@ -3,7 +3,7 @@ title: Core
 description: Access invocation meta data for your application requests.
 ---
 
-The `core` interface provides access to underlying invocation meta data on every request. This information can be used for debugging, correlating request, etc.
+The `core` interface provides access to underlying invocation meta data on every request. This information can be used for debugging, correlating requests, etc.
 
 ## Using the `core` interface
 
