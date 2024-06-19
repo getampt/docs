@@ -16,7 +16,8 @@
     { "title": "Events", "href": "/docs/events/" },
     { "title": "Parameters", "href": "/docs/parameters/" },
     { "title": "Storage", "href": "/docs/storage/" },
-    { "title": "WebSockets", "href": "/docs/websockets/" }
+    { "title": "WebSockets", "href": "/docs/websockets/" },
+    { "title": "Core", "href": "/docs/core/" }
   ],
   "Modules": [
     { "title": "Data", "href": "/docs/data/" },
