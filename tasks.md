@@ -209,13 +209,13 @@ task("long running task", (event, context) => {
 
 A record of each task execution is stored in the task's history and retained for 14 days. Task history is available in the Ampt dashboard, under the "Tasks" tab for your environment.
 
-The state of a task execution can be retrieved using the `task.state()` method:
+The status of a task execution can be retrieved using the `task.status()` method:
 
 ```javascript
-const state = await task.state(executionId);
+const status = await task.status(executionId);
 ```
 
-The state object contains the following properties:
+The status object contains the following properties:
 
 - **id** - the execution ID of the task execution
 - **name** - the name of the task
