@@ -81,7 +81,7 @@ app.get("/", (c) => {
 app.fire();
 ```
 
-This will set the timeout for **this route handler only**. To set the timeout for multiple routes at once, you can execute `core.context.setTimeout()` from middleware.
+This will set the timeout for **this route handler only**. To set the timeout for multiple routes at once, you can execute `core.context.setTimeout()` from a middleware handler.
 
 !!! note
 You must have Response Streaming enabled in your app's settings to raise the timeout above 29 seconds. This is enabled by default. You can check in your environment's Settings tab.
