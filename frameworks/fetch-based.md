@@ -60,3 +60,29 @@ addEventListener("fetch", (event: FetchEvent) => {
   event.respondWith(app.fetch(event.request));
 });
 ```
+
+## Setting Timeouts
+
+By default, all HTTP requests to Fetch-based frameworks will timeout at 29 seconds. This can be raised or lowered using the [`core` interface](/docs/core/) from the `@ampt/sdk` and calling the `core.context.setTimeout()` method from within the handler. For example, to set the timeout to 10 seconds:
+
+```javascript title=Setting the timeout in Hono
+// Import the 'core' interface from the Ampt SDK
+import { core } from "@ampt/sdk";
+import { Hono } from "hono";
+
+const app = new Hono();
+
+app.get("/", (c) => {
+  // Set the timeout to 10 seconds
+  core.context.setTimeout(10000); // 10 seconds
+  return c.text("Hello Hono!");
+});
+
+app.fire();
+```
+
+This will set the timeout for **this route handler only**. To set the timeout for multiple routes at once, you can execute `core.context.setTimeout()` from middleware.
+
+!!! note
+You must have Response Streaming enabled in your app's settings to raise the timeout above 29 seconds. This is enabled by default. You can check in your environment's Settings tab.
+!!!

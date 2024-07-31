@@ -176,7 +176,7 @@ console.log("Task execution ID:", id);
 
 ## Timeouts
 
-By default tasks will timeout after 30 seconds. To change the default, you can specify an object as your second parameter with the `timeout` option. Timeouts are specified in milliseconds and must be a positive integer. 
+By default tasks will timeout after 30 seconds. To change the default, you can specify an object as your second parameter with the `timeout` option. Timeouts are specified in milliseconds and must be a positive integer.
 
 ```javascript
 task("long running task", { timeout: 1200000 }, (event) => {
@@ -190,7 +190,7 @@ If a task can take a variable amount of time to complete, you can change the tim
 ```javascript
 task("long running task", { timeout: 120000 }, (event, context) => {
   // Usually this task should run within 2 minutes, but we can change it
-  event.setTimeout(300000);
+  context.setTimeout(300000);
   console.log("The task is going to need more time...");
 });
 ```

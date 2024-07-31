@@ -162,6 +162,7 @@ To cache objects in the CDN, you must set the `maxAge` option (in seconds) when 
 ```javascript
 await myPublicBucket.write('/my-logo.svg', ...binaryData..., { maxAge: 3600 })
 ```
+
 !!!
 
 ## Listeners
@@ -171,8 +172,9 @@ You can listen for certain events with `storage.on`. As of now, you can fire di
 Storage events contain both the path of the file, and the event name (`write` or `remove`).
 
 ```javascript
-storage().on("write:user-uploads/*", async (event) => {
+storage().on("write:user-uploads/*", async (event, context) => {
   // event = { path: user-uploads/picture.jpeg, name: 'write' }
+  // context = { awsRequestId: 'xxxxxx-xxxxx', setTimeout: [Function: setTimeout] }
 });
 
 storage().on("*", async (event) => {
@@ -187,3 +189,24 @@ storage("students").on("write", async (event) => {
   // only reacts to changes in the "students" bucket
 });
 ```
+
+### Timeouts
+
+By default handlers must finish within 5 seconds, otherwise the handler will fail and the storage event will be retried. You can increase the timeout by setting the `timeout` option when calling `storage.on()`.
+
+```javascript
+storage().on("*", { timeout: 10000 }, async (event, context) => {
+  // reacts to all write/remove events
+});
+```
+
+You can also use the `context.setTimeout()` method to adjust the timeout at runtime.
+
+```javascript
+storage().on("*", async (event, context) => {
+  context.setTimeout(10000);
+  // reacts to all write/remove events
+});
+```
+
+The maximum timeout for a storage handler is 600 seconds.

@@ -31,3 +31,15 @@ events.on("user.created", async (evt) => {
   });
 });
 ```
+
+## Setting Timeouts
+
+The `context` getter will return a `setTimeout` function that lets you dynamically override the current handler's timeout.
+
+Ampt interfaces that define handlers like [tasks](/docs/tasks), [events](/docs/events), and [storage](/docs/tasks), provide a `context` object as part of the handler signature (e.g. `task("", async (event, context) => { })`). Other handlers, such as those defined by [Fetch-based frameworks](/docs/frameworks/fetch-based/) and [Ampt Data](/docs/data/) listeners don't provide a native way to adjust the timeout.
+
+You can use `core.context.setTimeout(1000)` to dynamically set the timeout of any handler. Timeouts are in milliseconds and cannot exceed 5 minutes.
+
+!!! caution
+`setTimeout()` can be executed anywhere within the handler, but should be run before any other processes that could caused the handler to exceed the default timeout.
+!!!
