@@ -44,6 +44,22 @@ await students.write('/', binaryData)
 There's a 6MB payload limit for API endpoints. If you want to store larger files from a user input via an API endpoint, you need to create an upload URL and upload it directly with an HTTP put command. Check out the docs [here](https://www.getampt.com/docs/storage/#upload-and-download-urls).
 !!!
 
+### Conditional Writes
+
+You can prevent existing files from being overwritten by passing in the `exists: false` option when writing files. This lets you simplify how concurrent processes update objects. Each process can conditionally write objects, making sure that it does not overwrite any objects already written by another process. This means you no longer need to build any client-side consensus mechanisms to coordinate updates or use additional API requests to check for the presence of an object before writing data.
+
+```javascript
+const students = storage("students");
+// write file to /students/your/path/binaryData.ext only if it doesn't exist
+await students.write("/your/path/binaryData.ext", binaryData, {
+  exists: false,
+});
+```
+
+!!! note
+If the conditional write fails because of an existing file, the `write()` request will throw an error with the message: "Object already exists". Be sure to wrap your conditional writes in a `try...catch` to gracefully handle errors.
+!!!
+
 ## Reading Files
 
 Files can be read into memory as either a `ReadableStream` or a `Buffer`. If no options are passed, a `ReadableStream` is returned by default. Also included is `readBuffer` for ease of use, if you want to only use buffers without any extra arguments. To read the file, the absolute directory must be passed. If the file does not exist, `undefined` is returned.
