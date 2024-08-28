@@ -50,7 +50,7 @@ If you intend to use an existing framework with Ampt, such as Express or Remix, 
 - [Next.js](/docs/frameworks/next/)
 - [Nuxt.js](/docs/frameworks/nuxt/)
 - [SvelteKit](/docs/frameworks/sveltekit/)
-- [SvelteKit](/docs/frameworks/eleventy/)
+- [Eleventy](/docs/frameworks/eleventy/)
 - [Angular](/docs/frameworks/angular/)
 - [ElysiaJS](/docs/frameworks/fetch-based/#elysiajs)
 - [itty-router](/docs/frameworks/fetch-based/#itty-router)
