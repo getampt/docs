@@ -401,17 +401,17 @@ const result = await data.get("foo:*", { limit: 3 });
 ```javascript header=false
 {
 	items: [
-		{ key: "foobar", value: "item1" },
-		{ key: "foobat", value: true" },
-		{ key: "foobaz", value: 1234 },
+		{ key: "foo:bar", value: "item1" },
+		{ key: "foo:bat", value: true" },
+		{ key: "foo:baz", value: 1234 },
 	],
-	lastKey: "foobaz",
+	lastKey: "foo:baz",
 	next: [Function: next]
 }
 ```
 
 ```javascript
-const nextResult = await data.get("foo:*", { limit: 3, start: "foobaz" });
+const nextResult = await data.get("foo:*", { limit: 3, start: "foo:baz" });
 ```
 
 To paginate through all items using `next()`:
