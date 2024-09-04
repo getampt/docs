@@ -472,7 +472,7 @@ const results = await data.get("user123:2021-05-01|2021-05-31");
 
 ### Getting items by their labels
 
-You can get items by their labels using the `get` method and the `{ label: 'labeln' }` option, or you can use the `getByLabel` convenience method. This method takes the label as the first parameter (e.g. `label3`), the `key` as the second parameter, and then an optional third parameter that accepts all the same options as the `get` method.
+You can get items by their labels using the `get` method with the `{ label: 'labeln' }` option, or you can use the `getByLabel` convenience method. The `getByLabel` method takes the label index as the first parameter (e.g. `label3`), the `label key` (or label search expression) as the second parameter, and then an optional third parameter that accepts all the same options as the `get` method.
 
 Labels support collections as well as simple keys. Since they behave the same way, you can also use collection querying methods like `*` and `>=` on labels as well.
 
