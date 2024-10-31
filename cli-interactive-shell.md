@@ -27,7 +27,7 @@ To exit the interactive shell, type `exit` or `quit`. The below commands are av
 
 Starts the local development server in a child process, if a script named `ampt:dev` is defined in `package.json`.
 
-## `share [NAME]`
+## `share [NAME] [--container]`
 
 Deploys the code AND data from your sandbox to a preview environment named NAME. If no NAME is provided, a randomly generated name will be created for you.
 
@@ -41,7 +41,13 @@ ampt ⚡
 ⚡ › share my-preview-env
 ```
 
-## `deploy [NAME]`
+!!! note
+Ampt now supports the [Lambda Container Packaging format](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html) when building and deploying applications. This allows bundled application code to exceed the standard 250MB limit imposed by Lambda functions. This feature is currently in **BETA** and supports bundled application sizes up to 2GB.
+
+To share your application using the container packaging format, simply add `--container` to the `share` command. This only needs to be done the first time you deploy a new preview environment and may take a few minutes to complete. If you share to an existing preview environment that was created using the `--container` flag, you do not need to use the flag again.
+!!!
+
+## `deploy [NAME] [--container]`
 
 Deploys the code from your sandbox to a permanent environment named NAME. If no NAME is provided, Interactive Shell prompts you to enter a name.
 
@@ -54,6 +60,12 @@ ampt ⚡
 
 ⚡ › deploy prod
 ```
+
+!!! note
+Ampt now supports the [Lambda Container Packaging format](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html) when building and deploying applications. This allows bundled application code to exceed the standard 250MB limit imposed by Lambda functions. This feature is currently in **BETA** and supports bundled application sizes up to 2GB.
+
+To deploy your application using the container packaging format, simply add `--container` to the `deploy` command when you are deploying a new environment. This only needs to be done the first time you deploy an environment and may take a few minutes to complete.
+!!!
 
 ## `install [PACKAGENAME]`
 

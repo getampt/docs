@@ -33,7 +33,7 @@ Logs the user out of the current session
 > ampt logout
 ```
 
-## `ampt share [NAME]`
+## `ampt share [NAME] [--container]`
 
 Deploys the code AND data from your sandbox to a preview stage named NAME. If no NAME is provided, a randomly generated name will be created for you.
 
@@ -47,7 +47,13 @@ Use `--region <code>` to specify the region where the preview environment will b
 > ampt share my-preview-env
 ```
 
-## `ampt deploy [NAME]`
+!!! note
+Ampt now supports the [Lambda Container Packaging format](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html) when building and deploying applications. This allows bundled application code to exceed the standard 250MB limit imposed by Lambda functions. This feature is currently in **BETA** and supports bundled application sizes up to 2GB.
+
+To share your application using the container packaging format, simply add `--container` to the `share` command. This only needs to be done the first time you deploy a new preview environment and may take a few minutes to complete. If you share to an existing preview environment that was created using the `--container` flag, you do not need to use the flag again.
+!!!
+
+## `ampt deploy [NAME] [--container]`
 
 Deploys the code from your local directory to the provided permanent environment. If no NAME is provided, it will prompt you for an environment name.
 
@@ -60,6 +66,12 @@ Use `--region <code>` to specify the region where the new environment will be cr
 ```terminal title=Terminal, copy=false
 > ampt deploy prod
 ```
+
+!!! note
+Ampt now supports the [Lambda Container Packaging format](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html) when building and deploying applications. This allows bundled application code to exceed the standard 250MB limit imposed by Lambda functions. This feature is currently in **BETA** and supports bundled application sizes up to 2GB.
+
+To deploy your application using the container packaging format, simply add `--container` to the `deploy` command when you are deploying a new environment. This only needs to be done the first time you deploy an environment and may take a few minutes to complete.
+!!!
 
 ## `ampt install [PACKAGENAME]`
 
