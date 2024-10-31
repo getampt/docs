@@ -19,13 +19,13 @@ The following options are available:
 
 - **Password:** (required) Enter a password (up to 16 characters) that will be applied to all protected environments by default. Passwords can be overridden at the environment level.
 - **Applied Environments:** Use the drop down to select existing environments that you want to protect. You can select as many stage and/or preview environments as you want.
-- **Set for all Preview Environments:** Check this box is you want ALL new preview environments to automatically have password protection enabled.
+- **Set for all Preview Environments:** Check this box if you want ALL new preview environments to automatically have password protection enabled.
 - **Session Expiration:** Enter the amount of time (in seconds) that sessions should expire after. This defaults to 1 hour, but can be extended up to 1 year.
 
 Click "Create" to apply the password protection.
 
 !!! note
-Password protection is applied at the CDN layer to prevent application abuse. This takes a few minutes to update and propagate. However, password protection will be applied to environments immediately using a fallback method to unauthorized access while the infrastructure is updated.
+Password protection is applied at the CDN layer to prevent application abuse. This takes a few minutes to update and propagate. However, password protection will be applied to environments immediately using a fallback method to prevent unauthorized access while the infrastructure is updating.
 !!!
 
 ## Managing Password Protection
@@ -34,7 +34,7 @@ Once Password Protection is enable, the settings page will display information a
 
 ![Manage password protection](/images/docs/password-protection-manage.png "Password Protection Enabled")
 
-This will tell you how many environments it's applied to, whether or not it's enabled for all new preview environments, the current password, and which stages it has been applied to along with its status.
+This will tell you how many environments it's applied to, whether or not it's enabled for all new preview environments, the current password, and which environments it has been applied to along with its status.
 
 - Password Protection can be removed from individual environments by clicking the trash icon next to them.
 - You can edit settings by clicking the three dot menu and selecting "EDIT".
@@ -50,16 +50,16 @@ Entering the correct password will grant users access until the configured sessi
 
 ## Overriding Environment Passwords
 
-You can override the password for an environment by accessing the its "Settings" page and clicking "Password Protection" in the left hand menu.
+You can override the password for an environment by accessing its "Settings" page and clicking "Password Protection" in the left hand menu.
 
-![Environment's password protection settings](/images/docs/password-protection-env.png "Manage and environment's password settings")
+![Environment's password protection settings](/images/docs/password-protection-env.png "Manage an environment's password settings")
 
-Click the three dot menu and select "EDIT" to open the password dialog.
+Click the three dot menu and select "EDIT" to open the password dialog. You can also delete password protection from this environment by clicking the "DELETE" option.
 
-![Environment's password protection dialog](/images/docs/password-protection-env.png "Override the inherited app password")
+![Environment's password protection dialog](/images/docs/password-protection-env-edit.png "Override the inherited app password")
 
 Once the password has been updated, click the "Override" button to save your changes.
 
-## Password Updates
+## Propagating Password Updates
 
 Updating a password, either at the app or environment level, will immediately invalidate any active logins. Since password updates require a modification to the CDN, it could take several minutes for the changes to apply and may prevent future logins until the process is complete.
