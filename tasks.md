@@ -195,6 +195,15 @@ task("long running task", { timeout: 120000 }, (event, context) => {
 });
 ```
 
+Maximum timeouts for tasks depend on your current plan. These are soft limits for paid plans and can be adjusted by contacting [support](mailto:support@getampt.com).
+
+| Plan       | Max Timeout |
+| ---------- | ----------- |
+| Preview    | 30 seconds  |
+| Developer  | 1 hour      |
+| Team       | 1 hour      |
+| Enterprise | 4 hours     |
+
 ## Progress
 
 Tasks can report progress by calling the `.progress()` method on the context object, which takes two arguments: a **message** string, and a **percent** between 0 and 1. These values are stored in the task's history.
