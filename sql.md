@@ -4,6 +4,10 @@ description: Store and query relational data using Neon Serverless Postgres.
 beta: true
 ---
 
+!!! warning
+`@ampt/sql` is now deprecated and will be removed in the future. Stay tuned for a new SQL interface on Ampt.
+!!!
+
 Ampt has built-in support for [Postgres SQL][postgres-docs] that is powered by [Neon Postgres][neon-website]. Using `@ampt/sql` you can store and query relational data using pure SQL commands or using the [Kysely query builder][kysely-docs].
 
 !!! note
