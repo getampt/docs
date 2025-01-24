@@ -33,6 +33,7 @@ The available runtime versions are:
 - `nodejs18-beta`: Node.js v18.x, with non-standard Fetch API polyfill
 - `nodejs18`: Node.js v18.x, with standard Fetch API polyfill
 - `nodejs20` (default): Node.js v20.x
+- `nodejs22`: Node.js v22.x
 
 We recommend updating to the latest runtime version, and testing your application in a development environment before deploying to production.
 
@@ -57,6 +58,7 @@ The available build runtime versions are:
 - `nodejs16`: Node.js v16.x
 - `nodejs18`: Node.js v18.x
 - `nodejs20` (default): (recommended) Node.js v20.x
+- `nodejs22`: Node.js v22.x
 
 We recommend updating to the latest build runtime version. Always test your build scripts in a development environment before deploying to production.
 
