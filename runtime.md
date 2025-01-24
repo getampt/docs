@@ -31,8 +31,8 @@ The `runtime` setting controls the version of the Ampt runtime used to run your 
 The available runtime versions are:
 
 - `nodejs18`: Node.js v18.x, with standard Fetch API polyfill
-- `nodejs20` (default): Node.js v20.x
-- `nodejs22`: Node.js v22.x
+- `nodejs20`: Node.js v20.x
+- `nodejs22` (default): Node.js v22.x
 
 We recommend updating to the latest runtime version, and testing your application in a development environment before deploying to production.
 
@@ -54,7 +54,6 @@ Any build scripts that generate server-side code must target your selected runti
 
 The available build runtime versions are:
 
-- `nodejs16`: Node.js v16.x
 - `nodejs18`: Node.js v18.x
 - `nodejs20` (default): (recommended) Node.js v20.x
 - `nodejs22`: Node.js v22.x
