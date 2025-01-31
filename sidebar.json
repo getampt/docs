@@ -22,8 +22,7 @@
   "Modules": [
     { "title": "Data", "href": "/docs/data/" },
     { "title": "AI", "href": "/docs/ai/" },
-    { "title": "API", "href": "/docs/api/" },
-    { "title": "SQL", "href": "/docs/sql/", "beta": true }
+    { "title": "API", "href": "/docs/api/" }
   ],
   "Workflows": [
     { "title": "Running Scripts", "href": "/docs/scripts/" },
