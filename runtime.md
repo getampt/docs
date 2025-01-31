@@ -7,7 +7,7 @@ The Ampt Universal Runtime is a layer applied to Node.js that adds support for w
 
 **Features include:**
 
-- Support for Node.js v18.x and v20.x
+- Support for Node.js v22.x, v20.x and v18.x
 - Automatic TypeScript transpilation with source maps and tsconfig paths support
 - Hot-reloading of code in dev mode
 - WebAPI standardized fetch, streams, and webcrypto APIs
@@ -23,16 +23,16 @@ The `runtime` setting controls the version of the Ampt runtime used to run your 
 ```json title=package.json, copy=false
 {
   "ampt": {
-    "runtime": "nodejs20"
+    "runtime": "nodejs22"
   }
 }
 ```
 
 The available runtime versions are:
 
-- `nodejs18`: Node.js v18.x, with standard Fetch API polyfill
+- `nodejs22`: Node.js v22.x (default)
 - `nodejs20`: Node.js v20.x
-- `nodejs22` (default): Node.js v22.x
+- `nodejs18`: Node.js v18.x
 
 We recommend updating to the latest runtime version, and testing your application in a development environment before deploying to production.
 
@@ -47,16 +47,16 @@ Any build scripts that generate server-side code must target your selected runti
 ```json title=package.json, copy=false
 {
   "ampt": {
-    "buildRuntime": "nodejs20"
+    "buildRuntime": "nodejs22"
   }
 }
 ```
 
 The available build runtime versions are:
 
-- `nodejs18`: Node.js v18.x
+- `nodejs22`: Node.js v22.x (default)
 - `nodejs20`: Node.js v20.x
-- `nodejs22` (default): Node.js v22.x
+- `nodejs18`: Node.js v18.x
 
 We recommend updating to the latest build runtime version. Always test your build scripts in a development environment before deploying to production.
 
