@@ -6,6 +6,10 @@ description: Built-in parameter store to keep secrets encrypted and available on
 Ampt's built-in parameter store allows developers to store the parameters in a secure way, and to use them programmatically with the `params` interface of Ampt SDK. All the parameters are encrypted both at transit and at rest and only decrypted during runtime.
 
 !!! note
+You can manage app-level parameters directly from the CLI using the `ampt params get` and `ampt params set` commands. See the [CLI documentation](/docs/cli-standard-mode/) for details.
+!!!
+
+!!! note
 When you modify a parameter value in the Ampt Dashboard, the changes are instantly applied to all running environments that require the parameter. No restart or anything required to flush the parameters.
 !!!
 

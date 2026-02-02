@@ -75,7 +75,7 @@ To deploy your application using the container packaging format, simply add `--c
 
 ## `ampt install [PACKAGENAME]`
 
-Installs the specified npm package into your application. If you did not provide a package name, it'll simply install all your app's dependencies listed in `package.json`.
+Installs the specified npm package into your application. If you did not provide a package name, it'll simply install all your app's dependencies listed in `package.json`.
 
 Install an npm dependency:
 
@@ -99,7 +99,7 @@ Uninstalls the specified npm package from your application.
 
 ## `ampt run [SCRIPTNAME | FILEPATH][-- npm-arguments [-- script-arguments]]`
 
-Runs the npm script `ampt:<SCRIPTNAME>` in your `package.json` or the `FILEPATH` of a JavaScript/TypeScript file locally on your sandbox. The script will have access to the selected stage's params, data, and storage.
+Runs the npm script `ampt:<SCRIPTNAME>` in your `package.json` or the `FILEPATH` of a JavaScript/TypeScript file locally on your sandbox. The script will have access to the selected stage's params, data, and storage.
 
 **See [Running Scripts](/docs/scripts/) for more detailed usage information!**
 
@@ -130,7 +130,7 @@ Run the local script `./scripts/migrate.js` directly:
 
 ## `ampt import [FILENAME] [--overwrite]`
 
-Imports [data](/docs/data) from the `FILENAME` in your local directory to your **sandbox**. If no `FILENAME` is provided, it will default to `data.json`. By default, the data will be merged with existing data. If you specify the `-o` or `--overwrite` flag, all data will be cleared and reseeded.
+Imports [data](/docs/data) from the `FILENAME` in your local directory to your **sandbox**. If no `FILENAME` is provided, it will default to `data.json`. By default, the data will be merged with existing data. If you specify the `-o` or `--overwrite` flag, all data will be cleared and reseeded.
 
 ```terminal title=Terminal, copy=false
 > ampt import data.json --overwrite
@@ -138,11 +138,73 @@ Imports [data](/docs/data) from the `FILENAME` in your local directory to your
 
 ## `ampt export [FILENAME] [--overwrite]`
 
-Exports data from your **sandbox** to a JSON file named `FILENAME` in your current working directory. If no `FILENAME` is provided, it will default to `data.json`. If the `FILENAME` already exists, you can specify the `-o` or `--overwrite` flag to overwrite the existing file.
+Exports data from your **sandbox** to a JSON file named `FILENAME` in your current working directory. If no `FILENAME` is provided, it will default to `data.json`. If the `FILENAME` already exists, you can specify the `-o` or `--overwrite` flag to overwrite the existing file.
 
 ```terminal title=Terminal, copy=false
 > ampt export my-exported-data.json
 ```
+
+## `ampt params get [PARAM_NAME]`
+
+Retrieves app-level parameters from the current application. If no `PARAM_NAME` is provided, it will list all parameters defined for the app. If a specific parameter name is provided, it will display detailed information about that parameter including its value, description, and source.
+
+Parameters marked with `[org]` are inherited from organization-level settings. The command shows encrypted values and source indicators to help you understand where each parameter is defined.
+
+List all app parameters:
+
+```terminal title=Terminal, copy=false
+> ampt params get
+
+API_KEY: sk_live_abc123xyz [org]
+DATABASE_URL: postgresql://localhost:5432/mydb
+STRIPE_KEY: pk_test_abc123 (Payment processing key)
+```
+
+Get details for a specific parameter:
+
+```terminal title=Terminal, copy=false
+> ampt params get API_KEY
+
+Name: API_KEY
+Value: sk_live_abc123xyz
+Source: org
+Description: Organization API key for third-party service
+```
+
+!!! note
+See the [Parameters documentation](/docs/parameters/) for more information on parameter scopes and programmatic access.
+!!!
+
+## `ampt params set PARAM_NAME value [--description]`
+
+Sets an app-level parameter with the specified name and value. Use the `--description` flag to add a human-readable description for the parameter.
+
+When updating an existing parameter, you will be prompted for confirmation. If you're setting a parameter that overrides an organization-level setting, a warning will be displayed.
+
+Set a new parameter:
+
+```terminal title=Terminal, copy=false
+> ampt params set DATABASE_URL postgresql://localhost:5432/mydb
+```
+
+Set a parameter with a description:
+
+```terminal title=Terminal, copy=false
+> ampt params set STRIPE_KEY pk_test_abc123 --description "Payment processing key"
+```
+
+Update an existing parameter (will prompt for confirmation):
+
+```terminal title=Terminal, copy=false
+> ampt params set API_KEY sk_live_new_key
+
+⚠ Parameter API_KEY already exists with value: sk_live_abc123xyz
+? Overwrite existing parameter? (y/N)
+```
+
+!!! caution
+When setting a parameter that overrides an organization-level parameter, make sure you understand the implications. The app-level value will take precedence over the organization setting for all environments of this app.
+!!!
 
 ## `ampt version`
 
