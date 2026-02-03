@@ -36,7 +36,6 @@ This page provides a structured reference for AI agents working with Ampt applic
 |---------|---------|--------|
 | `ampt params set <key> <value>` | Set app parameter | Success/error |
 | `ampt params get <key>` | Get parameter value | Value or null |
-| `ampt params list` | List all parameters | Key-value table |
 | `ampt stages` | List environments | Table: name, url, status |
 | `ampt url` | Get current env URL | URL string |
 
@@ -45,8 +44,6 @@ This page provides a structured reference for AI agents working with Ampt applic
 |---------|---------|---------------|
 | `ampt version` | CLI version | Semver string |
 | `ampt logs` | Stream logs | Real-time text |
-| `ampt metrics` | Show metrics | JSON metrics object |
-| `ampt status` | Environment status | Health check result |
 
 ---
 
