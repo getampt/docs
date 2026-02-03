@@ -144,6 +144,14 @@ app.use(async (req, res) => {
 
 Single-Page Applications (SPAs) are applications that load a single HTML page and dynamically update that page as the user interacts with the application. SPAs are typically built using a JavaScript framework such as React, Vue, or Angular.
 
+### The SPA Routing Problem
+
+SPAs use client-side routing to navigate between pages. When a user visits a route like `/products/123`, your SPA's JavaScript router handles it. But if the user refreshes the page or shares that URL, the browser makes a direct request to your server for `/products/123`. Without proper configuration, this results in a **404 error** because your server doesn't have a route handler for that path.
+
+### The Solution: Serve index.html for All Paths
+
+To fix this, configure your server to return `index.html` for all paths that aren't API routes or static assets. This allows your SPA to load and take over routing on the client side.
+
 You can use `http.readStaticFile` or `http.node.readStaticFile` to serve the `index.html` page for all paths. For example, using Express:
 
 ```javascript
@@ -152,12 +160,25 @@ import express from "express"
 
 const app = express()
 
+// Define API routes FIRST, before the SPA fallback
 app.use('/api', ...)
 
+// SPA fallback: Return index.html for all other paths
 app.use(async (req, res) => {
-  // Return "static/index.html"
   res.status(200).set('Content-Type', 'text/html')
   const stream = await http.node.readStaticFile("index.html")
   return stream.pipe(res)
 })
+
+http.node.use(app)
 ```
+
+!!! caution
+**Critical for SPAs with routing:** This catch-all handler must come **after** your API routes. If placed before them, API requests will receive `index.html` instead of your API responses.
+!!!
+
+This ensures:
+- All SPA routes load correctly (including deep links and page refreshes)
+- API routes continue to work as expected
+- Static assets are served from the `/static` directory
+- Your client-side router takes control once the JavaScript loads
