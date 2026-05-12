@@ -3,11 +3,55 @@ title: AI
 description: Harness the power of AI in your applications.
 ---
 
+!!! danger IMPORTANT UPDATE
+`@ampt/ai` is now deprecated and will be removed in the future. We recommend calling AI provider SDKs directly from your Ampt application — see [Using AI APIs directly](#using-ai-apis-directly) below.
+!!!
+
 Ampt makes it easy to incorporate AI into your applications. Using `@ampt/ai` you can interact with powerful AI models provided by Amazon Bedrock with just a few lines of code.
 
 !!! note
 `@ampt/ai` requires AI quota to use. You can purchase additional quota in the [Ampt Console](https://ampt.dev) in your Organization settings.
 !!!
+
+## Using AI APIs directly
+
+You can call AI providers directly from your Ampt application using their official SDKs. Store API keys in [Ampt Params](/docs/parameters) and most provider SDKs will pick them up automatically from the environment.
+
+The example below uses [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html), which supports API key authentication via a bearer token. The AWS SDK reads the token from the `AWS_BEARER_TOKEN_BEDROCK` environment variable, so no additional client configuration is required.
+
+1. In your AWS account, generate a Bedrock API key scoped to the Bedrock service.
+2. In the [Ampt Console](https://ampt.dev), create a Param Group, add the key with the name `AWS_BEARER_TOKEN_BEDROCK`, and attach the group to your environment.
+3. Install the Bedrock runtime client:
+
+```terminal title=Terminal
+> npm install @aws-sdk/client-bedrock-runtime
+```
+
+4. Send a request using `ConverseCommand`:
+
+```javascript
+import { BedrockRuntimeClient, ConverseCommand } from "@aws-sdk/client-bedrock-runtime";
+
+// AWS_BEARER_TOKEN_BEDROCK is read from the environment automatically.
+const client = new BedrockRuntimeClient({
+  region: "us-east-1",
+});
+
+const command = new ConverseCommand({
+  modelId: "anthropic.claude-sonnet-4-6",
+  messages: [
+    { role: "user", content: [{ text: "Hello, Claude." }] },
+  ],
+  inferenceConfig: {
+    maxTokens: 1024,
+    temperature: 0.7,
+  },
+});
+
+const response = await client.send(command);
+```
+
+The same pattern works for any provider — store the API key as a Param and call the provider SDK directly.
 
 ## Required runtime
 
