@@ -11,14 +11,14 @@ Ampt makes it easy to incorporate AI into your applications. Using `@ampt/ai` yo
 
 ## Required runtime
 
-`@ampt/ai` requires the `nodejs18`, `nodejs20`, 'nodejs22' Ampt runtime. You can set the runtime in your `package.json` file:
+`@ampt/ai` requires the `nodejs20`, `nodejs22`, or `nodejs24` Ampt runtime. You can set the runtime in your `package.json` file:
 
 ```json
 {
   "ampt": {
     "app": "my-app",
     "org": "my-org",
-    "runtime": "nodejs20"
+    "runtime": "nodejs24"
   }
 }
 ```

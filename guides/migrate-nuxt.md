@@ -13,7 +13,7 @@ description: Use Ampt's powerful development workflows to deploy and manage your
 - The Ampt CLI installed (run `npm i @ampt/cli -g` in your terminal)
 
 !!! note
-Ensure all dependencies are compatible with Node.js 18+. See the available Ampt runtime versions [here](/docs/runtime/#runtime-version).
+Ensure all dependencies are compatible with Node.js 20+. See the available Ampt runtime versions [here](/docs/runtime/#runtime-version).
 !!!
 
 ## Install the @ampt/nuxt adapter

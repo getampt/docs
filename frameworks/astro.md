@@ -23,7 +23,7 @@ You will need to add the dev and build scripts to configure how you start the de
 - add `ampt:build` script for running astro build
 
 !!! note
-Astro version 4.0 requires the Node.js 20 runtime and builder. New apps default to Node.js 20, but if you're upgrading an existing app, you'll need to specify "nodejs20" as the `runtime` and `buildRuntime` in your package.json.
+Astro 4.0 and later require Node.js 20 or higher. New apps default to the latest Ampt runtime (`nodejs24`), but if you're upgrading an existing app from an older runtime, make sure your `runtime` and `buildRuntime` are set to `nodejs20` or later in your `package.json`.
 !!!
 
 ```json title=package.json, copy=false
@@ -37,8 +37,8 @@ Astro version 4.0 requires the Node.js 20 runtime and builder. New apps default 
   "ampt": {
     "org": "your-org",
     "app": "your-app",
-    "runtime": "nodejs20",
-    "buildRuntime": "nodejs20",
+    "runtime": "nodejs24",
+    "buildRuntime": "nodejs24",
   }
   ...
 }
