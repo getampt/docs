@@ -34,6 +34,19 @@ Ampt reserves some of the keys that are automatically populated by our runtime. 
 | AMPT_STAGE     | Internal stage name used by Ampt                     |
 | CUSTOM_DOMAINS | Comma delimited list of environment's custom domains |
 
+## Managing parameters from the CLI
+
+You can manage app-level parameters directly from the CLI without leaving the terminal:
+
+```terminal title=Terminal, copy=false
+> ampt params get              # list all parameters
+> ampt params get MY_SECRET    # show a specific parameter's details
+> ampt params set API_KEY sk-abc123 --description "OpenAI key"
+> ampt params delete OLD_PARAM --yes
+```
+
+The output shows where each parameter comes from: org-level or app-level, and whether a local value is overriding a default. See the [Standard Mode CLI](/docs/cli-standard-mode/) or [Interactive Shell](/docs/cli-interactive-shell/) docs for full command details.
+
 ## Reading parameters programmatically
 
 Developers can access the parameters injected to the runtime by using the `params` interface.

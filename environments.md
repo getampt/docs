@@ -19,6 +19,8 @@ Ampt's isolation model and rapid provisioning technology uses **environment "typ
 
 Every developer on your team gets their own **developer sandbox** for every **app** they work on. Each **developer sandbox** is your own "personal development workspace" that automatically syncs and deploys changes from your local environment as you code (in under a second). To enable interactive development mode, type `ampt` into the CLI within your project directory. This will spin up and connect you to your own environment with isolated resources. Your **developer sandbox** gets its own public URL that you can use to test and interact with your application. The logs from your sandbox will stream instantly into your terminal, giving you immediate feedback on any changes you make.
 
+As you iterate, test data and uploaded files can accumulate in your sandbox. Use `ampt reset` to wipe the data table, remove storage files, clear the code archive and cached `node_modules`, and re-sync your code. Your sandbox URL stays the same. See the [CLI docs](/docs/cli-standard-mode/#ampt-reset---yes) for details.
+
 ### Permanent Stages
 
 When you're ready to show your work to the world, you can **deploy** your code to a **stage**. These are permanent, long-running instances like `prod`, `qa-test` and `dev`. If you want to publish your code to one of these instances, simply type `deploy my-stage-name` into your Ampt CLI and your **app** will be published to `my-stage-name`.

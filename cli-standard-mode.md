@@ -33,13 +33,34 @@ Logs the user out of the current session
 > ampt logout
 ```
 
-## `ampt share [NAME] [--container]`
+## `ampt reset [--yes]`
+
+Resets your developer sandbox by wiping the data table, removing uploaded files from storage, clearing the code archive and any cached `node_modules`, and performing a full code re-sync from your local directory. Your sandbox URL stays the same.
+
+This is useful when accumulated state from testing, running scripts, or iterating with AI coding agents causes your sandbox to drift from what a clean deploy would look like.
+
+Running this command will ask for confirmation, or you can pass `--yes` to skip the prompt.
+
+```terminal title=Terminal, copy=false
+> ampt reset
+```
+
+You can use `import` to reseed data after a reset:
+
+```terminal title=Terminal, copy=false
+> ampt reset --yes
+> ampt import seed-data.json
+```
+
+## `ampt share [NAME] [--reset] [--container]`
 
 Deploys the code AND data from your sandbox to a preview stage named NAME. If no NAME is provided, a randomly generated name will be created for you.
 
-A preview environment is an ephermeral environment that you can use to easily share your work with others. Previews allow you to create a stable snapshots of your sandbox so that you can get feedback while continuing to make changes to your own version.
+A preview environment is an ephemeral environment that you can use to easily share your work with others. Previews allow you to create a stable snapshots of your sandbox so that you can get feedback while continuing to make changes to your own version.
 
 If a script named `ampt:build` is defined in package.json, it will be run before deploying.
+
+Use `--reset` to wipe the preview environment's data and storage, clear the code archive and cached `node_modules`, then redeploy a fresh copy from your sandbox. The preview URL stays the same. This is useful when a preview has accumulated its own state from testing and you want to push a clean copy.
 
 Use `--region <code>` to specify the region where the preview environment will be created.
 
@@ -47,8 +68,14 @@ Use `--region <code>` to specify the region where the preview environment will b
 > ampt share my-preview-env
 ```
 
+Share with a clean reset:
+
+```terminal title=Terminal, copy=false
+> ampt share my-preview-env --reset
+```
+
 !!! note
-Ampt now supports the [Lambda Container Packaging format](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html) when building and deploying applications. This allows bundled application code to exceed the standard 250MB limit imposed by Lambda functions. This feature is currently in **BETA** and supports bundled application sizes up to 2GB.
+Ampt supports the [Lambda Container Packaging format](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html) when building and deploying applications. This allows bundled application code to exceed the standard 250MB limit imposed by Lambda functions, supporting bundled application sizes up to 2GB.
 
 To share your application using the container packaging format, simply add `--container` to the `share` command. This only needs to be done the first time you deploy a new preview environment and may take a few minutes to complete. If you share to an existing preview environment that was created using the `--container` flag, you do not need to use the flag again.
 !!!
@@ -68,7 +95,7 @@ Use `--region <code>` to specify the region where the new environment will be cr
 ```
 
 !!! note
-Ampt now supports the [Lambda Container Packaging format](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html) when building and deploying applications. This allows bundled application code to exceed the standard 250MB limit imposed by Lambda functions. This feature is currently in **BETA** and supports bundled application sizes up to 2GB.
+Ampt supports the [Lambda Container Packaging format](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html) when building and deploying applications. This allows bundled application code to exceed the standard 250MB limit imposed by Lambda functions, supporting bundled application sizes up to 2GB.
 
 To deploy your application using the container packaging format, simply add `--container` to the `deploy` command when you are deploying a new environment. This only needs to be done the first time you deploy an environment and may take a few minutes to complete.
 !!!
@@ -142,6 +169,44 @@ Exports data from your **sandbox** to a JSON file named `FILENAME` in your cu
 
 ```terminal title=Terminal, copy=false
 > ampt export my-exported-data.json
+```
+
+## `ampt params get [PARAM_NAME]`
+
+Lists all parameters or shows details for a specific parameter. When called without a name, displays a table of all parameters. When called with a name, shows the parameter's value, description, and source (org-level, app-level, or environment override).
+
+```terminal title=Terminal, copy=false
+> ampt params get
+```
+
+Get details for a specific parameter:
+
+```terminal title=Terminal, copy=false
+> ampt params get MY_SECRET
+```
+
+## `ampt params set PARAM_NAME VALUE [--description "DESCRIPTION"]`
+
+Sets an app-level parameter. Use `--description` to add a description.
+
+```terminal title=Terminal, copy=false
+> ampt params set API_KEY sk-abc123 --description "OpenAI key"
+```
+
+## `ampt params delete PARAM_NAME [--yes]`
+
+Deletes an app-level parameter. Running this command will ask for confirmation, or you can pass `--yes` to skip the prompt.
+
+```terminal title=Terminal, copy=false
+> ampt params delete OLD_PARAM --yes
+```
+
+## `ampt whoami`
+
+Displays the currently logged-in user, account details, and every organization you have access to along with your permission level in each. Useful for verifying your identity when switching between organizations or troubleshooting access issues.
+
+```terminal title=Terminal, copy=false
+> ampt whoami
 ```
 
 ## `ampt version`
