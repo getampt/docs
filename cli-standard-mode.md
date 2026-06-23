@@ -110,10 +110,10 @@ Install an npm dependency:
 > ampt install @ampt/data
 ```
 
-Install a dev dependency with `--save-dev` or `-D`:
+Install a dev dependency with `--dev`:
 
 ```terminal title=Terminal, copy=false
-> ampt install @11ty/eleventy -D
+> ampt install @11ty/eleventy --dev
 ```
 
 ## `ampt uninstall [PACKAGENAME]`
@@ -153,6 +153,14 @@ Run the local script `./scripts/migrate.js` directly:
 
 ```terminal title=Terminal, copy=false
 > ampt run ./scripts/migrate.js
+```
+
+## `ampt stop`
+
+Stops the local development server started by `ampt run dev`. Reports if no server is currently running.
+
+```terminal title=Terminal, copy=false
+> ampt stop
 ```
 
 ## `ampt import [FILENAME] [--overwrite]`
@@ -230,7 +238,7 @@ Displays the current URL of your **sandbox**.
 
 ## `ampt open`
 
-Opens the dashboard to the current app in your default browser.
+Opens the dashboard to the current app in your default browser. `ampt dashboard` is an alias for this command.
 
 ```terminal title=Terminal, copy=false
 > ampt open
@@ -242,3 +250,84 @@ Opens the dashboard to the current app in your default browser.
 ## `ampt help`
 
 Displays a help screen that shows all the available commands and their options.
+
+## `ampt logs [--env NAME] [--follow] [--level LEVEL] [--type TYPE] [--search TEXT] [--json]`
+
+Fetches historical logs from the specified environment, or streams live logs when `--follow` is passed.
+
+Use `--env <name>` to target a specific environment. Use `--follow` (or `-f`) to stream logs in real-time — press Ctrl+C to stop.
+
+```terminal title=Terminal, copy=false
+> ampt logs --env prod
+```
+
+Stream logs in real-time:
+
+```terminal title=Terminal, copy=false
+> ampt logs --env prod --follow
+```
+
+Filter by log level and output raw JSON:
+
+```terminal title=Terminal, copy=false
+> ampt logs --env prod --level error --json
+```
+
+Filter by text:
+
+```terminal title=Terminal, copy=false
+> ampt logs --env prod --follow --search "payment"
+```
+
+Available flags:
+
+| Flag | Description |
+|---|---|
+| `--env <name>` | Environment to fetch logs from (required) |
+| `--follow`, `-f` | Stream logs in real-time |
+| `--level <level>` | Filter by log level |
+| `--type <type>` | Filter by log type |
+| `--search <text>` | Only show logs containing this text |
+| `--json` | Output logs as raw JSON |
+
+## `ampt stages`
+
+Lists all permanent stage environments for the current app in a table showing name, URL, region, last updated, and deployment status. Must be run inside an Ampt app directory.
+
+```terminal title=Terminal, copy=false
+> ampt stages
+```
+
+## `ampt delete [NAME] [--yes]`
+
+Deletes a preview or sandbox environment by name. Running this command will ask for confirmation, or you can pass `--yes` to skip the prompt.
+
+```terminal title=Terminal, copy=false
+> ampt delete my-preview-env
+```
+
+Delete without a confirmation prompt:
+
+```terminal title=Terminal, copy=false
+> ampt delete my-preview-env --yes
+```
+
+!!! note
+Only preview and personal (sandbox) environment types can be deleted via the CLI. Permanent environments such as `prod` and `staging` must be deleted through the [Ampt dashboard](https://ampt.dev).
+!!!
+
+## `ampt clone {ORG}/{APP}`
+
+Clones an app's associated git repository into the current directory. Requires `git` to be installed and the app to have a connected repository.
+
+```terminal title=Terminal, copy=false
+> ampt clone my-org/my-app
+```
+
+## `ampt docs`
+
+Opens the Ampt documentation in your default browser.
+
+```terminal title=Terminal, copy=false
+> ampt docs
+```
