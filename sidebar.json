@@ -81,6 +81,7 @@
   ],
   "CLI Reference": [
     { "title": "Standard Mode", "href": "/docs/cli-standard-mode/" },
-    { "title": "Interactive Shell", "href": "/docs/cli-interactive-shell/" }
+    { "title": "Interactive Shell", "href": "/docs/cli-interactive-shell/" },
+    { "title": "Agent Quick Reference", "href": "/docs/agent-quick-reference/" }
   ]
 }
