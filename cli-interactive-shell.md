@@ -103,12 +103,12 @@ ampt ⚡
 ⚡ › install @ampt/data
 ```
 
-Install a dev dependency with `--save-dev` or `-D`:
+Install a dev dependency with `--dev`:
 
 ```terminal title=Terminal, copy=false
 ampt ⚡
 
-⚡ › install @11ty/eleventy -D
+⚡ › install @11ty/eleventy --dev
 ```
 
 ## `uninstall [PACKAGENAME]`
@@ -249,7 +249,7 @@ ampt ⚡
 
 ## `open`
 
-Opens the dashboard to the current app in your default browser.
+Opens the dashboard to the current app in your default browser. `dashboard` is an alias for this command.
 
 ```terminal title=Terminal, copy=false
 ampt ⚡
@@ -277,3 +277,66 @@ ampt ⚡
 ## `help`
 
 Displays a simple help screen that shows all the available commands and their options.
+
+## `logs [--env NAME] [--follow] [--level LEVEL] [--type TYPE] [--search TEXT] [--json]`
+
+Fetches historical logs from your sandbox, or streams live logs when `--follow` is passed. In the interactive shell, defaults to your active sandbox when no `--env` is given.
+
+Fetch logs from your sandbox:
+
+```terminal title=Terminal, copy=false
+ampt ⚡
+
+⚡ › logs
+```
+
+Stream logs in real-time:
+
+```terminal title=Terminal, copy=false
+ampt ⚡
+
+⚡ › logs --follow
+```
+
+Tail a specific environment and filter by text:
+
+```terminal title=Terminal, copy=false
+ampt ⚡
+
+⚡ › logs --env prod --follow --search "payment"
+```
+
+Available flags:
+
+| Flag | Description |
+|---|---|
+| `--env <name>` | Environment to fetch logs from (defaults to active sandbox) |
+| `--follow`, `-f` | Stream logs in real-time |
+| `--level <level>` | Filter by log level |
+| `--type <type>` | Filter by log type |
+| `--search <text>` | Only show logs containing this text |
+| `--json` | Output logs as raw JSON |
+
+## `stages`
+
+Lists all permanent stage environments for the current app in a table showing name, URL, region, last updated, and deployment status.
+
+```terminal title=Terminal, copy=false
+ampt ⚡
+
+⚡ › stages
+```
+
+## `delete [NAME] [--yes]`
+
+Deletes a preview or sandbox environment by name. If no name is provided, the interactive shell will prompt for one. Running this command will ask for confirmation, or you can pass `--yes` to skip the prompt.
+
+```terminal title=Terminal, copy=false
+ampt ⚡
+
+⚡ › delete my-preview-env
+```
+
+!!! note
+Only preview and personal (sandbox) environment types can be deleted via the CLI. Permanent environments such as `prod` and `staging` must be deleted through the [Ampt dashboard](https://ampt.dev).
+!!!
